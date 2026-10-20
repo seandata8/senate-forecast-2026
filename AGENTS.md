@@ -1,6 +1,6 @@
 # AGENTS.md
 
-University of Toronto data science course project (Sean Murphy and Furkan Danisman): a forecast of all 35 US Senate races in 2026 from an LLM "silicon sample". Personas are real 2024 CES respondents; LLMs are queried via OpenRouter with the actual candidates in each race; answers are adjusted with MRP and simulated into vote shares per race, a seat distribution, and the chance of Democratic control. Polls and Polymarket are comparisons only, not inputs. The website freezes at end of day 2 November 2026. See `Project_Plan_v2.md` for the plan and who does what.
+University of Toronto data science course project (Sean Murphy and Furkan Danisman): a forecast of all 35 US Senate races in 2026 from an LLM "silicon sample". Personas are real 2024 CES respondents; LLMs are queried via OpenRouter with the actual candidates in each race; answers are adjusted with MRP and simulated into vote shares per race, a seat distribution, and the chance of Democratic control. Polls and Polymarket are comparisons only, not inputs. The website freezes at end of day 2 November 2026. The plan and who does what are in `instructions/Project_Plan_v3.md`, which is local only (gitignored); Sean and Furkan share it directly.
 
 ## Setup / run
 - Python 3.14, managed with `uv` (`uv sync`; add deps with `uv add`). No tests, linter, or CI configured yet.
