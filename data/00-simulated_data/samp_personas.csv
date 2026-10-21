@@ -1,0 +1,26 @@
+persona_id,state,age_group,gender,race,education,income,party_id,ideology,religion,marital_status,sexuality,registered,vote_2024,weight
+139,DE,65+,Man,White,4-year,Under $30K,Strong Democrat,Very liberal,Protestant,Married,Heterosexual / straight,Yes,Kamala Harris,0.7517935903175944
+558,MT,65+,Woman,White,High school graduate,$150K+,Not very strong Democrat,Moderate,Muslim,Married,Heterosexual / straight,Yes,Kamala Harris,0.6646017050934527
+883,SD,30-44,Woman,White,Post-grad,$70K-$100K,Lean Republican,Conservative,Something else,Married,Heterosexual / straight,Yes,Donald Trump,0.6548554956000798
+326,KS,45-64,Man,White,Post-grad,Under $30K,Lean Democrat,Moderate,Jewish,Widowed,Heterosexual / straight,Yes,Donald Trump,0.41577716008957977
+553,MT,45-64,Woman,White,Post-grad,$150K+,Strong Republican,Very conservative,Nothing in particular,Separated,Heterosexual / straight,No,Donald Trump,1.7194475730338394
+773,OK,45-64,Man,White,High school graduate,Prefer not to say,Strong Republican,Very conservative,Roman Catholic,Divorced,Heterosexual / straight,Yes,Donald Trump,0.4959044190004608
+2,AL,45-64,Man,White,High school graduate,$70K-$100K,Strong Republican,Conservative,Protestant,Married,Heterosexual / straight,Yes,Donald Trump,0.6745611368155974
+894,SD,30-44,Man,White,Some college,Under $30K,Not very strong Democrat,Moderate,Atheist,Married,Heterosexual / straight,Yes,,0.7857297808677609
+377,LA,45-64,Man,Asian,2-year,$50K-$70K,Not very strong Republican,Conservative,Roman Catholic,Divorced,Heterosexual / straight,Yes,Did not vote for President,1.396369007120693
+853,SC,30-44,Woman,White,High school graduate,Under $30K,Not very strong Democrat,Very liberal,Protestant,Never married,Heterosexual / straight,Yes,Kamala Harris,0.30136294630252775
+915,TN,30-44,Woman,White,High school graduate,$50K-$70K,Independent,Conservative,Protestant,Divorced,Heterosexual / straight,Yes,Donald Trump,0.9182350366639388
+900,TN,65+,Man,White,High school graduate,$70K-$100K,Not very strong Republican,Moderate,Protestant,Never married,Heterosexual / straight,No,Donald Trump,0.5156147668354447
+978,VA,45-64,Woman,White,High school graduate,Under $30K,Not very strong Republican,Moderate,Roman Catholic,Married,Other,Yes,Donald Trump,0.8675092546809704
+146,DE,30-44,Man,White,High school graduate,Under $30K,Strong Republican,Conservative,Atheist,Never married,Heterosexual / straight,Yes,Donald Trump,0.6361637308096748
+206,GA,18-29,Man,Hispanic,High school graduate,Prefer not to say,Strong Democrat,Moderate,Something else,Never married,Bisexual,Yes,Kamala Harris,1.1085653086967242
+603,NH,18-29,Woman,White,Some college,$70K-$100K,Lean Republican,Moderate,Protestant,Married,Other,Yes,Donald Trump,1.4796038030721306
+813,RI,65+,Man,White,High school graduate,$50K-$70K,Strong Democrat,Very liberal,Roman Catholic,Divorced,Heterosexual / straight,Yes,Kamala Harris,0.7388268990010166
+137,DE,30-44,Woman,White,2-year,$30K-$50K,Not very strong Republican,Conservative,Agnostic,Married,Heterosexual / straight,Yes,Donald Trump,0.640985287650491
+274,IA,45-64,Man,White,High school graduate,$100K-$150K,Lean Democrat,Liberal,Nothing in particular,Married,Heterosexual / straight,Yes,Kamala Harris,0.6291007699805109
+368,LA,45-64,Man,White,High school graduate,$70K-$100K,Not very strong Democrat,Moderate,Roman Catholic,Married,Heterosexual / straight,Yes,Kamala Harris,0.8108868440110474
+427,MA,18-29,Woman,White,Some college,Under $30K,Independent,Not sure,Roman Catholic,Separated,Prefer not to say,Yes,Kamala Harris,0.6245442516370637
+834,RI,65+,Man,White,High school graduate,$70K-$100K,Strong Democrat,Moderate,Protestant,Domestic / civil partnership,Heterosexual / straight,Yes,Kamala Harris,1.1433556578415884
+172,FL,30-44,Man,Black,2-year,$70K-$100K,Strong Democrat,Liberal,Roman Catholic,Married,Heterosexual / straight,Yes,Kamala Harris,0.5319635179506461
+14,AL,45-64,Man,Hispanic,Some college,$70K-$100K,Lean Democrat,Moderate,Jewish,Married,Heterosexual / straight,Yes,Kamala Harris,0.32349098110489083
+210,ID,65+,Man,Black,4-year,$30K-$50K,Strong Democrat,Very liberal,Protestant,Married,Heterosexual / straight,Yes,Did not vote for President,1.1528519250844989

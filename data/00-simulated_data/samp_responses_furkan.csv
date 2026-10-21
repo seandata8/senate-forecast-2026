@@ -1,0 +1,57 @@
+approach,persona_id,state,model,draw,question,answer,input_tokens,output_tokens,cost
+furkan,154,FL,provider-1/model-x,0,senate,FL Republican,291,11,0.000067
+furkan,154,FL,provider-1/model-x,0,generic,Republican,335,29,0.0000902
+furkan,195,GA,provider-1/model-x,0,senate,GA Democrat,299,20,0.00007580000000000001
+furkan,195,GA,provider-1/model-x,0,generic,Republican,266,26,0.000074
+furkan,371,LA,provider-1/model-x,0,senate,LA Democrat,356,27,0.0000928
+furkan,371,LA,provider-1/model-x,0,generic,Republican,339,31,0.00009259999999999999
+furkan,830,RI,provider-1/model-x,0,senate,RI Democrat,315,18,0.00007740000000000001
+furkan,830,RI,provider-1/model-x,0,generic,Democrat,408,22,0.00009920000000000001
+furkan,912,TN,provider-1/model-x,0,senate,TN Democrat,306,21,0.000078
+furkan,912,TN,provider-1/model-x,0,generic,Democrat,328,31,0.0000904
+furkan,139,DE,provider-1/model-x,1,senate,DE Democrat,364,24,0.000092
+furkan,139,DE,provider-1/model-x,1,generic,Democrat,372,19,0.00008960000000000001
+furkan,355,KY,provider-1/model-x,1,senate,KY Republican,348,30,0.00009360000000000001
+furkan,355,KY,provider-1/model-x,1,generic,Republican,371,23,0.00009260000000000001
+furkan,891,SD,provider-1/model-x,1,senate,SD Democrat,381,22,0.00009380000000000002
+furkan,891,SD,provider-1/model-x,1,generic,Republican,340,28,0.0000904
+furkan,897,SD,provider-1/model-x,1,senate,SD Republican,357,21,0.0000882
+furkan,897,SD,provider-1/model-x,1,generic,Democrat,348,32,0.00009520000000000002
+furkan,323,KS,provider-1/model-x,2,senate,KS Republican,371,16,0.000087
+furkan,323,KS,provider-1/model-x,2,generic,Republican,339,33,0.0000942
+furkan,549,MT,provider-1/model-x,2,senate,MT Independent,341,23,0.0000866
+furkan,549,MT,provider-1/model-x,2,generic,Republican,355,14,0.0000822
+furkan,808,OR,provider-1/model-x,2,senate,OR Democrat,349,27,0.0000914
+furkan,808,OR,provider-1/model-x,2,generic,Democrat,363,22,0.00009020000000000001
+furkan,880,SD,provider-1/model-x,2,senate,SD Democrat,341,21,0.000085
+furkan,880,SD,provider-1/model-x,2,generic,Republican,353,17,0.00008420000000000001
+furkan,260,IL,provider-3/model-z,0,senate,IL Republican,330,29,0.0000892
+furkan,260,IL,provider-3/model-z,0,generic,Republican,351,22,0.0000878
+furkan,414,ME,provider-3/model-z,0,senate,ME Republican,360,32,0.0000976
+furkan,414,ME,provider-3/model-z,0,generic,Other,316,17,0.00007680000000000001
+furkan,596,NE,provider-3/model-z,0,senate,NE Independent,359,36,0.00010059999999999999
+furkan,596,NE,provider-3/model-z,0,generic,Democrat,367,30,0.00009740000000000001
+furkan,769,OK,provider-3/model-z,0,senate,OK Republican,347,23,0.0000878
+furkan,769,OK,provider-3/model-z,0,generic,Republican,417,31,0.0001082
+furkan,879,SD,provider-3/model-z,0,senate,SD Republican,368,21,0.0000904
+furkan,879,SD,provider-3/model-z,0,generic,Democrat,357,32,0.000097
+furkan,975,VA,provider-3/model-z,0,senate,VA Democrat,375,21,0.0000918
+furkan,975,VA,provider-3/model-z,0,generic,Republican,380,26,0.0000968
+furkan,122,DE,provider-3/model-z,1,senate,DE Democrat,414,28,0.00010520000000000002
+furkan,122,DE,provider-3/model-z,1,generic,Democrat,332,28,0.00008880000000000002
+furkan,187,GA,provider-3/model-z,1,senate,GA Republican,270,23,0.00007240000000000001
+furkan,187,GA,provider-3/model-z,1,generic,Republican,402,20,0.00009640000000000001
+furkan,555,MT,provider-3/model-z,1,senate,MT Democrat,378,25,0.0000956
+furkan,555,MT,provider-3/model-z,1,generic,Republican,332,24,0.00008560000000000001
+furkan,849,SC,provider-3/model-z,1,senate,SC Republican,291,24,0.00007740000000000001
+furkan,849,SC,provider-3/model-z,1,generic,Republican,329,25,0.0000858
+furkan,33,AK,provider-3/model-z,2,senate,AK Republican,355,18,0.0000854
+furkan,33,AK,provider-3/model-z,2,generic,Republican,383,17,0.00009020000000000001
+furkan,33,AK,provider-3/model-z,2,alaska_final,AK Republican,314,29,0.000086
+furkan,45,AK,provider-3/model-z,2,senate,AK Democrat,374,22,0.00009240000000000001
+furkan,45,AK,provider-3/model-z,2,generic,Democrat,364,23,0.00009120000000000001
+furkan,45,AK,provider-3/model-z,2,alaska_final,AK Democrat,306,30,0.0000852
+furkan,134,DE,provider-3/model-z,2,senate,DE Democrat,422,24,0.00010360000000000001
+furkan,134,DE,provider-3/model-z,2,generic,Democrat,335,33,0.00009340000000000001
+furkan,190,GA,provider-3/model-z,2,senate,GA Republican,370,17,0.00008759999999999999
+furkan,190,GA,provider-3/model-z,2,generic,Republican,326,23,0.00008360000000000001
