@@ -195,6 +195,27 @@ class Forecast(pa.DataFrameModel):
         strict = True
 
 
+class PastResults(pa.DataFrameModel):
+    """Earlier results in each race state: the last Senate election for the seat up in 2026, and the 2024
+    presidential election. Made by #3 from the MIT Election Lab. A comparison on the website, not a forecast input."""
+
+    state: str = pa.Field(isin=STATES, description=STATE)
+    election: str = pa.Field(
+        description='Which election: "senate_2020", "senate_2022" or "senate_2024_special" (the last election for the '
+        'seat, from MIT `year` and `special`; Georgia 2020 uses its January runoff, which decided the seat), or '
+        '"president_2024".',
+    )
+    dem_share: float = pa.Field(
+        ge=0, le=1,
+        description="Democratic share of all votes cast in the race (MIT `party_simplified` DEMOCRAT, which includes "
+        "Minnesota's DFL), so the two shares need not sum to 1.",
+    )
+    rep_share: float = pa.Field(ge=0, le=1, description="Republican share of all votes cast in the race.")
+
+    class Config:
+        strict = True
+
+
 # Each data file and the schema it must match. Used by the tests and the codebook.
 FILE_SCHEMAS = {
     "personas": Personas,
@@ -204,4 +225,7 @@ FILE_SCHEMAS = {
     "responses": Responses,
     "frame": Frame,
     "forecast": Forecast,
+    "past_results": PastResults,
 }
+# The files the simulation (#1) makes; the others exist only as real data.
+SIMULATED_FILES = ["personas", "candidates", "responses_sean", "responses_furkan", "responses", "frame", "forecast"]

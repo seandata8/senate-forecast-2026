@@ -12,7 +12,9 @@ import hashlib
 import urllib.request
 from pathlib import Path
 
-DATAVERSE_FILE_URL = "https://dataverse.harvard.edu/api/access/datafile/{file_id}"
+# format=original: Dataverse converts some data files to its own ".tab" format and serves that by default;
+# this asks for the file as uploaded, which is what the listed checksum is for. It works for every file.
+DATAVERSE_FILE_URL = "https://dataverse.harvard.edu/api/access/datafile/{file_id}?format=original"
 # One fixed revision of a Wikipedia page, as wikitext (the page's source text).
 WIKIPEDIA_REVISION_URL = "https://en.wikipedia.org/w/index.php?oldid={revision_id}&action=raw"
 CHUNK_BYTES = 1024 * 1024  # read and write 1 MB at a time, so a large file never has to fit in memory

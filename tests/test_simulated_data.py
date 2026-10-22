@@ -24,6 +24,7 @@ from senate_forecast_2026.schemas import (
     PARTY_GROUPS,
     PARTY_IDS,
     RACES,
+    SIMULATED_FILES,
     STATES,
 )
 from senate_forecast_2026.senate_simulation import (
@@ -41,8 +42,8 @@ RESPONSE_FILES = ["responses_sean", "responses_furkan", "responses"]  # same col
 
 @pytest.fixture(scope="module")
 def data():
-    """All six files, read once for the whole module."""
-    return {name: pl.read_parquet(DATA_FOLDER / f"{name}.parquet") for name in FILE_SCHEMAS}
+    """All the simulated files, read once for the whole module."""
+    return {name: pl.read_parquet(DATA_FOLDER / f"{name}.parquet") for name in SIMULATED_FILES}
 
 
 def share_of(table, group_column, group, outcome_column, outcomes):
@@ -59,7 +60,7 @@ def seats(data):
 
 #### Each file against its schema ####
 
-@pytest.mark.parametrize("name", FILE_SCHEMAS)
+@pytest.mark.parametrize("name", SIMULATED_FILES)
 def test_matches_schema(data, name):
     # Columns, types and allowed values; lazy=True lists every failure, not just the first.
     FILE_SCHEMAS[name].validate(data[name], lazy=True)

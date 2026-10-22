@@ -3,7 +3,7 @@
 #            - 2024 Cooperative Election Study (CES): personas are built from it in #4
 #            - 2022 CES: its validated voters make the post-stratification frame in #8
 #            - the 2026 Senate candidate list: one fixed revision of a Wikipedia page
-#            - (to add) past results from the MIT Election Lab
+#            - past results from the MIT Election Lab: Senate and President, by state
 #          Polls and Polymarket prices are downloaded separately (#10, #11).
 #          Cleaning happens in separate scripts, so it can be rerun without downloading again.
 # Author: Sean Murphy
@@ -12,7 +12,13 @@
 # Run: uv run scripts/01-download_election_data.py (or PyCharm's run button)
 
 from senate_forecast_2026.download import download_dataverse_file, download_wikipedia_revision
-from senate_forecast_2026.paths import RAW_CANDIDATES_PAGE, RAW_CES_2022, RAW_CES_2024
+from senate_forecast_2026.paths import (
+    RAW_CANDIDATES_PAGE,
+    RAW_CES_2022,
+    RAW_CES_2024,
+    RAW_PRESIDENT_RESULTS,
+    RAW_SENATE_RESULTS,
+)
 
 #### CES 2024 ####
 # Schaffner, Shih, Ansolabehere and Pope, "Cooperative Election Study Common Content, 2024", doi:10.7910/DVN/X11EP6,
@@ -44,3 +50,17 @@ download_dataverse_file(CES_2022_FILE_ID, CES_2022_MD5, RAW_CES_2022)
 CANDIDATES_PAGE_REVISION = 1381380271
 
 download_wikipedia_revision(CANDIDATES_PAGE_REVISION, RAW_CANDIDATES_PAGE)
+
+
+#### Past results ####
+# MIT Election Data and Science Lab, both CC0 1.0 (public domain), both small, so committed.
+# scripts/03-clean_past_results.py turns them into past_results.
+# "U.S. Senate statewide 1976–2024", doi:10.7910/DVN/PEJ5QU, version 8 (May 2026).
+SENATE_RESULTS_FILE_ID = 13887039
+SENATE_RESULTS_MD5 = "0f8b51cf0f77a2ef0bff992f7a64d1b4"
+# "U.S. President 1976–2024", doi:10.7910/DVN/42MVDX, version 10.1 (May 2026).
+PRESIDENT_RESULTS_FILE_ID = 13887042
+PRESIDENT_RESULTS_MD5 = "405af83db7625cb35d8c19a5ebe029ff"
+
+download_dataverse_file(SENATE_RESULTS_FILE_ID, SENATE_RESULTS_MD5, RAW_SENATE_RESULTS)
+download_dataverse_file(PRESIDENT_RESULTS_FILE_ID, PRESIDENT_RESULTS_MD5, RAW_PRESIDENT_RESULTS)

@@ -22,3 +22,5 @@ CODEBOOK = DATA / "codebook.md"
 RAW_CES_2024 = RAW_DATA / "CCES24_Common_OUTPUT_vv_topost_final.csv"  # the names Dataverse gives the CES files
 RAW_CES_2022 = RAW_DATA / "CCES22_Common_OUTPUT_vv_topost.csv"
 RAW_CANDIDATES_PAGE = RAW_DATA / "wikipedia_2026_senate_elections.txt"
+RAW_SENATE_RESULTS = RAW_DATA / "1976-2024-senate-state.csv"
+RAW_PRESIDENT_RESULTS = RAW_DATA / "1976-2024-president.csv"
