@@ -20,6 +20,7 @@ University of Toronto data science course project (Sean Murphy and Furkan Danism
 - The codebook, `data/codebook.md`, is written from the schemas: give every column a `description=` in `schemas.py` (source, transformations, what missing means), then run `uv run scripts/write_codebook.py`. Never edit the codebook by hand; `tests/test_codebook.py` fails if it is out of date.
 - Every script that writes a parquet to `data/` also writes `samp_<name>.csv` next to it: 25 random rows, seeded, so the data can be read in an editor or on GitHub. Use `save_data()` from `senate_forecast_2026/save.py`, which also checks the schema first.
 - `silicon.py` is the shared module for scripts. It holds the OpenRouter client (OpenAI SDK with `base_url`), a local Ollama client, `MODELS` and `EXTRA_MODELS`, `answer_schema(options)`, the `BUDGET_USD` guard, and `ask(model, persona, question, options, temperature, draw)`, which returns the answer (one of `options`, or None) with its token counts and cost.
+- The prompts and questions (each race's own candidates, the generic ballot, Alaska's final round) are built in `senate_forecast_2026/queries.py`, which takes `ask` as an argument so the tests can pass a fake one. `scripts/05-query_models.py` runs it; use `--dry-run` to see the prompts and number of calls without the API.
 - Scripts do `from silicon import *`. Because of that, use `total_spent()` rather than the `spent` global, which `import *` copies once.
 - Models prefixed `ollama/` are routed to a local Ollama server at `localhost:11434`; their cost is recorded as 0.
 
