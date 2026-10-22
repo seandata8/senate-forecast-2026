@@ -37,6 +37,7 @@ INDEPENDENT_DEM_CAUCUS_PROBABILITY = {
 # the state error is separate for each race.
 # These are polling-sized. The state error passed to simulate_races() also includes the model's own uncertainty:
 # see combined_state_error_sd() below.
+SHARE_DECIMALS = 10  # see simulate_races()
 NATIONAL_ERROR_SD = 0.03
 STATE_ERROR_SD = 0.04
 
@@ -59,6 +60,9 @@ def simulate_races(state_shares, n_sims=10_000, national_error_sd=NATIONAL_ERROR
     side, candidates keep their relative sizes, so the shares still sum to 1. The winner has the highest share.
     This also covers Georgia's runoff: the top two would meet again, and the leader of the two also wins that.
     """
+    # Round the starting shares to 10 decimal places. Polars adds numbers up in parallel, so the shares that come
+    # in can differ in their last digit from one run to the next; rounding makes every rerun give identical files.
+    state_shares = state_shares.with_columns(pl.col("share").round(SHARE_DECIMALS))
     random_generator = np.random.default_rng(seed)
 
     # One national error per simulated election, shared by every state.

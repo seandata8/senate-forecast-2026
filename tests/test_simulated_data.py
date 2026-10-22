@@ -7,12 +7,12 @@
 # Pre-requisites: uv run scripts/00-simulate_data.py
 # Run from the repo root: uv run pytest
 
-from pathlib import Path
 
 import polars as pl
 import pytest
 from scipy.stats import chisquare
 
+from senate_forecast_2026.paths import SIMULATED_DATA
 from senate_forecast_2026.schemas import (
     AGE_GROUPS,
     EDUCATION,
@@ -35,7 +35,7 @@ from senate_forecast_2026.senate_simulation import (
 )
 from senate_forecast_2026.simulation_settings import PERSONA_SHARES
 
-DATA_FOLDER = Path("data/00-simulated_data")
+DATA_FOLDER = SIMULATED_DATA
 RESPONSE_FILES = ["responses_sean", "responses_furkan", "responses"]  # same columns, so they get the same checks
 
 

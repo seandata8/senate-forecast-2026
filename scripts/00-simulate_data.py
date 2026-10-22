@@ -4,14 +4,14 @@
 # Author: Sean Murphy
 # Date: 21 October 2026
 # Pre-requisites: uv sync. No API calls; nothing here costs money.
-# Run from the repo root: uv run scripts/00-simulate_data.py
+# Run: uv run scripts/00-simulate_data.py (or PyCharm's run button)
 
 from itertools import product
-from pathlib import Path
 
 import numpy as np
 import polars as pl
 
+from senate_forecast_2026.paths import SIMULATED_DATA
 from senate_forecast_2026.save import save_data
 from senate_forecast_2026.schemas import (
     AGE_GROUPS,
@@ -36,7 +36,7 @@ from senate_forecast_2026.senate_simulation import (
 )
 from senate_forecast_2026.simulation_settings import PERSONA_SHARES, STATE_LEAN
 
-OUTPUT_FOLDER = Path("data/00-simulated_data")
+OUTPUT_FOLDER = SIMULATED_DATA
 random_generator = np.random.default_rng(853)
 
 PERSONAS_PER_STATE = 30

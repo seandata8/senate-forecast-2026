@@ -48,3 +48,8 @@ Thumbs.db
 
 # Course instructions
 instructions/
+
+# Raw CES files are over GitHub's 100 MB limit; scripts/01-download_election_data.py downloads them.
+data/01-raw_data/CCES*
+# Unfinished downloads
+*.part
