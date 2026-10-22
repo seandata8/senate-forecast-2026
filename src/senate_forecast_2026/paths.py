@@ -24,3 +24,22 @@ RAW_CES_2022 = RAW_DATA / "CCES22_Common_OUTPUT_vv_topost.csv"
 RAW_CANDIDATES_PAGE = RAW_DATA / "wikipedia_2026_senate_elections.txt"
 RAW_SENATE_RESULTS = RAW_DATA / "1976-2024-senate-state.csv"
 RAW_PRESIDENT_RESULTS = RAW_DATA / "1976-2024-president.csv"
+
+# The full CES files are too big for GitHub, so small samples of them are committed instead: the same file names
+# and every column, so the scripts that read the CES can run without the full files. See the README.
+CES_SAMPLES = RAW_DATA / "ces_samples"
+SAMPLE_CES_2024 = CES_SAMPLES / RAW_CES_2024.name
+SAMPLE_CES_2022 = CES_SAMPLES / RAW_CES_2022.name
+
+
+def full_file_or_sample(full_path, sample_path):
+    """The full raw file if it has been downloaded, otherwise its small committed sample, with a warning:
+    results from the sample only show that the code runs."""
+    if full_path.exists():
+        return full_path
+    print(
+        f"WARNING: {full_path.name} is not downloaded, so using the small sample in {sample_path.parent.name}/. "
+        "Run scripts/01-download_election_data.py for the full file.",
+        flush=True,
+    )
+    return sample_path

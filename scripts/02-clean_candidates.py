@@ -84,7 +84,9 @@ def candidates_of(race):
 #### Read the two "Race summary" tables ####
 # They sit between the "Race summary" and "Elections" headings. Each race is one table row; rows are separated by "|-".
 page = RAW_CANDIDATES_PAGE.read_text()
+# get tables with candidates
 race_summary = page[page.index("== Race summary ==") : page.index("== Elections ==")]
+# split into one line per race
 races = [race for race in race_summary.split("\n|-\n") if state_of(race) is not None]
 print(f"Read {len(races)} races from {RAW_CANDIDATES_PAGE.name}", flush=True)
 

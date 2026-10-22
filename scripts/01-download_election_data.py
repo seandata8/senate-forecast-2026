@@ -4,12 +4,15 @@
 #            - 2022 CES: its validated voters make the post-stratification frame in #8
 #            - the 2026 Senate candidate list: one fixed revision of a Wikipedia page
 #            - past results from the MIT Election Lab: Senate and President, by state
+#          Then writes small samples of the two CES files, which are committed in place of the full files.
 #          Polls and Polymarket prices are downloaded separately (#10, #11).
 #          Cleaning happens in separate scripts, so it can be rerun without downloading again.
 # Author: Sean Murphy
 # Date: 22 October 2026
 # Pre-requisites: uv sync. No API key or login needed. Rerunning is free: intact files are not downloaded again.
 # Run: uv run scripts/01-download_election_data.py (or PyCharm's run button)
+
+import polars as pl
 
 from senate_forecast_2026.download import download_dataverse_file, download_wikipedia_revision
 from senate_forecast_2026.paths import (
@@ -18,7 +21,25 @@ from senate_forecast_2026.paths import (
     RAW_CES_2024,
     RAW_PRESIDENT_RESULTS,
     RAW_SENATE_RESULTS,
+    SAMPLE_CES_2022,
+    SAMPLE_CES_2024,
 )
+
+CES_SAMPLE_ROWS_PER_STATE = 20  # about 1,000 respondents per file, about 3 MB
+CES_SAMPLE_SEED = 853
+
+
+def write_ces_sample(full_path, sample_path):
+    """Save a small sample of a CES file: CES_SAMPLE_ROWS_PER_STATE random respondents from each state
+    (`inputstate`), with every column, so every state is in it."""
+    ces = pl.read_csv(full_path, infer_schema_length=0)  # all as text, so values are written back as they were read
+    shuffled = ces.sample(fraction=1.0, shuffle=True, seed=CES_SAMPLE_SEED)
+    sample = shuffled.group_by("inputstate", maintain_order=True).head(CES_SAMPLE_ROWS_PER_STATE)
+    sample = sample.select(ces.columns)  # group_by moves inputstate to the front; put the columns back in order
+    sample_path.parent.mkdir(parents=True, exist_ok=True)
+    sample.write_csv(sample_path)
+    print(f"Wrote {sample_path} ({sample.height:,} of {ces.height:,} respondents, all {ces.width} columns)", flush=True)
+
 
 #### CES 2024 ####
 # Schaffner, Shih, Ansolabehere and Pope, "Cooperative Election Study Common Content, 2024", doi:10.7910/DVN/X11EP6,
@@ -64,3 +85,11 @@ PRESIDENT_RESULTS_MD5 = "405af83db7625cb35d8c19a5ebe029ff"
 
 download_dataverse_file(SENATE_RESULTS_FILE_ID, SENATE_RESULTS_MD5, RAW_SENATE_RESULTS)
 download_dataverse_file(PRESIDENT_RESULTS_FILE_ID, PRESIDENT_RESULTS_MD5, RAW_PRESIDENT_RESULTS)
+
+
+#### Small samples of the CES files ####
+# Committed in data/01-raw_data/ces_samples/, so someone without the full files can still run the scripts that read
+# the CES (they use full_file_or_sample() from paths.py). Seeded, so rerunning writes the same samples.
+print("\nWriting small samples of the CES files", flush=True)
+write_ces_sample(RAW_CES_2024, SAMPLE_CES_2024)
+write_ces_sample(RAW_CES_2022, SAMPLE_CES_2022)

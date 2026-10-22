@@ -5,7 +5,7 @@ University of Toronto data science course project (Sean Murphy and Furkan Danism
 ## Setup / run
 - Python 3.14, managed with `uv` (`uv sync`; add deps with `uv add`).
 - Tests: `uv run pytest` (run `uv run scripts/00-simulate_data.py` first; it writes `data/00-simulated_data/`). Lint: `uv run ruff check` (line length 120). No CI yet.
-- Run scripts with `uv run <script>.py` or PyCharm's run button; either works from any folder. Never write `Path("data/...")`: use the folders in `senate_forecast_2026/paths.py` (`RAW_DATA`, `SIMULATED_DATA`, `ANALYSIS_DATA`, `CODEBOOK`), which are worked out from the repo's location. `silicon.py` keeps `cache/` next to itself, and loads `.env` by searching upward from its folder.
+- Run scripts with `uv run <script>.py` or PyCharm's run button; either works from any folder. Never write `Path("data/...")`: use the folders in `senate_forecast_2026/paths.py` (`RAW_DATA`, `SIMULATED_DATA`, `ANALYSIS_DATA`, `CODEBOOK`), which are worked out from the repo's location. Read the CES with `full_file_or_sample(RAW_CES_2024, SAMPLE_CES_2024)` (or the 2022 pair), so scripts still run from the committed sample when the full file isn't downloaded. `silicon.py` keeps `cache/` next to itself, and loads `.env` by searching upward from its folder.
 - Requires `OPENROUTER_API_KEY` in `.env` (gitignored). Never print or commit it. `silicon.py` raises `KeyError` on import without it.
 - Running scripts makes paid API calls, so don't run them casually.
 
