@@ -2,7 +2,7 @@
 
 Every data file the pipeline makes, column by column. Simulated versions are in `data/00-simulated_data/`,
 real versions in `data/02-analysis_data/`, with the same names and columns. Each file is a parquet, with a
-readable 25-row sample next to it (`samp_<name>.csv`).
+readable CSV next to it: `<name>.csv` in full for small files, `samp_<name>.csv` (25 rows) for large ones.
 
 **Missing values.** A column marked "yes" under *Missing* can be empty (null); its description says what that
 means. Every other column is never empty: the scripts check this before saving (`save_data()` in `save.py`).
