@@ -5,7 +5,7 @@
 #          Used by:
 #            #1  scripts/00-simulate_data.py: combined_state_error_sd(), simulate_races() and count_seats() on made-up shares
 #            #1  tests/test_simulated_data.py: count_seats(), combined_state_error_sd() and the seat constants
-#            #3  the candidates script: INDEPENDENT_DEM_CAUCUS_PROBABILITY for the three independents
+#            #3  the candidates script: INDEPENDENT_DEM_CAUCUS_PROBABILITY for the independents
 #            #8  the forecast script: combined_state_error_sd() and simulate_races() on the real post-stratified shares
 #            #9  the real-data tests: count_seats(), to check seat totals
 #            #12 the summary script: count_seats() for the seat distribution and chance of Democratic control
@@ -30,6 +30,7 @@ INDEPENDENT_DEM_CAUCUS_PROBABILITY = {
     "ID": 0.80,  # Todd Achilles
     "MT": 0.70,  # Seth Bodnar
     "NE": 0.60,  # Dan Osborn
+    "SD": 0.70,  # Brian Bengs
 }
 
 # Size of the polling-style error added in each simulated election, in vote share.

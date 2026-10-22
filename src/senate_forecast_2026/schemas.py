@@ -13,6 +13,18 @@ STATES = [
     "MT", "NE", "NH", "NJ", "NM", "NC", "OH", "OK", "OR", "RI", "SC", "SD", "TN", "TX", "VA", "WV", "WY",
 ]
 
+# State names (as the CES and Wikipedia write them) and their codes, for the 35 race states.
+STATE_CODES = {
+    "Alabama": "AL", "Alaska": "AK", "Arkansas": "AR", "Colorado": "CO", "Delaware": "DE", "Florida": "FL",
+    "Georgia": "GA", "Idaho": "ID", "Illinois": "IL", "Iowa": "IA", "Kansas": "KS", "Kentucky": "KY",
+    "Louisiana": "LA", "Maine": "ME", "Massachusetts": "MA", "Michigan": "MI", "Minnesota": "MN", "Mississippi": "MS",
+    "Montana": "MT", "Nebraska": "NE", "New Hampshire": "NH", "New Jersey": "NJ", "New Mexico": "NM",
+    "North Carolina": "NC", "Ohio": "OH", "Oklahoma": "OK", "Oregon": "OR", "Rhode Island": "RI",
+    "South Carolina": "SC", "South Dakota": "SD", "Tennessee": "TN", "Texas": "TX", "Virginia": "VA",
+    "West Virginia": "WV", "Wyoming": "WY",
+}
+assert sorted(STATE_CODES.values()) == sorted(STATES)
+
 # Persona categories, collapsed from the 2024 CES codebook (variable names in comments).
 AGE_GROUPS = ["18-29", "30-44", "45-64", "65+"]  # from birthyr
 GENDERS = ["Man", "Woman", "Non-binary", "Other"]  # gender4

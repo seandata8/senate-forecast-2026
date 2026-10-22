@@ -1,7 +1,7 @@
 state,candidate,party,incumbent,dem_caucus_probability
 CO,CO Republican,Republican,false,0.0
 MT,MT Republican,Republican,true,0.0
-SD,SD Democrat,Democrat,false,1.0
+SD,SD Independent,Independent,false,0.7
 KY,KY Democrat,Democrat,false,1.0
 MT,MT Independent,Independent,false,0.7
 OK,OK Republican,Republican,true,0.0

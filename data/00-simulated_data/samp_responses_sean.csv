@@ -15,7 +15,7 @@ sean,355,KY,provider-1/model-x,1,senate,KY Democrat,378,30,0.0000996000000000000
 sean,355,KY,provider-1/model-x,1,generic,Republican,336,16,0.00008
 sean,891,SD,provider-1/model-x,1,senate,Undecided,372,25,0.0000944
 sean,891,SD,provider-1/model-x,1,generic,Democrat,372,24,0.00009360000000000001
-sean,897,SD,provider-1/model-x,1,senate,SD Republican,302,16,0.0000732
+sean,897,SD,provider-1/model-x,1,senate,SD Independent,302,16,0.0000732
 sean,897,SD,provider-1/model-x,1,generic,Would not vote,403,26,0.00010140000000000001
 sean,323,KS,provider-1/model-x,2,senate,KS Republican,355,20,0.000087
 sean,323,KS,provider-1/model-x,2,generic,Republican,357,30,0.0000954
@@ -23,7 +23,7 @@ sean,549,MT,provider-1/model-x,2,senate,Would not vote,331,20,0.0000822
 sean,549,MT,provider-1/model-x,2,generic,Republican,385,26,0.00009779999999999999
 sean,808,OR,provider-1/model-x,2,senate,OR Democrat,375,21,0.0000918
 sean,808,OR,provider-1/model-x,2,generic,Democrat,335,31,0.0000918
-sean,880,SD,provider-1/model-x,2,senate,SD Democrat,396,26,0.0001
+sean,880,SD,provider-1/model-x,2,senate,SD Independent,396,26,0.0001
 sean,880,SD,provider-1/model-x,2,generic,Democrat,368,23,0.00009200000000000001
 sean,260,IL,provider-2/model-y,0,senate,IL Republican,350,19,0.0000852
 sean,260,IL,provider-2/model-y,0,generic,Republican,399,24,0.00009900000000000001
@@ -33,7 +33,7 @@ sean,596,NE,provider-2/model-y,0,senate,NE Republican,358,28,0.00009400000000000
 sean,596,NE,provider-2/model-y,0,generic,Republican,336,14,0.00007840000000000001
 sean,769,OK,provider-2/model-y,0,senate,Undecided,379,24,0.000095
 sean,769,OK,provider-2/model-y,0,generic,Republican,304,24,0.00008
-sean,879,SD,provider-2/model-y,0,senate,SD Democrat,355,21,0.00008779999999999999
+sean,879,SD,provider-2/model-y,0,senate,SD Independent,355,21,0.00008779999999999999
 sean,879,SD,provider-2/model-y,0,generic,Republican,371,30,0.0000982
 sean,975,VA,provider-2/model-y,0,senate,VA Democrat,388,33,0.00010400000000000002
 sean,975,VA,provider-2/model-y,0,generic,Democrat,329,20,0.0000818

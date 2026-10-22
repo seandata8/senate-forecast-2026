@@ -17,3 +17,8 @@ SIMULATED_DATA = DATA / "00-simulated_data"
 RAW_DATA = DATA / "01-raw_data"
 ANALYSIS_DATA = DATA / "02-analysis_data"
 CODEBOOK = DATA / "codebook.md"
+
+# Raw files, as saved by scripts/01-download_election_data.py, which also records where each one comes from.
+RAW_CES_2024 = RAW_DATA / "CCES24_Common_OUTPUT_vv_topost_final.csv"  # the names Dataverse gives the CES files
+RAW_CES_2022 = RAW_DATA / "CCES22_Common_OUTPUT_vv_topost.csv"
+RAW_CANDIDATES_PAGE = RAW_DATA / "wikipedia_2026_senate_elections.txt"

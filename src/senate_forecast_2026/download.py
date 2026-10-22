@@ -1,8 +1,9 @@
 #### Preamble ####
-# Purpose: Download a file from Harvard Dataverse and check it arrived intact.
+# Purpose: Download raw data files: from Harvard Dataverse (checked against their checksum) and from Wikipedia
+#          (one fixed revision of a page).
 #          Used by:
 #            #3  scripts/01-download_election_data.py: CES 2024, CES 2022, and possibly the MIT Election Lab
-#                results (also on Dataverse)
+#                results (also on Dataverse); the 2026 candidate list (Wikipedia)
 # Author: Sean Murphy
 # Date: 22 October 2026
 # Pre-requisites: none (uses only Python's standard library)
@@ -12,6 +13,8 @@ import urllib.request
 from pathlib import Path
 
 DATAVERSE_FILE_URL = "https://dataverse.harvard.edu/api/access/datafile/{file_id}"
+# One fixed revision of a Wikipedia page, as wikitext (the page's source text).
+WIKIPEDIA_REVISION_URL = "https://en.wikipedia.org/w/index.php?oldid={revision_id}&action=raw"
 CHUNK_BYTES = 1024 * 1024  # read and write 1 MB at a time, so a large file never has to fit in memory
 # Dataverse refuses requests that use Python's default name ("Python-urllib"), so say who we are.
 USER_AGENT = "senate-forecast-2026 (University of Toronto course project)"
@@ -74,3 +77,26 @@ def download_dataverse_file(file_id, expected_md5, in_path):
         raise ValueError(f"Checksum mismatch for {path.name}: expected {expected_md5}, got {actual_md5}. Try again.")
     partial_path.rename(path)
     print(f"Done: {path} ({path.stat().st_size / 1e6:,.1f} MB, checksum OK).", flush=True)
+
+
+def download_wikipedia_revision(revision_id, in_path):
+    """Save one fixed revision of a Wikipedia page, as wikitext, to `path`, unless it is already there.
+
+    Every edit to a Wikipedia page gets a new revision ID, and an old revision never changes. So asking for a
+    revision by its ID always gives the same text, and later edits to the page (including joke edits) cannot
+    change our data. The revision ID is in the "View history" list of the page."""
+    path = Path(in_path)
+    print(f"\nPreparing to download Wikipedia revision {revision_id} as {path.name}", flush=True)
+
+    if path.exists():
+        print(f"{path} is already downloaded; skipping.", flush=True)
+        return
+
+    path.parent.mkdir(parents=True, exist_ok=True)
+    url = WIKIPEDIA_REVISION_URL.format(revision_id=revision_id)
+    print(f"Downloading {url} to {path}", flush=True)
+    request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+    with urllib.request.urlopen(request) as response:
+        wikitext = response.read().decode("utf-8")
+    path.write_text(wikitext)
+    print(f"Done: {path} ({len(wikitext):,} characters).", flush=True)

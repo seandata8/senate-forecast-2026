@@ -68,6 +68,7 @@ USUAL_RACE = [("Democrat", "Democrat"), ("Republican", "Republican")]
 UNUSUAL_RACES = {
     "NE": [("Independent", "Independent"), ("Republican", "Republican")],  # no Democrat
     "ID": [("Independent", "Independent"), ("Republican", "Republican")],  # no Democrat
+    "SD": [("Independent", "Independent"), ("Republican", "Republican")],  # no Democrat
     "MT": [("Democrat", "Democrat"), ("Republican", "Republican"), ("Independent", "Independent")],
     "AK": [  # ranked choice, with three Republicans on the ballot
         ("Democrat", "Democrat"), ("Republican", "Republican"),
@@ -189,7 +190,7 @@ APPROACH_NOISE = {"sean": 0.0, "furkan": 0.08}
 def candidate_probabilities(state, democratic_side):
     """{candidate: probability of choosing them} in this state, for someone with this Democratic-side probability."""
     republican_side = 1 - democratic_side
-    if state in ("NE", "ID"):  # the independent picks up Democratic-side voters and a few Republicans
+    if state in ("NE", "ID", "SD"):  # the independent picks up Democratic-side voters and a few Republicans
         return {f"{state} Independent": democratic_side + 0.05 * republican_side, f"{state} Republican": 0.95 * republican_side}
     if state == "MT":
         return {
