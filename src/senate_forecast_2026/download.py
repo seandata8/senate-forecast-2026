@@ -29,13 +29,17 @@ def md5_of(path):
     return checksum.hexdigest()
 
 
-def download_dataverse_file(file_id, expected_md5, path):
+def download_dataverse_file(file_id, expected_md5, in_path):
     """Download Dataverse file `file_id` to `path`, unless it is already there, and check its MD5 checksum.
 
     The file ID and checksum are listed on the dataset's Dataverse page. If the file at `path` already has the
     right checksum, nothing is downloaded, so the script can be rerun freely. The download goes to a temporary
     ".part" file first, renamed only once the checksum matches, so a broken download never looks complete."""
-    path = Path(path)
+
+    # tell user what is being downloaded (or checked if it exists)
+    path = Path(in_path)
+    print(f'\nPreparing to download {path.name}')
+
     if path.exists() and md5_of(path) == expected_md5:
         print(f"{path} is already downloaded and intact; skipping.", flush=True)
         return
