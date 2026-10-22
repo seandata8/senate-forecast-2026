@@ -15,13 +15,13 @@ schemas, not this file, then run the script.
 
 ## `personas`
 
-One row per persona (a real CES respondent). Made by #4 from the 2024 CES.
+One row per persona (a real CES respondent). Made by #4 from the 2024 CES: 30 picked at random (seeded) in each of the 35 race states, from respondents who took the post-election survey. Respondents missing any detail but `vote_2024` were dropped before picking, because every other detail goes in the prompt (51 of the 31,451 post-election respondents in the race states).
 
 | Column | Type | Missing | Allowed values | Description |
 |---|---|---|---|---|
 | `persona_id` | Int64 | no | ≥ 0, unique | Our id for each persona, from 0 up. Links responses to personas. |
-| `state` | String | no | AL, AK, AR, CO, DE, FL, GA, ID, IL, IA, KS, KY, LA, ME, MA, MI, MN, MS, MT, NE, NH, NJ, NM, NC, OH, OK, OR, RI, SC, SD, TN, TX, VA, WV, WY | Two-letter state code, from CES `inputstate` (state name). Only the 35 states with a 2026 Senate race. |
-| `age_group` | String | no | 18-29, 30-44, 45-64, 65+ | Age from CES `birthyr`, grouped into four bands. |
+| `state` | String | no | AL, AK, AR, CO, DE, FL, GA, ID, IL, IA, KS, KY, LA, ME, MA, MI, MN, MS, MT, NE, NH, NJ, NM, NC, OH, OK, OR, RI, SC, SD, TN, TX, VA, WV, WY | Two-letter state code. Only the 35 states with a 2026 Senate race. From CES `inputstate`, a US Census state number (FIPS code, e.g. 1 = Alabama). |
+| `age_group` | String | no | 18-29, 30-44, 45-64, 65+ | Age in the survey's year, in four bands: 2024 minus CES `birthyr` for personas, 2022 minus `birthyr` for the frame. |
 | `gender` | String | no | Man, Woman, Non-binary, Other | CES `gender4`, unchanged. |
 | `race` | String | no | White, Black, Hispanic, Asian, Native American, Middle Eastern, Two or more races, Other | CES `race`, unchanged (Hispanic is one of its categories). |
 | `education` | String | no | No HS, High school graduate, Some college, 2-year, 4-year, Post-grad | CES `educ`, unchanged. |
@@ -32,7 +32,7 @@ One row per persona (a real CES respondent). Made by #4 from the 2024 CES.
 | `marital_status` | String | no | Married, Separated, Divorced, Widowed, Never married, Domestic / civil partnership | CES `marstat`, unchanged. |
 | `sexuality` | String | no | Heterosexual / straight, Lesbian / gay woman, Gay man, Bisexual, Other, Prefer not to say | CES `sexuality`, unchanged. |
 | `registered` | String | no | Yes, No, Don't know | CES `votereg` (registered to vote), unchanged. |
-| `vote_2024` | String | yes | Kamala Harris, Donald Trump, Robert F. Kennedy, Jr., Jill Stein, Cornel West, Chase Oliver, Other, Did not vote for President | CES `CC24_410`, 2024 presidential vote. For reference only, never in the prompt. Missing if the respondent did not answer. |
+| `vote_2024` | String | yes | Kamala Harris, Donald Trump, Robert F. Kennedy, Jr., Jill Stein, Cornel West, Chase Oliver, Other, Did not vote for President | CES `CC24_410`, 2024 presidential vote. For reference only, never in the prompt. Missing if the respondent was not asked (they did not say they definitely voted, in CES `CC24_401`) or did not answer. |
 | `weight` | Float64 | no | > 0 | CES `commonpostweight`: how many people the persona stands for, relative to an average respondent. The CES guide says to use it with any post-election question, and `vote_2024` is one. It exists only for respondents who took the post-election wave (`tookpost`), so only they can be personas. |
 
 ## `candidates`
@@ -41,7 +41,7 @@ One row per candidate on the November ballot. Made by #3.
 
 | Column | Type | Missing | Allowed values | Description |
 |---|---|---|---|---|
-| `state` | String | no | AL, AK, AR, CO, DE, FL, GA, ID, IL, IA, KS, KY, LA, ME, MA, MI, MN, MS, MT, NE, NH, NJ, NM, NC, OH, OK, OR, RI, SC, SD, TN, TX, VA, WV, WY | Two-letter state code, from CES `inputstate` (state name). Only the 35 states with a 2026 Senate race. |
+| `state` | String | no | AL, AK, AR, CO, DE, FL, GA, ID, IL, IA, KS, KY, LA, ME, MA, MI, MN, MS, MT, NE, NH, NJ, NM, NC, OH, OK, OR, RI, SC, SD, TN, TX, VA, WV, WY | Two-letter state code. Only the 35 states with a 2026 Senate race. |
 | `candidate` | String | no | unique | Candidate's name as on the ballot. |
 | `party` | String | no | Democrat, Republican, Independent, Libertarian, Green, Other | Party label on the ballot, used in the prompt, e.g. "Smith (Democrat)". |
 | `incumbent` | Boolean | no | any | True for whoever holds the seat now. |
@@ -55,7 +55,7 @@ One row per LLM answer. responses_sean and responses_furkan are each person's fu
 |---|---|---|---|---|
 | `approach` | String | no | any | Whose run produced the answer (`sean` or `furkan`): their models and prompt. |
 | `persona_id` | Int64 | no | ≥ 0 | Our id for each persona, from 0 up. Links responses to personas. |
-| `state` | String | no | AL, AK, AR, CO, DE, FL, GA, ID, IL, IA, KS, KY, LA, ME, MA, MI, MN, MS, MT, NE, NH, NJ, NM, NC, OH, OK, OR, RI, SC, SD, TN, TX, VA, WV, WY | The persona's state. Two-letter state code, from CES `inputstate` (state name). Only the 35 states with a 2026 Senate race. |
+| `state` | String | no | AL, AK, AR, CO, DE, FL, GA, ID, IL, IA, KS, KY, LA, ME, MA, MI, MN, MS, MT, NE, NH, NJ, NM, NC, OH, OK, OR, RI, SC, SD, TN, TX, VA, WV, WY | The persona's state. Two-letter state code. Only the 35 states with a 2026 Senate race. |
 | `model` | String | no | any | OpenRouter model id. |
 | `draw` | Int64 | no | ≥ 0 | Repeat number, from 0 up: the same persona asked the same question again. |
 | `question` | String | no | senate, generic, alaska_final | `senate`: the persona's own Senate race. `generic`: which party they would vote for. `alaska_final`: Alaska's ranked-choice final round (Alaska personas only). |
@@ -70,8 +70,8 @@ Number of voters in each state and demographic cell, for post-stratification. Ma
 
 | Column | Type | Missing | Allowed values | Description |
 |---|---|---|---|---|
-| `state` | String | no | AL, AK, AR, CO, DE, FL, GA, ID, IL, IA, KS, KY, LA, ME, MA, MI, MN, MS, MT, NE, NH, NJ, NM, NC, OH, OK, OR, RI, SC, SD, TN, TX, VA, WV, WY | Two-letter state code, from CES `inputstate` (state name). Only the 35 states with a 2026 Senate race. |
-| `age_group` | String | no | 18-29, 30-44, 45-64, 65+ | Age from CES `birthyr`, grouped into four bands. |
+| `state` | String | no | AL, AK, AR, CO, DE, FL, GA, ID, IL, IA, KS, KY, LA, ME, MA, MI, MN, MS, MT, NE, NH, NJ, NM, NC, OH, OK, OR, RI, SC, SD, TN, TX, VA, WV, WY | Two-letter state code. Only the 35 states with a 2026 Senate race. From CES `inputstate`, a US Census state number (FIPS code, e.g. 1 = Alabama). |
+| `age_group` | String | no | 18-29, 30-44, 45-64, 65+ | Age in the survey's year, in four bands: 2024 minus CES `birthyr` for personas, 2022 minus `birthyr` for the frame. |
 | `gender` | String | no | Man, Woman, Non-binary, Other | CES `gender4`, unchanged. |
 | `race` | String | no | White, Black, Hispanic, Asian, Native American, Middle Eastern, Two or more races, Other | CES `race`, unchanged (Hispanic is one of its categories). |
 | `education` | String | no | No HS, High school graduate, Some college, 2-year, 4-year, Post-grad | CES `educ`, unchanged. |
@@ -85,7 +85,7 @@ One row per simulated election, state and candidate. Made by #8 with the Monte C
 | Column | Type | Missing | Allowed values | Description |
 |---|---|---|---|---|
 | `sim_id` | Int64 | no | ≥ 0 | Simulated election number, from 0 up. |
-| `state` | String | no | AL, AK, AR, CO, DE, FL, GA, ID, IL, IA, KS, KY, LA, ME, MA, MI, MN, MS, MT, NE, NH, NJ, NM, NC, OH, OK, OR, RI, SC, SD, TN, TX, VA, WV, WY | Two-letter state code, from CES `inputstate` (state name). Only the 35 states with a 2026 Senate race. |
+| `state` | String | no | AL, AK, AR, CO, DE, FL, GA, ID, IL, IA, KS, KY, LA, ME, MA, MI, MN, MS, MT, NE, NH, NJ, NM, NC, OH, OK, OR, RI, SC, SD, TN, TX, VA, WV, WY | Two-letter state code. Only the 35 states with a 2026 Senate race. |
 | `candidate` | String | no | any | Candidate's name, as in candidates. |
 | `party` | String | no | Democrat, Republican, Independent, Libertarian, Green, Other | Candidate's party, as in candidates. |
 | `share` | Float64 | no | ≥ 0, ≤ 1 | Candidate's share of the votes for candidates in this simulated election (undecided, would not vote and missing answers are left out). Alaska: the final ranked-choice round. |
@@ -97,7 +97,7 @@ Earlier results in each race state: the last Senate election for the seat up in 
 
 | Column | Type | Missing | Allowed values | Description |
 |---|---|---|---|---|
-| `state` | String | no | AL, AK, AR, CO, DE, FL, GA, ID, IL, IA, KS, KY, LA, ME, MA, MI, MN, MS, MT, NE, NH, NJ, NM, NC, OH, OK, OR, RI, SC, SD, TN, TX, VA, WV, WY | Two-letter state code, from CES `inputstate` (state name). Only the 35 states with a 2026 Senate race. |
+| `state` | String | no | AL, AK, AR, CO, DE, FL, GA, ID, IL, IA, KS, KY, LA, ME, MA, MI, MN, MS, MT, NE, NH, NJ, NM, NC, OH, OK, OR, RI, SC, SD, TN, TX, VA, WV, WY | Two-letter state code. Only the 35 states with a 2026 Senate race. |
 | `election` | String | no | any | Which election: "senate_2020", "senate_2022" or "senate_2024_special" (the last election for the seat, from MIT `year` and `special`; Georgia 2020 uses its January runoff, which decided the seat), or "president_2024". |
 | `dem_share` | Float64 | no | ≥ 0, ≤ 1 | Democratic share of all votes cast in the race (MIT `party_simplified` DEMOCRAT, which includes Minnesota's DFL), so the two shares need not sum to 1. |
 | `rep_share` | Float64 | no | ≥ 0, ≤ 1 | Republican share of all votes cast in the race. |

@@ -1,0 +1,26 @@
+persona_id,state,age_group,gender,race,education,income,party_id,ideology,religion,marital_status,sexuality,registered,vote_2024,weight
+139,DE,30-44,Woman,White,High school graduate,$150K+,Not very strong Republican,Moderate,Roman Catholic,Never married,Bisexual,Yes,Donald Trump,1.60592252847232
+558,MT,30-44,Man,White,4-year,$150K+,Strong Democrat,Liberal,Roman Catholic,Married,Heterosexual / straight,Yes,Donald Trump,2.75608464899457
+883,SD,45-64,Woman,White,Some college,$70K-$100K,Strong Republican,Conservative,Protestant,Married,Heterosexual / straight,Yes,Donald Trump,0.949850358074043
+326,KS,65+,Man,Other,4-year,$100K-$150K,Strong Republican,Conservative,Roman Catholic,Divorced,Heterosexual / straight,Yes,Donald Trump,0.211534587287921
+553,MT,65+,Man,White,High school graduate,$50K-$70K,Strong Republican,Very conservative,Protestant,Married,Heterosexual / straight,Yes,Donald Trump,2.38225328095194
+773,OK,65+,Woman,White,Some college,$70K-$100K,Strong Democrat,Moderate,Protestant,Married,Heterosexual / straight,Yes,Kamala Harris,0.260983992038808
+2,AK,65+,Man,White,Post-grad,$50K-$70K,Lean Democrat,Moderate,Protestant,Domestic / civil partnership,Heterosexual / straight,Yes,Kamala Harris,0.579251903241818
+894,SD,45-64,Man,White,4-year,$100K-$150K,Strong Democrat,Liberal,Roman Catholic,Divorced,Heterosexual / straight,Yes,Kamala Harris,0.29655629424676
+377,LA,65+,Man,White,High school graduate,$50K-$70K,Strong Republican,Very conservative,Protestant,Married,Heterosexual / straight,Yes,Donald Trump,0.00728513869801441
+853,SC,45-64,Woman,White,High school graduate,$50K-$70K,Strong Democrat,Very liberal,Nothing in particular,Divorced,Heterosexual / straight,Yes,Kamala Harris,0.451915296128641
+915,TN,30-44,Woman,White,High school graduate,Under $30K,Strong Democrat,Very liberal,Agnostic,Never married,Bisexual,Yes,Kamala Harris,0.27071609076106
+900,TN,45-64,Woman,White,High school graduate,$100K-$150K,Strong Republican,Very conservative,Protestant,Married,Heterosexual / straight,Yes,Donald Trump,0.132432045934441
+978,VA,45-64,Man,White,2-year,$70K-$100K,Lean Republican,Moderate,Agnostic,Divorced,Heterosexual / straight,Yes,Donald Trump,0.128776176282895
+146,DE,45-64,Woman,White,Some college,$150K+,Lean Democrat,Conservative,Something else,Married,Heterosexual / straight,Yes,Kamala Harris,0.528769043498991
+206,GA,65+,Woman,White,2-year,Under $30K,Strong Democrat,Moderate,Protestant,Divorced,Heterosexual / straight,Yes,Kamala Harris,0.334736154598726
+603,NE,45-64,Man,White,2-year,$70K-$100K,Strong Democrat,Moderate,Atheist,Divorced,Heterosexual / straight,Yes,Kamala Harris,1.01882561150596
+813,RI,30-44,Woman,White,4-year,$150K+,Independent,Moderate,Roman Catholic,Married,Heterosexual / straight,Yes,Did not vote for President,0.574231569746307
+137,DE,18-29,Man,White,High school graduate,$30K-$50K,Strong Republican,Very conservative,Nothing in particular,Separated,Heterosexual / straight,Yes,Donald Trump,3.11288099275652
+274,IL,30-44,Woman,White,Some college,$70K-$100K,Strong Democrat,Very liberal,Atheist,Married,Heterosexual / straight,Yes,Kamala Harris,1.11786600915337
+368,LA,45-64,Man,White,4-year,$50K-$70K,Independent,Conservative,Protestant,Married,Heterosexual / straight,Yes,Donald Trump,0.334625717939788
+427,ME,30-44,Man,White,Some college,$70K-$100K,Lean Republican,Moderate,Protestant,Married,Bisexual,Yes,Donald Trump,1.54130969895951
+834,RI,30-44,Man,White,4-year,$70K-$100K,Lean Democrat,Very liberal,Nothing in particular,Married,Heterosexual / straight,Yes,Did not vote for President,0.465303800130032
+172,FL,65+,Woman,White,High school graduate,$30K-$50K,Strong Democrat,Liberal,Jewish,Married,Heterosexual / straight,Yes,Kamala Harris,0.39964086538517
+14,AK,30-44,Man,White,Some college,$50K-$70K,Independent,Moderate,Roman Catholic,Never married,Heterosexual / straight,Yes,Kamala Harris,0.668380545375556
+210,IA,18-29,Woman,Two or more races,Some college,$150K+,Lean Republican,Conservative,Jewish,Never married,Heterosexual / straight,Yes,Did not vote for President,3.5551278488865

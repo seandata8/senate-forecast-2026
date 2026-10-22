@@ -72,8 +72,9 @@ GENERIC_ANSWERS = ["Democrat", "Republican", "Other"] + NON_CANDIDATE_ANSWERS
 # Descriptions of columns that appear in more than one file, written once.
 # The codebook (data/codebook.md) is written from these descriptions by scripts/write_codebook.py.
 PERSONA_ID = "Our id for each persona, from 0 up. Links responses to personas."
-STATE = "Two-letter state code, from CES `inputstate` (state name). Only the 35 states with a 2026 Senate race."
-AGE_GROUP = "Age from CES `birthyr`, grouped into four bands."
+STATE = "Two-letter state code. Only the 35 states with a 2026 Senate race."
+CES_STATE = STATE + " From CES `inputstate`, a US Census state number (FIPS code, e.g. 1 = Alabama)."
+AGE_GROUP = "Age in the survey's year, in four bands: 2024 minus CES `birthyr` for personas, 2022 minus `birthyr` for the frame."
 GENDER = "CES `gender4`, unchanged."
 RACE = "CES `race`, unchanged (Hispanic is one of its categories)."
 EDUCATION_LEVEL = "CES `educ`, unchanged."
@@ -81,10 +82,13 @@ EDUCATION_LEVEL = "CES `educ`, unchanged."
 
 # pa is the panderas.polars package
 class Personas(pa.DataFrameModel):
-    """One row per persona (a real CES respondent). Made by #4 from the 2024 CES."""
+    """One row per persona (a real CES respondent). Made by #4 from the 2024 CES: 30 picked at random (seeded) in
+    each of the 35 race states, from respondents who took the post-election survey. Respondents missing any detail
+    but `vote_2024` were dropped before picking, because every other detail goes in the prompt (51 of the 31,451
+    post-election respondents in the race states)."""
 
     persona_id: int = pa.Field(ge=0, unique=True, description=PERSONA_ID)
-    state: str = pa.Field(isin=STATES, description=STATE)
+    state: str = pa.Field(isin=STATES, description=CES_STATE)
     age_group: str = pa.Field(isin=AGE_GROUPS, description=AGE_GROUP)
     gender: str = pa.Field(isin=GENDERS, description=GENDER)
     race: str = pa.Field(isin=RACES, description=RACE)
@@ -98,7 +102,8 @@ class Personas(pa.DataFrameModel):
     registered: str = pa.Field(isin=REGISTERED, description="CES `votereg` (registered to vote), unchanged.")
     vote_2024: str = pa.Field(
         isin=VOTES_2024, nullable=True,
-        description="CES `CC24_410`, 2024 presidential vote. For reference only, never in the prompt. Missing if the respondent did not answer.",
+        description="CES `CC24_410`, 2024 presidential vote. For reference only, never in the prompt. Missing if the "
+        "respondent was not asked (they did not say they definitely voted, in CES `CC24_401`) or did not answer.",
     )
     weight: float = pa.Field(
         gt=0,
@@ -160,7 +165,7 @@ class Frame(pa.DataFrameModel):
     """Number of voters in each state and demographic cell, for post-stratification. Made by #8 from 2022 CES
     validated voters (a midterm electorate)."""
 
-    state: str = pa.Field(isin=STATES, description=STATE)
+    state: str = pa.Field(isin=STATES, description=CES_STATE)
     age_group: str = pa.Field(isin=AGE_GROUPS, description=AGE_GROUP)
     gender: str = pa.Field(isin=GENDERS, description=GENDER)
     race: str = pa.Field(isin=RACES, description=RACE)
