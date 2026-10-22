@@ -2,7 +2,7 @@
 
 Every data file the pipeline makes, column by column. Simulated versions are in `data/00-simulated_data/`,
 real versions in `data/02-analysis_data/`, with the same names and columns. Each file is a parquet, with a
-readable 25-row sample next to it (`samp_<name>.csv`).
+readable CSV next to it: `<name>.csv` in full for small files, `samp_<name>.csv` (25 rows) for large ones.
 
 **Missing values.** A column marked "yes" under *Missing* can be empty (null); its description says what that
 means. Every other column is never empty: the scripts check this before saving (`save_data()` in `save.py`).
@@ -90,3 +90,14 @@ One row per simulated election, state and candidate. Made by #8 with the Monte C
 | `party` | String | no | Democrat, Republican, Independent, Libertarian, Green, Other | Candidate's party, as in candidates. |
 | `share` | Float64 | no | ≥ 0, ≤ 1 | Candidate's share of the votes for candidates in this simulated election (undecided, would not vote and missing answers are left out). Alaska: the final ranked-choice round. |
 | `winner` | Boolean | no | any | True for the candidate with the highest share. |
+
+## `past_results`
+
+Earlier results in each race state: the last Senate election for the seat up in 2026, and the 2024 presidential election. Made by #3 from the MIT Election Lab. A comparison on the website, not a forecast input.
+
+| Column | Type | Missing | Allowed values | Description |
+|---|---|---|---|---|
+| `state` | String | no | AL, AK, AR, CO, DE, FL, GA, ID, IL, IA, KS, KY, LA, ME, MA, MI, MN, MS, MT, NE, NH, NJ, NM, NC, OH, OK, OR, RI, SC, SD, TN, TX, VA, WV, WY | Two-letter state code, from CES `inputstate` (state name). Only the 35 states with a 2026 Senate race. |
+| `election` | String | no | any | Which election: "senate_2020", "senate_2022" or "senate_2024_special" (the last election for the seat, from MIT `year` and `special`; Georgia 2020 uses its January runoff, which decided the seat), or "president_2024". |
+| `dem_share` | Float64 | no | ≥ 0, ≤ 1 | Democratic share of all votes cast in the race (MIT `party_simplified` DEMOCRAT, which includes Minnesota's DFL), so the two shares need not sum to 1. |
+| `rep_share` | Float64 | no | ≥ 0, ≤ 1 | Republican share of all votes cast in the race. |

@@ -1,0 +1,74 @@
+state,candidate,party,incumbent,dem_caucus_probability
+AK,Dan J. Sullivan,Republican,false,0.0
+AK,Dan S. Sullivan,Republican,true,0.0
+AK,Gerald Heikes,Republican,false,0.0
+AK,Mary Peltola,Democrat,false,1.0
+AL,Barry Moore,Republican,false,0.0
+AL,Everett Wess,Democrat,false,1.0
+AR,Hallie Shoffner,Democrat,false,1.0
+AR,Tom Cotton,Republican,true,0.0
+CO,John Hickenlooper,Democrat,true,1.0
+CO,Mark Baisley,Republican,false,0.0
+DE,Chris Coons,Democrat,true,1.0
+DE,Michael Katz,Republican,false,0.0
+FL,Angie Nixon,Democrat,false,1.0
+FL,Ashley Moody,Republican,true,0.0
+GA,Jon Ossoff,Democrat,true,1.0
+GA,Mike Collins,Republican,false,0.0
+IA,Ashley Hinson,Republican,false,0.0
+IA,Josh Turek,Democrat,false,1.0
+ID,Jim Risch,Republican,true,0.0
+ID,Todd Achilles,Independent,false,0.8
+IL,Don Tracy,Republican,false,0.0
+IL,Juliana Stratton,Democrat,false,1.0
+KS,Adam Hamilton,Democrat,false,1.0
+KS,Roger Marshall,Republican,true,0.0
+KY,Andy Barr,Republican,false,0.0
+KY,Charles Booker,Democrat,false,1.0
+LA,Jamie Davis,Democrat,false,1.0
+LA,Julia Letlow,Republican,false,0.0
+MA,Ed Markey,Democrat,true,1.0
+MA,John Deaton,Republican,false,0.0
+ME,Susan Collins,Republican,true,0.0
+ME,Troy Jackson,Democrat,false,1.0
+MI,Abdul El-Sayed,Democrat,false,1.0
+MI,Mike Rogers,Republican,false,0.0
+MN,Michele Tafoya,Republican,false,0.0
+MN,Peggy Flanagan,Democrat,false,1.0
+MS,Cindy Hyde-Smith,Republican,true,0.0
+MS,Scott Colom,Democrat,false,1.0
+MT,Alani Bankhead,Democrat,false,1.0
+MT,Kurt Alme,Republican,false,0.0
+MT,Seth Bodnar,Independent,false,0.7
+NC,Michael Whatley,Republican,false,0.0
+NC,Roy Cooper,Democrat,false,1.0
+NE,Dan Osborn,Independent,false,0.6
+NE,Pete Ricketts,Republican,true,0.0
+NH,Chris Pappas,Democrat,false,1.0
+NH,John E. Sununu,Republican,false,0.0
+NJ,Cory Booker,Democrat,true,1.0
+NJ,Justin Murphy,Republican,false,0.0
+NM,Ben Ray Luján,Democrat,true,1.0
+NM,Larry Marker,Republican,false,0.0
+OH,Jon Husted,Republican,true,0.0
+OH,Sherrod Brown,Democrat,false,1.0
+OK,Kevin Hern,Republican,false,0.0
+OK,N'Kiyla Jasmine Thomas,Democrat,false,1.0
+OR,David Brock Smith,Republican,false,0.0
+OR,Jeff Merkley,Democrat,true,1.0
+RI,Jack Reed,Democrat,true,1.0
+RI,Raymond McKay,Republican,false,0.0
+SC,Annie Andrews,Democrat,false,1.0
+SC,Darline Graham,Republican,true,0.0
+SD,Brian Bengs,Independent,false,0.7
+SD,Mike Rounds,Republican,true,0.0
+TN,Bill Hagerty,Republican,true,0.0
+TN,Marquita Bradshaw,Democrat,false,1.0
+TX,James Talarico,Democrat,false,1.0
+TX,Ken Paxton,Republican,false,0.0
+VA,Bert Mizusawa,Republican,false,0.0
+VA,Mark Warner,Democrat,true,1.0
+WV,Rachel Fetty Anderson,Democrat,false,1.0
+WV,Shelley Moore Capito,Republican,true,0.0
+WY,Harriet Hageman,Republican,false,0.0
+WY,James W. Byrd,Democrat,false,1.0

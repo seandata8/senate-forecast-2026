@@ -13,7 +13,7 @@ furkan,139,DE,provider-1/model-x,1,senate,DE Democrat,364,24,0.000092
 furkan,139,DE,provider-1/model-x,1,generic,Democrat,372,19,0.00008960000000000001
 furkan,355,KY,provider-1/model-x,1,senate,KY Republican,348,30,0.00009360000000000001
 furkan,355,KY,provider-1/model-x,1,generic,Republican,371,23,0.00009260000000000001
-furkan,891,SD,provider-1/model-x,1,senate,SD Democrat,381,22,0.00009380000000000002
+furkan,891,SD,provider-1/model-x,1,senate,SD Independent,381,22,0.00009380000000000002
 furkan,891,SD,provider-1/model-x,1,generic,Republican,340,28,0.0000904
 furkan,897,SD,provider-1/model-x,1,senate,SD Republican,357,21,0.0000882
 furkan,897,SD,provider-1/model-x,1,generic,Democrat,348,32,0.00009520000000000002
@@ -23,7 +23,7 @@ furkan,549,MT,provider-1/model-x,2,senate,MT Independent,341,23,0.0000866
 furkan,549,MT,provider-1/model-x,2,generic,Republican,355,14,0.0000822
 furkan,808,OR,provider-1/model-x,2,senate,OR Democrat,349,27,0.0000914
 furkan,808,OR,provider-1/model-x,2,generic,Democrat,363,22,0.00009020000000000001
-furkan,880,SD,provider-1/model-x,2,senate,SD Democrat,341,21,0.000085
+furkan,880,SD,provider-1/model-x,2,senate,SD Independent,341,21,0.000085
 furkan,880,SD,provider-1/model-x,2,generic,Republican,353,17,0.00008420000000000001
 furkan,260,IL,provider-3/model-z,0,senate,IL Republican,330,29,0.0000892
 furkan,260,IL,provider-3/model-z,0,generic,Republican,351,22,0.0000878

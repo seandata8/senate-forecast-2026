@@ -5,7 +5,7 @@ University of Toronto data science course project (Sean Murphy and Furkan Danism
 ## Setup / run
 - Python 3.14, managed with `uv` (`uv sync`; add deps with `uv add`).
 - Tests: `uv run pytest` (run `uv run scripts/00-simulate_data.py` first; it writes `data/00-simulated_data/`). Lint: `uv run ruff check` (line length 120). No CI yet.
-- Run scripts from the repo root with `uv run <script>.py`. `silicon.py` uses `cache/` relative to the cwd, and loads `.env` by searching upward from `silicon.py`'s folder.
+- Run scripts with `uv run <script>.py` or PyCharm's run button; either works from any folder. Never write `Path("data/...")`: use the folders in `senate_forecast_2026/paths.py` (`RAW_DATA`, `SIMULATED_DATA`, `ANALYSIS_DATA`, `CODEBOOK`), which are worked out from the repo's location. Read the CES with `full_file_or_sample(RAW_CES_2024, SAMPLE_CES_2024)` (or the 2022 pair), so scripts still run from the committed sample when the full file isn't downloaded. `silicon.py` keeps `cache/` next to itself, and loads `.env` by searching upward from its folder.
 - Requires `OPENROUTER_API_KEY` in `.env` (gitignored). Never print or commit it. `silicon.py` raises `KeyError` on import without it.
 - Running scripts makes paid API calls, so don't run them casually.
 
@@ -18,7 +18,7 @@ University of Toronto data science course project (Sean Murphy and Furkan Danism
 - Shared code lives in the `senate_forecast_2026` package (`src/`): `schemas.py` holds the agreed columns of every data file as pandera schemas, `senate_simulation.py` the Monte Carlo race and seat simulation, `save.py` the one way to save a data file. Scripts and tests import from it.
 - `scripts/` holds the numbered pipeline scripts; `tests/` the pytest suites (simulated data now, real data in a separate file later).
 - The codebook, `data/codebook.md`, is written from the schemas: give every column a `description=` in `schemas.py` (source, transformations, what missing means), then run `uv run scripts/write_codebook.py`. Never edit the codebook by hand; `tests/test_codebook.py` fails if it is out of date.
-- Every script that writes a parquet to `data/` also writes `samp_<name>.csv` next to it: 25 random rows, seeded, so the data can be read in an editor or on GitHub. Use `save_data()` from `senate_forecast_2026/save.py`, which also checks the schema first.
+- Every script that writes a parquet to `data/` also writes a readable CSV next to it, so the data can be read in an editor or on GitHub: `<name>.csv` with every row for files of up to 100 rows, otherwise `samp_<name>.csv` with 25 random rows, seeded. Use `save_data()` from `senate_forecast_2026/save.py`, which also checks the schema first.
 - `silicon.py` is the shared module for scripts. It holds the OpenRouter client (OpenAI SDK with `base_url`), a local Ollama client, `MODELS` and `EXTRA_MODELS`, the JSON `SCHEMA`, the `BUDGET_USD` guard, and `ask(model, persona, question, temperature, draw)`.
 - `silicon.py` is still the worksheet version. `OPTIONS` and `SCHEMA` are the generic ballot (Democratic / Republican / Other / Would not vote) and must become per-race candidate lists; `MODELS` is a placeholder.
 - Scripts do `from silicon import *`. Because of that, use `total_spent()` rather than the `spent` global, which `import *` copies once.

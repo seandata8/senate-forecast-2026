@@ -13,6 +13,18 @@ STATES = [
     "MT", "NE", "NH", "NJ", "NM", "NC", "OH", "OK", "OR", "RI", "SC", "SD", "TN", "TX", "VA", "WV", "WY",
 ]
 
+# State names (as the CES and Wikipedia write them) and their codes, for the 35 race states.
+STATE_CODES = {
+    "Alabama": "AL", "Alaska": "AK", "Arkansas": "AR", "Colorado": "CO", "Delaware": "DE", "Florida": "FL",
+    "Georgia": "GA", "Idaho": "ID", "Illinois": "IL", "Iowa": "IA", "Kansas": "KS", "Kentucky": "KY",
+    "Louisiana": "LA", "Maine": "ME", "Massachusetts": "MA", "Michigan": "MI", "Minnesota": "MN", "Mississippi": "MS",
+    "Montana": "MT", "Nebraska": "NE", "New Hampshire": "NH", "New Jersey": "NJ", "New Mexico": "NM",
+    "North Carolina": "NC", "Ohio": "OH", "Oklahoma": "OK", "Oregon": "OR", "Rhode Island": "RI",
+    "South Carolina": "SC", "South Dakota": "SD", "Tennessee": "TN", "Texas": "TX", "Virginia": "VA",
+    "West Virginia": "WV", "Wyoming": "WY",
+}
+assert sorted(STATE_CODES.values()) == sorted(STATES)
+
 # Persona categories, collapsed from the 2024 CES codebook (variable names in comments).
 AGE_GROUPS = ["18-29", "30-44", "45-64", "65+"]  # from birthyr
 GENDERS = ["Man", "Woman", "Non-binary", "Other"]  # gender4
@@ -183,6 +195,27 @@ class Forecast(pa.DataFrameModel):
         strict = True
 
 
+class PastResults(pa.DataFrameModel):
+    """Earlier results in each race state: the last Senate election for the seat up in 2026, and the 2024
+    presidential election. Made by #3 from the MIT Election Lab. A comparison on the website, not a forecast input."""
+
+    state: str = pa.Field(isin=STATES, description=STATE)
+    election: str = pa.Field(
+        description='Which election: "senate_2020", "senate_2022" or "senate_2024_special" (the last election for the '
+        'seat, from MIT `year` and `special`; Georgia 2020 uses its January runoff, which decided the seat), or '
+        '"president_2024".',
+    )
+    dem_share: float = pa.Field(
+        ge=0, le=1,
+        description="Democratic share of all votes cast in the race (MIT `party_simplified` DEMOCRAT, which includes "
+        "Minnesota's DFL), so the two shares need not sum to 1.",
+    )
+    rep_share: float = pa.Field(ge=0, le=1, description="Republican share of all votes cast in the race.")
+
+    class Config:
+        strict = True
+
+
 # Each data file and the schema it must match. Used by the tests and the codebook.
 FILE_SCHEMAS = {
     "personas": Personas,
@@ -192,4 +225,7 @@ FILE_SCHEMAS = {
     "responses": Responses,
     "frame": Frame,
     "forecast": Forecast,
+    "past_results": PastResults,
 }
+# The files the simulation (#1) makes; the others exist only as real data.
+SIMULATED_FILES = ["personas", "candidates", "responses_sean", "responses_furkan", "responses", "frame", "forecast"]

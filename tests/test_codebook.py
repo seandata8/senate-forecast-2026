@@ -5,15 +5,14 @@
 # Pre-requisites: uv run scripts/write_codebook.py
 # Run from the repo root: uv run pytest
 
-from pathlib import Path
-
 from senate_forecast_2026.codebook import codebook_markdown
+from senate_forecast_2026.paths import CODEBOOK
 from senate_forecast_2026.schemas import FILE_SCHEMAS
 
 
 def test_codebook_is_up_to_date():
     # If this fails, a schema changed: run `uv run scripts/write_codebook.py` and commit data/codebook.md.
-    assert Path("data/codebook.md").read_text() == codebook_markdown()
+    assert CODEBOOK.read_text() == codebook_markdown()
 
 
 def test_every_column_has_a_description():

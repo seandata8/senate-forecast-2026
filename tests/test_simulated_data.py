@@ -7,12 +7,12 @@
 # Pre-requisites: uv run scripts/00-simulate_data.py
 # Run from the repo root: uv run pytest
 
-from pathlib import Path
 
 import polars as pl
 import pytest
 from scipy.stats import chisquare
 
+from senate_forecast_2026.paths import SIMULATED_DATA
 from senate_forecast_2026.schemas import (
     AGE_GROUPS,
     EDUCATION,
@@ -24,6 +24,7 @@ from senate_forecast_2026.schemas import (
     PARTY_GROUPS,
     PARTY_IDS,
     RACES,
+    SIMULATED_FILES,
     STATES,
 )
 from senate_forecast_2026.senate_simulation import (
@@ -35,14 +36,14 @@ from senate_forecast_2026.senate_simulation import (
 )
 from senate_forecast_2026.simulation_settings import PERSONA_SHARES
 
-DATA_FOLDER = Path("data/00-simulated_data")
+DATA_FOLDER = SIMULATED_DATA
 RESPONSE_FILES = ["responses_sean", "responses_furkan", "responses"]  # same columns, so they get the same checks
 
 
 @pytest.fixture(scope="module")
 def data():
-    """All six files, read once for the whole module."""
-    return {name: pl.read_parquet(DATA_FOLDER / f"{name}.parquet") for name in FILE_SCHEMAS}
+    """All the simulated files, read once for the whole module."""
+    return {name: pl.read_parquet(DATA_FOLDER / f"{name}.parquet") for name in SIMULATED_FILES}
 
 
 def share_of(table, group_column, group, outcome_column, outcomes):
@@ -59,7 +60,7 @@ def seats(data):
 
 #### Each file against its schema ####
 
-@pytest.mark.parametrize("name", FILE_SCHEMAS)
+@pytest.mark.parametrize("name", SIMULATED_FILES)
 def test_matches_schema(data, name):
     # Columns, types and allowed values; lazy=True lists every failure, not just the first.
     FILE_SCHEMAS[name].validate(data[name], lazy=True)
