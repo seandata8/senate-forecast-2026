@@ -19,8 +19,7 @@ University of Toronto data science course project (Sean Murphy and Furkan Danism
 - `scripts/` holds the numbered pipeline scripts; `tests/` the pytest suites (simulated data now, real data in a separate file later).
 - The codebook, `data/codebook.md`, is written from the schemas: give every column a `description=` in `schemas.py` (source, transformations, what missing means), then run `uv run scripts/write_codebook.py`. Never edit the codebook by hand; `tests/test_codebook.py` fails if it is out of date.
 - Every script that writes a parquet to `data/` also writes `samp_<name>.csv` next to it: 25 random rows, seeded, so the data can be read in an editor or on GitHub. Use `save_data()` from `senate_forecast_2026/save.py`, which also checks the schema first.
-- `silicon.py` is the shared module for scripts. It holds the OpenRouter client (OpenAI SDK with `base_url`), a local Ollama client, `MODELS` and `EXTRA_MODELS`, the JSON `SCHEMA`, the `BUDGET_USD` guard, and `ask(model, persona, question, temperature, draw)`.
-- `silicon.py` is still the worksheet version. `OPTIONS` and `SCHEMA` are the generic ballot (Democratic / Republican / Other / Would not vote) and must become per-race candidate lists; `MODELS` is a placeholder.
+- `silicon.py` is the shared module for scripts. It holds the OpenRouter client (OpenAI SDK with `base_url`), a local Ollama client, `MODELS` and `EXTRA_MODELS`, `answer_schema(options)`, the `BUDGET_USD` guard, and `ask(model, persona, question, options, temperature, draw)`, which returns the answer (one of `options`, or None) with its token counts and cost.
 - Scripts do `from silicon import *`. Because of that, use `total_spent()` rather than the `spent` global, which `import *` copies once.
 - Models prefixed `ollama/` are routed to a local Ollama server at `localhost:11434`; their cost is recorded as 0.
 
@@ -32,9 +31,9 @@ University of Toronto data science course project (Sean Murphy and Furkan Danism
 - Every script starts with the `#### Preamble ####` block (purpose, author, date, pre-requisites), as in `silicon.py`.
 
 ## Gotchas
-- `ask()` caches to `cache/<sha256>.json`, keyed on model, temperature, draw, persona and question. Any change to those creates a new, billed call. For repeated samples of the same persona and question, vary `draw`.
+- `ask()` caches to `cache/<sha256>.json`, keyed on model, temperature, draw, persona, question and answer options. Any change to those creates a new, billed call. For repeated samples of the same persona and question, vary `draw`.
 - `cache/` is committed to git so results are reproducible without new API calls. Commit new cache files along with the scripts that made them.
-- Failed or unparseable answers are cached as `{"vote": None, "confidence": None}` and are not retried. Delete the cache file to retry.
+- Failed or unparseable answers, and answers that are not one of the options, are cached with `"answer": None` and are not retried. Delete the cache file to retry.
 - `BUDGET_USD` (2.00) is per process, not persistent. Cache hits are free and don't count toward it.
 - `instructions/` holds course materials. It is gitignored, so treat it as the assignment spec and don't modify it.
 - Model IDs in `MODELS` are OpenRouter slugs. Check they exist before changing them.
