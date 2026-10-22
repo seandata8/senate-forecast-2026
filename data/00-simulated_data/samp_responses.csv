@@ -1,0 +1,58 @@
+approach,persona_id,state,model,draw,question,answer,input_tokens,output_tokens,cost
+sean,903,TN,provider-1/model-x,0,senate,TN Republican,345,17,0.00008259999999999999
+sean,903,TN,provider-1/model-x,0,generic,Republican,320,32,0.0000896
+sean,776,OK,provider-1/model-x,1,senate,OK Republican,315,20,0.000079
+sean,776,OK,provider-1/model-x,1,generic,Republican,307,22,0.000079
+sean,491,MN,provider-1/model-x,2,senate,MN Republican,366,19,0.00008840000000000001
+sean,491,MN,provider-1/model-x,2,generic,Republican,330,15,0.000078
+sean,50,AK,provider-2/model-y,0,senate,AK Democrat,402,27,0.000102
+sean,50,AK,provider-2/model-y,0,generic,Republican,330,23,0.0000844
+sean,50,AK,provider-2/model-y,0,alaska_final,AK Democrat,377,27,0.000097
+sean,63,AR,provider-2/model-y,0,senate,AR Republican,382,24,0.0000956
+sean,63,AR,provider-2/model-y,0,generic,Republican,353,20,0.0000866
+sean,610,NH,provider-2/model-y,0,senate,Undecided,354,34,0.000098
+sean,610,NH,provider-2/model-y,0,generic,Undecided,343,19,0.00008380000000000002
+sean,651,NJ,provider-2/model-y,0,senate,NJ Democrat,312,22,0.00008
+sean,651,NJ,provider-2/model-y,0,generic,Democrat,379,25,0.0000958
+sean,746,OH,provider-2/model-y,0,senate,OH Republican,358,33,0.00009800000000000001
+sean,746,OH,provider-2/model-y,0,generic,Democrat,392,25,0.0000984
+sean,567,MT,provider-2/model-y,1,senate,MT Independent,328,27,0.00008720000000000002
+sean,567,MT,provider-2/model-y,1,generic,Republican,416,29,0.00010640000000000001
+sean,711,NC,provider-2/model-y,1,senate,NC Democrat,363,25,0.00009260000000000001
+sean,711,NC,provider-2/model-y,1,generic,Democrat,379,23,0.0000942
+sean,734,OH,provider-2/model-y,1,senate,OH Democrat,331,30,0.0000902
+sean,734,OH,provider-2/model-y,1,generic,Republican,327,28,0.0000878
+sean,31,AK,provider-2/model-y,2,senate,AK Democrat,331,28,0.00008860000000000001
+sean,31,AK,provider-2/model-y,2,generic,Republican,340,13,0.00007840000000000001
+sean,31,AK,provider-2/model-y,2,alaska_final,AK Democrat,365,28,0.0000954
+sean,143,DE,provider-2/model-y,2,senate,DE Democrat,391,22,0.00009580000000000001
+sean,143,DE,provider-2/model-y,2,generic,Republican,323,32,0.00009020000000000001
+sean,713,NC,provider-2/model-y,2,senate,NC Democrat,367,19,0.00008860000000000001
+sean,713,NC,provider-2/model-y,2,generic,Undecided,367,25,0.00009340000000000001
+furkan,279,IA,provider-1/model-x,0,senate,IA Republican,405,34,0.0001082
+furkan,279,IA,provider-1/model-x,0,generic,Republican,346,22,0.00008680000000000001
+furkan,270,IA,provider-1/model-x,1,senate,IA Republican,415,27,0.0001046
+furkan,270,IA,provider-1/model-x,1,generic,Republican,345,28,0.0000914
+furkan,308,KS,provider-1/model-x,1,senate,KS Republican,357,24,0.0000906
+furkan,308,KS,provider-1/model-x,1,generic,Democrat,419,26,0.00010460000000000001
+furkan,743,OH,provider-1/model-x,1,senate,OH Republican,379,25,0.0000958
+furkan,743,OH,provider-1/model-x,1,generic,Democrat,328,31,0.0000904
+furkan,245,IL,provider-3/model-z,0,senate,IL Republican,330,32,0.00009159999999999999
+furkan,245,IL,provider-3/model-z,0,generic,Democrat,359,28,0.0000942
+furkan,375,LA,provider-3/model-z,0,senate,LA Republican,377,34,0.00010260000000000001
+furkan,375,LA,provider-3/model-z,0,generic,Undecided,365,28,0.0000954
+furkan,390,ME,provider-3/model-z,0,senate,ME Democrat,323,26,0.0000854
+furkan,390,ME,provider-3/model-z,0,generic,Republican,348,17,0.00008320000000000002
+furkan,521,MS,provider-3/model-z,0,senate,MS Republican,349,25,0.0000898
+furkan,521,MS,provider-3/model-z,0,generic,Republican,361,23,0.0000906
+furkan,829,RI,provider-3/model-z,0,senate,RI Republican,340,25,0.000088
+furkan,829,RI,provider-3/model-z,0,generic,Republican,376,26,0.000096
+furkan,37,AK,provider-3/model-z,2,senate,AK Republican,379,25,0.0000958
+furkan,37,AK,provider-3/model-z,2,generic,Republican,380,28,0.0000984
+furkan,37,AK,provider-3/model-z,2,alaska_final,AK Republican,289,29,0.000081
+furkan,381,LA,provider-3/model-z,2,senate,LA Democrat,330,27,0.00008759999999999999
+furkan,381,LA,provider-3/model-z,2,generic,Democrat,344,33,0.0000952
+furkan,647,NJ,provider-3/model-z,2,senate,NJ Republican,382,24,0.0000956
+furkan,647,NJ,provider-3/model-z,2,generic,Republican,385,26,0.00009779999999999999
+furkan,710,NC,provider-3/model-z,2,senate,NC Democrat,335,15,0.000079
+furkan,710,NC,provider-3/model-z,2,generic,Democrat,316,30,0.0000872

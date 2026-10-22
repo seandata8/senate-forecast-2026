@@ -1,0 +1,57 @@
+approach,persona_id,state,model,draw,question,answer,input_tokens,output_tokens,cost
+sean,154,FL,provider-1/model-x,0,senate,FL Republican,307,43,0.00009580000000000001
+sean,154,FL,provider-1/model-x,0,generic,Republican,372,15,0.0000864
+sean,195,GA,provider-1/model-x,0,senate,GA Republican,378,17,0.00008920000000000001
+sean,195,GA,provider-1/model-x,0,generic,Republican,343,17,0.00008220000000000002
+sean,371,LA,provider-1/model-x,0,senate,LA Democrat,373,31,0.0000994
+sean,371,LA,provider-1/model-x,0,generic,Democrat,317,23,0.00008180000000000001
+sean,830,RI,provider-1/model-x,0,senate,RI Democrat,374,22,0.00009240000000000001
+sean,830,RI,provider-1/model-x,0,generic,Republican,365,33,0.0000994
+sean,912,TN,provider-1/model-x,0,senate,TN Democrat,382,27,0.000098
+sean,912,TN,provider-1/model-x,0,generic,Democrat,357,20,0.00008740000000000001
+sean,139,DE,provider-1/model-x,1,senate,DE Democrat,344,24,0.000088
+sean,139,DE,provider-1/model-x,1,generic,Democrat,340,32,0.0000936
+sean,355,KY,provider-1/model-x,1,senate,KY Democrat,378,30,0.00009960000000000001
+sean,355,KY,provider-1/model-x,1,generic,Republican,336,16,0.00008
+sean,891,SD,provider-1/model-x,1,senate,Undecided,372,25,0.0000944
+sean,891,SD,provider-1/model-x,1,generic,Democrat,372,24,0.00009360000000000001
+sean,897,SD,provider-1/model-x,1,senate,SD Republican,302,16,0.0000732
+sean,897,SD,provider-1/model-x,1,generic,Would not vote,403,26,0.00010140000000000001
+sean,323,KS,provider-1/model-x,2,senate,KS Republican,355,20,0.000087
+sean,323,KS,provider-1/model-x,2,generic,Republican,357,30,0.0000954
+sean,549,MT,provider-1/model-x,2,senate,Would not vote,331,20,0.0000822
+sean,549,MT,provider-1/model-x,2,generic,Republican,385,26,0.00009779999999999999
+sean,808,OR,provider-1/model-x,2,senate,OR Democrat,375,21,0.0000918
+sean,808,OR,provider-1/model-x,2,generic,Democrat,335,31,0.0000918
+sean,880,SD,provider-1/model-x,2,senate,SD Democrat,396,26,0.0001
+sean,880,SD,provider-1/model-x,2,generic,Democrat,368,23,0.00009200000000000001
+sean,260,IL,provider-2/model-y,0,senate,IL Republican,350,19,0.0000852
+sean,260,IL,provider-2/model-y,0,generic,Republican,399,24,0.00009900000000000001
+sean,414,ME,provider-2/model-y,0,senate,ME Republican,344,12,0.00007840000000000001
+sean,414,ME,provider-2/model-y,0,generic,Republican,352,30,0.0000944
+sean,596,NE,provider-2/model-y,0,senate,NE Republican,358,28,0.00009400000000000001
+sean,596,NE,provider-2/model-y,0,generic,Republican,336,14,0.00007840000000000001
+sean,769,OK,provider-2/model-y,0,senate,Undecided,379,24,0.000095
+sean,769,OK,provider-2/model-y,0,generic,Republican,304,24,0.00008
+sean,879,SD,provider-2/model-y,0,senate,SD Democrat,355,21,0.00008779999999999999
+sean,879,SD,provider-2/model-y,0,generic,Republican,371,30,0.0000982
+sean,975,VA,provider-2/model-y,0,senate,VA Democrat,388,33,0.00010400000000000002
+sean,975,VA,provider-2/model-y,0,generic,Democrat,329,20,0.0000818
+sean,122,DE,provider-2/model-y,1,senate,DE Democrat,337,24,0.0000866
+sean,122,DE,provider-2/model-y,1,generic,Would not vote,360,29,0.0000952
+sean,187,GA,provider-2/model-y,1,senate,GA Democrat,346,25,0.0000892
+sean,187,GA,provider-2/model-y,1,generic,Republican,363,17,0.00008620000000000002
+sean,555,MT,provider-2/model-y,1,senate,MT Independent,366,20,0.0000892
+sean,555,MT,provider-2/model-y,1,generic,Republican,379,28,0.0000982
+sean,849,SC,provider-2/model-y,1,senate,SC Republican,385,25,0.000097
+sean,849,SC,provider-2/model-y,1,generic,Republican,345,17,0.00008259999999999999
+sean,33,AK,provider-2/model-y,2,senate,AK Republican,354,22,0.00008840000000000001
+sean,33,AK,provider-2/model-y,2,generic,Republican,413,23,0.00010100000000000002
+sean,33,AK,provider-2/model-y,2,alaska_final,AK Republican,364,27,0.0000944
+sean,45,AK,provider-2/model-y,2,senate,AK Democrat,411,35,0.00011020000000000001
+sean,45,AK,provider-2/model-y,2,generic,Republican,321,22,0.00008180000000000001
+sean,45,AK,provider-2/model-y,2,alaska_final,AK Republican,360,23,0.0000904
+sean,134,DE,provider-2/model-y,2,senate,DE Republican,378,26,0.00009640000000000001
+sean,134,DE,provider-2/model-y,2,generic,Democrat,356,23,0.00008960000000000001
+sean,190,GA,provider-2/model-y,2,senate,GA Republican,351,23,0.00008860000000000001
+sean,190,GA,provider-2/model-y,2,generic,Republican,364,15,0.0000848

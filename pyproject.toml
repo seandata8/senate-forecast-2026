@@ -10,8 +10,11 @@ requires-python = ">=3.14"
 dependencies = [
     "numpy>=2.5.4",
     "openai>=3.35.1",
+    "pandera[polars]>=0.34.1",
     "polars>=2.0.0",
+    "pytest>=9.1.1",
     "python-dotenv>=1.2.4",
+    "scipy>=1.18.1",
 ]
 
 [project.scripts]
@@ -20,3 +23,14 @@ senate-forecast-2026 = "senate_forecast_2026:main"
 [build-system]
 requires = ["uv_build>=0.12.23,<0.13.0"]
 build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "ruff>=0.17.1",
+]
+
+[tool.ruff]
+line-length = 120
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

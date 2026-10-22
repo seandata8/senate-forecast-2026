@@ -12,6 +12,6 @@ Sean Murphy and Furkan Danisman, University of Toronto.
 
 ## Statement on AI usage
 
-We used Claude Code, with Claude Opus 5.5 (`claude-opus-5-5`), on 18 October 2026 to set up the repository: the `uv` project, `.gitignore`, `silicon.py` (adapted from our course worksheet), and `AGENTS.md`. Claude Code with Claude Opus 5.5 also drafted this README on 18 October 2026, which we then edited. This statement will be updated as the project continues.
+We used Claude Code, with Claude Opus 5.5 (`claude-opus-5-5`), on 18 October 2026 to set up the repository: the `uv` project, `.gitignore`, `silicon.py` (adapted from our course worksheet), and `AGENTS.md`. Claude Code with Claude Opus 5.5 also drafted this README on 18 October 2026, which we then edited. On 21 October 2026, Claude Code with Claude Opus 5.5 wrote the simulation (`scripts/00-simulate_data.py`), the data schemas, seat simulation and file saving (`src/senate_forecast_2026/schemas.py`, `senate_simulation.py`, `save.py`, `simulation_settings.py`), the codebook generator (`src/senate_forecast_2026/codebook.py`, `scripts/write_codebook.py`), and the tests (`tests/test_simulated_data.py`, `tests/test_codebook.py`), which we reviewed. This statement will be updated as the project continues.
 
 The LLMs queried to produce the silicon sample are part of the method, not help with the work; they will be listed with their OpenRouter identifiers in the methods section of the website.
