@@ -14,6 +14,7 @@ import pytest
 from senate_forecast_2026.queries import (
     QUESTION_WORDINGS,
     STATE_NAMES,
+    V2_PAST_ELECTIONS,
     persona_to_prompt,
     query_personas,
     questions_for_state,
@@ -87,6 +88,16 @@ def test_alaska_final_round_is_the_democrat_against_the_incumbent(candidates, wo
     democrat = alaska.filter(pl.col("party") == "Democrat")["candidate"].item()
     incumbent = alaska.filter(pl.col("incumbent"))["candidate"].item()
     assert final_round["options"] == [democrat, incumbent] + NON_CANDIDATE_ANSWERS
+
+
+def test_wordings_differ_only_in_text(candidates):
+    """v1 and v2 ask the same questions with the same options; only v2 has the past-elections sentence."""
+    for state in STATES:
+        v1 = questions_for_state(state, candidates, "v1")
+        v2 = questions_for_state(state, candidates, "v2")
+        assert [question["options"] for question in v1] == [question["options"] for question in v2]
+        assert all(V2_PAST_ELECTIONS in question["text"] for question in v2)
+        assert not any(V2_PAST_ELECTIONS in question["text"] for question in v1)
 
 
 def test_responses_match_the_schema(responses):

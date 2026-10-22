@@ -63,9 +63,13 @@ def persona_to_prompt(persona):
     )
 
 
-def candidate_list(state_candidates):
-    """The candidates as they appear in a question, e.g. "Jane Smith (Democrat), John Doe (Republican)"."""
-    return ", ".join(f"{row['candidate']} ({row['party']})" for row in state_candidates.iter_rows(named=True))
+def candidate_list(state_candidates, wording):
+    """The candidates as they appear in a question. v1: "A (Democrat), B (Republican)".
+    v2: "A (Democrat) and B (Republican)", or "A (Democrat), B (Republican) and C (Independent)" for three or more."""
+    names = [f"{row['candidate']} ({row['party']})" for row in state_candidates.iter_rows(named=True)]
+    if wording == "v1" or len(names) == 1:
+        return ", ".join(names)
+    return ", ".join(names[:-1]) + " and " + names[-1]
 
 
 def alaska_final_candidates(alaska_candidates):
@@ -76,9 +80,16 @@ def alaska_final_candidates(alaska_candidates):
     return final_round
 
 
-# The wording of each question, by version. Placeholders: {state_name}, {date}, {candidates}.
+# The two wordings of each question. The answer options are the same in both; only the text differs.
 # v1 lists "Undecided" and "Would not vote" as plain instructions after the question.
+# v2 is a robustness check: LLMs tend to pick a candidate whenever one is offered, so v2 says that some people
+# find it hard to decide or do not vote, and offers both answers before asking, as normal answers rather than
+# fallbacks. Comparing the two shows how much the answers depend on that framing.
+# Placeholders: {state_name}, {date}, {candidates}.
 V1_CHOOSE_NOTE = 'If you have not decided, answer "Undecided". If you will not vote, answer "Would not vote".'
+V2_PAST_ELECTIONS = (
+    "In past elections, some people found it hard to make up their minds, and some of them decided not to vote at all."
+)
 QUESTION_WORDINGS = {
     "v1": {
         "senate": "The election for US Senate in {state_name} is on {date}. The candidates on your ballot are: "
@@ -89,11 +100,23 @@ QUESTION_WORDINGS = {
         "on {date}, only these two candidates are left: {candidates}. Which of the two will you vote for? "
         + V1_CHOOSE_NOTE,
     },
+    "v2": {
+        "senate": "The US Senate election in {state_name} is on {date}, and the candidates on your ballot are "
+        "{candidates}. " + V2_PAST_ELECTIONS + " If you're not sure who you'd pick, say \"Undecided\". "
+        "If you probably won't vote, say \"Would not vote\". Otherwise, who will you vote for?",
+        "generic": "On {date} there is an election for the US House of Representatives. Which party's candidate will "
+        'you vote for: "Democrat", "Republican" or "Other"? ' + V2_PAST_ELECTIONS + " If you're not sure, "
+        "say \"Undecided\". If you probably won't vote, say \"Would not vote\".",
+        "alaska_final": "Alaska uses ranked-choice voting. Suppose that in the final round of the US Senate election "
+        "on {date}, only two candidates are left: {candidates}. " + V2_PAST_ELECTIONS + " If you can't choose "
+        "between them, say \"Undecided\". If you probably won't vote, say \"Would not vote\". Otherwise, which "
+        "of the two would you vote for?",
+    },
 }
 
 
 def questions_for_state(state, candidates, wording):
-    """The questions every persona in `state` is asked, in `wording` (a key of QUESTION_WORDINGS):
+    """The questions every persona in `state` is asked, in `wording` ("v1" or "v2", see QUESTION_WORDINGS):
     a list of dicts with `question` (as in the Responses schema), `text` (what the model reads) and
     `options` (the answers it may give)."""
     templates = QUESTION_WORDINGS[wording]
@@ -104,7 +127,7 @@ def questions_for_state(state, candidates, wording):
     def question(name, question_candidates, options):
         text = templates[name].format(
             state_name=STATE_NAMES[state], date=ELECTION_DATE,
-            candidates=candidate_list(question_candidates) if question_candidates is not None else "",
+            candidates=candidate_list(question_candidates, wording) if question_candidates is not None else "",
         )
         return {"question": name, "text": text, "options": options}
 
@@ -119,7 +142,7 @@ def questions_for_state(state, candidates, wording):
 
 
 def query_personas(personas, candidates, approach, models, draws, temperature, wording, ask):
-    """Ask every persona every question in their state, in `wording` (a key of QUESTION_WORDINGS), with each model, `draws` times.
+    """Ask every persona every question in their state, in `wording` ("v1" or "v2"), with each model, `draws` times.
 
     `ask(model, persona, question, options, temperature, draw)` returns a dict with `answer`, `input_tokens`,
     `output_tokens` and `cost` (silicon.ask, or a fake one in the tests). Returns one row per answer, with the
