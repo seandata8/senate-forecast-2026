@@ -1,7 +1,7 @@
 #### Preamble ####
-# Purpose: Client, models, schema, and one cached structured call, shared by the worksheet scripts
-# Author: Sean Murphy
-# Date: 7 October 2026
+# Purpose: Client, models, and one cached structured call, shared by the scripts that query models
+# Author: Sean Murphy; per-question answer options and token counts added by Furkan Danisman
+# Date: 7 October 2026; updated 22 October 2026
 # Pre-requisites: uv add openai python-dotenv polars numpy; OPENROUTER_API_KEY in .env
 
 import hashlib
@@ -26,16 +26,19 @@ local_client = OpenAI(base_url="http://localhost:11434/v1", api_key="ollama", ti
 MODELS = ["deepseek/deepseek-v4-flash-0731", "z-ai/glm-5.3-flash", "meta/muse-glimmer-30b"]
 # Not part of the worksheet; run deliberately for comparison. The "ollama/" prefix routes a model to local_client.
 EXTRA_MODELS = ["ollama/gemma4:12b"]
-OPTIONS = ["Democratic", "Republican", "Other", "Would not vote"]
-SCHEMA = {
-    "type": "object",
-    "properties": {
-        "vote": {"type": "string", "enum": OPTIONS},
-        "confidence": {"type": "integer", "minimum": 0, "maximum": 100},
-    },
-    "required": ["vote", "confidence"],
-    "additionalProperties": False,
-}
+
+
+def answer_schema(options):
+    """The JSON the model must return: one answer, from `options`. The options differ by question and race
+    (each state's own candidates), so the schema is built for each call."""
+    return {
+        "type": "object",
+        "properties": {"answer": {"type": "string", "enum": options}},
+        "required": ["answer"],
+        "additionalProperties": False,
+    }
+
+
 BUDGET_USD = 2.00
 CACHE = Path(__file__).parent / "cache"  # next to this file, wherever a script is run from
 CACHE.mkdir(exist_ok=True)
@@ -47,14 +50,14 @@ def total_spent():
     return spent
 
 
-def ask(model, persona, question, temperature=1.0, draw=0):
-    """One structured answer. Cached on everything that determines it, so a rerun costs nothing.
+def ask(model, persona, question, options, temperature=1.0, draw=0):
+    """One structured answer, chosen from `options`. Cached on everything that determines it, so a rerun costs nothing.
     `draw` lets you ask the same persona the same question more than once."""
     global spent  # we add to the module-level total below, not a local copy
 
     # Cache key: every input that can change the answer, hashed into a fixed-length filename.
-    # Change any one of them (even one character of the persona) and it is a new call.
-    raw = f"{model}|{temperature}|{draw}|{persona}|{question}"
+    # Change any one of them (even one character of the persona, or one answer option) and it is a new call.
+    raw = f"{model}|{temperature}|{draw}|{persona}|{question}|{json.dumps(options)}"
     path = CACHE / (hashlib.sha256(raw.encode()).hexdigest() + ".json")
     if path.exists():
         return json.loads(path.read_text())  # cache hit: no API call, no cost
@@ -64,7 +67,7 @@ def ask(model, persona, question, temperature=1.0, draw=0):
         raise RuntimeError(f"Budget of ${BUDGET_USD} reached")
 
     # Persona goes in the system message (who the model is), question in the user message (what it is asked).
-    # response_format with strict=True asks the provider to return JSON matching SCHEMA.
+    # response_format with strict=True asks the provider to return JSON matching the answer schema.
     # The full model string (with any "ollama/" prefix) stays in the cache key; only the API sees the bare name.
     if model.startswith("ollama/"):
         api, name = local_client, model.removeprefix("ollama/")
@@ -74,17 +77,21 @@ def ask(model, persona, question, temperature=1.0, draw=0):
         model=name,
         messages=[{"role": "system", "content": persona}, {"role": "user", "content": question}],
         temperature=temperature,
-        response_format={"type": "json_schema", "json_schema": {"name": "vote", "strict": True, "schema": SCHEMA}},
+        response_format={
+            "type": "json_schema",
+            "json_schema": {"name": "answer", "strict": True, "schema": answer_schema(options)},
+        },
     )
     cost = getattr(response.usage, "cost", 0.0)  # OpenRouter reports the dollar cost of each call; Ollama does not (it is free)
     spent += cost
 
-    # Strict mode is not guaranteed by every provider, so parse defensively and keep only the two fields we want.
+    # Strict mode is not guaranteed by every provider, so parse defensively and keep only an answer from `options`.
     try:
-        answer = json.loads(response.choices[0].message.content)
-        answer = {"vote": answer["vote"], "confidence": answer["confidence"]}
+        answer = json.loads(response.choices[0].message.content)["answer"]
     except (TypeError, ValueError, KeyError):
-        answer = {"vote": None, "confidence": None}  # no answer, or not the shape we asked for
+        answer = None  # no answer, or not the shape we asked for
+    if answer not in options:
+        answer = None  # an answer that is not one of the options counts as no usable answer
 
     # Save the inputs alongside the answer so each cache file is self-describing, then write it.
     # Failed answers are cached too, so a rerun will not retry them.
@@ -95,8 +102,11 @@ def ask(model, persona, question, temperature=1.0, draw=0):
         "draw": draw,
         "persona": persona,
         "question": question,
+        "options": options,
+        "input_tokens": response.usage.prompt_tokens,
+        "output_tokens": response.usage.completion_tokens,
         "cost": cost,
-        **answer,
+        "answer": answer,
     }
     path.write_text(json.dumps(record))
     return record
