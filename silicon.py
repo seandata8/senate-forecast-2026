@@ -40,7 +40,7 @@ def answer_schema(options):
 
 
 BUDGET_USD = 2.00
-CACHE = Path("cache")
+CACHE = Path(__file__).parent / "cache"  # next to this file, wherever a script is run from
 CACHE.mkdir(exist_ok=True)
 spent = 0.0
 
