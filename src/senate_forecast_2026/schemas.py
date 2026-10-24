@@ -253,6 +253,27 @@ class Polls(pa.DataFrameModel):
         strict = True
 
 
+class Polymarket(pa.DataFrameModel):
+    """One row per candidate per day: the Polymarket price of a share that pays $1 if the candidate wins their 2026
+    Senate race. Made by #11 from Polymarket's "<State> Senate Election Winner" markets. A comparison on the
+    website, not a forecast input."""
+
+    state: str = pa.Field(isin=STATES, description=STATE)
+    date: datetime.date = pa.Field(description="The day (UTC) of the price. The last price of each day is kept.")
+    candidate: str = pa.Field(
+        description="Candidate's name, as in candidates (Polymarket's market title without its party letter, "
+        "corrected where it differs).",
+    )
+    price: float = pa.Field(
+        ge=0, le=1,
+        description="Price in dollars of a share that pays $1 if the candidate wins: roughly the market's chance "
+        "that they win. A race's prices sum to about 1.",
+    )
+
+    class Config:
+        strict = True
+
+
 # Each data file and the schema it must match. Used by the tests and the codebook.
 FILE_SCHEMAS = {
     "personas": Personas,
@@ -264,6 +285,7 @@ FILE_SCHEMAS = {
     "forecast": Forecast,
     "past_results": PastResults,
     "polls": Polls,
+    "polymarket": Polymarket,
 }
 # The files the simulation (#1) makes; the others exist only as real data.
 SIMULATED_FILES = ["personas", "candidates", "responses_sean", "responses_furkan", "responses", "frame", "forecast"]

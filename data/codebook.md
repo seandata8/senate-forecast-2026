@@ -117,3 +117,14 @@ One row per candidate in each general-election poll of a 2026 Senate race. Made 
 | `population` | String | yes | Likely voters, Registered voters, Adults | Who was interviewed: VoteHub `population` lv, rv and a, written out. Missing if VoteHub has none. |
 | `candidate` | String | no | any | Candidate's name, as in candidates (VoteHub's spelling corrected where it differs). |
 | `share` | Float64 | no | ≥ 0, ≤ 1 | Candidate's share of everyone asked (VoteHub `pct` / 100). Undecided and other candidates are not rows, so a poll's shares usually sum to less than 1. |
+
+## `polymarket`
+
+One row per candidate per day: the Polymarket price of a share that pays $1 if the candidate wins their 2026 Senate race. Made by #11 from Polymarket's "<State> Senate Election Winner" markets. A comparison on the website, not a forecast input.
+
+| Column | Type | Missing | Allowed values | Description |
+|---|---|---|---|---|
+| `state` | String | no | AL, AK, AR, CO, DE, FL, GA, ID, IL, IA, KS, KY, LA, ME, MA, MI, MN, MS, MT, NE, NH, NJ, NM, NC, OH, OK, OR, RI, SC, SD, TN, TX, VA, WV, WY | Two-letter state code. Only the 35 states with a 2026 Senate race. |
+| `date` | Date | no | any | The day (UTC) of the price. The last price of each day is kept. |
+| `candidate` | String | no | any | Candidate's name, as in candidates (Polymarket's market title without its party letter, corrected where it differs). |
+| `price` | Float64 | no | ≥ 0, ≤ 1 | Price in dollars of a share that pays $1 if the candidate wins: roughly the market's chance that they win. A race's prices sum to about 1. |
