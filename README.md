@@ -17,6 +17,7 @@ The forecast website will be deployed with GitHub Pages and frozen at the end of
 | `wikipedia_2026_senate_elections.txt` | Wikipedia, "2026 United States Senate elections", revision 1381380271 | Yes |
 | `1976-2024-senate-state.csv` | MIT Election Data and Science Lab, [doi:10.7910/DVN/PEJ5QU](https://doi.org/10.7910/DVN/PEJ5QU), version 8 | Yes |
 | `1976-2024-president.csv` | MIT Election Data and Science Lab, [doi:10.7910/DVN/42MVDX](https://doi.org/10.7910/DVN/42MVDX), version 10.1 | Yes |
+| `votehub_senate_polls.json` | VoteHub Polls API, [votehub.com/polls/api](https://votehub.com/polls/api/), CC BY 4.0; downloaded by `scripts/10-download_polls.py`, which replaces it with the latest polls on each run | Yes |
 
 **The CES files.** Both are over GitHub's 100 MB file limit, so they are gitignored and not in the repo. To get them, run the download script above. To download them by hand instead, open the DOI link, download the CSV file named in the table (on Dataverse, choose "Original File Format" if offered), and save it in `data/01-raw_data/` under that name.
 
