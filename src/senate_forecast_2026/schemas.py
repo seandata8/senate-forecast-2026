@@ -5,6 +5,8 @@
 # Date: 21 October 2026
 # Pre-requisites: uv add "pandera[polars]"
 
+import datetime
+
 import pandera.polars as pa
 
 # The 35 states with a Senate race in 2026 (33 regular seats, plus the Ohio and Florida specials).
@@ -67,6 +69,9 @@ PARTIES = ["Democrat", "Republican", "Independent", "Libertarian", "Green", "Oth
 QUESTIONS = ["senate", "generic", "alaska_final"]  # alaska_final: the ranked-choice final round, Alaska personas only
 NON_CANDIDATE_ANSWERS = ["Undecided", "Would not vote"]  # allowed for every question, alongside the candidates
 GENERIC_ANSWERS = ["Democrat", "Republican", "Other"] + NON_CANDIDATE_ANSWERS
+
+# Who a poll asked, as VoteHub's `population` codes lv, rv and a.
+POLL_POPULATIONS = ["Likely voters", "Registered voters", "Adults"]
 
 
 # Descriptions of columns that appear in more than one file, written once.
@@ -221,6 +226,33 @@ class PastResults(pa.DataFrameModel):
         strict = True
 
 
+class Polls(pa.DataFrameModel):
+    """One row per candidate in each general-election poll of a 2026 Senate race. Made by #10 from the VoteHub
+    polls API (CC BY 4.0). A comparison on the website, not a forecast input."""
+
+    poll_id: str = pa.Field(description="VoteHub's id for the poll. Links the rows (one per candidate) of one poll.")
+    state: str = pa.Field(isin=STATES, description=STATE + " From VoteHub `subject`, e.g. \"2026 Texas\".")
+    pollster: str = pa.Field(description="VoteHub `pollster`, unchanged.")
+    start_date: datetime.date = pa.Field(description="The poll's first day of interviews (VoteHub `start_date`).")
+    date: datetime.date = pa.Field(description="The poll's last day of interviews (VoteHub `end_date`).")
+    sample_size: int = pa.Field(
+        gt=0, nullable=True, description="Number of people interviewed (VoteHub `sample_size`). Missing if VoteHub has none.",
+    )
+    population: str = pa.Field(
+        isin=POLL_POPULATIONS, nullable=True,
+        description="Who was interviewed: VoteHub `population` lv, rv and a, written out. Missing if VoteHub has none.",
+    )
+    candidate: str = pa.Field(description="Candidate's name, as in candidates (VoteHub's spelling corrected where it differs).")
+    share: float = pa.Field(
+        ge=0, le=1,
+        description="Candidate's share of everyone asked (VoteHub `pct` / 100). Undecided and other candidates are "
+        "not rows, so a poll's shares usually sum to less than 1.",
+    )
+
+    class Config:
+        strict = True
+
+
 # Each data file and the schema it must match. Used by the tests and the codebook.
 FILE_SCHEMAS = {
     "personas": Personas,
@@ -231,6 +263,7 @@ FILE_SCHEMAS = {
     "frame": Frame,
     "forecast": Forecast,
     "past_results": PastResults,
+    "polls": Polls,
 }
 # The files the simulation (#1) makes; the others exist only as real data.
 SIMULATED_FILES = ["personas", "candidates", "responses_sean", "responses_furkan", "responses", "frame", "forecast"]
