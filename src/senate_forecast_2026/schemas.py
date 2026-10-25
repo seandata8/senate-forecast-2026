@@ -167,8 +167,9 @@ class Responses(pa.DataFrameModel):
 
 
 class Frame(pa.DataFrameModel):
-    """Number of voters in each state and demographic cell, for post-stratification. Made by #8 from 2022 CES
-    validated voters (a midterm electorate)."""
+    """Number of voters in each state and demographic cell, for post-stratification. Made by #8 from 2024 CES
+    validated voters (the same survey as the personas): each cell's share of its state's voters, times the state's
+    2024 vote total."""
 
     state: str = pa.Field(isin=STATES, description=CES_STATE)
     age_group: str = pa.Field(isin=AGE_GROUPS, description=AGE_GROUP)
@@ -181,7 +182,11 @@ class Frame(pa.DataFrameModel):
         'leaning partisans count with their party; independents and not sure are "Independent or other". '
         "In #8 the `party_id` in personas is collapsed the same way.",
     )
-    count: int = pa.Field(ge=0, description="Weighted number of validated voters in the cell. Zero if the cell has none.")
+    count: int = pa.Field(
+        ge=0, description="Number of voters in the cell: the cell's share of its state's validated 2024 CES voters "
+        "(weighted with `vvweight`), times the state's 2024 total votes for President (MIT Election Lab). Zero if the "
+        "cell has none.",
+    )
 
     class Config:
         strict = True
