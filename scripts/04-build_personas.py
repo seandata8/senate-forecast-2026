@@ -9,6 +9,14 @@
 
 import polars as pl
 
+from senate_forecast_2026.ces_codes import (
+    EDUCATION_OF_CES_CODE,
+    GENDER_OF_CES_CODE,
+    PARTY_ID_OF_CES_CODE,
+    RACE_OF_CES_CODE,
+    STATE_OF_CES_CODE,
+    age_group,
+)
 from senate_forecast_2026.paths import ANALYSIS_DATA, RAW_CES_2024, SAMPLE_CES_2024, full_file_or_sample
 from senate_forecast_2026.save import save_data
 from senate_forecast_2026.schemas import Personas
@@ -37,38 +45,10 @@ CES_COLUMNS = [
 ]
 TOOK_POST_SURVEY = "2"  # tookpost: 1 = No, 2 = Yes
 
-# The CES codes of the 35 race states in `inputstate`: the US Census state numbers (FIPS codes), e.g. 1 = Alabama.
-# Checked against the respondent counts per state in the CES 2024 guide.
-STATE_OF_CES_CODE = {
-    "1": "AL", "2": "AK", "5": "AR", "8": "CO", "10": "DE", "12": "FL", "13": "GA", "16": "ID", "17": "IL",
-    "19": "IA", "20": "KS", "21": "KY", "22": "LA", "23": "ME", "25": "MA", "26": "MI", "27": "MN", "28": "MS",
-    "30": "MT", "31": "NE", "33": "NH", "34": "NJ", "35": "NM", "37": "NC", "39": "OH", "40": "OK", "41": "OR",
-    "44": "RI", "45": "SC", "46": "SD", "47": "TN", "48": "TX", "51": "VA", "54": "WV", "56": "WY",
-}
+# The state, age group, gender, race, education and party ID codes are in ces_codes.py, shared with the frame (#8).
+# The other details' codes are below. Each CES code and its label in schemas.py: the codes are from the CES 2024
+# guide, checked by matching its respondent counts for each label to the counts of each code in the data.
 
-SURVEY_YEAR = 2024  # personas are described as they were when surveyed, so age = 2024 - birth year
-
-# Each CES code and its label in schemas.py. The codes are from the CES 2024 guide, checked by matching its
-# respondent counts for each label to the counts of each code in the data (the guide does not list them in code order).
-GENDER_OF_CES_CODE = {"1": "Man", "2": "Woman", "3": "Non-binary", "4": "Other"}  # gender4
-RACE_OF_CES_CODE = {  # race
-    "1": "White",
-    "2": "Black",
-    "3": "Hispanic",
-    "4": "Asian",
-    "5": "Native American",
-    "6": "Two or more races",
-    "7": "Other",
-    "8": "Middle Eastern",
-}
-EDUCATION_OF_CES_CODE = {  # educ
-    "1": "No HS",
-    "2": "High school graduate",
-    "3": "Some college",
-    "4": "2-year",
-    "5": "4-year",
-    "6": "Post-grad",
-}
 INCOME_OF_CES_CODE = {  # faminc_new: its 16 brackets combined into 6
     "1": "Under $30K",  # less than $10,000
     "2": "Under $30K",  # $10,000 - $19,999
@@ -87,16 +67,6 @@ INCOME_OF_CES_CODE = {  # faminc_new: its 16 brackets combined into 6
     "15": "$150K+",  # $350,000 - $499,999
     "16": "$150K+",  # $500,000 or more
     "97": "Prefer not to say",
-}
-PARTY_ID_OF_CES_CODE = {  # pid7
-    "1": "Strong Democrat",
-    "2": "Not very strong Democrat",
-    "3": "Lean Democrat",
-    "4": "Independent",
-    "5": "Lean Republican",
-    "6": "Not very strong Republican",
-    "7": "Strong Republican",
-    "8": "Not sure",
 }
 IDEOLOGY_OF_CES_CODE = {  # ideo5
     "1": "Very liberal",
@@ -161,16 +131,9 @@ print(f"Read {ces.height:,} CES respondents; {post_survey_respondents.height:,} 
 #### State and age group ####
 # Keep only the 35 states with a Senate race, and turn the state's number into its two-letter code.
 race_state_respondents = post_survey_respondents.filter(pl.col("inputstate").is_in(list(STATE_OF_CES_CODE)))
-age = SURVEY_YEAR - pl.col("birthyr").cast(pl.Int64)
 race_state_respondents = race_state_respondents.with_columns(
     state=pl.col("inputstate").replace_strict(STATE_OF_CES_CODE),
-    age_group=pl.when(age < 30)
-    .then(pl.lit("18-29"))
-    .when(age < 45)
-    .then(pl.lit("30-44"))
-    .when(age < 65)
-    .then(pl.lit("45-64"))
-    .otherwise(pl.lit("65+")),
+    age_group=age_group(pl.col("birthyr")),
 )
 print(f"{race_state_respondents.height:,} of them live in the 35 race states", flush=True)
 print(race_state_respondents.group_by("age_group").len().sort("age_group"))
