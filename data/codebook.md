@@ -91,6 +91,21 @@ One row per simulated election, state and candidate. Made by #8 with the Monte C
 | `share` | Float64 | no | ≥ 0, ≤ 1 | Candidate's share of the votes for candidates in this simulated election (undecided, would not vote and missing answers are left out). Alaska: the final ranked-choice round. |
 | `winner` | Boolean | no | any | True for the candidate with the highest share. |
 
+## `forecast_versions`
+
+The forecast made from part of the answers: each approach's run alone, and each model's answers alone. Made by #8 the same way as forecast, so the website can compare them. One row per version, simulated election, state and candidate.
+
+| Column | Type | Missing | Allowed values | Description |
+|---|---|---|---|---|
+| `sim_id` | Int64 | no | ≥ 0 | Simulated election number, from 0 up. |
+| `state` | String | no | AL, AK, AR, CO, DE, FL, GA, ID, IL, IA, KS, KY, LA, ME, MA, MI, MN, MS, MT, NE, NH, NJ, NM, NC, OH, OK, OR, RI, SC, SD, TN, TX, VA, WV, WY | Two-letter state code. Only the 35 states with a 2026 Senate race. |
+| `candidate` | String | no | any | Candidate's name, as in candidates. |
+| `party` | String | no | Democrat, Republican, Independent, Libertarian, Green, Other | Candidate's party, as in candidates. |
+| `share` | Float64 | no | ≥ 0, ≤ 1 | Candidate's share of the votes for candidates in this simulated election (undecided, would not vote and missing answers are left out). Alaska: the final ranked-choice round. |
+| `winner` | Boolean | no | any | True for the candidate with the highest share. |
+| `version_type` | String | no | approach, model | Whether the version is one approach's run or one model's answers. |
+| `version` | String | no | any | The approach (as in responses' `approach`) or the model (its OpenRouter identifier, as in responses' `model`). |
+
 ## `past_results`
 
 Earlier results in each race state: the last Senate election for the seat up in 2026, and the 2024 presidential election. Made by #3 from the MIT Election Lab. A comparison on the website, not a forecast input.

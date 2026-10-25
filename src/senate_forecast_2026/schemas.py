@@ -210,6 +210,20 @@ class Forecast(pa.DataFrameModel):
         strict = True
 
 
+class ForecastVersions(Forecast):
+    """The forecast made from part of the answers: each approach's run alone, and each model's answers alone. Made by
+    #8 the same way as forecast, so the website can compare them. One row per version, simulated election, state and
+    candidate."""
+
+    version_type: str = pa.Field(isin=["approach", "model"], description="Whether the version is one approach's "
+                                 "run or one model's answers.")
+    version: str = pa.Field(description="The approach (as in responses' `approach`) or the model (its OpenRouter "
+                            "identifier, as in responses' `model`).")
+
+    class Config:
+        strict = True
+
+
 class PastResults(pa.DataFrameModel):
     """Earlier results in each race state: the last Senate election for the seat up in 2026, and the 2024
     presidential election. Made by #3 from the MIT Election Lab. A comparison on the website, not a forecast input."""
@@ -372,6 +386,7 @@ FILE_SCHEMAS = {
     "responses": Responses,
     "frame": Frame,
     "forecast": Forecast,
+    "forecast_versions": ForecastVersions,
     "past_results": PastResults,
     "polls": Polls,
     "polymarket": Polymarket,
