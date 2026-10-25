@@ -326,6 +326,16 @@ class PollInfluence(pa.DataFrameModel):
         strict = True
 
 
+class PolymarketPrices(Polymarket):
+    """One row per candidate per day: the Polymarket price, as in polymarket. Made by #12 into data/03-summary_data/
+    for the website's Polymarket chart."""
+
+
+class PolymarketLatest(Polymarket):
+    """One row per candidate: their latest Polymarket price and its day. Made by #12 into data/03-summary_data/ for
+    the website's "Traders give ... a ...% chance to win" numbers."""
+
+
 # Each data file and the schema it must match. Used by the tests and the codebook.
 FILE_SCHEMAS = {
     "personas": Personas,
@@ -340,6 +350,8 @@ FILE_SCHEMAS = {
     "polymarket": Polymarket,
     "poll_averages": PollAverages,
     "poll_influence": PollInfluence,
+    "polymarket_prices": PolymarketPrices,
+    "polymarket_latest": PolymarketLatest,
 }
 # The files the simulation (#1) makes; the others exist only as real data.
 SIMULATED_FILES = ["personas", "candidates", "responses_sean", "responses_furkan", "responses", "frame", "forecast"]

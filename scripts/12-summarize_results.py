@@ -2,10 +2,11 @@
 # Purpose: Compute everything the website shows and save it as small summary files in data/03-summary_data/
 #          (task #12). The website (Quarto) only reads these files; no analysis happens there.
 #          So far: the polling average of each race, for every on/off combination of the weighting rules, and each
-#          poll's influence. The forecast, past results and Polymarket parts come later.
+#          poll's influence; Polymarket's daily prices and each candidate's latest price. The forecast and past
+#          results parts come later.
 # Author: Furkan Danisman
 # Date: 24 October 2026
-# Pre-requisites: polls from scripts/10-clean_polls.py
+# Pre-requisites: polls from scripts/10-clean_polls.py; polymarket from scripts/11-clean_polymarket.py
 # Run: uv run scripts/12-summarize_results.py (or PyCharm's run button)
 
 import polars as pl
@@ -13,10 +14,11 @@ import polars as pl
 from senate_forecast_2026.paths import ANALYSIS_DATA, SUMMARY_DATA
 from senate_forecast_2026.poll_average import RULE_COMBINATIONS, poll_influence, race_averages
 from senate_forecast_2026.save import save_data
-from senate_forecast_2026.schemas import PollAverages, PollInfluence
+from senate_forecast_2026.schemas import PollAverages, PollInfluence, PolymarketLatest, PolymarketPrices
 
 #### Read data ####
 polls = pl.read_parquet(ANALYSIS_DATA / "polls.parquet")
+polymarket = pl.read_parquet(ANALYSIS_DATA / "polymarket.parquet")
 
 
 #### Polling average ####
@@ -57,3 +59,12 @@ with pl.Config(tbl_rows=80):
 
 save_data(poll_averages, PollAverages, SUMMARY_DATA, "poll_averages")
 save_data(poll_influence_table, PollInfluence, SUMMARY_DATA, "poll_influence")
+
+
+#### Polymarket ####
+# The prices need no calculation: the chart shows them as they are, and the headline numbers are each candidate's
+# latest price.
+polymarket_prices = polymarket.sort("state", "candidate", "date")
+polymarket_latest = polymarket_prices.group_by("state", "candidate", maintain_order=True).last()
+save_data(polymarket_prices, PolymarketPrices, SUMMARY_DATA, "polymarket_prices")
+save_data(polymarket_latest, PolymarketLatest, SUMMARY_DATA, "polymarket_latest")
