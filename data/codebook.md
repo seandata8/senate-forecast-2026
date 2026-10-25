@@ -142,7 +142,7 @@ One row per race, on/off combination of the weighting rules, day and candidate: 
 | `by_population` | Boolean | no | any | Whether likely voters count more than registered voters (x0.8) and adults (x0.6). |
 | `date` | Date | no | any | The day of the average. It uses the polls that finished by then. |
 | `candidate` | String | no | any | Candidate's name, as in candidates. |
-| `average` | Float64 | no | ≥ 0, ≤ 1 | Weighted mean of the candidate's share in the polls that asked about them. |
+| `average` | Float64 | no | ≥ 0, ≤ 1 | Weighted mean of the candidate's share in the polls that asked about them. Each poll's shares are first scaled to add up to 1 among its candidates, so undecided voters are left out. |
 | `spread` | Float64 | no | ≥ 0 | Weighted standard deviation of those shares around the average: how much the polls disagree. Not a margin of error. |
 
 ## `poll_influence`
