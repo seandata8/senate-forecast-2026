@@ -378,6 +378,128 @@ class RunCosts(pa.DataFrameModel):
 
 
 # Each data file and the schema it must match. Used by the tests and the codebook.
+VERSION_TYPE = 'Which answers the forecast is made from: "all" (both runs together, the forecast), "approach" (one ' \
+    'approach\'s run) or "model" (one model\'s answers).'
+VERSION = '"all", the approach (as in responses\' `approach`) or the model (its OpenRouter identifier).'
+MODEL_OR_AVERAGE = 'The model (its OpenRouter identifier), or "average": the models counted equally.'
+
+
+class ForecastControl(pa.DataFrameModel):
+    """One row per forecast version: the chance of Democratic control and the Democratic-caucus seats. Made by #12
+    into data/03-summary_data/ from forecast and forecast_versions."""
+
+    version_type: str = pa.Field(isin=["all", "approach", "model"], description=VERSION_TYPE)
+    version: str = pa.Field(description=VERSION)
+    dem_control: float = pa.Field(ge=0, le=1, description="Share of the simulated elections with 51 or more "
+                                  "Democratic-caucus seats (at 50-50 the Republican Vice President breaks the tie).")
+    seats: float = pa.Field(ge=0, le=100, description="Democratic-caucus seats: the median of the simulated elections.")
+    seats_lower: float = pa.Field(ge=0, le=100, description="Lower end of the 95% interval of the seats (2.5% of "
+                                  "simulations have fewer).")
+    seats_upper: float = pa.Field(ge=0, le=100, description="Upper end of the 95% interval of the seats (2.5% of "
+                                  "simulations have more).")
+
+    class Config:
+        strict = True
+
+
+class ForecastSeats(pa.DataFrameModel):
+    """One row per forecast version and number of Democratic-caucus seats: how many simulated elections ended with
+    it (the seat distribution chart). Made by #12 into data/03-summary_data/."""
+
+    version_type: str = pa.Field(isin=["all", "approach", "model"], description=VERSION_TYPE)
+    version: str = pa.Field(description=VERSION)
+    dem_seats: int = pa.Field(ge=0, le=100, description="Democratic-caucus seats.")
+    simulations: int = pa.Field(ge=1, description="Number of simulated elections with that many seats.")
+    share: float = pa.Field(ge=0, le=1, description="Share of the simulated elections with that many seats.")
+
+    class Config:
+        strict = True
+
+
+class ForecastRaces(pa.DataFrameModel):
+    """One row per forecast version and candidate: their vote share and chance of winning, next to the polls and
+    Polymarket (the race-by-race comparison). Made by #12 into data/03-summary_data/. Alaska: the final round."""
+
+    version_type: str = pa.Field(isin=["all", "approach", "model"], description=VERSION_TYPE)
+    version: str = pa.Field(description=VERSION)
+    state: str = pa.Field(isin=STATES, description=STATE)
+    candidate: str = pa.Field(description="Candidate's name, as in candidates.")
+    party: str = pa.Field(isin=PARTIES, description="Candidate's party, as in candidates.")
+    share: float = pa.Field(ge=0, le=1, description="Our estimate of the candidate's vote share: the mean across the "
+                            "simulated elections (undecided left out).")
+    share_lower: float = pa.Field(ge=0, le=1, description="Lower end of the 95% interval of the vote share.")
+    share_upper: float = pa.Field(ge=0, le=1, description="Upper end of the 95% interval of the vote share.")
+    chance_of_winning: float = pa.Field(ge=0, le=1, description="Share of the simulated elections the candidate wins.")
+    poll_average: float = pa.Field(ge=0, le=1, nullable=True, description="Today's polling average with every rule "
+                                   "on (undecided left out), as in poll_averages. Missing if the race has no polls.")
+    poll_spread: float = pa.Field(ge=0, nullable=True, description="The polls' spread around that average, as in "
+                                  "poll_averages. Not a margin of error.")
+    polymarket_chance: float = pa.Field(ge=0, le=1, nullable=True, description="Polymarket's latest price, scaled to "
+                                        "add up to 1 among the race's candidates. Missing if there is no price.")
+
+    class Config:
+        strict = True
+
+
+class ModelAnswers(pa.DataFrameModel):
+    """One row per model, question and answer: the weighted share of answers. Made by #12 into data/03-summary_data/.
+    Senate answers are grouped by the chosen candidate's party."""
+
+    model: str = pa.Field(description=MODEL_OR_AVERAGE)
+    question: str = pa.Field(isin=["senate", "generic"], description='"senate" (the race we forecast) or "generic" '
+                             "(the House question, a benchmark).")
+    answer: str = pa.Field(description="The party of the chosen candidate (Senate), the party (House), Undecided, "
+                           "Would not vote or Missing.")
+    share: float = pa.Field(ge=0, le=1, description="Share of the answers, weighted by the personas' CES weights; "
+                            "each persona's draws from one model count once in total.")
+
+    class Config:
+        strict = True
+
+
+class Crosstabs(pa.DataFrameModel):
+    """One row per persona detail, group and model: the Democratic share of the two-party House vote. Made by #12
+    into data/03-summary_data/."""
+
+    variable: str = pa.Field(description="The persona detail, as in personas (e.g. gender).")
+    group: str = pa.Field(description="The group (e.g. Woman).")
+    model: str = pa.Field(description=MODEL_OR_AVERAGE)
+    democratic_share: float = pa.Field(ge=0, le=1, description="Democratic share among the group's Democratic and "
+                                       "Republican House answers, weighted as in model_answers.")
+    personas: int = pa.Field(ge=1, description="Number of personas in the group with a two-party answer (for "
+                             '"average", the smaller of the models\' numbers).')
+
+    class Config:
+        strict = True
+
+
+class PersonaComposition(pa.DataFrameModel):
+    """One row per persona detail and group: how many personas are in it. Made by #12 into data/03-summary_data/."""
+
+    variable: str = pa.Field(description="The persona detail, as in personas (e.g. gender).")
+    group: str = pa.Field(description="The group (e.g. Woman), or Missing.")
+    personas: int = pa.Field(ge=1, description="Number of personas in the group.")
+
+    class Config:
+        strict = True
+
+
+class Costs(pa.DataFrameModel):
+    """One row per approach and model (and "all models"): what each approach's latest full run cost. Made by #12 into
+    data/03-summary_data/ from the run cost log, data/run_costs.csv."""
+
+    approach: str = pa.Field(description="Whose approach, as in responses.")
+    run_at: str = pa.Field(description="When the run finished, as in run_costs.")
+    model: str = pa.Field(description='The model\'s OpenRouter identifier, or "all models".')
+    calls: int = pa.Field(ge=0, description="Number of answers.")
+    personas: int = pa.Field(ge=1, description="Number of personas asked.")
+    total_cost: float = pa.Field(ge=0, description="Total cost in US dollars, as OpenRouter charged it.")
+    cost_per_persona: float = pa.Field(ge=0, description="Total cost divided by the number of personas.")
+
+    class Config:
+        strict = True
+
+
 FILE_SCHEMAS = {
     "personas": Personas,
     "candidates": Candidates,
@@ -395,6 +517,13 @@ FILE_SCHEMAS = {
     "polymarket_prices": PolymarketPrices,
     "polymarket_latest": PolymarketLatest,
     "run_costs": RunCosts,
+    "forecast_control": ForecastControl,
+    "forecast_seats": ForecastSeats,
+    "forecast_races": ForecastRaces,
+    "model_answers": ModelAnswers,
+    "crosstabs": Crosstabs,
+    "persona_composition": PersonaComposition,
+    "costs": Costs,
 }
 # The files the simulation (#1) makes; the others exist only as real data.
 SIMULATED_FILES = ["personas", "candidates", "responses_sean", "responses_furkan", "responses", "frame", "forecast"]
