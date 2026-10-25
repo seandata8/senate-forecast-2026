@@ -19,6 +19,7 @@ from senate_forecast_2026.poll_average import (
     poll_weights,
     race_averages,
     weighted_average,
+    without_undecided,
 )
 
 ALL_OFF = dict.fromkeys(RULES, False)
@@ -105,3 +106,10 @@ def test_influence_is_the_poll_weight_on_the_last_day():
     influence = {row["poll_id"]: row["influence"] for row in poll_influence(polls, date(2026, 10, 22), rules)}
     assert influence["p1"] == pytest.approx(0.5 * 2)  # 14 days old, 4 times the reference sample size
     assert influence["p2"] == pytest.approx(0.8)  # new, 600 people, registered voters
+
+
+def test_without_undecided_scales_each_poll_to_100_percent():
+    polls = pl.DataFrame({"poll_id": ["a", "a", "b", "b", "b"], "candidate": ["X", "Y", "X", "Y", "Z"],
+                          "share": [0.45, 0.45, 0.4, 0.3, 0.1]})
+    scaled = without_undecided(polls)
+    assert scaled["share"].to_list() == pytest.approx([0.5, 0.5, 0.5, 0.375, 0.125])

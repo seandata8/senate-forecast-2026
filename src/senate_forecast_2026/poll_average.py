@@ -1,10 +1,11 @@
 #### Preamble ####
 # Purpose: The polling average shown on the website: each poll gets a weight from four rules, and a candidate's
-#          average on a day is the weighted mean of their share in the polls finished by then. Each rule can be
+#          average on a day is the weighted mean of their share in the polls finished by then. Shares are first
+#          scaled to leave out the undecided (without_undecided), so the average compares with our forecast. Each rule can be
 #          turned on or off, so the website can show how much each one moves the average.
 #          Used by #12 scripts/12-summarize_results.py, which saves the average for every on/off combination.
 # Author: Furkan Danisman
-# Date: 24 October 2026
+# Date: 24 October 2026; undecided left out 25 October 2026
 # Pre-requisites: polls from scripts/10-clean_polls.py
 
 import itertools
@@ -31,6 +32,14 @@ POLLSTER_WINDOW_DAYS = 60
 # not taken from data or another source. Polls that do not say who they asked count as registered voters.
 POPULATION_WEIGHTS = {"Likely voters": 1.0, "Registered voters": 0.8, "Adults": 0.6}
 MISSING_POPULATION_WEIGHT = 0.8
+
+
+def without_undecided(polls):
+    """Each poll's shares scaled to add up to 1 among the candidates it asked about, so undecided voters (and anyone
+    not named) are left out, as in our forecast. E.g. a poll with 45% and 45% becomes 50% and 50%.
+
+    `polls` has the polls columns, one row per candidate per poll."""
+    return polls.with_columns(pl.col("share") / pl.col("share").sum().over("poll_id"))
 
 
 def poll_weights(end_days, sample_sizes, pollsters, populations, day, rules):

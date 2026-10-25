@@ -301,7 +301,8 @@ class PollAverages(pa.DataFrameModel):
     date: datetime.date = pa.Field(description="The day of the average. It uses the polls that finished by then.")
     candidate: str = pa.Field(description="Candidate's name, as in candidates.")
     average: float = pa.Field(
-        ge=0, le=1, description="Weighted mean of the candidate's share in the polls that asked about them.",
+        ge=0, le=1, description="Weighted mean of the candidate's share in the polls that asked about them. Each poll's "
+        "shares are first scaled to add up to 1 among its candidates, so undecided voters are left out.",
     )
     spread: float = pa.Field(
         ge=0, description="Weighted standard deviation of those shares around the average: how much the polls "

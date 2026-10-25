@@ -12,12 +12,14 @@
 import polars as pl
 
 from senate_forecast_2026.paths import ANALYSIS_DATA, SUMMARY_DATA
-from senate_forecast_2026.poll_average import RULE_COMBINATIONS, poll_influence, race_averages
+from senate_forecast_2026.poll_average import RULE_COMBINATIONS, poll_influence, race_averages, without_undecided
 from senate_forecast_2026.save import save_data
 from senate_forecast_2026.schemas import PollAverages, PollInfluence, PolymarketLatest, PolymarketPrices
 
 #### Read data ####
-polls = pl.read_parquet(ANALYSIS_DATA / "polls.parquet")
+# Each poll's shares are scaled to add up to 100% among its candidates: the undecided are left out, as in our
+# forecast, so the two can be compared.
+polls = without_undecided(pl.read_parquet(ANALYSIS_DATA / "polls.parquet"))
 polymarket = pl.read_parquet(ANALYSIS_DATA / "polymarket.parquet")
 
 
