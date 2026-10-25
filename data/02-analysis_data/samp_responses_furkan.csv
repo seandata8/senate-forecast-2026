@@ -1,0 +1,57 @@
+approach,persona_id,state,model,draw,question,answer,input_tokens,output_tokens,cost
+furkan,195,GA,typesafe/jev-1.14,0,senate,Mike Collins,530,54,0.00002226
+furkan,195,GA,typesafe/jev-1.14,0,generic,Republican,538,62,0.000022596
+furkan,830,RI,typesafe/jev-1.14,0,senate,Raymond McKay,539,56,0.000022638
+furkan,830,RI,typesafe/jev-1.14,0,generic,Republican,547,62,0.000022974
+furkan,550,MT,typesafe/jev-1.14,1,senate,Kurt Alme,559,68,0.000023478
+furkan,550,MT,typesafe/jev-1.14,1,generic,Republican,538,62,0.000022596
+furkan,898,SD,typesafe/jev-1.14,1,senate,Undecided,533,55,0.000022386
+furkan,898,SD,typesafe/jev-1.14,1,generic,Undecided,542,62,0.000022764
+furkan,355,KY,typesafe/jev-1.14,2,senate,Charles Booker,527,52,0.000022134
+furkan,355,KY,typesafe/jev-1.14,2,generic,Democrat,541,62,0.000022722
+furkan,892,SD,typesafe/jev-1.14,3,senate,Mike Rounds,531,55,0.000022302
+furkan,892,SD,typesafe/jev-1.14,3,generic,Republican,540,62,0.00002268
+furkan,139,DE,typesafe/jev-1.14,4,senate,Chris Coons,526,54,0.000022092
+furkan,139,DE,typesafe/jev-1.14,4,generic,Democrat,537,62,0.000022554
+furkan,371,LA,typesafe/jev-1.14,5,senate,Julia Letlow,526,56,0.000022092
+furkan,371,LA,typesafe/jev-1.14,5,generic,Republican,535,62,0.00002247
+furkan,976,VA,typesafe/jev-1.14,5,senate,Mark Warner,528,55,0.000022176
+furkan,976,VA,typesafe/jev-1.14,5,generic,Democrat,534,62,0.000022428
+furkan,187,GA,typesafe/jev-1.14,6,senate,Jon Ossoff,529,56,0.000022218
+furkan,187,GA,typesafe/jev-1.14,6,generic,Democrat,537,62,0.000022554
+furkan,122,DE,typesafe/jev-1.14,7,senate,Michael Katz,526,53,0.000022092
+furkan,122,DE,typesafe/jev-1.14,7,generic,Republican,537,62,0.000022554
+furkan,260,ID,typesafe/jev-1.14,7,senate,Undecided,530,54,0.00002226
+furkan,260,ID,typesafe/jev-1.14,7,generic,Republican,543,62,0.000022806
+furkan,414,MA,typesafe/jev-1.14,7,senate,Ed Markey,535,55,0.00002247
+furkan,414,MA,typesafe/jev-1.14,7,generic,Republican,543,62,0.000022806
+furkan,770,OK,typesafe/jev-1.14,7,senate,Kevin Hern,537,57,0.000022554
+furkan,770,OK,typesafe/jev-1.14,7,generic,Republican,536,62,0.000022512
+furkan,556,MT,typesafe/jev-1.14,8,senate,Would not vote,559,67,0.000023478
+furkan,556,MT,typesafe/jev-1.14,8,generic,Would not vote,538,62,0.000022596
+furkan,850,SC,typesafe/jev-1.14,8,senate,Darline Graham,536,55,0.000022512
+furkan,850,SC,typesafe/jev-1.14,8,generic,Republican,544,62,0.000022848
+furkan,3,AK,typesafe/jev-1.14,9,senate,Undecided,593,77,0.000024906
+furkan,3,AK,typesafe/jev-1.14,9,generic,Democrat,542,62,0.000022764
+furkan,3,AK,typesafe/jev-1.14,9,alaska_final,Undecided,553,57,0.000023226
+furkan,15,AK,typesafe/jev-1.14,9,senate,Dan J. Sullivan,596,78,0.000025032
+furkan,15,AK,typesafe/jev-1.14,9,generic,Republican,545,62,0.00002289
+furkan,15,AK,typesafe/jev-1.14,9,alaska_final,Undecided,556,58,0.000023352
+furkan,190,GA,typesafe/jev-1.14,9,senate,Jon Ossoff,535,55,0.00002247
+furkan,190,GA,typesafe/jev-1.14,9,generic,Undecided,543,62,0.000022806
+furkan,596,NC,typesafe/jev-1.14,9,senate,Roy Cooper,538,54,0.000022596
+furkan,596,NC,typesafe/jev-1.14,9,generic,Democrat,545,62,0.00002289
+furkan,808,OR,typesafe/jev-1.14,9,senate,David Brock Smith,530,55,0.00002226
+furkan,808,OR,typesafe/jev-1.14,9,generic,Republican,538,62,0.000022596
+furkan,880,SD,typesafe/jev-1.14,9,senate,Mike Rounds,530,55,0.00002226
+furkan,880,SD,typesafe/jev-1.14,9,generic,Republican,539,62,0.000022638
+furkan,324,KS,moonshotai/kimi-k3,0,senate,Roger Marshall,378,123,0.00165024
+furkan,324,KS,moonshotai/kimi-k3,0,generic,Republican,377,47,0.001526873
+furkan,882,SD,moonshotai/kimi-k3,0,senate,Mike Rounds,383,166,0.003268074
+furkan,882,SD,moonshotai/kimi-k3,0,generic,Republican,379,99,0.0009993
+furkan,135,DE,moonshotai/kimi-k3,1,senate,Chris Coons,376,168,0.002784
+furkan,135,DE,moonshotai/kimi-k3,1,generic,Democrat,374,47,0.000693876
+furkan,154,FL,moonshotai/kimi-k3,1,senate,Ashley Moody,383,38,0.00064294
+furkan,154,FL,moonshotai/kimi-k3,1,generic,Republican,384,48,0.00058653
+furkan,913,TN,moonshotai/kimi-k3,2,senate,Would not vote,389,272,0.005247
+furkan,913,TN,moonshotai/kimi-k3,2,generic,Would not vote,381,481,0.0058506
