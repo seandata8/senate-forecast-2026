@@ -62,6 +62,11 @@ parser.add_argument(
     help="only ask this many personas, each from a different state (a small slice for checking cost); default: all",
 )
 parser.add_argument(
+    "--models", nargs="+", default=None,
+    help="only ask these of the approach's models (e.g. to run one model first); the answers are not saved, "
+    "because the saved file needs every model, but they stay in cache/",
+)
+parser.add_argument(
     "--wording", choices=QUESTION_WORDINGS, default=None,
     help="question wording to use instead of the approach's own (for comparing v1 and v2); not saved",
 )
@@ -83,6 +88,11 @@ if arguments.personas is not None:
 
 n_questions = sum(len(questions_for_state(state, candidates, wording)) for state in personas["state"])
 draws = draws_by_model(settings["models"], settings["draws"])
+if arguments.models is not None:
+    unknown = set(arguments.models) - set(draws)
+    if unknown:
+        raise SystemExit(f"Not one of the {arguments.approach} approach's models: {', '.join(sorted(unknown))}")
+    draws = {model: n for model, n in draws.items() if model in arguments.models}
 n_calls = n_questions * sum(draws.values())
 print(f"{personas.height:,} personas, draws per model {draws}, wording {wording}: {n_calls:,} calls")
 
@@ -101,9 +111,7 @@ if arguments.dry_run:
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from silicon import ask, total_spent
 
-responses = query_personas(
-    personas, candidates, arguments.approach, settings["models"], settings["draws"], settings["temperature"], wording, ask
-)
+responses = query_personas(personas, candidates, arguments.approach, list(draws), draws, settings["temperature"], wording, ask)
 print(f"{responses.height:,} answers, {responses['answer'].null_count():,} missing; ${total_spent():.4f} spent this run")
 print(responses.group_by("model", "question", "answer").len().sort("model", "question", "len", descending=[False, False, True]))
 
@@ -128,7 +136,7 @@ print(f"Costs added to {cost_log}")
 # Only a full run on the real data, in the approach's own wording, is saved. Simulated data, slices and the other
 # wording stay in cache/ (as the plan says for #6's tries), so they never overwrite the simulated responses from #1
 # or a real full run. (Responses has no wording column, so a saved file must have one wording.)
-is_full_run = arguments.personas_per_state is None and arguments.personas is None
+is_full_run = arguments.personas_per_state is None and arguments.personas is None and arguments.models is None
 if arguments.data == "real" and is_full_run and wording == settings["wording"]:
     save_data(
         responses, Responses, DATA_FOLDERS["real"], f"responses_{arguments.approach}",
