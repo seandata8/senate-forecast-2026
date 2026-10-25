@@ -2,7 +2,7 @@
 # Purpose: Tests for the polling average (src/senate_forecast_2026/poll_average.py): each weighting rule does what
 #          the website says it does, on small made-up polls whose answers can be worked out by hand.
 # Author: Furkan Danisman
-# Date: 25 October 2026
+# Date: 24 October 2026
 # Pre-requisites: none
 # Run from the repo root: uv run pytest
 

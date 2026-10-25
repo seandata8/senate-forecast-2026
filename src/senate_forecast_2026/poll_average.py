@@ -4,7 +4,7 @@
 #          turned on or off, so the website can show how much each one moves the average.
 #          Used by #12 scripts/12-summarize_results.py, which saves the average for every on/off combination.
 # Author: Furkan Danisman
-# Date: 25 October 2026
+# Date: 24 October 2026
 # Pre-requisites: polls from scripts/10-clean_polls.py
 
 import itertools

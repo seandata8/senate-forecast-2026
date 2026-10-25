@@ -4,7 +4,7 @@
 #          So far: the polling average of each race, for every on/off combination of the weighting rules, and each
 #          poll's influence. The forecast, past results and Polymarket parts come later.
 # Author: Furkan Danisman
-# Date: 25 October 2026
+# Date: 24 October 2026
 # Pre-requisites: polls from scripts/10-clean_polls.py
 # Run: uv run scripts/12-summarize_results.py (or PyCharm's run button)
 
