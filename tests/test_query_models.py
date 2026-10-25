@@ -2,7 +2,7 @@
 # Purpose: Tests of the query-models code (task #5) on the simulated personas and candidates, with a fake model,
 #          so they make no API calls and cost nothing.
 # Author: Furkan Danisman
-# Date: 22 October 2026
+# Date: 22 October 2026; draws per model and run costs added 24 October 2026
 # Pre-requisites: uv run scripts/00-simulate_data.py
 
 import random
@@ -18,8 +18,9 @@ from senate_forecast_2026.queries import (
     persona_to_prompt,
     query_personas,
     questions_for_state,
+    run_costs,
 )
-from senate_forecast_2026.schemas import GENERIC_ANSWERS, NON_CANDIDATE_ANSWERS, STATES, Responses
+from senate_forecast_2026.schemas import GENERIC_ANSWERS, NON_CANDIDATE_ANSWERS, STATES, Responses, RunCosts
 
 SIMULATED = Path("data/00-simulated_data")
 MODELS = ["provider-1/model-x", "provider-2/model-y"]
@@ -121,3 +122,29 @@ def test_answers_are_from_the_personas_own_ballot(responses, candidates):
 
 def test_missing_answers_are_kept(responses):
     assert responses["answer"].null_count() > 0
+
+
+def test_each_model_can_have_its_own_number_of_draws(personas, candidates):
+    some = personas.head(5)
+    draws = {"provider-1/model-x": 10, "provider-2/model-y": 3}
+    responses = query_personas(some, candidates, "furkan", MODELS, draws, 1.0, "v1", fake_ask)
+    draws_seen = responses.group_by("model").agg(pl.col("draw").n_unique())
+    assert dict(draws_seen.iter_rows()) == draws
+
+
+def test_run_costs_per_model_and_in_total(personas, candidates):
+    some = personas.head(4)
+    responses = query_personas(some, candidates, "furkan", MODELS, DRAWS, 1.0, "v1", fake_ask)
+    costs = run_costs(responses)
+    total = costs.filter(pl.col("model") == "all models").row(0, named=True)
+    assert total["total_cost"] == pytest.approx(responses["cost"].sum())
+    assert total["personas"] == 4
+    assert total["cost_per_persona"] == pytest.approx(total["total_cost"] / 4)
+    per_model = costs.filter(pl.col("model") != "all models")
+    assert set(per_model["model"]) == set(MODELS)
+    assert per_model["total_cost"].sum() == pytest.approx(total["total_cost"])
+    RunCosts.validate(
+        costs.with_columns(run_at=pl.lit("2026-10-24T00:00:00+00:00"), approach=pl.lit("furkan"),
+                           data=pl.lit("simulated"), wording=pl.lit("v1")),
+        lazy=True,
+    )

@@ -3,34 +3,50 @@
 #          round for Alaska personas), with one approach's models and settings, and save the answers as
 #          responses_sean or responses_furkan (task #5; the full runs are #6).
 # Author: Furkan Danisman
-# Date: 22 October 2026
+# Date: 22 October 2026; updated 24 October 2026 (draws per model, --personas, run costs)
 # Pre-requisites: uv sync; OPENROUTER_API_KEY in .env (not needed with --dry-run).
 #                 Simulated data from scripts/00-simulate_data.py, or the real personas and candidates (#3, #4).
 # Usage: uv run scripts/05-query_models.py --approach furkan --data simulated --personas-per-state 1 --dry-run
 #        Add --wording v2 to try the experimental question wording instead of the approach's own (v1).
 #        Makes paid API calls unless --dry-run is given. Answers already in cache/ are free.
+#        Every run that asks the models adds its costs (per model and in total) to data/run_costs.csv.
 
 import argparse
 import sys
+from datetime import UTC, datetime
 from pathlib import Path
 
 import polars as pl
 
-from senate_forecast_2026.queries import QUESTION_WORDINGS, persona_to_prompt, query_personas, questions_for_state
+from senate_forecast_2026.paths import DATA
+from senate_forecast_2026.queries import (
+    QUESTION_WORDINGS,
+    draws_by_model,
+    persona_to_prompt,
+    query_personas,
+    questions_for_state,
+    run_costs,
+)
 from senate_forecast_2026.save import save_data
-from senate_forecast_2026.schemas import Responses
+from senate_forecast_2026.schemas import Responses, RunCosts
 
 DATA_FOLDERS = {"simulated": Path("data/00-simulated_data"), "real": Path("data/02-analysis_data")}
 
 # Each of us sets our own approach here for #6: models from at least two providers, repeated draws, and the
 # question wording (see QUESTION_WORDINGS in queries.py). v1 is the default; v2 is the experimental wording,
-# run with --wording v2 to check how much the answers depend on it.
+# run with --wording v2 to check how much the answers depend on it. `draws` is one number for every model, or a
+# number per model.
 APPROACH_SETTINGS = {
     "sean": {
         "models": ["deepseek/deepseek-v4-flash-0731", "z-ai/glm-5.3-flash"], "draws": 3, "temperature": 1.0, "wording": "v1",
     },
+    # Jev is a decision model (see DECISION_MODELS in silicon.py): it has no temperature, and each of its 10 draws
+    # is a separate call whose answer is a random pick weighted by its probabilities. Kimi K3 is a chat model.
     "furkan": {
-        "models": ["deepseek/deepseek-v4-flash-0731", "z-ai/glm-5.3-flash"], "draws": 3, "temperature": 1.0, "wording": "v1",
+        "models": ["typesafe/jev-1.14", "moonshotai/kimi-k3"],
+        "draws": {"typesafe/jev-1.14": 10, "moonshotai/kimi-k3": 3},
+        "temperature": 1.0,
+        "wording": "v1",
     },
 }
 
@@ -40,6 +56,10 @@ parser.add_argument("--data", choices=DATA_FOLDERS, default="real", help="read t
 parser.add_argument(
     "--personas-per-state", type=int, default=None,
     help="only ask this many personas in each state (a small slice for trying things out); default: all",
+)
+parser.add_argument(
+    "--personas", type=int, default=None,
+    help="only ask this many personas, each from a different state (a small slice for checking cost); default: all",
 )
 parser.add_argument(
     "--wording", choices=QUESTION_WORDINGS, default=None,
@@ -57,13 +77,14 @@ candidates = pl.read_parquet(input_folder / "candidates.parquet")
 if arguments.personas_per_state is not None:
     # The first personas in each state by persona_id, so the same slice is picked on every run.
     personas = personas.group_by("state", maintain_order=True).head(arguments.personas_per_state)
+if arguments.personas is not None:
+    # The first persona of each state, by persona_id, then the first `--personas` of those: one per state.
+    personas = personas.group_by("state", maintain_order=True).head(1).head(arguments.personas)
 
 n_questions = sum(len(questions_for_state(state, candidates, wording)) for state in personas["state"])
-n_calls = n_questions * len(settings["models"]) * settings["draws"]
-print(
-    f"{personas.height:,} personas, {len(settings['models'])} models, {settings['draws']} draws, "
-    f"wording {wording}: {n_calls:,} calls"
-)
+draws = draws_by_model(settings["models"], settings["draws"])
+n_calls = n_questions * sum(draws.values())
+print(f"{personas.height:,} personas, draws per model {draws}, wording {wording}: {n_calls:,} calls")
 
 if arguments.dry_run:
     # An Alaska persona if there is one, because Alaska has all three questions.
@@ -86,11 +107,29 @@ responses = query_personas(
 print(f"{responses.height:,} answers, {responses['answer'].null_count():,} missing; ${total_spent():.4f} spent this run")
 print(responses.group_by("model", "question", "answer").len().sort("model", "question", "len", descending=[False, False, True]))
 
+#### Costs ####
+# Every run adds its costs to data/run_costs.csv, one row per model and one for all models, so the cost of each try
+# and of the full run is kept even when the answers are not saved.
+costs = run_costs(responses).with_columns(
+    run_at=pl.lit(datetime.now(UTC).isoformat(timespec="seconds")),
+    approach=pl.lit(arguments.approach),
+    data=pl.lit(arguments.data),
+    wording=pl.lit(wording),
+).select("run_at", "approach", "data", "wording", "model", "calls", "personas", "total_cost", "cost_per_persona")
+RunCosts.validate(costs, lazy=True)
+print(costs.select("model", "calls", "personas", "total_cost", "cost_per_persona"))
+cost_log = DATA / "run_costs.csv"
+if cost_log.exists():
+    costs = pl.concat([pl.read_csv(cost_log), costs], how="vertical_relaxed")
+costs.write_csv(cost_log)
+print(f"Costs added to {cost_log}")
+
 #### Save ####
 # Only a full run on the real data, in the approach's own wording, is saved. Simulated data, slices and the other
 # wording stay in cache/ (as the plan says for #6's tries), so they never overwrite the simulated responses from #1
 # or a real full run. (Responses has no wording column, so a saved file must have one wording.)
-if arguments.data == "real" and arguments.personas_per_state is None and wording == settings["wording"]:
+is_full_run = arguments.personas_per_state is None and arguments.personas is None
+if arguments.data == "real" and is_full_run and wording == settings["wording"]:
     save_data(
         responses, Responses, DATA_FOLDERS["real"], f"responses_{arguments.approach}",
         sample_groups=["approach", "persona_id", "model", "draw"], also_sample_where=pl.col("state") == "AK",

@@ -336,6 +336,27 @@ class PolymarketLatest(Polymarket):
     the website's "Traders give ... a ...% chance to win" numbers."""
 
 
+class RunCosts(pa.DataFrameModel):
+    """One row per model, and one for all models, for each run of scripts/05-query_models.py that asked the models:
+    what the run's answers cost. Each run adds its rows to data/run_costs.csv, so earlier runs are kept."""
+
+    run_at: str = pa.Field(description="When the run finished, in UTC (ISO 8601).")
+    approach: str = pa.Field(isin=["sean", "furkan"], description="Whose approach the run used.")
+    data: str = pa.Field(isin=["simulated", "real"], description="Whether the run asked the simulated or the real personas.")
+    wording: str = pa.Field(isin=["v1", "v2"], description="The question wording (see QUESTION_WORDINGS in queries.py).")
+    model: str = pa.Field(description="OpenRouter model id, or \"all models\" for the run's total.")
+    calls: int = pa.Field(ge=0, description="Number of answers: personas x questions x draws.")
+    personas: int = pa.Field(ge=0, description="Number of personas asked.")
+    total_cost: float = pa.Field(
+        ge=0, description="Dollars the answers cost (OpenRouter's reported cost). Answers taken from the cache count "
+        "at what they cost when first asked.",
+    )
+    cost_per_persona: float = pa.Field(ge=0, description="total_cost / personas: the average cost of one persona.")
+
+    class Config:
+        strict = True
+
+
 # Each data file and the schema it must match. Used by the tests and the codebook.
 FILE_SCHEMAS = {
     "personas": Personas,
@@ -352,6 +373,7 @@ FILE_SCHEMAS = {
     "poll_influence": PollInfluence,
     "polymarket_prices": PolymarketPrices,
     "polymarket_latest": PolymarketLatest,
+    "run_costs": RunCosts,
 }
 # The files the simulation (#1) makes; the others exist only as real data.
 SIMULATED_FILES = ["personas", "candidates", "responses_sean", "responses_furkan", "responses", "frame", "forecast"]

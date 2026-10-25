@@ -4,10 +4,8 @@
 #          No API calls happen here: the function that calls a model (`ask` in silicon.py) is passed in,
 #          so the tests can use a fake one that costs nothing.
 # Author: Furkan Danisman
-# Date: 22 October 2026
+# Date: 22 October 2026; draws per model and run costs added 24 October 2026
 # Pre-requisites: uv sync
-
-from itertools import product
 
 import polars as pl
 
@@ -141,16 +139,29 @@ def questions_for_state(state, candidates, wording):
     return questions
 
 
+def draws_by_model(models, draws):
+    """How many times each model asks each question: `draws` is one number for every model, or a dict giving each
+    model its own number (e.g. a decision model asked more often than a chat model)."""
+    return draws if isinstance(draws, dict) else dict.fromkeys(models, draws)
+
+
 def query_personas(personas, candidates, approach, models, draws, temperature, wording, ask):
-    """Ask every persona every question in their state, in `wording` ("v1" or "v2"), with each model, `draws` times.
+    """Ask every persona every question in their state, in `wording` ("v1" or "v2"), with each model, `draws` times
+    (one number, or a number per model: see draws_by_model()).
 
     `ask(model, persona, question, options, temperature, draw)` returns a dict with `answer`, `input_tokens`,
     `output_tokens` and `cost` (silicon.ask, or a fake one in the tests). Returns one row per answer, with the
     columns of the Responses schema. Answers that failed are kept as missing, never dropped."""
     questions_by_state = {state: questions_for_state(state, candidates, wording) for state in personas["state"].unique()}
     rows = []
-    # product() loops over every combination of model, draw and persona.
-    for model, draw, persona in product(models, range(draws), personas.iter_rows(named=True)):
+    # Every combination of model, draw and persona.
+    combinations = [
+        (model, draw, persona)
+        for model, model_draws in draws_by_model(models, draws).items()
+        for draw in range(model_draws)
+        for persona in personas.iter_rows(named=True)
+    ]
+    for model, draw, persona in combinations:
         persona_prompt = persona_to_prompt(persona)
         for question in questions_by_state[persona["state"]]:
             result = ask(model, persona_prompt, question["text"], question["options"], temperature, draw)
@@ -167,3 +178,26 @@ def query_personas(personas, candidates, approach, models, draws, temperature, w
                 "cost": result["cost"],
             })
     return pl.DataFrame(rows, schema_overrides={"answer": pl.String, "cost": pl.Float64})
+
+
+def run_costs(responses):
+    """What a run's answers cost, per model and in total: calls, personas, total cost and average cost per persona.
+
+    `responses` is query_personas()'s result. The cost of an answer is what it cost when it was first asked, so
+    answers taken from the cache count at their original cost: this is the cost of producing the run's answers."""
+    per_model = responses.group_by("model").agg(
+        pl.len().alias("calls"),
+        pl.col("persona_id").n_unique().alias("personas"),
+        pl.col("cost").sum().alias("total_cost"),
+    )
+    total = responses.select(
+        pl.lit("all models").alias("model"),
+        pl.len().alias("calls"),
+        pl.col("persona_id").n_unique().alias("personas"),
+        pl.col("cost").sum().alias("total_cost"),
+    )
+    return (
+        pl.concat([per_model.sort("model"), total], how="vertical_relaxed")
+        .with_columns(pl.col("calls", "personas").cast(pl.Int64))
+        .with_columns(cost_per_persona=pl.col("total_cost") / pl.col("personas"))
+    )

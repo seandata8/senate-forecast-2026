@@ -180,3 +180,19 @@ One row per candidate: their latest Polymarket price and its day. Made by #12 in
 | `date` | Date | no | any | The day (UTC) of the price. The last price of each day is kept. |
 | `candidate` | String | no | any | Candidate's name, as in candidates (Polymarket's market title without its party letter, corrected where it differs). |
 | `price` | Float64 | no | ≥ 0, ≤ 1 | Price in dollars of a share that pays $1 if the candidate wins: roughly the market's chance that they win. A race's prices sum to about 1. |
+
+## `run_costs`
+
+One row per model, and one for all models, for each run of scripts/05-query_models.py that asked the models: what the run's answers cost. Each run adds its rows to data/run_costs.csv, so earlier runs are kept.
+
+| Column | Type | Missing | Allowed values | Description |
+|---|---|---|---|---|
+| `run_at` | String | no | any | When the run finished, in UTC (ISO 8601). |
+| `approach` | String | no | sean, furkan | Whose approach the run used. |
+| `data` | String | no | simulated, real | Whether the run asked the simulated or the real personas. |
+| `wording` | String | no | v1, v2 | The question wording (see QUESTION_WORDINGS in queries.py). |
+| `model` | String | no | any | OpenRouter model id, or "all models" for the run's total. |
+| `calls` | Int64 | no | ≥ 0 | Number of answers: personas x questions x draws. |
+| `personas` | Int64 | no | ≥ 0 | Number of personas asked. |
+| `total_cost` | Float64 | no | ≥ 0 | Dollars the answers cost (OpenRouter's reported cost). Answers taken from the cache count at what they cost when first asked. |
+| `cost_per_persona` | Float64 | no | ≥ 0 | total_cost / personas: the average cost of one persona. |
