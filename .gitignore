@@ -53,3 +53,6 @@ instructions/
 data/01-raw_data/CCES*
 # Unfinished downloads
 *.part
+
+# Model answers cached by silicon.py (paid for with our own API keys); kept on each person's computer only
+cache/
