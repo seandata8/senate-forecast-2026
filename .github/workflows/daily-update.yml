@@ -17,6 +17,19 @@ on:
     - cron: "0 0 * * *"
   workflow_dispatch:  # the "Run workflow" button, to run it by hand
 
+# What the workflow may do: read the repo, and publish to GitHub Pages. It cannot change the repo: the website is
+# published straight to Pages, so main stays protected and nothing is committed (Pages' source must be set to
+# "GitHub Actions" in Settings > Pages).
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Only one update at a time, so two runs never publish over each other.
+concurrency:
+  group: daily-update
+  cancel-in-progress: false
+
 
 jobs:
   # The website freezes at the end of 2 November (Toronto time), so after that this job says to stop and the update
@@ -36,6 +49,9 @@ jobs:
     needs: check-date
     if: needs.check-date.outputs.before-freeze == 'true'
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.publish.outputs.page_url }}
     steps:
       - name: Get the repo
         uses: actions/checkout@v4
@@ -69,3 +85,15 @@ jobs:
         run: |
           uv run quarto render
           touch docs/.nojekyll  # tells GitHub Pages to serve the site as it is, without its Jekyll tool
+
+      # Hand the built site (docs/) to GitHub Pages, which then serves it. Skipped, like the rebuild, until the
+      # forecast is on main.
+      - name: Package the website for GitHub Pages
+        if: hashFiles('data/03-summary_data/forecast_control.parquet') != ''
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+      - name: Publish the website
+        id: publish
+        if: hashFiles('data/03-summary_data/forecast_control.parquet') != ''
+        uses: actions/deploy-pages@v4
