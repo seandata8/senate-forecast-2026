@@ -30,6 +30,8 @@ The forecast website will be deployed with GitHub Pages and frozen at the end of
 
 The website is one page, `index.qmd`, built with Quarto into `docs/` for GitHub Pages: `uv sync --group website`, then `uv run quarto render` from the repo root (Quarto must be installed). It only reads the summary files in `data/03-summary_data/`, made by `scripts/12-summarize_results.py`; no analysis is done in the page.
 
+**Daily update.** Until the freeze, a GitHub Actions workflow (`.github/workflows/daily-update.yml`) downloads the latest polls and Polymarket prices every evening, reruns the summaries and republishes the website. It asks no models, so the forecast does not change. It stops by itself after 2 November, and we turn it off before the deadline.
+
 ## Authors
 
 Sean Murphy and Furkan Danisman, University of Toronto.
@@ -52,6 +54,7 @@ We used Claude Code, with Claude Opus 5.5 (`claude-opus-5-5`), for the work list
 - 26 October 2026: the tests on the real data (`tests/test_real_data.py`, with `share_of()` moved to `tests/helpers.py`).
 - 26 October 2026: the script that combines both runs into one file (`scripts/07-combine_responses.py`).
 - 25 and 26 October 2026: Sean's model trial (`scripts/06-trial_models_sean.py`), the progress report during a run (`scripts/watch_progress.py`, with `cache_key()` and `cache_path()` in `silicon.py`), and the analysis of the trial's results.
+- 26 October 2026: the daily update of polls, Polymarket and the website (`.github/workflows/daily-update.yml`) and its note in this README.
 
 The LLMs queried to produce the silicon sample are part of the method, not help with the work; they will be listed with their OpenRouter identifiers in the methods section of the website.
 
