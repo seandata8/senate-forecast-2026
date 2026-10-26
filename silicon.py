@@ -47,7 +47,7 @@ def answer_schema(options):
     }
 
 
-BUDGET_USD = 2.00
+BUDGET_USD = 5.00
 CACHE = Path(__file__).parent / "cache"  # next to this file, wherever a script is run from
 CACHE.mkdir(exist_ok=True)
 spent = 0.0
@@ -58,15 +58,25 @@ def total_spent():
     return spent
 
 
+def cache_key(model, persona, question, options, temperature=1.0, draw=0):
+    """Every input to ask() that can change the answer, in one string. Change any one of them (even one character of
+    the persona, or one answer option) and it is a new call."""
+    return f"{model}|{temperature}|{draw}|{persona}|{question}|{json.dumps(options)}"
+
+
+def cache_path(model, persona, question, options, temperature=1.0, draw=0):
+    """The cache file of one call to ask(), named by its hashed cache key: it exists once that call has been answered."""
+    raw = cache_key(model, persona, question, options, temperature, draw)
+    return CACHE / (hashlib.sha256(raw.encode()).hexdigest() + ".json")
+
+
 def ask(model, persona, question, options, temperature=1.0, draw=0):
     """One structured answer, chosen from `options`. Cached on everything that determines it, so a rerun costs nothing.
     `draw` lets you ask the same persona the same question more than once."""
     global spent  # we add to the module-level total below, not a local copy
 
-    # Cache key: every input that can change the answer, hashed into a fixed-length filename.
-    # Change any one of them (even one character of the persona, or one answer option) and it is a new call.
-    raw = f"{model}|{temperature}|{draw}|{persona}|{question}|{json.dumps(options)}"
-    path = CACHE / (hashlib.sha256(raw.encode()).hexdigest() + ".json")
+    raw = cache_key(model, persona, question, options, temperature, draw)
+    path = cache_path(model, persona, question, options, temperature, draw)
     if path.exists():
         return json.loads(path.read_text())  # cache hit: no API call, no cost
 

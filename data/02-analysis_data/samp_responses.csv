@@ -1,0 +1,57 @@
+approach,persona_id,state,model,draw,question,answer,input_tokens,output_tokens,cost
+sean,519,MS,cohere/command-a-plus,0,senate,Cindy Hyde-Smith,173,376,0.0006159
+sean,519,MS,cohere/command-a-plus,0,generic,Undecided,168,303,0.0005049
+sean,570,NC,cohere/command-a-plus,0,senate,Michael Whatley,180,273,0.0004635
+sean,570,NC,cohere/command-a-plus,0,generic,Republican,175,160,0.0002925
+sean,818,RI,cohere/command-a-plus,0,senate,Jack Reed,178,210,0.0003684
+sean,818,RI,cohere/command-a-plus,0,generic,Democrat,173,172,0.0003099
+sean,617,NE,cohere/command-a-plus,1,senate,Would not vote,169,236,0.0004047
+sean,617,NE,cohere/command-a-plus,1,generic,Would not vote,167,360,0.0005901
+sean,166,FL,cohere/command-a-plus,2,senate,Ashley Moody,173,176,0.0003159
+sean,166,FL,cohere/command-a-plus,2,generic,Republican,170,170,0.000306
+sean,515,MS,cohere/command-a-plus,2,senate,Cindy Hyde-Smith,183,397,0.0006504
+sean,515,MS,cohere/command-a-plus,2,generic,Republican,178,212,0.0003714
+sean,287,IL,anthropic/claude-haiku-5.5,0,senate,Juliana Stratton,520,18,0.000061
+sean,287,IL,anthropic/claude-haiku-5.5,0,generic,Democrat,505,14,0.0000575
+sean,354,KY,anthropic/claude-haiku-5.5,2,senate,Andy Barr,508,16,0.0000588
+sean,354,KY,anthropic/claude-haiku-5.5,2,generic,Republican,496,13,0.0000561
+sean,420,ME,anthropic/claude-haiku-5.5,2,senate,Susan Collins,508,16,0.0000588
+sean,420,ME,anthropic/claude-haiku-5.5,2,generic,Republican,496,13,0.0000561
+sean,552,MT,anthropic/claude-haiku-5.5,2,senate,Alani Bankhead,541,378,0.0002431
+sean,552,MT,anthropic/claude-haiku-5.5,2,generic,Democrat,500,14,0.000057
+furkan,23,AK,typesafe/jev-1.14,0,senate,Dan J. Sullivan,590,78,0.00002478
+furkan,23,AK,typesafe/jev-1.14,0,generic,Republican,539,62,0.000022638
+furkan,23,AK,typesafe/jev-1.14,0,alaska_final,Dan S. Sullivan,550,58,0.0000231
+furkan,225,IA,typesafe/jev-1.14,0,senate,Ashley Hinson,544,58,0.000022848
+furkan,225,IA,typesafe/jev-1.14,0,generic,Republican,547,62,0.000022974
+furkan,606,NE,typesafe/jev-1.14,0,senate,Pete Ricketts,538,57,0.000022596
+furkan,606,NE,typesafe/jev-1.14,0,generic,Republican,545,62,0.00002289
+furkan,814,RI,typesafe/jev-1.14,0,senate,Jack Reed,534,54,0.000022428
+furkan,814,RI,typesafe/jev-1.14,0,generic,Democrat,542,62,0.000022764
+furkan,543,MT,typesafe/jev-1.14,1,senate,Kurt Alme,565,68,0.00002373
+furkan,543,MT,typesafe/jev-1.14,1,generic,Republican,544,62,0.000022848
+furkan,274,IL,typesafe/jev-1.14,2,senate,Juliana Stratton,534,56,0.000022428
+furkan,274,IL,typesafe/jev-1.14,2,generic,Democrat,542,62,0.000022764
+furkan,179,FL,typesafe/jev-1.14,3,senate,Angie Nixon,529,55,0.000022218
+furkan,179,FL,typesafe/jev-1.14,3,generic,Undecided,539,62,0.000022638
+furkan,197,GA,typesafe/jev-1.14,3,senate,Jon Ossoff,530,56,0.00002226
+furkan,197,GA,typesafe/jev-1.14,3,generic,Undecided,538,62,0.000022596
+furkan,285,IL,typesafe/jev-1.14,3,senate,Would not vote,533,55,0.000022386
+furkan,285,IL,typesafe/jev-1.14,3,generic,Would not vote,541,62,0.000022722
+furkan,519,MS,typesafe/jev-1.14,4,senate,Undecided,531,57,0.000022302
+furkan,519,MS,typesafe/jev-1.14,4,generic,Undecided,534,62,0.000022428
+furkan,804,OR,typesafe/jev-1.14,6,senate,David Brock Smith,535,55,0.00002247
+furkan,804,OR,typesafe/jev-1.14,6,generic,Republican,543,62,0.000022806
+furkan,872,SD,typesafe/jev-1.14,6,senate,Brian Bengs,530,55,0.00002226
+furkan,872,SD,typesafe/jev-1.14,6,generic,Democrat,539,62,0.000022638
+furkan,5,AK,typesafe/jev-1.14,7,senate,Mary Peltola,595,78,0.00002499
+furkan,5,AK,typesafe/jev-1.14,7,generic,Democrat,544,62,0.000022848
+furkan,5,AK,typesafe/jev-1.14,7,alaska_final,Mary Peltola,555,58,0.00002331
+furkan,473,MI,typesafe/jev-1.14,7,senate,Abdul El-Sayed,534,58,0.000022428
+furkan,473,MI,typesafe/jev-1.14,7,generic,Democrat,540,62,0.00002268
+furkan,279,IL,moonshotai/kimi-k3,0,senate,Don Tracy,382,128,0.0026061
+furkan,279,IL,moonshotai/kimi-k3,0,generic,Republican,375,27,0.001232013
+furkan,204,GA,moonshotai/kimi-k3,1,senate,Mike Collins,382,184,0.00201411
+furkan,204,GA,moonshotai/kimi-k3,1,generic,Republican,377,70,0.001197478
+furkan,381,LA,moonshotai/kimi-k3,2,senate,Jamie Davis,386,63,0.0014721
+furkan,381,LA,moonshotai/kimi-k3,2,generic,Democrat,379,35,0.000552876

@@ -1,0 +1,9 @@
+approach,model,check,personas,count,cost
+furkan,moonshotai/kimi-k3,no_party_id,10,1,0.140471491
+furkan,moonshotai/kimi-k3,persona_state,10,10,0.02456445
+furkan,typesafe/jev-1.14,no_party_id,10,2,0.0046935
+furkan,typesafe/jev-1.14,persona_state,10,10,0.0038115
+sean,anthropic/claude-haiku-5.5,no_party_id,10,4,0.0041955000000000004
+sean,anthropic/claude-haiku-5.5,persona_state,10,10,0.002268
+sean,cohere/command-a-plus,no_party_id,10,3,0.0539175
+sean,cohere/command-a-plus,persona_state,10,10,0.0054093

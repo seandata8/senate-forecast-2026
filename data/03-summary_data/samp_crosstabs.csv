@@ -1,0 +1,26 @@
+version_type,version,approach,model,question,variable,group,party,share,personas
+all,all,,average,generic,gender,Woman,Republican,0.5498624976224994,486
+approach,sean,sean,average,senate,religion,Agnostic,Independent,0.1497481707166406,73
+approach,furkan,furkan,average,generic,state,MN,Democrat,0.5234834712588323,28
+model,cohere/command-a-plus,sean,cohere/command-a-plus,senate,marital_status,Married,Independent,0.04264863228047517,510
+approach,furkan,furkan,average,generic,religion,Agnostic,Democrat,0.9211342155283259,76
+model,cohere/command-a-plus,sean,cohere/command-a-plus,senate,state,CO,Republican,0.5359767573688752,29
+all,all,,average,generic,state,MN,Republican,0.47655834308754963,27
+model,moonshotai/kimi-k3,furkan,moonshotai/kimi-k3,generic,state,MS,Democrat,0.7385862430008133,25
+all,all,,average,generic,party_id,Lean Democrat,Republican,0.014518136653990588,139
+model,cohere/command-a-plus,sean,cohere/command-a-plus,senate,state,LA,Democrat,0.3963523168821565,23
+model,typesafe/jev-1.14,furkan,typesafe/jev-1.14,generic,state,NC,Republican,0.8675306532642733,28
+approach,furkan,furkan,average,generic,state,MT,Democrat,0.44574340941031393,29
+all,all,,average,senate,state,OR,Republican,0.30641190847885447,29
+approach,furkan,furkan,average,senate,gender,Other,Republican,0.4766087433258293,3
+model,typesafe/jev-1.14,furkan,typesafe/jev-1.14,generic,ideology,Very conservative,Democrat,0.021178105287003302,141
+model,moonshotai/kimi-k3,furkan,moonshotai/kimi-k3,senate,religion,Hindu,Democrat,0.4273481074036151,2
+model,cohere/command-a-plus,sean,cohere/command-a-plus,generic,state,ID,Democrat,0.5165292050190559,29
+model,anthropic/claude-haiku-5.5,sean,anthropic/claude-haiku-5.5,generic,gender,Non-binary,Democrat,1.0,3
+model,moonshotai/kimi-k3,furkan,moonshotai/kimi-k3,generic,income,$70K-$100K,Democrat,0.5076126495682837,160
+model,anthropic/claude-haiku-5.5,sean,anthropic/claude-haiku-5.5,senate,marital_status,Widowed,Independent,0.015594759050123076,71
+approach,sean,sean,average,senate,party_id,Not very strong Republican,Independent,0.005341658778802528,76
+model,anthropic/claude-haiku-5.5,sean,anthropic/claude-haiku-5.5,senate,state,KS,Republican,0.6025771092428023,25
+all,all,,average,senate,ideology,Conservative,Democrat,0.037221653140923974,206
+approach,furkan,furkan,average,senate,ideology,Not sure,Republican,0.4618799322787701,34
+model,typesafe/jev-1.14,furkan,typesafe/jev-1.14,senate,ideology,Not sure,Republican,0.5380001937924005,41

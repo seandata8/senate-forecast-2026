@@ -1,0 +1,8 @@
+version_type,version,dem_control,seats,seats_lower,seats_upper
+all,all,0.4151,50.0,43.0,57.0
+approach,furkan,0.3736,49.0,43.0,56.0
+approach,sean,0.5234,51.0,44.0,58.0
+model,anthropic/claude-haiku-5.5,0.4255,50.0,42.0,58.0
+model,cohere/command-a-plus,0.6469,52.0,45.0,59.0
+model,moonshotai/kimi-k3,0.5015,51.0,43.0,58.0
+model,typesafe/jev-1.14,0.2587,48.0,42.0,55.0

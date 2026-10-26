@@ -1,0 +1,57 @@
+approach,persona_id,state,model,draw,question,answer,input_tokens,output_tokens,cost
+sean,260,ID,cohere/command-a-plus,0,senate,Undecided,180,560,0.000894
+sean,260,ID,cohere/command-a-plus,0,generic,Republican,177,1346,0.0020721
+sean,414,MA,cohere/command-a-plus,0,senate,John Deaton,180,1242,0.001917
+sean,414,MA,cohere/command-a-plus,0,generic,Democrat,175,387,0.000633
+sean,596,NC,cohere/command-a-plus,0,senate,Roy Cooper,184,124,0.0002412
+sean,596,NC,cohere/command-a-plus,0,generic,Democrat,179,261,0.0004452
+sean,769,OK,cohere/command-a-plus,0,senate,N'Kiyla Jasmine Thomas,180,190,0.000339
+sean,769,OK,cohere/command-a-plus,0,generic,Democrat,173,159,0.0002904
+sean,879,SD,cohere/command-a-plus,0,senate,Brian Bengs,176,1185,0.0018303
+sean,879,SD,cohere/command-a-plus,0,generic,Democrat,172,131,0.0002481
+sean,975,VA,cohere/command-a-plus,0,senate,Mark Warner,179,316,0.0005277
+sean,975,VA,cohere/command-a-plus,0,generic,Democrat,174,151,0.0002787
+sean,122,DE,cohere/command-a-plus,1,senate,Michael Katz,175,205,0.00036
+sean,122,DE,cohere/command-a-plus,1,generic,Republican,171,157,0.0002868
+sean,187,GA,cohere/command-a-plus,1,senate,Jon Ossoff,176,196,0.0003468
+sean,187,GA,cohere/command-a-plus,1,generic,Democrat,172,207,0.0003621
+sean,555,MT,cohere/command-a-plus,1,senate,Kurt Alme,187,371,0.0006126
+sean,555,MT,cohere/command-a-plus,1,generic,Republican,175,158,0.0002895
+sean,849,SC,cohere/command-a-plus,1,senate,Annie Andrews,180,272,0.000462
+sean,849,SC,cohere/command-a-plus,1,generic,Democrat,175,616,0.0009765
+sean,3,AK,cohere/command-a-plus,2,senate,Mary Peltola,193,550,0.0008829
+sean,3,AK,cohere/command-a-plus,2,generic,Democrat,174,386,0.0006312
+sean,3,AK,cohere/command-a-plus,2,alaska_final,Mary Peltola,192,649,0.0010311
+sean,15,AK,cohere/command-a-plus,2,senate,Dan J. Sullivan,195,1583,0.002433
+sean,15,AK,cohere/command-a-plus,2,generic,Republican,176,592,0.0009408
+sean,15,AK,cohere/command-a-plus,2,alaska_final,Mary Peltola,194,747,0.0011787
+sean,134,DE,cohere/command-a-plus,2,senate,Michael Katz,176,213,0.0003723
+sean,134,DE,cohere/command-a-plus,2,generic,Republican,172,47,0.0001221
+sean,190,GA,cohere/command-a-plus,2,senate,Jon Ossoff,180,205,0.0003615
+sean,190,GA,cohere/command-a-plus,2,generic,Democrat,176,305,0.0005103
+sean,154,FL,anthropic/claude-haiku-5.5,0,senate,Ashley Moody,518,17,0.0000603
+sean,154,FL,anthropic/claude-haiku-5.5,0,generic,Republican,504,13,0.0000569
+sean,195,GA,anthropic/claude-haiku-5.5,0,senate,Mike Collins,509,16,0.0000589
+sean,195,GA,anthropic/claude-haiku-5.5,0,generic,Republican,494,13,0.0000559
+sean,371,LA,anthropic/claude-haiku-5.5,0,senate,Julia Letlow,514,17,0.0000599
+sean,371,LA,anthropic/claude-haiku-5.5,0,generic,Republican,498,13,0.0000563
+sean,830,RI,anthropic/claude-haiku-5.5,0,senate,Raymond McKay,520,17,0.0000605
+sean,830,RI,anthropic/claude-haiku-5.5,0,generic,Republican,505,13,0.000057
+sean,912,TN,anthropic/claude-haiku-5.5,0,senate,Marquita Bradshaw,532,70,0.0000882
+sean,912,TN,anthropic/claude-haiku-5.5,0,generic,Democrat,508,14,0.0000578
+sean,139,DE,anthropic/claude-haiku-5.5,1,senate,Michael Katz,507,100,0.0001007
+sean,139,DE,anthropic/claude-haiku-5.5,1,generic,Republican,496,13,0.0000561
+sean,355,KY,anthropic/claude-haiku-5.5,1,senate,Charles Booker,511,16,0.0000591
+sean,355,KY,anthropic/claude-haiku-5.5,1,generic,Democrat,499,14,0.0000569
+sean,891,SD,anthropic/claude-haiku-5.5,1,senate,Mike Rounds,515,17,0.00006
+sean,891,SD,anthropic/claude-haiku-5.5,1,generic,Republican,500,13,0.0000565
+sean,897,SD,anthropic/claude-haiku-5.5,1,senate,Brian Bengs,521,17,0.0000606
+sean,897,SD,anthropic/claude-haiku-5.5,1,generic,Democrat,506,14,0.0000576
+sean,323,KS,anthropic/claude-haiku-5.5,2,senate,Would not vote,512,53,0.0000777
+sean,323,KS,anthropic/claude-haiku-5.5,2,generic,Would not vote,495,50,0.0000745
+sean,549,MT,anthropic/claude-haiku-5.5,2,senate,Alani Bankhead,539,194,0.0001509
+sean,549,MT,anthropic/claude-haiku-5.5,2,generic,Democrat,498,14,0.0000568
+sean,808,OR,anthropic/claude-haiku-5.5,2,senate,David Brock Smith,514,17,0.0000599
+sean,808,OR,anthropic/claude-haiku-5.5,2,generic,Republican,497,13,0.0000562
+sean,880,SD,anthropic/claude-haiku-5.5,2,senate,Mike Rounds,516,17,0.0000601
+sean,880,SD,anthropic/claude-haiku-5.5,2,generic,Republican,501,13,0.0000566

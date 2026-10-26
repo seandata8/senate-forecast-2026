@@ -1,0 +1,26 @@
+approach,persona_id,state,model,draw,check,question,answer,input_tokens,output_tokens,cost
+sean,60,AR,cohere/command-a-plus,0,no_party_id,senate,Hallie Shoffner,171,156,0.0002853
+sean,0,AK,anthropic/claude-haiku-5.5,0,no_party_id,generic,Undecided,486,14,0.0000556
+sean,180,GA,anthropic/claude-haiku-5.5,0,no_party_id,generic,Democrat,486,14,0.0000556
+sean,180,GA,cohere/command-a-plus,2,persona_state,state,Georgia,120,95,0.0001785
+sean,0,AK,cohere/command-a-plus,1,persona_state,state,Alaska,115,77,0.00015
+sean,120,DE,anthropic/claude-haiku-5.5,0,no_party_id,generic,Undecided,491,14,0.0000561
+sean,180,GA,anthropic/claude-haiku-5.5,1,no_party_id,generic,Democrat,486,14,0.0000556
+sean,210,IA,anthropic/claude-haiku-5.5,0,persona_state,state,Iowa,682,14,0.0000752
+sean,210,IA,cohere/command-a-plus,2,no_party_id,senate,Ashley Hinson,171,273,0.0004608
+sean,180,GA,anthropic/claude-haiku-5.5,2,persona_state,state,Georgia,685,14,0.0000755
+sean,210,IA,anthropic/claude-haiku-5.5,1,no_party_id,senate,Ashley Hinson,499,18,0.0000589
+sean,210,IA,anthropic/claude-haiku-5.5,1,persona_state,state,Iowa,682,14,0.0000752
+sean,240,ID,anthropic/claude-haiku-5.5,2,no_party_id,senate,Todd Achilles,499,17,0.0000584
+sean,90,CO,cohere/command-a-plus,2,no_party_id,senate,John Hickenlooper,174,466,0.0007512
+sean,120,DE,cohere/command-a-plus,1,no_party_id,generic,Democrat,167,495,0.0007926
+sean,30,AL,anthropic/claude-haiku-5.5,1,no_party_id,generic,Republican,483,13,0.0000548
+sean,150,FL,anthropic/claude-haiku-5.5,0,no_party_id,generic,Republican,491,13,0.0000556
+sean,90,CO,cohere/command-a-plus,0,no_party_id,generic,Democrat,166,536,0.0008538
+sean,0,AK,cohere/command-a-plus,0,no_party_id,senate,Dan J. Sullivan,182,2580,0.0039246
+sean,240,ID,cohere/command-a-plus,0,persona_state,state,Idaho,119,168,0.0002877
+sean,270,IL,cohere/command-a-plus,1,persona_state,state,Illinois,121,126,0.0002253
+sean,180,GA,anthropic/claude-haiku-5.5,1,persona_state,state,Georgia,685,14,0.0000755
+sean,30,AL,cohere/command-a-plus,2,persona_state,state,Alabama,116,72,0.0001428
+sean,150,FL,cohere/command-a-plus,1,no_party_id,senate,Ashley Moody,174,112,0.0002202
+sean,150,FL,cohere/command-a-plus,2,no_party_id,senate,Ashley Moody,174,208,0.0003642

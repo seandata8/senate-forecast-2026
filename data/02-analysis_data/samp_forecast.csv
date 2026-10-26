@@ -1,0 +1,1776 @@
+sim_id,state,candidate,party,share,winner
+1169,AK,Dan S. Sullivan,Republican,0.5596590546106437,true
+1169,AK,Mary Peltola,Democrat,0.4403409453893563,false
+1169,AL,Barry Moore,Republican,0.5224191085510325,true
+1169,AL,Everett Wess,Democrat,0.4775808914489675,false
+1169,AR,Hallie Shoffner,Democrat,0.3998176713638416,false
+1169,AR,Tom Cotton,Republican,0.6001823286361584,true
+1169,CO,John Hickenlooper,Democrat,0.5955318723742199,true
+1169,CO,Mark Baisley,Republican,0.40446812762578027,false
+1169,DE,Chris Coons,Democrat,0.7502003121578722,true
+1169,DE,Michael Katz,Republican,0.2497996878421277,false
+1169,FL,Angie Nixon,Democrat,0.4628598982611012,false
+1169,FL,Ashley Moody,Republican,0.5371401017388988,true
+1169,GA,Jon Ossoff,Democrat,0.507673309825889,true
+1169,GA,Mike Collins,Republican,0.4923266901741109,false
+1169,IA,Ashley Hinson,Republican,0.48165427407914735,false
+1169,IA,Josh Turek,Democrat,0.5183457259208526,true
+1169,ID,Jim Risch,Republican,0.5995472913588973,true
+1169,ID,Todd Achilles,Independent,0.4004527086411027,false
+1169,IL,Don Tracy,Republican,0.4020452223488563,false
+1169,IL,Juliana Stratton,Democrat,0.5979547776511437,true
+1169,KS,Adam Hamilton,Democrat,0.515804963855862,true
+1169,KS,Roger Marshall,Republican,0.48419503614413795,false
+1169,KY,Andy Barr,Republican,0.583707051380798,true
+1169,KY,Charles Booker,Democrat,0.41629294861920196,false
+1169,LA,Jamie Davis,Democrat,0.3915285094529655,false
+1169,LA,Julia Letlow,Republican,0.6084714905470345,true
+1169,MA,Ed Markey,Democrat,0.6115678708685912,true
+1169,MA,John Deaton,Republican,0.3884321291314087,false
+1169,ME,Susan Collins,Republican,0.3576069796206915,false
+1169,ME,Troy Jackson,Democrat,0.6423930203793086,true
+1169,MI,Abdul El-Sayed,Democrat,0.6388544285961022,true
+1169,MI,Mike Rogers,Republican,0.3611455714038978,false
+1169,MN,Michele Tafoya,Republican,0.4057922258486893,false
+1169,MN,Peggy Flanagan,Democrat,0.5942077741513108,true
+1169,MS,Cindy Hyde-Smith,Republican,0.6421748761193881,true
+1169,MS,Scott Colom,Democrat,0.35782512388061194,false
+1169,MT,Alani Bankhead,Democrat,0.4227826260648847,false
+1169,MT,Kurt Alme,Republican,0.5000933464746429,true
+1169,MT,Seth Bodnar,Independent,0.07712402746047245,false
+1169,NC,Michael Whatley,Republican,0.4701332025404018,false
+1169,NC,Roy Cooper,Democrat,0.5298667974595982,true
+1169,NE,Dan Osborn,Independent,0.4300920830343301,false
+1169,NE,Pete Ricketts,Republican,0.5699079169656699,true
+1169,NH,Chris Pappas,Democrat,0.5756804044814885,true
+1169,NH,John E. Sununu,Republican,0.42431959551851156,false
+1169,NJ,Cory Booker,Democrat,0.659960560651109,true
+1169,NJ,Justin Murphy,Republican,0.3400394393488911,false
+1169,NM,Ben Ray Luján,Democrat,0.59397990861398,true
+1169,NM,Larry Marker,Republican,0.40602009138601997,false
+1169,OH,Jon Husted,Republican,0.503699287678226,true
+1169,OH,Sherrod Brown,Democrat,0.496300712321774,false
+1169,OK,Kevin Hern,Republican,0.6993001789945215,true
+1169,OK,N'Kiyla Jasmine Thomas,Democrat,0.3006998210054785,false
+1169,OR,David Brock Smith,Republican,0.46596828705185367,false
+1169,OR,Jeff Merkley,Democrat,0.5340317129481463,true
+1169,RI,Jack Reed,Democrat,0.624593785170344,true
+1169,RI,Raymond McKay,Republican,0.3754062148296561,false
+1169,SC,Annie Andrews,Democrat,0.41755764007246504,false
+1169,SC,Darline Graham,Republican,0.582442359927535,true
+1169,SD,Brian Bengs,Independent,0.3887257032441222,false
+1169,SD,Mike Rounds,Republican,0.6112742967558779,true
+1169,TN,Bill Hagerty,Republican,0.6097209606459622,true
+1169,TN,Marquita Bradshaw,Democrat,0.3902790393540379,false
+1169,TX,James Talarico,Democrat,0.4525261293752528,false
+1169,TX,Ken Paxton,Republican,0.5474738706247472,true
+1169,VA,Bert Mizusawa,Republican,0.41492548607742363,false
+1169,VA,Mark Warner,Democrat,0.5850745139225764,true
+1169,WV,Rachel Fetty Anderson,Democrat,0.3182224069489571,false
+1169,WV,Shelley Moore Capito,Republican,0.6817775930510429,true
+1169,WY,Harriet Hageman,Republican,0.747446265867437,true
+1169,WY,James W. Byrd,Democrat,0.252553734132563,false
+1286,AK,Dan S. Sullivan,Republican,0.4883031971275002,false
+1286,AK,Mary Peltola,Democrat,0.5116968028724997,true
+1286,AL,Barry Moore,Republican,0.6555272312311856,true
+1286,AL,Everett Wess,Democrat,0.3444727687688144,false
+1286,AR,Hallie Shoffner,Democrat,0.3754583995270725,false
+1286,AR,Tom Cotton,Republican,0.6245416004729275,true
+1286,CO,John Hickenlooper,Democrat,0.5093916777743662,true
+1286,CO,Mark Baisley,Republican,0.49060832222563383,false
+1286,DE,Chris Coons,Democrat,0.6593669031552544,true
+1286,DE,Michael Katz,Republican,0.34063309684474546,false
+1286,FL,Angie Nixon,Democrat,0.39693106263870404,false
+1286,FL,Ashley Moody,Republican,0.603068937361296,true
+1286,GA,Jon Ossoff,Democrat,0.4664931011308165,false
+1286,GA,Mike Collins,Republican,0.5335068988691835,true
+1286,IA,Ashley Hinson,Republican,0.5953763618097145,true
+1286,IA,Josh Turek,Democrat,0.40462363819028546,false
+1286,ID,Jim Risch,Republican,0.6156046786745661,true
+1286,ID,Todd Achilles,Independent,0.38439532132543386,false
+1286,IL,Don Tracy,Republican,0.4668475725779645,false
+1286,IL,Juliana Stratton,Democrat,0.5331524274220355,true
+1286,KS,Adam Hamilton,Democrat,0.4314510091256281,false
+1286,KS,Roger Marshall,Republican,0.5685489908743718,true
+1286,KY,Andy Barr,Republican,0.7250321437739728,true
+1286,KY,Charles Booker,Democrat,0.2749678562260271,false
+1286,LA,Jamie Davis,Democrat,0.4463195370302833,false
+1286,LA,Julia Letlow,Republican,0.5536804629697167,true
+1286,MA,Ed Markey,Democrat,0.6471691844491251,true
+1286,MA,John Deaton,Republican,0.3528308155508749,false
+1286,ME,Susan Collins,Republican,0.46823257813351005,false
+1286,ME,Troy Jackson,Democrat,0.5317674218664901,true
+1286,MI,Abdul El-Sayed,Democrat,0.4442933549812652,false
+1286,MI,Mike Rogers,Republican,0.5557066450187348,true
+1286,MN,Michele Tafoya,Republican,0.5107940019059987,true
+1286,MN,Peggy Flanagan,Democrat,0.48920599809400134,false
+1286,MS,Cindy Hyde-Smith,Republican,0.6421817564604992,true
+1286,MS,Scott Colom,Democrat,0.35781824353950076,false
+1286,MT,Alani Bankhead,Democrat,0.33047272144981205,false
+1286,MT,Kurt Alme,Republican,0.6092424284340415,true
+1286,MT,Seth Bodnar,Independent,0.060284850116146455,false
+1286,NC,Michael Whatley,Republican,0.5095100914250486,true
+1286,NC,Roy Cooper,Democrat,0.49048990857495145,false
+1286,NE,Dan Osborn,Independent,0.4733084655707403,false
+1286,NE,Pete Ricketts,Republican,0.5266915344292598,true
+1286,NH,Chris Pappas,Democrat,0.5226619803825614,true
+1286,NH,John E. Sununu,Republican,0.47733801961743855,false
+1286,NJ,Cory Booker,Democrat,0.5887751315073264,true
+1286,NJ,Justin Murphy,Republican,0.41122486849267365,false
+1286,NM,Ben Ray Luján,Democrat,0.5298811620416854,true
+1286,NM,Larry Marker,Republican,0.47011883795831455,false
+1286,OH,Jon Husted,Republican,0.5564980978472135,true
+1286,OH,Sherrod Brown,Democrat,0.4435019021527865,false
+1286,OK,Kevin Hern,Republican,0.7069913488523861,true
+1286,OK,N'Kiyla Jasmine Thomas,Democrat,0.2930086511476138,false
+1286,OR,David Brock Smith,Republican,0.5168913397101145,true
+1286,OR,Jeff Merkley,Democrat,0.48310866028988547,false
+1286,RI,Jack Reed,Democrat,0.6175693738032996,true
+1286,RI,Raymond McKay,Republican,0.3824306261967006,false
+1286,SC,Annie Andrews,Democrat,0.4444653261455253,false
+1286,SC,Darline Graham,Republican,0.5555346738544747,true
+1286,SD,Brian Bengs,Independent,0.3205382391601552,false
+1286,SD,Mike Rounds,Republican,0.6794617608398448,true
+1286,TN,Bill Hagerty,Republican,0.6377064774738689,true
+1286,TN,Marquita Bradshaw,Democrat,0.3622935225261312,false
+1286,TX,James Talarico,Democrat,0.5062698945282759,true
+1286,TX,Ken Paxton,Republican,0.49373010547172397,false
+1286,VA,Bert Mizusawa,Republican,0.369703883491151,false
+1286,VA,Mark Warner,Democrat,0.630296116508849,true
+1286,WV,Rachel Fetty Anderson,Democrat,0.39040558402648906,false
+1286,WV,Shelley Moore Capito,Republican,0.6095944159735109,true
+1286,WY,Harriet Hageman,Republican,0.7682864350888968,true
+1286,WY,James W. Byrd,Democrat,0.23171356491110306,false
+1328,AK,Dan S. Sullivan,Republican,0.5156934338251007,true
+1328,AK,Mary Peltola,Democrat,0.4843065661748993,false
+1328,AL,Barry Moore,Republican,0.5965377746131006,true
+1328,AL,Everett Wess,Democrat,0.40346222538689935,false
+1328,AR,Hallie Shoffner,Democrat,0.491762291143351,false
+1328,AR,Tom Cotton,Republican,0.508237708856649,true
+1328,CO,John Hickenlooper,Democrat,0.6536090469622233,true
+1328,CO,Mark Baisley,Republican,0.3463909530377768,false
+1328,DE,Chris Coons,Democrat,0.6463740501242305,true
+1328,DE,Michael Katz,Republican,0.35362594987576934,false
+1328,FL,Angie Nixon,Democrat,0.5373486757948226,true
+1328,FL,Ashley Moody,Republican,0.4626513242051774,false
+1328,GA,Jon Ossoff,Democrat,0.5787690443176847,true
+1328,GA,Mike Collins,Republican,0.4212309556823152,false
+1328,IA,Ashley Hinson,Republican,0.522726557887135,true
+1328,IA,Josh Turek,Democrat,0.47727344211286504,false
+1328,ID,Jim Risch,Republican,0.4932691094509447,false
+1328,ID,Todd Achilles,Independent,0.5067308905490553,true
+1328,IL,Don Tracy,Republican,0.37536055334582913,false
+1328,IL,Juliana Stratton,Democrat,0.6246394466541709,true
+1328,KS,Adam Hamilton,Democrat,0.5059688582528261,true
+1328,KS,Roger Marshall,Republican,0.4940311417471738,false
+1328,KY,Andy Barr,Republican,0.5865372135956627,true
+1328,KY,Charles Booker,Democrat,0.41346278640433726,false
+1328,LA,Jamie Davis,Democrat,0.5330612842613183,true
+1328,LA,Julia Letlow,Republican,0.46693871573868173,false
+1328,MA,Ed Markey,Democrat,0.6988101743466087,true
+1328,MA,John Deaton,Republican,0.30118982565339114,false
+1328,ME,Susan Collins,Republican,0.40754484580136463,false
+1328,ME,Troy Jackson,Democrat,0.5924551541986356,true
+1328,MI,Abdul El-Sayed,Democrat,0.5317695500710009,true
+1328,MI,Mike Rogers,Republican,0.46823044992899904,false
+1328,MN,Michele Tafoya,Republican,0.4072215228135927,false
+1328,MN,Peggy Flanagan,Democrat,0.5927784771864073,true
+1328,MS,Cindy Hyde-Smith,Republican,0.5320755634133609,true
+1328,MS,Scott Colom,Democrat,0.46792443658663907,false
+1328,MT,Alani Bankhead,Democrat,0.43107276275453504,false
+1328,MT,Kurt Alme,Republican,0.4902909226419405,true
+1328,MT,Seth Bodnar,Independent,0.0786363146035244,false
+1328,NC,Michael Whatley,Republican,0.4833730856944906,false
+1328,NC,Roy Cooper,Democrat,0.5166269143055093,true
+1328,NE,Dan Osborn,Independent,0.5714381859409532,true
+1328,NE,Pete Ricketts,Republican,0.42856181405904686,false
+1328,NH,Chris Pappas,Democrat,0.5613070300844032,true
+1328,NH,John E. Sununu,Republican,0.43869296991559675,false
+1328,NJ,Cory Booker,Democrat,0.6646410260589151,true
+1328,NJ,Justin Murphy,Republican,0.3353589739410849,false
+1328,NM,Ben Ray Luján,Democrat,0.6832141008882167,true
+1328,NM,Larry Marker,Republican,0.3167858991117833,false
+1328,OH,Jon Husted,Republican,0.5410959852112949,true
+1328,OH,Sherrod Brown,Democrat,0.45890401478870513,false
+1328,OK,Kevin Hern,Republican,0.5842152748585837,true
+1328,OK,N'Kiyla Jasmine Thomas,Democrat,0.41578472514141623,false
+1328,OR,David Brock Smith,Republican,0.4963382148349857,false
+1328,OR,Jeff Merkley,Democrat,0.5036617851650144,true
+1328,RI,Jack Reed,Democrat,0.7228370307358809,true
+1328,RI,Raymond McKay,Republican,0.27716296926411926,false
+1328,SC,Annie Andrews,Democrat,0.4187429989119344,false
+1328,SC,Darline Graham,Republican,0.5812570010880657,true
+1328,SD,Brian Bengs,Independent,0.4149070148670349,false
+1328,SD,Mike Rounds,Republican,0.5850929851329651,true
+1328,TN,Bill Hagerty,Republican,0.5836025349738108,true
+1328,TN,Marquita Bradshaw,Democrat,0.4163974650261893,false
+1328,TX,James Talarico,Democrat,0.4556794232766122,false
+1328,TX,Ken Paxton,Republican,0.5443205767233877,true
+1328,VA,Bert Mizusawa,Republican,0.32866368342117386,false
+1328,VA,Mark Warner,Democrat,0.6713363165788262,true
+1328,WV,Rachel Fetty Anderson,Democrat,0.43353771777349315,false
+1328,WV,Shelley Moore Capito,Republican,0.5664622822265069,true
+1328,WY,Harriet Hageman,Republican,0.6463306327260634,true
+1328,WY,James W. Byrd,Democrat,0.3536693672739366,false
+1467,AK,Dan S. Sullivan,Republican,0.48490341906814294,false
+1467,AK,Mary Peltola,Democrat,0.5150965809318571,true
+1467,AL,Barry Moore,Republican,0.5542700306668185,true
+1467,AL,Everett Wess,Democrat,0.4457299693331815,false
+1467,AR,Hallie Shoffner,Democrat,0.33374184681649033,false
+1467,AR,Tom Cotton,Republican,0.6662581531835097,true
+1467,CO,John Hickenlooper,Democrat,0.5273935351283502,true
+1467,CO,Mark Baisley,Republican,0.4726064648716499,false
+1467,DE,Chris Coons,Democrat,0.6976399011163973,true
+1467,DE,Michael Katz,Republican,0.3023600988836026,false
+1467,FL,Angie Nixon,Democrat,0.46136046444509793,false
+1467,FL,Ashley Moody,Republican,0.5386395355549021,true
+1467,GA,Jon Ossoff,Democrat,0.5094716150486713,true
+1467,GA,Mike Collins,Republican,0.4905283849513286,false
+1467,IA,Ashley Hinson,Republican,0.5604865677522376,true
+1467,IA,Josh Turek,Democrat,0.4395134322477624,false
+1467,ID,Jim Risch,Republican,0.5195936455941367,true
+1467,ID,Todd Achilles,Independent,0.4804063544058633,false
+1467,IL,Don Tracy,Republican,0.4407902290104717,false
+1467,IL,Juliana Stratton,Democrat,0.5592097709895283,true
+1467,KS,Adam Hamilton,Democrat,0.3939369245210866,false
+1467,KS,Roger Marshall,Republican,0.6060630754789134,true
+1467,KY,Andy Barr,Republican,0.6515362866154196,true
+1467,KY,Charles Booker,Democrat,0.3484637133845803,false
+1467,LA,Jamie Davis,Democrat,0.45351604069168955,false
+1467,LA,Julia Letlow,Republican,0.5464839593083105,true
+1467,MA,Ed Markey,Democrat,0.731987368825806,true
+1467,MA,John Deaton,Republican,0.26801263117419405,false
+1467,ME,Susan Collins,Republican,0.502565577323185,true
+1467,ME,Troy Jackson,Democrat,0.49743442267681515,false
+1467,MI,Abdul El-Sayed,Democrat,0.5003414650459608,true
+1467,MI,Mike Rogers,Republican,0.4996585349540393,false
+1467,MN,Michele Tafoya,Republican,0.4222297368898991,false
+1467,MN,Peggy Flanagan,Democrat,0.5777702631101009,true
+1467,MS,Cindy Hyde-Smith,Republican,0.5875209952888896,true
+1467,MS,Scott Colom,Democrat,0.41247900471111043,false
+1467,MT,Alani Bankhead,Democrat,0.4344971198425624,false
+1467,MT,Kurt Alme,Republican,0.48624189416533314,true
+1467,MT,Seth Bodnar,Independent,0.07926098599210449,false
+1467,NC,Michael Whatley,Republican,0.56474459183515,true
+1467,NC,Roy Cooper,Democrat,0.43525540816485,false
+1467,NE,Dan Osborn,Independent,0.46032584957019756,false
+1467,NE,Pete Ricketts,Republican,0.5396741504298025,true
+1467,NH,Chris Pappas,Democrat,0.5972981016825013,true
+1467,NH,John E. Sununu,Republican,0.4027018983174987,false
+1467,NJ,Cory Booker,Democrat,0.6947132496396943,true
+1467,NJ,Justin Murphy,Republican,0.30528675036030567,false
+1467,NM,Ben Ray Luján,Democrat,0.6696825013872894,true
+1467,NM,Larry Marker,Republican,0.33031749861271054,false
+1467,OH,Jon Husted,Republican,0.5362708251562561,true
+1467,OH,Sherrod Brown,Democrat,0.4637291748437439,false
+1467,OK,Kevin Hern,Republican,0.6950508683358294,true
+1467,OK,N'Kiyla Jasmine Thomas,Democrat,0.30494913166417054,false
+1467,OR,David Brock Smith,Republican,0.3610236110430183,false
+1467,OR,Jeff Merkley,Democrat,0.6389763889569817,true
+1467,RI,Jack Reed,Democrat,0.686433102049471,true
+1467,RI,Raymond McKay,Republican,0.3135668979505293,false
+1467,SC,Annie Andrews,Democrat,0.47146065089042316,false
+1467,SC,Darline Graham,Republican,0.5285393491095769,true
+1467,SD,Brian Bengs,Independent,0.36968981880346996,false
+1467,SD,Mike Rounds,Republican,0.63031018119653,true
+1467,TN,Bill Hagerty,Republican,0.6359440766986982,true
+1467,TN,Marquita Bradshaw,Democrat,0.3640559233013018,false
+1467,TX,James Talarico,Democrat,0.48405591698983824,false
+1467,TX,Ken Paxton,Republican,0.5159440830101617,true
+1467,VA,Bert Mizusawa,Republican,0.44125219535897797,false
+1467,VA,Mark Warner,Democrat,0.558747804641022,true
+1467,WV,Rachel Fetty Anderson,Democrat,0.41157873883452806,false
+1467,WV,Shelley Moore Capito,Republican,0.588421261165472,true
+1467,WY,Harriet Hageman,Republican,0.7891348852315402,true
+1467,WY,James W. Byrd,Democrat,0.21086511476845982,false
+1788,AK,Dan S. Sullivan,Republican,0.44622809574498024,false
+1788,AK,Mary Peltola,Democrat,0.5537719042550198,true
+1788,AL,Barry Moore,Republican,0.6183116491941745,true
+1788,AL,Everett Wess,Democrat,0.3816883508058254,false
+1788,AR,Hallie Shoffner,Democrat,0.32831732989662743,false
+1788,AR,Tom Cotton,Republican,0.6716826701033726,true
+1788,CO,John Hickenlooper,Democrat,0.544879541367134,true
+1788,CO,Mark Baisley,Republican,0.4551204586328661,false
+1788,DE,Chris Coons,Democrat,0.6380864938784251,true
+1788,DE,Michael Katz,Republican,0.3619135061215748,false
+1788,FL,Angie Nixon,Democrat,0.5256587471051033,true
+1788,FL,Ashley Moody,Republican,0.47434125289489665,false
+1788,GA,Jon Ossoff,Democrat,0.5811689710817305,true
+1788,GA,Mike Collins,Republican,0.41883102891826945,false
+1788,IA,Ashley Hinson,Republican,0.5350896714298452,true
+1788,IA,Josh Turek,Democrat,0.4649103285701548,false
+1788,ID,Jim Risch,Republican,0.5362291768600851,true
+1788,ID,Todd Achilles,Independent,0.4637708231399149,false
+1788,IL,Don Tracy,Republican,0.45265782017641104,false
+1788,IL,Juliana Stratton,Democrat,0.5473421798235889,true
+1788,KS,Adam Hamilton,Democrat,0.496319973555341,false
+1788,KS,Roger Marshall,Republican,0.5036800264446589,true
+1788,KY,Andy Barr,Republican,0.6400297581140781,true
+1788,KY,Charles Booker,Democrat,0.3599702418859218,false
+1788,LA,Jamie Davis,Democrat,0.5526280918371509,true
+1788,LA,Julia Letlow,Republican,0.44737190816284905,false
+1788,MA,Ed Markey,Democrat,0.5292522692730061,true
+1788,MA,John Deaton,Republican,0.47074773072699394,false
+1788,ME,Susan Collins,Republican,0.4455452801522093,false
+1788,ME,Troy Jackson,Democrat,0.5544547198477908,true
+1788,MI,Abdul El-Sayed,Democrat,0.5247478576004756,true
+1788,MI,Mike Rogers,Republican,0.47525214239952435,false
+1788,MN,Michele Tafoya,Republican,0.488673262429712,false
+1788,MN,Peggy Flanagan,Democrat,0.511326737570288,true
+1788,MS,Cindy Hyde-Smith,Republican,0.6058588874743421,true
+1788,MS,Scott Colom,Democrat,0.39414111252565787,false
+1788,MT,Alani Bankhead,Democrat,0.34227640660041836,false
+1788,MT,Kurt Alme,Republican,0.5952855144571626,true
+1788,MT,Seth Bodnar,Independent,0.06243807894241904,false
+1788,NC,Michael Whatley,Republican,0.486584870636873,false
+1788,NC,Roy Cooper,Democrat,0.5134151293631269,true
+1788,NE,Dan Osborn,Independent,0.4775748188102931,false
+1788,NE,Pete Ricketts,Republican,0.5224251811897069,true
+1788,NH,Chris Pappas,Democrat,0.51905584380568,true
+1788,NH,John E. Sununu,Republican,0.48094415619432,false
+1788,NJ,Cory Booker,Democrat,0.6490517223173203,true
+1788,NJ,Justin Murphy,Republican,0.35094827768267967,false
+1788,NM,Ben Ray Luján,Democrat,0.6171203431473269,true
+1788,NM,Larry Marker,Republican,0.38287965685267306,false
+1788,OH,Jon Husted,Republican,0.5745542903477774,true
+1788,OH,Sherrod Brown,Democrat,0.4254457096522226,false
+1788,OK,Kevin Hern,Republican,0.6629547946791586,true
+1788,OK,N'Kiyla Jasmine Thomas,Democrat,0.3370452053208413,false
+1788,OR,David Brock Smith,Republican,0.5080816648106754,true
+1788,OR,Jeff Merkley,Democrat,0.4919183351893246,false
+1788,RI,Jack Reed,Democrat,0.6738255177460615,true
+1788,RI,Raymond McKay,Republican,0.32617448225393875,false
+1788,SC,Annie Andrews,Democrat,0.4016225084591973,false
+1788,SC,Darline Graham,Republican,0.5983774915408028,true
+1788,SD,Brian Bengs,Independent,0.3719344904689181,false
+1788,SD,Mike Rounds,Republican,0.628065509531082,true
+1788,TN,Bill Hagerty,Republican,0.7147824122390495,true
+1788,TN,Marquita Bradshaw,Democrat,0.2852175877609506,false
+1788,TX,James Talarico,Democrat,0.46101825587930806,false
+1788,TX,Ken Paxton,Republican,0.5389817441206919,true
+1788,VA,Bert Mizusawa,Republican,0.4162115954489718,false
+1788,VA,Mark Warner,Democrat,0.5837884045510282,true
+1788,WV,Rachel Fetty Anderson,Democrat,0.36363619300567707,false
+1788,WV,Shelley Moore Capito,Republican,0.6363638069943229,true
+1788,WY,Harriet Hageman,Republican,0.700192971273575,true
+1788,WY,James W. Byrd,Democrat,0.29980702872642495,false
+1818,AK,Dan S. Sullivan,Republican,0.5450180118103968,true
+1818,AK,Mary Peltola,Democrat,0.4549819881896032,false
+1818,AL,Barry Moore,Republican,0.6790894232249658,true
+1818,AL,Everett Wess,Democrat,0.3209105767750342,false
+1818,AR,Hallie Shoffner,Democrat,0.4140752520933484,false
+1818,AR,Tom Cotton,Republican,0.5859247479066516,true
+1818,CO,John Hickenlooper,Democrat,0.5474097653850475,true
+1818,CO,Mark Baisley,Republican,0.4525902346149527,false
+1818,DE,Chris Coons,Democrat,0.6501472493630934,true
+1818,DE,Michael Katz,Republican,0.3498527506369065,false
+1818,FL,Angie Nixon,Democrat,0.41268847606707115,false
+1818,FL,Ashley Moody,Republican,0.587311523932929,true
+1818,GA,Jon Ossoff,Democrat,0.4704285410167474,false
+1818,GA,Mike Collins,Republican,0.5295714589832525,true
+1818,IA,Ashley Hinson,Republican,0.5277252740378731,true
+1818,IA,Josh Turek,Democrat,0.4722747259621269,false
+1818,ID,Jim Risch,Republican,0.6253342368669428,true
+1818,ID,Todd Achilles,Independent,0.3746657631330572,false
+1818,IL,Don Tracy,Republican,0.402639206217473,false
+1818,IL,Juliana Stratton,Democrat,0.597360793782527,true
+1818,KS,Adam Hamilton,Democrat,0.3060014878182961,false
+1818,KS,Roger Marshall,Republican,0.6939985121817038,true
+1818,KY,Andy Barr,Republican,0.5873846400665967,true
+1818,KY,Charles Booker,Democrat,0.4126153599334032,false
+1818,LA,Jamie Davis,Democrat,0.4107931860334893,false
+1818,LA,Julia Letlow,Republican,0.5892068139665108,true
+1818,MA,Ed Markey,Democrat,0.6102358498610241,true
+1818,MA,John Deaton,Republican,0.38976415013897586,false
+1818,ME,Susan Collins,Republican,0.46985764404511204,false
+1818,ME,Troy Jackson,Democrat,0.530142355954888,true
+1818,MI,Abdul El-Sayed,Democrat,0.4667033480641669,false
+1818,MI,Mike Rogers,Republican,0.5332966519358331,true
+1818,MN,Michele Tafoya,Republican,0.4558013009922059,false
+1818,MN,Peggy Flanagan,Democrat,0.544198699007794,true
+1818,MS,Cindy Hyde-Smith,Republican,0.6446339117133103,true
+1818,MS,Scott Colom,Democrat,0.3553660882866897,false
+1818,MT,Alani Bankhead,Democrat,0.34358183289308997,false
+1818,MT,Kurt Alme,Republican,0.5937419522359153,true
+1818,MT,Seth Bodnar,Independent,0.06267621487099473,false
+1818,NC,Michael Whatley,Republican,0.4594793447847666,false
+1818,NC,Roy Cooper,Democrat,0.5405206552152334,true
+1818,NE,Dan Osborn,Independent,0.4257495060773277,false
+1818,NE,Pete Ricketts,Republican,0.5742504939226724,true
+1818,NH,Chris Pappas,Democrat,0.5142331263353159,true
+1818,NH,John E. Sununu,Republican,0.485766873664684,false
+1818,NJ,Cory Booker,Democrat,0.6388520766847766,true
+1818,NJ,Justin Murphy,Republican,0.3611479233152234,false
+1818,NM,Ben Ray Luján,Democrat,0.6223033670488347,true
+1818,NM,Larry Marker,Republican,0.3776966329511653,false
+1818,OH,Jon Husted,Republican,0.42464216184214804,false
+1818,OH,Sherrod Brown,Democrat,0.5753578381578519,true
+1818,OK,Kevin Hern,Republican,0.694383579704585,true
+1818,OK,N'Kiyla Jasmine Thomas,Democrat,0.30561642029541497,false
+1818,OR,David Brock Smith,Republican,0.4447200214715512,false
+1818,OR,Jeff Merkley,Democrat,0.5552799785284488,true
+1818,RI,Jack Reed,Democrat,0.7119656785362364,true
+1818,RI,Raymond McKay,Republican,0.2880343214637637,false
+1818,SC,Annie Andrews,Democrat,0.5035209538317018,true
+1818,SC,Darline Graham,Republican,0.4964790461682982,false
+1818,SD,Brian Bengs,Independent,0.31630300990936866,false
+1818,SD,Mike Rounds,Republican,0.6836969900906313,true
+1818,TN,Bill Hagerty,Republican,0.7115606327996248,true
+1818,TN,Marquita Bradshaw,Democrat,0.2884393672003753,false
+1818,TX,James Talarico,Democrat,0.4608536824181015,false
+1818,TX,Ken Paxton,Republican,0.5391463175818985,true
+1818,VA,Bert Mizusawa,Republican,0.42091172181194286,false
+1818,VA,Mark Warner,Democrat,0.5790882781880571,true
+1818,WV,Rachel Fetty Anderson,Democrat,0.3085287945227314,false
+1818,WV,Shelley Moore Capito,Republican,0.6914712054772686,true
+1818,WY,Harriet Hageman,Republican,0.8333044187235221,true
+1818,WY,James W. Byrd,Democrat,0.16669558127647788,false
+1859,AK,Dan S. Sullivan,Republican,0.5091953854164546,true
+1859,AK,Mary Peltola,Democrat,0.49080461458354546,false
+1859,AL,Barry Moore,Republican,0.6447745873286647,true
+1859,AL,Everett Wess,Democrat,0.35522541267133534,false
+1859,AR,Hallie Shoffner,Democrat,0.35718127365825403,false
+1859,AR,Tom Cotton,Republican,0.642818726341746,true
+1859,CO,John Hickenlooper,Democrat,0.5235178905524162,true
+1859,CO,Mark Baisley,Republican,0.476482109447584,false
+1859,DE,Chris Coons,Democrat,0.6613292379295385,true
+1859,DE,Michael Katz,Republican,0.33867076207046143,false
+1859,FL,Angie Nixon,Democrat,0.4919759862587491,false
+1859,FL,Ashley Moody,Republican,0.5080240137412508,true
+1859,GA,Jon Ossoff,Democrat,0.4782164521525077,false
+1859,GA,Mike Collins,Republican,0.5217835478474923,true
+1859,IA,Ashley Hinson,Republican,0.5719222010661182,true
+1859,IA,Josh Turek,Democrat,0.42807779893388176,false
+1859,ID,Jim Risch,Republican,0.5529190124941438,true
+1859,ID,Todd Achilles,Independent,0.44708098750585623,false
+1859,IL,Don Tracy,Republican,0.43057318997300914,false
+1859,IL,Juliana Stratton,Democrat,0.5694268100269908,true
+1859,KS,Adam Hamilton,Democrat,0.48504778527209896,false
+1859,KS,Roger Marshall,Republican,0.514952214727901,true
+1859,KY,Andy Barr,Republican,0.5876329495008823,true
+1859,KY,Charles Booker,Democrat,0.41236705049911765,false
+1859,LA,Jamie Davis,Democrat,0.47144451060988996,false
+1859,LA,Julia Letlow,Republican,0.5285554893901101,true
+1859,MA,Ed Markey,Democrat,0.7024006069293477,true
+1859,MA,John Deaton,Republican,0.2975993930706523,false
+1859,ME,Susan Collins,Republican,0.3407388766437854,false
+1859,ME,Troy Jackson,Democrat,0.6592611233562148,true
+1859,MI,Abdul El-Sayed,Democrat,0.5986196388476558,true
+1859,MI,Mike Rogers,Republican,0.4013803611523442,false
+1859,MN,Michele Tafoya,Republican,0.48106109988307477,false
+1859,MN,Peggy Flanagan,Democrat,0.5189389001169252,true
+1859,MS,Cindy Hyde-Smith,Republican,0.6160876395827399,true
+1859,MS,Scott Colom,Democrat,0.38391236041726007,false
+1859,MT,Alani Bankhead,Democrat,0.33335737737492266,false
+1859,MT,Kurt Alme,Republican,0.6058315534330597,true
+1859,MT,Seth Bodnar,Independent,0.06081106919201762,false
+1859,NC,Michael Whatley,Republican,0.4976912548411406,false
+1859,NC,Roy Cooper,Democrat,0.5023087451588595,true
+1859,NE,Dan Osborn,Independent,0.4072053152497859,false
+1859,NE,Pete Ricketts,Republican,0.5927946847502141,true
+1859,NH,Chris Pappas,Democrat,0.6222893650974347,true
+1859,NH,John E. Sununu,Republican,0.3777106349025654,false
+1859,NJ,Cory Booker,Democrat,0.7265979450938052,true
+1859,NJ,Justin Murphy,Republican,0.27340205490619496,false
+1859,NM,Ben Ray Luján,Democrat,0.5789662825567781,true
+1859,NM,Larry Marker,Republican,0.42103371744322193,false
+1859,OH,Jon Husted,Republican,0.557774663707318,true
+1859,OH,Sherrod Brown,Democrat,0.442225336292682,false
+1859,OK,Kevin Hern,Republican,0.6404059973112127,true
+1859,OK,N'Kiyla Jasmine Thomas,Democrat,0.3595940026887873,false
+1859,OR,David Brock Smith,Republican,0.37034399948808033,false
+1859,OR,Jeff Merkley,Democrat,0.6296560005119196,true
+1859,RI,Jack Reed,Democrat,0.6296883247158424,true
+1859,RI,Raymond McKay,Republican,0.3703116752841578,false
+1859,SC,Annie Andrews,Democrat,0.45619584142784386,false
+1859,SC,Darline Graham,Republican,0.5438041585721562,true
+1859,SD,Brian Bengs,Independent,0.41267467372000577,false
+1859,SD,Mike Rounds,Republican,0.5873253262799942,true
+1859,TN,Bill Hagerty,Republican,0.6283905340168735,true
+1859,TN,Marquita Bradshaw,Democrat,0.37160946598312655,false
+1859,TX,James Talarico,Democrat,0.4529963890101591,false
+1859,TX,Ken Paxton,Republican,0.5470036109898408,true
+1859,VA,Bert Mizusawa,Republican,0.41898514769197726,false
+1859,VA,Mark Warner,Democrat,0.5810148523080227,true
+1859,WV,Rachel Fetty Anderson,Democrat,0.31858212930775476,false
+1859,WV,Shelley Moore Capito,Republican,0.6814178706922454,true
+1859,WY,Harriet Hageman,Republican,0.7614242306051848,true
+1859,WY,James W. Byrd,Democrat,0.23857576939481517,false
+2483,AK,Dan S. Sullivan,Republican,0.5743157665341041,true
+2483,AK,Mary Peltola,Democrat,0.4256842334658959,false
+2483,AL,Barry Moore,Republican,0.661308816820318,true
+2483,AL,Everett Wess,Democrat,0.33869118317968205,false
+2483,AR,Hallie Shoffner,Democrat,0.3690374589657579,false
+2483,AR,Tom Cotton,Republican,0.6309625410342421,true
+2483,CO,John Hickenlooper,Democrat,0.5187607302807687,true
+2483,CO,Mark Baisley,Republican,0.4812392697192315,false
+2483,DE,Chris Coons,Democrat,0.6675848929982251,true
+2483,DE,Michael Katz,Republican,0.3324151070017748,false
+2483,FL,Angie Nixon,Democrat,0.47009798492747557,false
+2483,FL,Ashley Moody,Republican,0.5299020150725244,true
+2483,GA,Jon Ossoff,Democrat,0.4484051751037848,false
+2483,GA,Mike Collins,Republican,0.5515948248962151,true
+2483,IA,Ashley Hinson,Republican,0.5220374848409776,true
+2483,IA,Josh Turek,Democrat,0.47796251515902244,false
+2483,ID,Jim Risch,Republican,0.5320739707723005,true
+2483,ID,Todd Achilles,Independent,0.46792602922769955,false
+2483,IL,Don Tracy,Republican,0.40707030867175664,false
+2483,IL,Juliana Stratton,Democrat,0.5929296913282434,true
+2483,KS,Adam Hamilton,Democrat,0.47952835774914254,false
+2483,KS,Roger Marshall,Republican,0.5204716422508574,true
+2483,KY,Andy Barr,Republican,0.6283117912262645,true
+2483,KY,Charles Booker,Democrat,0.3716882087737355,false
+2483,LA,Jamie Davis,Democrat,0.43391833389532036,false
+2483,LA,Julia Letlow,Republican,0.5660816661046797,true
+2483,MA,Ed Markey,Democrat,0.5858506089675597,true
+2483,MA,John Deaton,Republican,0.41414939103244025,false
+2483,ME,Susan Collins,Republican,0.40366726870559694,false
+2483,ME,Troy Jackson,Democrat,0.5963327312944032,true
+2483,MI,Abdul El-Sayed,Democrat,0.5426251188926408,true
+2483,MI,Mike Rogers,Republican,0.45737488110735924,false
+2483,MN,Michele Tafoya,Republican,0.4311339696871872,false
+2483,MN,Peggy Flanagan,Democrat,0.5688660303128128,true
+2483,MS,Cindy Hyde-Smith,Republican,0.6012214439473472,true
+2483,MS,Scott Colom,Democrat,0.3987785560526527,false
+2483,MT,Alani Bankhead,Democrat,0.401617300698407,false
+2483,MT,Kurt Alme,Republican,0.5251196515364488,true
+2483,MT,Seth Bodnar,Independent,0.07326304776514424,false
+2483,NC,Michael Whatley,Republican,0.5132578639936682,true
+2483,NC,Roy Cooper,Democrat,0.48674213600633176,false
+2483,NE,Dan Osborn,Independent,0.4727279392694979,false
+2483,NE,Pete Ricketts,Republican,0.5272720607305021,true
+2483,NH,Chris Pappas,Democrat,0.5974727591217996,true
+2483,NH,John E. Sununu,Republican,0.4025272408782004,false
+2483,NJ,Cory Booker,Democrat,0.6095437722825359,true
+2483,NJ,Justin Murphy,Republican,0.39045622771746413,false
+2483,NM,Ben Ray Luján,Democrat,0.6260482340614738,true
+2483,NM,Larry Marker,Republican,0.3739517659385262,false
+2483,OH,Jon Husted,Republican,0.5785716131121084,true
+2483,OH,Sherrod Brown,Democrat,0.42142838688789164,false
+2483,OK,Kevin Hern,Republican,0.6549561649133574,true
+2483,OK,N'Kiyla Jasmine Thomas,Democrat,0.34504383508664266,false
+2483,OR,David Brock Smith,Republican,0.3707149201180814,false
+2483,OR,Jeff Merkley,Democrat,0.6292850798819186,true
+2483,RI,Jack Reed,Democrat,0.6864541840444697,true
+2483,RI,Raymond McKay,Republican,0.3135458159555305,false
+2483,SC,Annie Andrews,Democrat,0.43038961044678964,false
+2483,SC,Darline Graham,Republican,0.5696103895532104,true
+2483,SD,Brian Bengs,Independent,0.32607279126365096,false
+2483,SD,Mike Rounds,Republican,0.673927208736349,true
+2483,TN,Bill Hagerty,Republican,0.5961935472574512,true
+2483,TN,Marquita Bradshaw,Democrat,0.40380645274254884,false
+2483,TX,James Talarico,Democrat,0.47624296353939816,false
+2483,TX,Ken Paxton,Republican,0.5237570364606018,true
+2483,VA,Bert Mizusawa,Republican,0.4218445625177636,false
+2483,VA,Mark Warner,Democrat,0.5781554374822364,true
+2483,WV,Rachel Fetty Anderson,Democrat,0.4635341695527244,false
+2483,WV,Shelley Moore Capito,Republican,0.5364658304472756,true
+2483,WY,Harriet Hageman,Republican,0.6448026477609496,true
+2483,WY,James W. Byrd,Democrat,0.35519735223905036,false
+3084,AK,Dan S. Sullivan,Republican,0.4836918308730514,false
+3084,AK,Mary Peltola,Democrat,0.5163081691269487,true
+3084,AL,Barry Moore,Republican,0.5338231588767737,true
+3084,AL,Everett Wess,Democrat,0.4661768411232263,false
+3084,AR,Hallie Shoffner,Democrat,0.38351175284702416,false
+3084,AR,Tom Cotton,Republican,0.6164882471529758,true
+3084,CO,John Hickenlooper,Democrat,0.6079141961856456,true
+3084,CO,Mark Baisley,Republican,0.39208580381435454,false
+3084,DE,Chris Coons,Democrat,0.7187646642034882,true
+3084,DE,Michael Katz,Republican,0.2812353357965118,false
+3084,FL,Angie Nixon,Democrat,0.44789985166087465,false
+3084,FL,Ashley Moody,Republican,0.5521001483391254,true
+3084,GA,Jon Ossoff,Democrat,0.5377378567767733,true
+3084,GA,Mike Collins,Republican,0.4622621432232266,false
+3084,IA,Ashley Hinson,Republican,0.554239123590389,true
+3084,IA,Josh Turek,Democrat,0.44576087640961104,false
+3084,ID,Jim Risch,Republican,0.6185605566044438,true
+3084,ID,Todd Achilles,Independent,0.38143944339555624,false
+3084,IL,Don Tracy,Republican,0.3985616546173722,false
+3084,IL,Juliana Stratton,Democrat,0.6014383453826277,true
+3084,KS,Adam Hamilton,Democrat,0.42421918581822365,false
+3084,KS,Roger Marshall,Republican,0.5757808141817763,true
+3084,KY,Andy Barr,Republican,0.5508139663469512,true
+3084,KY,Charles Booker,Democrat,0.4491860336530487,false
+3084,LA,Jamie Davis,Democrat,0.42192855353619313,false
+3084,LA,Julia Letlow,Republican,0.5780714464638069,true
+3084,MA,Ed Markey,Democrat,0.6364443232999767,true
+3084,MA,John Deaton,Republican,0.3635556767000233,false
+3084,ME,Susan Collins,Republican,0.4379403310094475,false
+3084,ME,Troy Jackson,Democrat,0.5620596689905526,true
+3084,MI,Abdul El-Sayed,Democrat,0.5568186017418736,true
+3084,MI,Mike Rogers,Republican,0.4431813982581264,false
+3084,MN,Michele Tafoya,Republican,0.4712315414323419,false
+3084,MN,Peggy Flanagan,Democrat,0.5287684585676581,true
+3084,MS,Cindy Hyde-Smith,Republican,0.6321209374164114,true
+3084,MS,Scott Colom,Democrat,0.3678790625835886,false
+3084,MT,Alani Bankhead,Democrat,0.33034960526682866,false
+3084,MT,Kurt Alme,Republican,0.6093880034771858,true
+3084,MT,Seth Bodnar,Independent,0.06026239125598558,false
+3084,NC,Michael Whatley,Republican,0.4839614349885384,false
+3084,NC,Roy Cooper,Democrat,0.5160385650114616,true
+3084,NE,Dan Osborn,Independent,0.5788786090530124,true
+3084,NE,Pete Ricketts,Republican,0.42112139094698775,false
+3084,NH,Chris Pappas,Democrat,0.5647065428314226,true
+3084,NH,John E. Sununu,Republican,0.43529345716857737,false
+3084,NJ,Cory Booker,Democrat,0.5987566300285743,true
+3084,NJ,Justin Murphy,Republican,0.4012433699714257,false
+3084,NM,Ben Ray Luján,Democrat,0.6450187730312023,true
+3084,NM,Larry Marker,Republican,0.3549812269687977,false
+3084,OH,Jon Husted,Republican,0.515552804988785,true
+3084,OH,Sherrod Brown,Democrat,0.484447195011215,false
+3084,OK,Kevin Hern,Republican,0.6625460885378599,true
+3084,OK,N'Kiyla Jasmine Thomas,Democrat,0.33745391146214004,false
+3084,OR,David Brock Smith,Republican,0.4518981912626263,false
+3084,OR,Jeff Merkley,Democrat,0.5481018087373737,true
+3084,RI,Jack Reed,Democrat,0.6441102056187836,true
+3084,RI,Raymond McKay,Republican,0.3558897943812166,false
+3084,SC,Annie Andrews,Democrat,0.3972388194972863,false
+3084,SC,Darline Graham,Republican,0.6027611805027138,true
+3084,SD,Brian Bengs,Independent,0.36035086018500495,false
+3084,SD,Mike Rounds,Republican,0.639649139814995,true
+3084,TN,Bill Hagerty,Republican,0.5901446938042116,true
+3084,TN,Marquita Bradshaw,Democrat,0.4098553061957884,false
+3084,TX,James Talarico,Democrat,0.4616349038223993,false
+3084,TX,Ken Paxton,Republican,0.5383650961776006,true
+3084,VA,Bert Mizusawa,Republican,0.39178206129759574,false
+3084,VA,Mark Warner,Democrat,0.6082179387024043,true
+3084,WV,Rachel Fetty Anderson,Democrat,0.33515920159947055,false
+3084,WV,Shelley Moore Capito,Republican,0.6648407984005295,true
+3084,WY,Harriet Hageman,Republican,0.6644190808706343,true
+3084,WY,James W. Byrd,Democrat,0.3355809191293658,false
+3384,AK,Dan S. Sullivan,Republican,0.6405510135948772,true
+3384,AK,Mary Peltola,Democrat,0.3594489864051228,false
+3384,AL,Barry Moore,Republican,0.6345088065448705,true
+3384,AL,Everett Wess,Democrat,0.3654911934551295,false
+3384,AR,Hallie Shoffner,Democrat,0.37149120678609016,false
+3384,AR,Tom Cotton,Republican,0.6285087932139097,true
+3384,CO,John Hickenlooper,Democrat,0.5213698862441879,true
+3384,CO,Mark Baisley,Republican,0.4786301137558122,false
+3384,DE,Chris Coons,Democrat,0.6320542373093212,true
+3384,DE,Michael Katz,Republican,0.3679457626906787,false
+3384,FL,Angie Nixon,Democrat,0.42783329229488676,false
+3384,FL,Ashley Moody,Republican,0.5721667077051132,true
+3384,GA,Jon Ossoff,Democrat,0.3965893837631142,false
+3384,GA,Mike Collins,Republican,0.6034106162368857,true
+3384,IA,Ashley Hinson,Republican,0.5133004169137764,true
+3384,IA,Josh Turek,Democrat,0.48669958308622363,false
+3384,ID,Jim Risch,Republican,0.6189378146783793,true
+3384,ID,Todd Achilles,Independent,0.38106218532162073,false
+3384,IL,Don Tracy,Republican,0.54916506078444,true
+3384,IL,Juliana Stratton,Democrat,0.45083493921555995,false
+3384,KS,Adam Hamilton,Democrat,0.4432404748530194,false
+3384,KS,Roger Marshall,Republican,0.5567595251469806,true
+3384,KY,Andy Barr,Republican,0.6777117587124838,true
+3384,KY,Charles Booker,Democrat,0.32228824128751615,false
+3384,LA,Jamie Davis,Democrat,0.3628410100235924,false
+3384,LA,Julia Letlow,Republican,0.6371589899764076,true
+3384,MA,Ed Markey,Democrat,0.6206178726316294,true
+3384,MA,John Deaton,Republican,0.37938212736837057,false
+3384,ME,Susan Collins,Republican,0.47740521373986744,false
+3384,ME,Troy Jackson,Democrat,0.5225947862601327,true
+3384,MI,Abdul El-Sayed,Democrat,0.4771401765998752,false
+3384,MI,Mike Rogers,Republican,0.5228598234001248,true
+3384,MN,Michele Tafoya,Republican,0.4683068141860276,false
+3384,MN,Peggy Flanagan,Democrat,0.5316931858139724,true
+3384,MS,Cindy Hyde-Smith,Republican,0.5921678594420366,true
+3384,MS,Scott Colom,Democrat,0.40783214055796335,false
+3384,MT,Alani Bankhead,Democrat,0.33460915159794247,false
+3384,MT,Kurt Alme,Republican,0.6043514304946515,true
+3384,MT,Seth Bodnar,Independent,0.06103941790740611,false
+3384,NC,Michael Whatley,Republican,0.5138534367314782,true
+3384,NC,Roy Cooper,Democrat,0.4861465632685218,false
+3384,NE,Dan Osborn,Independent,0.38230553791328187,false
+3384,NE,Pete Ricketts,Republican,0.6176944620867182,true
+3384,NH,Chris Pappas,Democrat,0.5109296439268796,true
+3384,NH,John E. Sununu,Republican,0.48907035607312044,false
+3384,NJ,Cory Booker,Democrat,0.5423440536391618,true
+3384,NJ,Justin Murphy,Republican,0.4576559463608382,false
+3384,NM,Ben Ray Luján,Democrat,0.5734711016892644,true
+3384,NM,Larry Marker,Republican,0.42652889831073565,false
+3384,OH,Jon Husted,Republican,0.5079520341012206,true
+3384,OH,Sherrod Brown,Democrat,0.4920479658987794,false
+3384,OK,Kevin Hern,Republican,0.6818723248471233,true
+3384,OK,N'Kiyla Jasmine Thomas,Democrat,0.3181276751528766,false
+3384,OR,David Brock Smith,Republican,0.44502188471108955,false
+3384,OR,Jeff Merkley,Democrat,0.5549781152889104,true
+3384,RI,Jack Reed,Democrat,0.6184074446343073,true
+3384,RI,Raymond McKay,Republican,0.38159255536569275,false
+3384,SC,Annie Andrews,Democrat,0.37145935930513035,false
+3384,SC,Darline Graham,Republican,0.6285406406948697,true
+3384,SD,Brian Bengs,Independent,0.3584496796418455,false
+3384,SD,Mike Rounds,Republican,0.6415503203581545,true
+3384,TN,Bill Hagerty,Republican,0.647885272822793,true
+3384,TN,Marquita Bradshaw,Democrat,0.3521147271772071,false
+3384,TX,James Talarico,Democrat,0.4103083194866884,false
+3384,TX,Ken Paxton,Republican,0.5896916805133116,true
+3384,VA,Bert Mizusawa,Republican,0.5227046096029584,true
+3384,VA,Mark Warner,Democrat,0.4772953903970416,false
+3384,WV,Rachel Fetty Anderson,Democrat,0.302251820460928,false
+3384,WV,Shelley Moore Capito,Republican,0.697748179539072,true
+3384,WY,Harriet Hageman,Republican,0.7624631704048959,true
+3384,WY,James W. Byrd,Democrat,0.23753682959510403,false
+3537,AK,Dan S. Sullivan,Republican,0.5051212033544431,true
+3537,AK,Mary Peltola,Democrat,0.49487879664555695,false
+3537,AL,Barry Moore,Republican,0.6066704204373559,true
+3537,AL,Everett Wess,Democrat,0.393329579562644,false
+3537,AR,Hallie Shoffner,Democrat,0.3655756774933847,false
+3537,AR,Tom Cotton,Republican,0.6344243225066153,true
+3537,CO,John Hickenlooper,Democrat,0.5003829298794805,true
+3537,CO,Mark Baisley,Republican,0.4996170701205196,false
+3537,DE,Chris Coons,Democrat,0.6698423560546111,true
+3537,DE,Michael Katz,Republican,0.3301576439453889,false
+3537,FL,Angie Nixon,Democrat,0.4353709495635588,false
+3537,FL,Ashley Moody,Republican,0.5646290504364412,true
+3537,GA,Jon Ossoff,Democrat,0.4669333932992578,false
+3537,GA,Mike Collins,Republican,0.5330666067007421,true
+3537,IA,Ashley Hinson,Republican,0.5718828729741403,true
+3537,IA,Josh Turek,Democrat,0.4281171270258597,false
+3537,ID,Jim Risch,Republican,0.5965557012651609,true
+3537,ID,Todd Achilles,Independent,0.4034442987348391,false
+3537,IL,Don Tracy,Republican,0.49635722463825044,false
+3537,IL,Juliana Stratton,Democrat,0.5036427753617496,true
+3537,KS,Adam Hamilton,Democrat,0.34655854310494155,false
+3537,KS,Roger Marshall,Republican,0.6534414568950584,true
+3537,KY,Andy Barr,Republican,0.6264947696349378,true
+3537,KY,Charles Booker,Democrat,0.37350523036506217,false
+3537,LA,Jamie Davis,Democrat,0.4019467629843963,false
+3537,LA,Julia Letlow,Republican,0.5980532370156038,true
+3537,MA,Ed Markey,Democrat,0.6005301016279682,true
+3537,MA,John Deaton,Republican,0.39946989837203184,false
+3537,ME,Susan Collins,Republican,0.505722178240007,true
+3537,ME,Troy Jackson,Democrat,0.49427782175999313,false
+3537,MI,Abdul El-Sayed,Democrat,0.5267062169131598,true
+3537,MI,Mike Rogers,Republican,0.4732937830868403,false
+3537,MN,Michele Tafoya,Republican,0.36946213429951535,false
+3537,MN,Peggy Flanagan,Democrat,0.6305378657004846,true
+3537,MS,Cindy Hyde-Smith,Republican,0.6224678367954203,true
+3537,MS,Scott Colom,Democrat,0.3775321632045796,false
+3537,MT,Alani Bankhead,Democrat,0.39487891839463224,false
+3537,MT,Kurt Alme,Republican,0.5330872498718107,true
+3537,MT,Seth Bodnar,Independent,0.07203383173355705,false
+3537,NC,Michael Whatley,Republican,0.5621683621268647,true
+3537,NC,Roy Cooper,Democrat,0.4378316378731353,false
+3537,NE,Dan Osborn,Independent,0.4299757028492836,false
+3537,NE,Pete Ricketts,Republican,0.5700242971507165,true
+3537,NH,Chris Pappas,Democrat,0.4810915997561406,false
+3537,NH,John E. Sununu,Republican,0.5189084002438594,true
+3537,NJ,Cory Booker,Democrat,0.5802388041164466,true
+3537,NJ,Justin Murphy,Republican,0.4197611958835534,false
+3537,NM,Ben Ray Luján,Democrat,0.5968187072932603,true
+3537,NM,Larry Marker,Republican,0.4031812927067397,false
+3537,OH,Jon Husted,Republican,0.5694650192484476,true
+3537,OH,Sherrod Brown,Democrat,0.4305349807515524,false
+3537,OK,Kevin Hern,Republican,0.6546131790989589,true
+3537,OK,N'Kiyla Jasmine Thomas,Democrat,0.34538682090104106,false
+3537,OR,David Brock Smith,Republican,0.4290619580589164,false
+3537,OR,Jeff Merkley,Democrat,0.5709380419410837,true
+3537,RI,Jack Reed,Democrat,0.6344069413781598,true
+3537,RI,Raymond McKay,Republican,0.36559305862184033,false
+3537,SC,Annie Andrews,Democrat,0.3678816468764701,false
+3537,SC,Darline Graham,Republican,0.6321183531235299,true
+3537,SD,Brian Bengs,Independent,0.2872132299936534,false
+3537,SD,Mike Rounds,Republican,0.7127867700063465,true
+3537,TN,Bill Hagerty,Republican,0.6155394066325017,true
+3537,TN,Marquita Bradshaw,Democrat,0.3844605933674983,false
+3537,TX,James Talarico,Democrat,0.45637649131875674,false
+3537,TX,Ken Paxton,Republican,0.5436235086812432,true
+3537,VA,Bert Mizusawa,Republican,0.5343682514223042,true
+3537,VA,Mark Warner,Democrat,0.46563174857769585,false
+3537,WV,Rachel Fetty Anderson,Democrat,0.34779815428616356,false
+3537,WV,Shelley Moore Capito,Republican,0.6522018457138364,true
+3537,WY,Harriet Hageman,Republican,0.8312404442091381,true
+3537,WY,James W. Byrd,Democrat,0.16875955579086185,false
+3949,AK,Dan S. Sullivan,Republican,0.49539877112040037,false
+3949,AK,Mary Peltola,Democrat,0.5046012288795996,true
+3949,AL,Barry Moore,Republican,0.5527107010267756,true
+3949,AL,Everett Wess,Democrat,0.44728929897322445,false
+3949,AR,Hallie Shoffner,Democrat,0.37312509656474724,false
+3949,AR,Tom Cotton,Republican,0.6268749034352528,true
+3949,CO,John Hickenlooper,Democrat,0.6457665222709241,true
+3949,CO,Mark Baisley,Republican,0.35423347772907604,false
+3949,DE,Chris Coons,Democrat,0.7673926228044524,true
+3949,DE,Michael Katz,Republican,0.23260737719554747,false
+3949,FL,Angie Nixon,Democrat,0.6013787599233087,true
+3949,FL,Ashley Moody,Republican,0.3986212400766913,false
+3949,GA,Jon Ossoff,Democrat,0.5586270083630612,true
+3949,GA,Mike Collins,Republican,0.4413729916369386,false
+3949,IA,Ashley Hinson,Republican,0.5551331222987075,true
+3949,IA,Josh Turek,Democrat,0.4448668777012925,false
+3949,ID,Jim Risch,Republican,0.5228715357511475,true
+3949,ID,Todd Achilles,Independent,0.47712846424885247,false
+3949,IL,Don Tracy,Republican,0.40499490613365074,false
+3949,IL,Juliana Stratton,Democrat,0.5950050938663493,true
+3949,KS,Adam Hamilton,Democrat,0.510597637226019,true
+3949,KS,Roger Marshall,Republican,0.48940236277398097,false
+3949,KY,Andy Barr,Republican,0.6320926524328738,true
+3949,KY,Charles Booker,Democrat,0.3679073475671261,false
+3949,LA,Jamie Davis,Democrat,0.45213125439249474,false
+3949,LA,Julia Letlow,Republican,0.5478687456075052,true
+3949,MA,Ed Markey,Democrat,0.690096307178185,true
+3949,MA,John Deaton,Republican,0.30990369282181496,false
+3949,ME,Susan Collins,Republican,0.39190500748675916,false
+3949,ME,Troy Jackson,Democrat,0.608094992513241,true
+3949,MI,Abdul El-Sayed,Democrat,0.5670923785990475,true
+3949,MI,Mike Rogers,Republican,0.4329076214009525,false
+3949,MN,Michele Tafoya,Republican,0.43764513102296254,false
+3949,MN,Peggy Flanagan,Democrat,0.5623548689770375,true
+3949,MS,Cindy Hyde-Smith,Republican,0.512673308395766,true
+3949,MS,Scott Colom,Democrat,0.48732669160423403,false
+3949,MT,Alani Bankhead,Democrat,0.36033608406830137,false
+3949,MT,Kurt Alme,Republican,0.5739313897365049,true
+3949,MT,Seth Bodnar,Independent,0.06573252619519362,false
+3949,NC,Michael Whatley,Republican,0.4163976852922221,false
+3949,NC,Roy Cooper,Democrat,0.5836023147077779,true
+3949,NE,Dan Osborn,Independent,0.5426767229431717,true
+3949,NE,Pete Ricketts,Republican,0.45732327705682824,false
+3949,NH,Chris Pappas,Democrat,0.6256143546005992,true
+3949,NH,John E. Sununu,Republican,0.3743856453994009,false
+3949,NJ,Cory Booker,Democrat,0.6834717833403177,true
+3949,NJ,Justin Murphy,Republican,0.31652821665968234,false
+3949,NM,Ben Ray Luján,Democrat,0.6127079284718016,true
+3949,NM,Larry Marker,Republican,0.38729207152819844,false
+3949,OH,Jon Husted,Republican,0.47561008814283334,false
+3949,OH,Sherrod Brown,Democrat,0.5243899118571667,true
+3949,OK,Kevin Hern,Republican,0.6061057065551001,true
+3949,OK,N'Kiyla Jasmine Thomas,Democrat,0.39389429344489985,false
+3949,OR,David Brock Smith,Republican,0.42387025764962233,false
+3949,OR,Jeff Merkley,Democrat,0.5761297423503777,true
+3949,RI,Jack Reed,Democrat,0.7048519897380165,true
+3949,RI,Raymond McKay,Republican,0.29514801026198373,false
+3949,SC,Annie Andrews,Democrat,0.41990737304835163,false
+3949,SC,Darline Graham,Republican,0.5800926269516484,true
+3949,SD,Brian Bengs,Independent,0.44942389351920986,false
+3949,SD,Mike Rounds,Republican,0.5505761064807901,true
+3949,TN,Bill Hagerty,Republican,0.6034741560724358,true
+3949,TN,Marquita Bradshaw,Democrat,0.3965258439275643,false
+3949,TX,James Talarico,Democrat,0.4818691408165024,false
+3949,TX,Ken Paxton,Republican,0.5181308591834977,true
+3949,VA,Bert Mizusawa,Republican,0.3563923957633731,false
+3949,VA,Mark Warner,Democrat,0.6436076042366269,true
+3949,WV,Rachel Fetty Anderson,Democrat,0.397180894786593,false
+3949,WV,Shelley Moore Capito,Republican,0.602819105213407,true
+3949,WY,Harriet Hageman,Republican,0.7482581115458418,true
+3949,WY,James W. Byrd,Democrat,0.25174188845415824,false
+5238,AK,Dan S. Sullivan,Republican,0.5393991004494058,true
+5238,AK,Mary Peltola,Democrat,0.46060089955059424,false
+5238,AL,Barry Moore,Republican,0.48911946562811615,false
+5238,AL,Everett Wess,Democrat,0.5108805343718839,true
+5238,AR,Hallie Shoffner,Democrat,0.434458753319399,false
+5238,AR,Tom Cotton,Republican,0.565541246680601,true
+5238,CO,John Hickenlooper,Democrat,0.6583344432270902,true
+5238,CO,Mark Baisley,Republican,0.3416655567729099,false
+5238,DE,Chris Coons,Democrat,0.7348549575259099,true
+5238,DE,Michael Katz,Republican,0.26514504247409,false
+5238,FL,Angie Nixon,Democrat,0.4701896204853561,false
+5238,FL,Ashley Moody,Republican,0.5298103795146439,true
+5238,GA,Jon Ossoff,Democrat,0.5161841442060661,true
+5238,GA,Mike Collins,Republican,0.4838158557939339,false
+5238,IA,Ashley Hinson,Republican,0.5113074521427656,true
+5238,IA,Josh Turek,Democrat,0.48869254785723437,false
+5238,ID,Jim Risch,Republican,0.4803958386865885,false
+5238,ID,Todd Achilles,Independent,0.5196041613134115,true
+5238,IL,Don Tracy,Republican,0.42557174564802736,false
+5238,IL,Juliana Stratton,Democrat,0.5744282543519726,true
+5238,KS,Adam Hamilton,Democrat,0.4824028506327221,false
+5238,KS,Roger Marshall,Republican,0.5175971493672779,true
+5238,KY,Andy Barr,Republican,0.6444171148562275,true
+5238,KY,Charles Booker,Democrat,0.3555828851437724,false
+5238,LA,Jamie Davis,Democrat,0.4550840905699019,false
+5238,LA,Julia Letlow,Republican,0.5449159094300982,true
+5238,MA,Ed Markey,Democrat,0.6757835675176036,true
+5238,MA,John Deaton,Republican,0.32421643248239634,false
+5238,ME,Susan Collins,Republican,0.436011286243476,false
+5238,ME,Troy Jackson,Democrat,0.5639887137565242,true
+5238,MI,Abdul El-Sayed,Democrat,0.47656664051329156,false
+5238,MI,Mike Rogers,Republican,0.5234333594867084,true
+5238,MN,Michele Tafoya,Republican,0.3448278790702455,false
+5238,MN,Peggy Flanagan,Democrat,0.6551721209297545,true
+5238,MS,Cindy Hyde-Smith,Republican,0.5768816060424643,true
+5238,MS,Scott Colom,Democrat,0.42311839395753564,false
+5238,MT,Alani Bankhead,Democrat,0.430094273811513,false
+5238,MT,Kurt Alme,Republican,0.49144790758611995,true
+5238,MT,Seth Bodnar,Independent,0.078457818602367,false
+5238,NC,Michael Whatley,Republican,0.4851058914789671,false
+5238,NC,Roy Cooper,Democrat,0.5148941085210329,true
+5238,NE,Dan Osborn,Independent,0.48315288853022215,false
+5238,NE,Pete Ricketts,Republican,0.5168471114697779,true
+5238,NH,Chris Pappas,Democrat,0.648229045285936,true
+5238,NH,John E. Sununu,Republican,0.35177095471406405,false
+5238,NJ,Cory Booker,Democrat,0.6767269505899155,true
+5238,NJ,Justin Murphy,Republican,0.3232730494100845,false
+5238,NM,Ben Ray Luján,Democrat,0.5650186904254302,true
+5238,NM,Larry Marker,Republican,0.4349813095745699,false
+5238,OH,Jon Husted,Republican,0.4457256107291969,false
+5238,OH,Sherrod Brown,Democrat,0.5542743892708031,true
+5238,OK,Kevin Hern,Republican,0.6496233964643506,true
+5238,OK,N'Kiyla Jasmine Thomas,Democrat,0.3503766035356494,false
+5238,OR,David Brock Smith,Republican,0.43666503949676677,false
+5238,OR,Jeff Merkley,Democrat,0.5633349605032332,true
+5238,RI,Jack Reed,Democrat,0.6677078078454095,true
+5238,RI,Raymond McKay,Republican,0.3322921921545906,false
+5238,SC,Annie Andrews,Democrat,0.5340287321070143,true
+5238,SC,Darline Graham,Republican,0.46597126789298565,false
+5238,SD,Brian Bengs,Independent,0.42237464316704054,false
+5238,SD,Mike Rounds,Republican,0.5776253568329595,true
+5238,TN,Bill Hagerty,Republican,0.5508467892804031,true
+5238,TN,Marquita Bradshaw,Democrat,0.449153210719597,false
+5238,TX,James Talarico,Democrat,0.5467371016226439,true
+5238,TX,Ken Paxton,Republican,0.453262898377356,false
+5238,VA,Bert Mizusawa,Republican,0.3471930178465128,false
+5238,VA,Mark Warner,Democrat,0.6528069821534872,true
+5238,WV,Rachel Fetty Anderson,Democrat,0.3477553711574253,false
+5238,WV,Shelley Moore Capito,Republican,0.6522446288425747,true
+5238,WY,Harriet Hageman,Republican,0.667947450312942,true
+5238,WY,James W. Byrd,Democrat,0.332052549687058,false
+5300,AK,Dan S. Sullivan,Republican,0.48012088833329825,false
+5300,AK,Mary Peltola,Democrat,0.5198791116667018,true
+5300,AL,Barry Moore,Republican,0.5891684977119429,true
+5300,AL,Everett Wess,Democrat,0.4108315022880571,false
+5300,AR,Hallie Shoffner,Democrat,0.3775236392990903,false
+5300,AR,Tom Cotton,Republican,0.6224763607009098,true
+5300,CO,John Hickenlooper,Democrat,0.5888726460586347,true
+5300,CO,Mark Baisley,Republican,0.41112735394136546,false
+5300,DE,Chris Coons,Democrat,0.6584715052436968,true
+5300,DE,Michael Katz,Republican,0.34152849475630315,false
+5300,FL,Angie Nixon,Democrat,0.47710627141915585,false
+5300,FL,Ashley Moody,Republican,0.5228937285808442,true
+5300,GA,Jon Ossoff,Democrat,0.5170373540210921,true
+5300,GA,Mike Collins,Republican,0.4829626459789079,false
+5300,IA,Ashley Hinson,Republican,0.5700448021284563,true
+5300,IA,Josh Turek,Democrat,0.4299551978715437,false
+5300,ID,Jim Risch,Republican,0.5001580838480635,true
+5300,ID,Todd Achilles,Independent,0.4998419161519365,false
+5300,IL,Don Tracy,Republican,0.4102191897270277,false
+5300,IL,Juliana Stratton,Democrat,0.5897808102729722,true
+5300,KS,Adam Hamilton,Democrat,0.4465432229330482,false
+5300,KS,Roger Marshall,Republican,0.5534567770669517,true
+5300,KY,Andy Barr,Republican,0.6887242408855822,true
+5300,KY,Charles Booker,Democrat,0.3112757591144177,false
+5300,LA,Jamie Davis,Democrat,0.4381727745789075,false
+5300,LA,Julia Letlow,Republican,0.5618272254210925,true
+5300,MA,Ed Markey,Democrat,0.5950694020731455,true
+5300,MA,John Deaton,Republican,0.4049305979268545,false
+5300,ME,Susan Collins,Republican,0.48784971387291376,false
+5300,ME,Troy Jackson,Democrat,0.5121502861270864,true
+5300,MI,Abdul El-Sayed,Democrat,0.5000007631231349,true
+5300,MI,Mike Rogers,Republican,0.4999992368768651,false
+5300,MN,Michele Tafoya,Republican,0.33550434491877257,false
+5300,MN,Peggy Flanagan,Democrat,0.6644956550812274,true
+5300,MS,Cindy Hyde-Smith,Republican,0.6595706830184156,true
+5300,MS,Scott Colom,Democrat,0.3404293169815844,false
+5300,MT,Alani Bankhead,Democrat,0.3271895972664177,false
+5300,MT,Kurt Alme,Republican,0.6131244602925998,true
+5300,MT,Seth Bodnar,Independent,0.059685942440982465,false
+5300,NC,Michael Whatley,Republican,0.4272003117453683,false
+5300,NC,Roy Cooper,Democrat,0.5727996882546317,true
+5300,NE,Dan Osborn,Independent,0.4360022334553288,false
+5300,NE,Pete Ricketts,Republican,0.5639977665446713,true
+5300,NH,Chris Pappas,Democrat,0.5112484551857859,true
+5300,NH,John E. Sununu,Republican,0.4887515448142142,false
+5300,NJ,Cory Booker,Democrat,0.6653974135128293,true
+5300,NJ,Justin Murphy,Republican,0.33460258648717056,false
+5300,NM,Ben Ray Luján,Democrat,0.6764189595725832,true
+5300,NM,Larry Marker,Republican,0.3235810404274168,false
+5300,OH,Jon Husted,Republican,0.49139881022865817,false
+5300,OH,Sherrod Brown,Democrat,0.5086011897713418,true
+5300,OK,Kevin Hern,Republican,0.6434975282411866,true
+5300,OK,N'Kiyla Jasmine Thomas,Democrat,0.3565024717588134,false
+5300,OR,David Brock Smith,Republican,0.5120328091594384,true
+5300,OR,Jeff Merkley,Democrat,0.4879671908405616,false
+5300,RI,Jack Reed,Democrat,0.5840583745512921,true
+5300,RI,Raymond McKay,Republican,0.415941625448708,false
+5300,SC,Annie Andrews,Democrat,0.425244480000809,false
+5300,SC,Darline Graham,Republican,0.5747555199991911,true
+5300,SD,Brian Bengs,Independent,0.37670475459177255,false
+5300,SD,Mike Rounds,Republican,0.6232952454082274,true
+5300,TN,Bill Hagerty,Republican,0.5692025361185642,true
+5300,TN,Marquita Bradshaw,Democrat,0.4307974638814359,false
+5300,TX,James Talarico,Democrat,0.5390388756445983,true
+5300,TX,Ken Paxton,Republican,0.4609611243554016,false
+5300,VA,Bert Mizusawa,Republican,0.370837738687244,false
+5300,VA,Mark Warner,Democrat,0.629162261312756,true
+5300,WV,Rachel Fetty Anderson,Democrat,0.36959945478354267,false
+5300,WV,Shelley Moore Capito,Republican,0.6304005452164573,true
+5300,WY,Harriet Hageman,Republican,0.6759836607403646,true
+5300,WY,James W. Byrd,Democrat,0.32401633925963536,false
+5684,AK,Dan S. Sullivan,Republican,0.5028388547681975,true
+5684,AK,Mary Peltola,Democrat,0.49716114523180255,false
+5684,AL,Barry Moore,Republican,0.6117217744028297,true
+5684,AL,Everett Wess,Democrat,0.3882782255971703,false
+5684,AR,Hallie Shoffner,Democrat,0.33548173572636,false
+5684,AR,Tom Cotton,Republican,0.6645182642736399,true
+5684,CO,John Hickenlooper,Democrat,0.6174055467279086,true
+5684,CO,Mark Baisley,Republican,0.38259445327209146,false
+5684,DE,Chris Coons,Democrat,0.666007465352646,true
+5684,DE,Michael Katz,Republican,0.3339925346473539,false
+5684,FL,Angie Nixon,Democrat,0.47250047630371717,false
+5684,FL,Ashley Moody,Republican,0.5274995236962828,true
+5684,GA,Jon Ossoff,Democrat,0.5579038391800865,true
+5684,GA,Mike Collins,Republican,0.44209616081991354,false
+5684,IA,Ashley Hinson,Republican,0.5366069080921416,true
+5684,IA,Josh Turek,Democrat,0.4633930919078584,false
+5684,ID,Jim Risch,Republican,0.5540290000584116,true
+5684,ID,Todd Achilles,Independent,0.4459709999415884,false
+5684,IL,Don Tracy,Republican,0.41721594415864066,false
+5684,IL,Juliana Stratton,Democrat,0.5827840558413593,true
+5684,KS,Adam Hamilton,Democrat,0.5081930290902794,true
+5684,KS,Roger Marshall,Republican,0.4918069709097206,false
+5684,KY,Andy Barr,Republican,0.5916951486332881,true
+5684,KY,Charles Booker,Democrat,0.4083048513667118,false
+5684,LA,Jamie Davis,Democrat,0.4929202005012073,false
+5684,LA,Julia Letlow,Republican,0.5070797994987928,true
+5684,MA,Ed Markey,Democrat,0.6502520587256405,true
+5684,MA,John Deaton,Republican,0.3497479412743595,false
+5684,ME,Susan Collins,Republican,0.40964156538112534,false
+5684,ME,Troy Jackson,Democrat,0.5903584346188747,true
+5684,MI,Abdul El-Sayed,Democrat,0.5734489084540222,true
+5684,MI,Mike Rogers,Republican,0.42655109154597787,false
+5684,MN,Michele Tafoya,Republican,0.39384859107525205,false
+5684,MN,Peggy Flanagan,Democrat,0.606151408924748,true
+5684,MS,Cindy Hyde-Smith,Republican,0.5328566952778593,true
+5684,MS,Scott Colom,Democrat,0.4671433047221408,false
+5684,MT,Alani Bankhead,Democrat,0.3092764269021296,false
+5684,MT,Kurt Alme,Republican,0.6343053520766122,true
+5684,MT,Seth Bodnar,Independent,0.05641822102125824,false
+5684,NC,Michael Whatley,Republican,0.5143778943975372,true
+5684,NC,Roy Cooper,Democrat,0.4856221056024628,false
+5684,NE,Dan Osborn,Independent,0.5263154889828957,true
+5684,NE,Pete Ricketts,Republican,0.4736845110171044,false
+5684,NH,Chris Pappas,Democrat,0.580271079385603,true
+5684,NH,John E. Sununu,Republican,0.4197289206143971,false
+5684,NJ,Cory Booker,Democrat,0.6963903682637509,true
+5684,NJ,Justin Murphy,Republican,0.30360963173624905,false
+5684,NM,Ben Ray Luján,Democrat,0.5985156689910842,true
+5684,NM,Larry Marker,Republican,0.4014843310089158,false
+5684,OH,Jon Husted,Republican,0.47018718196911335,false
+5684,OH,Sherrod Brown,Democrat,0.5298128180308866,true
+5684,OK,Kevin Hern,Republican,0.750258594098157,true
+5684,OK,N'Kiyla Jasmine Thomas,Democrat,0.24974140590184296,false
+5684,OR,David Brock Smith,Republican,0.43733659606895675,false
+5684,OR,Jeff Merkley,Democrat,0.5626634039310432,true
+5684,RI,Jack Reed,Democrat,0.7076690418795445,true
+5684,RI,Raymond McKay,Republican,0.2923309581204556,false
+5684,SC,Annie Andrews,Democrat,0.4892694146844315,false
+5684,SC,Darline Graham,Republican,0.5107305853155686,true
+5684,SD,Brian Bengs,Independent,0.333095386914668,false
+5684,SD,Mike Rounds,Republican,0.666904613085332,true
+5684,TN,Bill Hagerty,Republican,0.6520684944762977,true
+5684,TN,Marquita Bradshaw,Democrat,0.3479315055237025,false
+5684,TX,James Talarico,Democrat,0.4576386519583013,false
+5684,TX,Ken Paxton,Republican,0.5423613480416987,true
+5684,VA,Bert Mizusawa,Republican,0.3777238349195722,false
+5684,VA,Mark Warner,Democrat,0.6222761650804278,true
+5684,WV,Rachel Fetty Anderson,Democrat,0.3515553649687091,false
+5684,WV,Shelley Moore Capito,Republican,0.6484446350312909,true
+5684,WY,Harriet Hageman,Republican,0.7063649937938349,true
+5684,WY,James W. Byrd,Democrat,0.2936350062061651,false
+7337,AK,Dan S. Sullivan,Republican,0.5139058676421515,true
+7337,AK,Mary Peltola,Democrat,0.4860941323578485,false
+7337,AL,Barry Moore,Republican,0.6424359196783332,true
+7337,AL,Everett Wess,Democrat,0.35756408032166676,false
+7337,AR,Hallie Shoffner,Democrat,0.37938266483469296,false
+7337,AR,Tom Cotton,Republican,0.620617335165307,true
+7337,CO,John Hickenlooper,Democrat,0.6064161063706515,true
+7337,CO,Mark Baisley,Republican,0.39358389362934865,false
+7337,DE,Chris Coons,Democrat,0.6858839965978019,true
+7337,DE,Michael Katz,Republican,0.31411600340219803,false
+7337,FL,Angie Nixon,Democrat,0.46159336424000513,false
+7337,FL,Ashley Moody,Republican,0.5384066357599948,true
+7337,GA,Jon Ossoff,Democrat,0.5798716662353615,true
+7337,GA,Mike Collins,Republican,0.42012833376463843,false
+7337,IA,Ashley Hinson,Republican,0.48374635276591865,false
+7337,IA,Josh Turek,Democrat,0.5162536472340813,true
+7337,ID,Jim Risch,Republican,0.5528460268409456,true
+7337,ID,Todd Achilles,Independent,0.44715397315905436,false
+7337,IL,Don Tracy,Republican,0.43443845948821214,false
+7337,IL,Juliana Stratton,Democrat,0.5655615405117878,true
+7337,KS,Adam Hamilton,Democrat,0.41756525920418586,false
+7337,KS,Roger Marshall,Republican,0.5824347407958141,true
+7337,KY,Andy Barr,Republican,0.6101105135909016,true
+7337,KY,Charles Booker,Democrat,0.38988948640909826,false
+7337,LA,Jamie Davis,Democrat,0.4143995057920011,false
+7337,LA,Julia Letlow,Republican,0.585600494207999,true
+7337,MA,Ed Markey,Democrat,0.5978228867197868,true
+7337,MA,John Deaton,Republican,0.40217711328021316,false
+7337,ME,Susan Collins,Republican,0.45676008534941814,false
+7337,ME,Troy Jackson,Democrat,0.543239914650582,true
+7337,MI,Abdul El-Sayed,Democrat,0.5398992465790587,true
+7337,MI,Mike Rogers,Republican,0.46010075342094126,false
+7337,MN,Michele Tafoya,Republican,0.4698059900140163,false
+7337,MN,Peggy Flanagan,Democrat,0.5301940099859836,true
+7337,MS,Cindy Hyde-Smith,Republican,0.603801774736806,true
+7337,MS,Scott Colom,Democrat,0.39619822526319404,false
+7337,MT,Alani Bankhead,Democrat,0.3916532204254245,false
+7337,MT,Kurt Alme,Republican,0.5369013798233634,true
+7337,MT,Seth Bodnar,Independent,0.0714453997512121,false
+7337,NC,Michael Whatley,Republican,0.41422910353920883,false
+7337,NC,Roy Cooper,Democrat,0.5857708964607912,true
+7337,NE,Dan Osborn,Independent,0.5690038054764333,true
+7337,NE,Pete Ricketts,Republican,0.43099619452356674,false
+7337,NH,Chris Pappas,Democrat,0.647040475347996,true
+7337,NH,John E. Sununu,Republican,0.352959524652004,false
+7337,NJ,Cory Booker,Democrat,0.6187092942655007,true
+7337,NJ,Justin Murphy,Republican,0.3812907057344993,false
+7337,NM,Ben Ray Luján,Democrat,0.5906924900003259,true
+7337,NM,Larry Marker,Republican,0.4093075099996741,false
+7337,OH,Jon Husted,Republican,0.4817049632397949,false
+7337,OH,Sherrod Brown,Democrat,0.518295036760205,true
+7337,OK,Kevin Hern,Republican,0.5484859871044964,true
+7337,OK,N'Kiyla Jasmine Thomas,Democrat,0.4515140128955036,false
+7337,OR,David Brock Smith,Republican,0.4019669949767572,false
+7337,OR,Jeff Merkley,Democrat,0.5980330050232427,true
+7337,RI,Jack Reed,Democrat,0.6438493595312134,true
+7337,RI,Raymond McKay,Republican,0.3561506404687868,false
+7337,SC,Annie Andrews,Democrat,0.40432471264525843,false
+7337,SC,Darline Graham,Republican,0.5956752873547416,true
+7337,SD,Brian Bengs,Independent,0.304022572870445,false
+7337,SD,Mike Rounds,Republican,0.695977427129555,true
+7337,TN,Bill Hagerty,Republican,0.7203749783470385,true
+7337,TN,Marquita Bradshaw,Democrat,0.2796250216529616,false
+7337,TX,James Talarico,Democrat,0.6083864087026396,true
+7337,TX,Ken Paxton,Republican,0.3916135912973603,false
+7337,VA,Bert Mizusawa,Republican,0.34402866070940064,false
+7337,VA,Mark Warner,Democrat,0.6559713392905994,true
+7337,WV,Rachel Fetty Anderson,Democrat,0.34891031355643576,false
+7337,WV,Shelley Moore Capito,Republican,0.6510896864435642,true
+7337,WY,Harriet Hageman,Republican,0.6968983279839392,true
+7337,WY,James W. Byrd,Democrat,0.30310167201606075,false
+7702,AK,Dan S. Sullivan,Republican,0.49454333507063974,false
+7702,AK,Mary Peltola,Democrat,0.5054566649293603,true
+7702,AL,Barry Moore,Republican,0.6188838888045594,true
+7702,AL,Everett Wess,Democrat,0.38111611119544064,false
+7702,AR,Hallie Shoffner,Democrat,0.4556134119396814,false
+7702,AR,Tom Cotton,Republican,0.5443865880603186,true
+7702,CO,John Hickenlooper,Democrat,0.5790518729696642,true
+7702,CO,Mark Baisley,Republican,0.420948127030336,false
+7702,DE,Chris Coons,Democrat,0.6679468441649943,true
+7702,DE,Michael Katz,Republican,0.3320531558350056,false
+7702,FL,Angie Nixon,Democrat,0.36216731514652944,false
+7702,FL,Ashley Moody,Republican,0.6378326848534706,true
+7702,GA,Jon Ossoff,Democrat,0.43457291769999234,false
+7702,GA,Mike Collins,Republican,0.5654270823000076,true
+7702,IA,Ashley Hinson,Republican,0.5762788214155651,true
+7702,IA,Josh Turek,Democrat,0.4237211785844349,false
+7702,ID,Jim Risch,Republican,0.5831909351277152,true
+7702,ID,Todd Achilles,Independent,0.41680906487228475,false
+7702,IL,Don Tracy,Republican,0.4790716910787655,false
+7702,IL,Juliana Stratton,Democrat,0.5209283089212344,true
+7702,KS,Adam Hamilton,Democrat,0.4025127384401532,false
+7702,KS,Roger Marshall,Republican,0.5974872615598468,true
+7702,KY,Andy Barr,Republican,0.7011680017453217,true
+7702,KY,Charles Booker,Democrat,0.29883199825467827,false
+7702,LA,Jamie Davis,Democrat,0.4049569995179399,false
+7702,LA,Julia Letlow,Republican,0.5950430004820602,true
+7702,MA,Ed Markey,Democrat,0.632379150447024,true
+7702,MA,John Deaton,Republican,0.3676208495529761,false
+7702,ME,Susan Collins,Republican,0.513235429954644,true
+7702,ME,Troy Jackson,Democrat,0.48676457004535606,false
+7702,MI,Abdul El-Sayed,Democrat,0.5718982563095896,true
+7702,MI,Mike Rogers,Republican,0.42810174369041043,false
+7702,MN,Michele Tafoya,Republican,0.4572352590051195,false
+7702,MN,Peggy Flanagan,Democrat,0.5427647409948805,true
+7702,MS,Cindy Hyde-Smith,Republican,0.6224736054037114,true
+7702,MS,Scott Colom,Democrat,0.3775263945962887,false
+7702,MT,Alani Bankhead,Democrat,0.37520344793311095,false
+7702,MT,Kurt Alme,Republican,0.5563519206235521,true
+7702,MT,Seth Bodnar,Independent,0.068444631443337,false
+7702,NC,Michael Whatley,Republican,0.4881888354455626,false
+7702,NC,Roy Cooper,Democrat,0.5118111645544374,true
+7702,NE,Dan Osborn,Independent,0.4670713084147739,false
+7702,NE,Pete Ricketts,Republican,0.532928691585226,true
+7702,NH,Chris Pappas,Democrat,0.6305663381473523,true
+7702,NH,John E. Sununu,Republican,0.3694336618526477,false
+7702,NJ,Cory Booker,Democrat,0.6895052259521898,true
+7702,NJ,Justin Murphy,Republican,0.31049477404781023,false
+7702,NM,Ben Ray Luján,Democrat,0.572178308201023,true
+7702,NM,Larry Marker,Republican,0.42782169179897706,false
+7702,OH,Jon Husted,Republican,0.5621467492967491,true
+7702,OH,Sherrod Brown,Democrat,0.4378532507032509,false
+7702,OK,Kevin Hern,Republican,0.631667380963324,true
+7702,OK,N'Kiyla Jasmine Thomas,Democrat,0.3683326190366759,false
+7702,OR,David Brock Smith,Republican,0.5146646797751785,true
+7702,OR,Jeff Merkley,Democrat,0.4853353202248215,false
+7702,RI,Jack Reed,Democrat,0.6474483120234948,true
+7702,RI,Raymond McKay,Republican,0.3525516879765053,false
+7702,SC,Annie Andrews,Democrat,0.3685084052245533,false
+7702,SC,Darline Graham,Republican,0.6314915947754468,true
+7702,SD,Brian Bengs,Independent,0.35334272292162505,false
+7702,SD,Mike Rounds,Republican,0.646657277078375,true
+7702,TN,Bill Hagerty,Republican,0.5838347048560328,true
+7702,TN,Marquita Bradshaw,Democrat,0.4161652951439672,false
+7702,TX,James Talarico,Democrat,0.3934218043661473,false
+7702,TX,Ken Paxton,Republican,0.6065781956338526,true
+7702,VA,Bert Mizusawa,Republican,0.48303021725561285,false
+7702,VA,Mark Warner,Democrat,0.5169697827443872,true
+7702,WV,Rachel Fetty Anderson,Democrat,0.3268677948309251,false
+7702,WV,Shelley Moore Capito,Republican,0.6731322051690749,true
+7702,WY,Harriet Hageman,Republican,0.6486027060031657,true
+7702,WY,James W. Byrd,Democrat,0.3513972939968342,false
+7906,AK,Dan S. Sullivan,Republican,0.4993838804189504,false
+7906,AK,Mary Peltola,Democrat,0.5006161195810497,true
+7906,AL,Barry Moore,Republican,0.6723162197640896,true
+7906,AL,Everett Wess,Democrat,0.3276837802359104,false
+7906,AR,Hallie Shoffner,Democrat,0.3873472478372275,false
+7906,AR,Tom Cotton,Republican,0.6126527521627725,true
+7906,CO,John Hickenlooper,Democrat,0.5302054098856878,true
+7906,CO,Mark Baisley,Republican,0.46979459011431235,false
+7906,DE,Chris Coons,Democrat,0.657711525929498,true
+7906,DE,Michael Katz,Republican,0.3422884740705019,false
+7906,FL,Angie Nixon,Democrat,0.40202106484139644,false
+7906,FL,Ashley Moody,Republican,0.5979789351586036,true
+7906,GA,Jon Ossoff,Democrat,0.5099542039515627,true
+7906,GA,Mike Collins,Republican,0.4900457960484372,false
+7906,IA,Ashley Hinson,Republican,0.4838775304723322,false
+7906,IA,Josh Turek,Democrat,0.5161224695276678,true
+7906,ID,Jim Risch,Republican,0.6106008430349068,true
+7906,ID,Todd Achilles,Independent,0.3893991569650932,false
+7906,IL,Don Tracy,Republican,0.4502238051850232,false
+7906,IL,Juliana Stratton,Democrat,0.5497761948149769,true
+7906,KS,Adam Hamilton,Democrat,0.4326277139108274,false
+7906,KS,Roger Marshall,Republican,0.5673722860891726,true
+7906,KY,Andy Barr,Republican,0.6038071234687977,true
+7906,KY,Charles Booker,Democrat,0.3961928765312022,false
+7906,LA,Jamie Davis,Democrat,0.40150192913047694,false
+7906,LA,Julia Letlow,Republican,0.5984980708695231,true
+7906,MA,Ed Markey,Democrat,0.7188584186863367,true
+7906,MA,John Deaton,Republican,0.28114158131366335,false
+7906,ME,Susan Collins,Republican,0.4991922559875612,false
+7906,ME,Troy Jackson,Democrat,0.500807744012439,true
+7906,MI,Abdul El-Sayed,Democrat,0.48293583252471195,false
+7906,MI,Mike Rogers,Republican,0.517064167475288,true
+7906,MN,Michele Tafoya,Republican,0.4591099634467347,false
+7906,MN,Peggy Flanagan,Democrat,0.5408900365532653,true
+7906,MS,Cindy Hyde-Smith,Republican,0.5505917176749807,true
+7906,MS,Scott Colom,Democrat,0.4494082823250193,false
+7906,MT,Alani Bankhead,Democrat,0.3755940617253358,false
+7906,MT,Kurt Alme,Republican,0.5558900510441195,true
+7906,MT,Seth Bodnar,Independent,0.06851588723054469,false
+7906,NC,Michael Whatley,Republican,0.604366132685043,true
+7906,NC,Roy Cooper,Democrat,0.395633867314957,false
+7906,NE,Dan Osborn,Independent,0.519405365982857,true
+7906,NE,Pete Ricketts,Republican,0.480594634017143,false
+7906,NH,Chris Pappas,Democrat,0.6159941314665809,true
+7906,NH,John E. Sununu,Republican,0.38400586853341917,false
+7906,NJ,Cory Booker,Democrat,0.576853957149869,true
+7906,NJ,Justin Murphy,Republican,0.4231460428501311,false
+7906,NM,Ben Ray Luján,Democrat,0.6029905138631979,true
+7906,NM,Larry Marker,Republican,0.39700948613680204,false
+7906,OH,Jon Husted,Republican,0.5190334619699044,true
+7906,OH,Sherrod Brown,Democrat,0.4809665380300956,false
+7906,OK,Kevin Hern,Republican,0.6257760967091807,true
+7906,OK,N'Kiyla Jasmine Thomas,Democrat,0.3742239032908193,false
+7906,OR,David Brock Smith,Republican,0.4538287252328543,false
+7906,OR,Jeff Merkley,Democrat,0.5461712747671457,true
+7906,RI,Jack Reed,Democrat,0.5794840796831486,true
+7906,RI,Raymond McKay,Republican,0.4205159203168515,false
+7906,SC,Annie Andrews,Democrat,0.4622854615828569,false
+7906,SC,Darline Graham,Republican,0.5377145384171432,true
+7906,SD,Brian Bengs,Independent,0.24026692645915637,false
+7906,SD,Mike Rounds,Republican,0.7597330735408436,true
+7906,TN,Bill Hagerty,Republican,0.591759561854961,true
+7906,TN,Marquita Bradshaw,Democrat,0.408240438145039,false
+7906,TX,James Talarico,Democrat,0.4854857667086589,false
+7906,TX,Ken Paxton,Republican,0.514514233291341,true
+7906,VA,Bert Mizusawa,Republican,0.39910615415348044,false
+7906,VA,Mark Warner,Democrat,0.6008938458465196,true
+7906,WV,Rachel Fetty Anderson,Democrat,0.3264210452617671,false
+7906,WV,Shelley Moore Capito,Republican,0.6735789547382328,true
+7906,WY,Harriet Hageman,Republican,0.6972744231048562,true
+7906,WY,James W. Byrd,Democrat,0.3027255768951438,false
+8100,AK,Dan S. Sullivan,Republican,0.6238927765691374,true
+8100,AK,Mary Peltola,Democrat,0.37610722343086256,false
+8100,AL,Barry Moore,Republican,0.6622642274106094,true
+8100,AL,Everett Wess,Democrat,0.3377357725893906,false
+8100,AR,Hallie Shoffner,Democrat,0.3019262183921917,false
+8100,AR,Tom Cotton,Republican,0.6980737816078083,true
+8100,CO,John Hickenlooper,Democrat,0.5097706673665816,true
+8100,CO,Mark Baisley,Republican,0.49022933263341856,false
+8100,DE,Chris Coons,Democrat,0.6171790120049085,true
+8100,DE,Michael Katz,Republican,0.38282098799509134,false
+8100,FL,Angie Nixon,Democrat,0.4796967112700511,false
+8100,FL,Ashley Moody,Republican,0.5203032887299489,true
+8100,GA,Jon Ossoff,Democrat,0.4739704677373103,false
+8100,GA,Mike Collins,Republican,0.5260295322626897,true
+8100,IA,Ashley Hinson,Republican,0.5683178403861618,true
+8100,IA,Josh Turek,Democrat,0.43168215961383816,false
+8100,ID,Jim Risch,Republican,0.5888021587535499,true
+8100,ID,Todd Achilles,Independent,0.4111978412464501,false
+8100,IL,Don Tracy,Republican,0.4344104964325352,false
+8100,IL,Juliana Stratton,Democrat,0.5655895035674647,true
+8100,KS,Adam Hamilton,Democrat,0.4404111389687046,false
+8100,KS,Roger Marshall,Republican,0.5595888610312953,true
+8100,KY,Andy Barr,Republican,0.6415530817742755,true
+8100,KY,Charles Booker,Democrat,0.35844691822572444,false
+8100,LA,Jamie Davis,Democrat,0.4624774280021612,false
+8100,LA,Julia Letlow,Republican,0.5375225719978388,true
+8100,MA,Ed Markey,Democrat,0.5498595514667692,true
+8100,MA,John Deaton,Republican,0.4501404485332308,false
+8100,ME,Susan Collins,Republican,0.465651312466577,false
+8100,ME,Troy Jackson,Democrat,0.5343486875334232,true
+8100,MI,Abdul El-Sayed,Democrat,0.4109521234109359,false
+8100,MI,Mike Rogers,Republican,0.5890478765890641,true
+8100,MN,Michele Tafoya,Republican,0.6141298966582713,true
+8100,MN,Peggy Flanagan,Democrat,0.38587010334172867,false
+8100,MS,Cindy Hyde-Smith,Republican,0.5981764095835895,true
+8100,MS,Scott Colom,Democrat,0.40182359041641047,false
+8100,MT,Alani Bankhead,Democrat,0.26264679985426437,false
+8100,MT,Kurt Alme,Republican,0.6894411579861396,true
+8100,MT,Seth Bodnar,Independent,0.04791204215959607,false
+8100,NC,Michael Whatley,Republican,0.496961634150961,false
+8100,NC,Roy Cooper,Democrat,0.5030383658490389,true
+8100,NE,Dan Osborn,Independent,0.4259528711247749,false
+8100,NE,Pete Ricketts,Republican,0.5740471288752251,true
+8100,NH,Chris Pappas,Democrat,0.5146330774956847,true
+8100,NH,John E. Sununu,Republican,0.4853669225043154,false
+8100,NJ,Cory Booker,Democrat,0.5504713482192353,true
+8100,NJ,Justin Murphy,Republican,0.44952865178076473,false
+8100,NM,Ben Ray Luján,Democrat,0.533473004588338,true
+8100,NM,Larry Marker,Republican,0.46652699541166204,false
+8100,OH,Jon Husted,Republican,0.5312358160637655,true
+8100,OH,Sherrod Brown,Democrat,0.46876418393623454,false
+8100,OK,Kevin Hern,Republican,0.7810599683222814,true
+8100,OK,N'Kiyla Jasmine Thomas,Democrat,0.21894003167771856,false
+8100,OR,David Brock Smith,Republican,0.4232663078244475,false
+8100,OR,Jeff Merkley,Democrat,0.5767336921755525,true
+8100,RI,Jack Reed,Democrat,0.6378810897795405,true
+8100,RI,Raymond McKay,Republican,0.3621189102204596,false
+8100,SC,Annie Andrews,Democrat,0.4080798399997773,false
+8100,SC,Darline Graham,Republican,0.5919201600002227,true
+8100,SD,Brian Bengs,Independent,0.364006597056179,false
+8100,SD,Mike Rounds,Republican,0.635993402943821,true
+8100,TN,Bill Hagerty,Republican,0.6739322375985419,true
+8100,TN,Marquita Bradshaw,Democrat,0.3260677624014581,false
+8100,TX,James Talarico,Democrat,0.39805466059947764,false
+8100,TX,Ken Paxton,Republican,0.6019453394005223,true
+8100,VA,Bert Mizusawa,Republican,0.4146726548639002,false
+8100,VA,Mark Warner,Democrat,0.5853273451360999,true
+8100,WV,Rachel Fetty Anderson,Democrat,0.2950964836351556,false
+8100,WV,Shelley Moore Capito,Republican,0.7049035163648444,true
+8100,WY,Harriet Hageman,Republican,0.7903403745632851,true
+8100,WY,James W. Byrd,Democrat,0.20965962543671476,false
+8386,AK,Dan S. Sullivan,Republican,0.529123873672447,true
+8386,AK,Mary Peltola,Democrat,0.47087612632755305,false
+8386,AL,Barry Moore,Republican,0.6361367657504935,true
+8386,AL,Everett Wess,Democrat,0.3638632342495065,false
+8386,AR,Hallie Shoffner,Democrat,0.35664865611117447,false
+8386,AR,Tom Cotton,Republican,0.6433513438888255,true
+8386,CO,John Hickenlooper,Democrat,0.6029730135825399,true
+8386,CO,Mark Baisley,Republican,0.39702698641746026,false
+8386,DE,Chris Coons,Democrat,0.6661398117318286,true
+8386,DE,Michael Katz,Republican,0.3338601882681713,false
+8386,FL,Angie Nixon,Democrat,0.3956386812732179,false
+8386,FL,Ashley Moody,Republican,0.6043613187267821,true
+8386,GA,Jon Ossoff,Democrat,0.5290197844178445,true
+8386,GA,Mike Collins,Republican,0.4709802155821555,false
+8386,IA,Ashley Hinson,Republican,0.5063394147893502,true
+8386,IA,Josh Turek,Democrat,0.49366058521064987,false
+8386,ID,Jim Risch,Republican,0.5148307394858435,true
+8386,ID,Todd Achilles,Independent,0.48516926051415654,false
+8386,IL,Don Tracy,Republican,0.3607451876841213,false
+8386,IL,Juliana Stratton,Democrat,0.6392548123158788,true
+8386,KS,Adam Hamilton,Democrat,0.4892393541523386,false
+8386,KS,Roger Marshall,Republican,0.5107606458476613,true
+8386,KY,Andy Barr,Republican,0.605329720729066,true
+8386,KY,Charles Booker,Democrat,0.39467027927093395,false
+8386,LA,Jamie Davis,Democrat,0.410689472861455,false
+8386,LA,Julia Letlow,Republican,0.589310527138545,true
+8386,MA,Ed Markey,Democrat,0.6963739018865945,true
+8386,MA,John Deaton,Republican,0.30362609811340546,false
+8386,ME,Susan Collins,Republican,0.5147122646755041,true
+8386,ME,Troy Jackson,Democrat,0.485287735324496,false
+8386,MI,Abdul El-Sayed,Democrat,0.4248581325573888,false
+8386,MI,Mike Rogers,Republican,0.5751418674426112,true
+8386,MN,Michele Tafoya,Republican,0.38239277791158294,false
+8386,MN,Peggy Flanagan,Democrat,0.617607222088417,true
+8386,MS,Cindy Hyde-Smith,Republican,0.5533473241962142,true
+8386,MS,Scott Colom,Democrat,0.4466526758037858,false
+8386,MT,Alani Bankhead,Democrat,0.4162354310968009,false
+8386,MT,Kurt Alme,Republican,0.5078348810711248,true
+8386,MT,Seth Bodnar,Independent,0.07592968783207422,false
+8386,NC,Michael Whatley,Republican,0.49144753529577867,false
+8386,NC,Roy Cooper,Democrat,0.5085524647042213,true
+8386,NE,Dan Osborn,Independent,0.5146169822056309,true
+8386,NE,Pete Ricketts,Republican,0.48538301779436915,false
+8386,NH,Chris Pappas,Democrat,0.5949056111947482,true
+8386,NH,John E. Sununu,Republican,0.4050943888052519,false
+8386,NJ,Cory Booker,Democrat,0.6167930709229159,true
+8386,NJ,Justin Murphy,Republican,0.3832069290770841,false
+8386,NM,Ben Ray Luján,Democrat,0.5748538900785423,true
+8386,NM,Larry Marker,Republican,0.4251461099214577,false
+8386,OH,Jon Husted,Republican,0.4862050513578556,false
+8386,OH,Sherrod Brown,Democrat,0.5137949486421445,true
+8386,OK,Kevin Hern,Republican,0.5710326815990212,true
+8386,OK,N'Kiyla Jasmine Thomas,Democrat,0.42896731840097874,false
+8386,OR,David Brock Smith,Republican,0.3944111834489076,false
+8386,OR,Jeff Merkley,Democrat,0.6055888165510924,true
+8386,RI,Jack Reed,Democrat,0.682146800433473,true
+8386,RI,Raymond McKay,Republican,0.31785319956652713,false
+8386,SC,Annie Andrews,Democrat,0.5032173787041019,true
+8386,SC,Darline Graham,Republican,0.49678262129589823,false
+8386,SD,Brian Bengs,Independent,0.38190098438731646,false
+8386,SD,Mike Rounds,Republican,0.6180990156126835,true
+8386,TN,Bill Hagerty,Republican,0.5677446185110309,true
+8386,TN,Marquita Bradshaw,Democrat,0.43225538148896925,false
+8386,TX,James Talarico,Democrat,0.4400594105029158,false
+8386,TX,Ken Paxton,Republican,0.5599405894970841,true
+8386,VA,Bert Mizusawa,Republican,0.27965166326638,false
+8386,VA,Mark Warner,Democrat,0.72034833673362,true
+8386,WV,Rachel Fetty Anderson,Democrat,0.3659508491484121,false
+8386,WV,Shelley Moore Capito,Republican,0.634049150851588,true
+8386,WY,Harriet Hageman,Republican,0.6853590558367246,true
+8386,WY,James W. Byrd,Democrat,0.3146409441632753,false
+8395,AK,Dan S. Sullivan,Republican,0.4330379714644774,false
+8395,AK,Mary Peltola,Democrat,0.5669620285355226,true
+8395,AL,Barry Moore,Republican,0.4792494828533299,false
+8395,AL,Everett Wess,Democrat,0.5207505171466701,true
+8395,AR,Hallie Shoffner,Democrat,0.36876895169862567,false
+8395,AR,Tom Cotton,Republican,0.6312310483013743,true
+8395,CO,John Hickenlooper,Democrat,0.6831417743971039,true
+8395,CO,Mark Baisley,Republican,0.31685822560289617,false
+8395,DE,Chris Coons,Democrat,0.7379130838980726,true
+8395,DE,Michael Katz,Republican,0.26208691610192714,false
+8395,FL,Angie Nixon,Democrat,0.5368460789277508,true
+8395,FL,Ashley Moody,Republican,0.4631539210722492,false
+8395,GA,Jon Ossoff,Democrat,0.5144381878869244,true
+8395,GA,Mike Collins,Republican,0.48556181211307564,false
+8395,IA,Ashley Hinson,Republican,0.5559357567438786,true
+8395,IA,Josh Turek,Democrat,0.44406424325612137,false
+8395,ID,Jim Risch,Republican,0.5353901582089615,true
+8395,ID,Todd Achilles,Independent,0.4646098417910385,false
+8395,IL,Don Tracy,Republican,0.41410866908685495,false
+8395,IL,Juliana Stratton,Democrat,0.585891330913145,true
+8395,KS,Adam Hamilton,Democrat,0.4333014638346287,false
+8395,KS,Roger Marshall,Republican,0.5666985361653711,true
+8395,KY,Andy Barr,Republican,0.5073149763176077,true
+8395,KY,Charles Booker,Democrat,0.49268502368239225,false
+8395,LA,Jamie Davis,Democrat,0.4750443216172589,false
+8395,LA,Julia Letlow,Republican,0.5249556783827412,true
+8395,MA,Ed Markey,Democrat,0.791397705535672,true
+8395,MA,John Deaton,Republican,0.20860229446432793,false
+8395,ME,Susan Collins,Republican,0.4241612964078427,false
+8395,ME,Troy Jackson,Democrat,0.5758387035921574,true
+8395,MI,Abdul El-Sayed,Democrat,0.46056210492684346,false
+8395,MI,Mike Rogers,Republican,0.5394378950731565,true
+8395,MN,Michele Tafoya,Republican,0.3482454119956618,false
+8395,MN,Peggy Flanagan,Democrat,0.6517545880043383,true
+8395,MS,Cindy Hyde-Smith,Republican,0.5942439810025599,true
+8395,MS,Scott Colom,Democrat,0.40575601899744007,false
+8395,MT,Alani Bankhead,Democrat,0.39577246859884385,false
+8395,MT,Kurt Alme,Republican,0.5320306981953571,true
+8395,MT,Seth Bodnar,Independent,0.07219683320579909,false
+8395,NC,Michael Whatley,Republican,0.4141355153047739,false
+8395,NC,Roy Cooper,Democrat,0.5858644846952261,true
+8395,NE,Dan Osborn,Independent,0.4798363824926614,false
+8395,NE,Pete Ricketts,Republican,0.5201636175073386,true
+8395,NH,Chris Pappas,Democrat,0.632778029803711,true
+8395,NH,John E. Sununu,Republican,0.36722197019628894,false
+8395,NJ,Cory Booker,Democrat,0.712526165133445,true
+8395,NJ,Justin Murphy,Republican,0.287473834866555,false
+8395,NM,Ben Ray Luján,Democrat,0.6229089791021116,true
+8395,NM,Larry Marker,Republican,0.37709102089788843,false
+8395,OH,Jon Husted,Republican,0.4580184288839868,false
+8395,OH,Sherrod Brown,Democrat,0.5419815711160132,true
+8395,OK,Kevin Hern,Republican,0.5958439498149607,true
+8395,OK,N'Kiyla Jasmine Thomas,Democrat,0.40415605018503925,false
+8395,OR,David Brock Smith,Republican,0.4706362760006705,false
+8395,OR,Jeff Merkley,Democrat,0.5293637239993295,true
+8395,RI,Jack Reed,Democrat,0.6943853025758105,true
+8395,RI,Raymond McKay,Republican,0.3056146974241895,false
+8395,SC,Annie Andrews,Democrat,0.49702772456262534,false
+8395,SC,Darline Graham,Republican,0.5029722754373748,true
+8395,SD,Brian Bengs,Independent,0.360348570548383,false
+8395,SD,Mike Rounds,Republican,0.639651429451617,true
+8395,TN,Bill Hagerty,Republican,0.6004114177631005,true
+8395,TN,Marquita Bradshaw,Democrat,0.3995885822368995,false
+8395,TX,James Talarico,Democrat,0.4664781199976357,false
+8395,TX,Ken Paxton,Republican,0.5335218800023642,true
+8395,VA,Bert Mizusawa,Republican,0.39409042420597834,false
+8395,VA,Mark Warner,Democrat,0.6059095757940216,true
+8395,WV,Rachel Fetty Anderson,Democrat,0.3132317563196305,false
+8395,WV,Shelley Moore Capito,Republican,0.6867682436803695,true
+8395,WY,Harriet Hageman,Republican,0.7679348303015163,true
+8395,WY,James W. Byrd,Democrat,0.2320651696984836,false
+8496,AK,Dan S. Sullivan,Republican,0.5502946059370544,true
+8496,AK,Mary Peltola,Democrat,0.44970539406294563,false
+8496,AL,Barry Moore,Republican,0.6361923888710627,true
+8496,AL,Everett Wess,Democrat,0.36380761112893745,false
+8496,AR,Hallie Shoffner,Democrat,0.43748291514492477,false
+8496,AR,Tom Cotton,Republican,0.5625170848550752,true
+8496,CO,John Hickenlooper,Democrat,0.5078881145676601,true
+8496,CO,Mark Baisley,Republican,0.49211188543233997,false
+8496,DE,Chris Coons,Democrat,0.7520189943685269,true
+8496,DE,Michael Katz,Republican,0.24798100563147296,false
+8496,FL,Angie Nixon,Democrat,0.46708386667647994,false
+8496,FL,Ashley Moody,Republican,0.5329161333235201,true
+8496,GA,Jon Ossoff,Democrat,0.4807104666882695,false
+8496,GA,Mike Collins,Republican,0.5192895333117304,true
+8496,IA,Ashley Hinson,Republican,0.526485756529131,true
+8496,IA,Josh Turek,Democrat,0.473514243470869,false
+8496,ID,Jim Risch,Republican,0.6002470629438951,true
+8496,ID,Todd Achilles,Independent,0.39975293705610504,false
+8496,IL,Don Tracy,Republican,0.43609633489847205,false
+8496,IL,Juliana Stratton,Democrat,0.5639036651015279,true
+8496,KS,Adam Hamilton,Democrat,0.4529257364490831,false
+8496,KS,Roger Marshall,Republican,0.5470742635509168,true
+8496,KY,Andy Barr,Republican,0.7333617561617338,true
+8496,KY,Charles Booker,Democrat,0.2666382438382661,false
+8496,LA,Jamie Davis,Democrat,0.41159933427015255,false
+8496,LA,Julia Letlow,Republican,0.5884006657298475,true
+8496,MA,Ed Markey,Democrat,0.6833663314228733,true
+8496,MA,John Deaton,Republican,0.31663366857712677,false
+8496,ME,Susan Collins,Republican,0.453058234720383,false
+8496,ME,Troy Jackson,Democrat,0.5469417652796172,true
+8496,MI,Abdul El-Sayed,Democrat,0.4916059949645756,false
+8496,MI,Mike Rogers,Republican,0.5083940050354244,true
+8496,MN,Michele Tafoya,Republican,0.3990418153351057,false
+8496,MN,Peggy Flanagan,Democrat,0.6009581846648944,true
+8496,MS,Cindy Hyde-Smith,Republican,0.7061850965797877,true
+8496,MS,Scott Colom,Democrat,0.2938149034202123,false
+8496,MT,Alani Bankhead,Democrat,0.3786403723368904,false
+8496,MT,Kurt Alme,Republican,0.5522880323008343,true
+8496,MT,Seth Bodnar,Independent,0.06907159536227526,false
+8496,NC,Michael Whatley,Republican,0.427844470057177,false
+8496,NC,Roy Cooper,Democrat,0.5721555299428229,true
+8496,NE,Dan Osborn,Independent,0.5157323352446911,true
+8496,NE,Pete Ricketts,Republican,0.4842676647553091,false
+8496,NH,Chris Pappas,Democrat,0.5725361915671929,true
+8496,NH,John E. Sununu,Republican,0.4274638084328071,false
+8496,NJ,Cory Booker,Democrat,0.6380040436576495,true
+8496,NJ,Justin Murphy,Republican,0.3619959563423505,false
+8496,NM,Ben Ray Luján,Democrat,0.6300121754760235,true
+8496,NM,Larry Marker,Republican,0.3699878245239765,false
+8496,OH,Jon Husted,Republican,0.5725713559902035,true
+8496,OH,Sherrod Brown,Democrat,0.4274286440097965,false
+8496,OK,Kevin Hern,Republican,0.681439623549675,true
+8496,OK,N'Kiyla Jasmine Thomas,Democrat,0.3185603764503249,false
+8496,OR,David Brock Smith,Republican,0.4322785369736607,false
+8496,OR,Jeff Merkley,Democrat,0.5677214630263394,true
+8496,RI,Jack Reed,Democrat,0.6970363043914781,true
+8496,RI,Raymond McKay,Republican,0.302963695608522,false
+8496,SC,Annie Andrews,Democrat,0.47463085733261384,false
+8496,SC,Darline Graham,Republican,0.5253691426673862,true
+8496,SD,Brian Bengs,Independent,0.43443030890953593,false
+8496,SD,Mike Rounds,Republican,0.5655696910904641,true
+8496,TN,Bill Hagerty,Republican,0.5989693756736516,true
+8496,TN,Marquita Bradshaw,Democrat,0.4010306243263485,false
+8496,TX,James Talarico,Democrat,0.5103246890939404,true
+8496,TX,Ken Paxton,Republican,0.4896753109060596,false
+8496,VA,Bert Mizusawa,Republican,0.4598112329152866,false
+8496,VA,Mark Warner,Democrat,0.5401887670847134,true
+8496,WV,Rachel Fetty Anderson,Democrat,0.40435458898944476,false
+8496,WV,Shelley Moore Capito,Republican,0.5956454110105552,true
+8496,WY,Harriet Hageman,Republican,0.7062742326645034,true
+8496,WY,James W. Byrd,Democrat,0.2937257673354967,false
+8552,AK,Dan S. Sullivan,Republican,0.4499322439728807,false
+8552,AK,Mary Peltola,Democrat,0.5500677560271193,true
+8552,AL,Barry Moore,Republican,0.5477056345904663,true
+8552,AL,Everett Wess,Democrat,0.4522943654095337,false
+8552,AR,Hallie Shoffner,Democrat,0.43972362425706324,false
+8552,AR,Tom Cotton,Republican,0.5602763757429368,true
+8552,CO,John Hickenlooper,Democrat,0.6195868261824732,true
+8552,CO,Mark Baisley,Republican,0.380413173817527,false
+8552,DE,Chris Coons,Democrat,0.7395757281219418,true
+8552,DE,Michael Katz,Republican,0.2604242718780581,false
+8552,FL,Angie Nixon,Democrat,0.5190471659858606,true
+8552,FL,Ashley Moody,Republican,0.48095283401413935,false
+8552,GA,Jon Ossoff,Democrat,0.5091009605902334,true
+8552,GA,Mike Collins,Republican,0.49089903940976665,false
+8552,IA,Ashley Hinson,Republican,0.3970483460634698,false
+8552,IA,Josh Turek,Democrat,0.6029516539365303,true
+8552,ID,Jim Risch,Republican,0.5535916631352785,true
+8552,ID,Todd Achilles,Independent,0.4464083368647215,false
+8552,IL,Don Tracy,Republican,0.3587960186920627,false
+8552,IL,Juliana Stratton,Democrat,0.6412039813079374,true
+8552,KS,Adam Hamilton,Democrat,0.4337315510659732,false
+8552,KS,Roger Marshall,Republican,0.5662684489340267,true
+8552,KY,Andy Barr,Republican,0.6247136196361754,true
+8552,KY,Charles Booker,Democrat,0.3752863803638244,false
+8552,LA,Jamie Davis,Democrat,0.46823206087110814,false
+8552,LA,Julia Letlow,Republican,0.531767939128892,true
+8552,MA,Ed Markey,Democrat,0.5567352598522679,true
+8552,MA,John Deaton,Republican,0.4432647401477321,false
+8552,ME,Susan Collins,Republican,0.4684521070922555,false
+8552,ME,Troy Jackson,Democrat,0.5315478929077446,true
+8552,MI,Abdul El-Sayed,Democrat,0.4544023580647326,false
+8552,MI,Mike Rogers,Republican,0.5455976419352674,true
+8552,MN,Michele Tafoya,Republican,0.3921501585945475,false
+8552,MN,Peggy Flanagan,Democrat,0.6078498414054525,true
+8552,MS,Cindy Hyde-Smith,Republican,0.5342314263483342,true
+8552,MS,Scott Colom,Democrat,0.46576857365166585,false
+8552,MT,Alani Bankhead,Democrat,0.41239477155040366,false
+8552,MT,Kurt Alme,Republican,0.5123761539210527,true
+8552,MT,Seth Bodnar,Independent,0.0752290745285436,false
+8552,NC,Michael Whatley,Republican,0.5381786299835405,true
+8552,NC,Roy Cooper,Democrat,0.4618213700164595,false
+8552,NE,Dan Osborn,Independent,0.4640733564867657,false
+8552,NE,Pete Ricketts,Republican,0.5359266435132344,true
+8552,NH,Chris Pappas,Democrat,0.4467482840293471,false
+8552,NH,John E. Sununu,Republican,0.5532517159706529,true
+8552,NJ,Cory Booker,Democrat,0.6841487423409612,true
+8552,NJ,Justin Murphy,Republican,0.31585125765903865,false
+8552,NM,Ben Ray Luján,Democrat,0.6833508696022235,true
+8552,NM,Larry Marker,Republican,0.3166491303977765,false
+8552,OH,Jon Husted,Republican,0.45129455074172126,false
+8552,OH,Sherrod Brown,Democrat,0.5487054492582788,true
+8552,OK,Kevin Hern,Republican,0.6544329409483065,true
+8552,OK,N'Kiyla Jasmine Thomas,Democrat,0.34556705905169344,false
+8552,OR,David Brock Smith,Republican,0.45307910202272145,false
+8552,OR,Jeff Merkley,Democrat,0.5469208979772785,true
+8552,RI,Jack Reed,Democrat,0.6470602023940685,true
+8552,RI,Raymond McKay,Republican,0.3529397976059316,false
+8552,SC,Annie Andrews,Democrat,0.3651040297381373,false
+8552,SC,Darline Graham,Republican,0.6348959702618627,true
+8552,SD,Brian Bengs,Independent,0.433788545021665,false
+8552,SD,Mike Rounds,Republican,0.566211454978335,true
+8552,TN,Bill Hagerty,Republican,0.6949754806213333,true
+8552,TN,Marquita Bradshaw,Democrat,0.3050245193786667,false
+8552,TX,James Talarico,Democrat,0.48557319986049025,false
+8552,TX,Ken Paxton,Republican,0.5144268001395097,true
+8552,VA,Bert Mizusawa,Republican,0.39800639151582556,false
+8552,VA,Mark Warner,Democrat,0.6019936084841744,true
+8552,WV,Rachel Fetty Anderson,Democrat,0.31866393136961557,false
+8552,WV,Shelley Moore Capito,Republican,0.6813360686303844,true
+8552,WY,Harriet Hageman,Republican,0.6619628596843842,true
+8552,WY,James W. Byrd,Democrat,0.3380371403156158,false
+8693,AK,Dan S. Sullivan,Republican,0.49084487306353886,false
+8693,AK,Mary Peltola,Democrat,0.5091551269364611,true
+8693,AL,Barry Moore,Republican,0.5527895932246385,true
+8693,AL,Everett Wess,Democrat,0.4472104067753615,false
+8693,AR,Hallie Shoffner,Democrat,0.3380984168596992,false
+8693,AR,Tom Cotton,Republican,0.6619015831403008,true
+8693,CO,John Hickenlooper,Democrat,0.5965553435280238,true
+8693,CO,Mark Baisley,Republican,0.40344465647197636,false
+8693,DE,Chris Coons,Democrat,0.6697789629437064,true
+8693,DE,Michael Katz,Republican,0.3302210370562935,false
+8693,FL,Angie Nixon,Democrat,0.40946632271076944,false
+8693,FL,Ashley Moody,Republican,0.5905336772892306,true
+8693,GA,Jon Ossoff,Democrat,0.4943857290370965,false
+8693,GA,Mike Collins,Republican,0.5056142709629035,true
+8693,IA,Ashley Hinson,Republican,0.5693411833077578,true
+8693,IA,Josh Turek,Democrat,0.43065881669224215,false
+8693,ID,Jim Risch,Republican,0.7143840501175249,true
+8693,ID,Todd Achilles,Independent,0.2856159498824751,false
+8693,IL,Don Tracy,Republican,0.4715793588550656,false
+8693,IL,Juliana Stratton,Democrat,0.5284206411449344,true
+8693,KS,Adam Hamilton,Democrat,0.5502979861682514,true
+8693,KS,Roger Marshall,Republican,0.44970201383174857,false
+8693,KY,Andy Barr,Republican,0.6637668425727393,true
+8693,KY,Charles Booker,Democrat,0.3362331574272606,false
+8693,LA,Jamie Davis,Democrat,0.502412637489548,true
+8693,LA,Julia Letlow,Republican,0.4975873625104521,false
+8693,MA,Ed Markey,Democrat,0.6451582667202826,true
+8693,MA,John Deaton,Republican,0.35484173327971735,false
+8693,ME,Susan Collins,Republican,0.3595146405345035,false
+8693,ME,Troy Jackson,Democrat,0.6404853594654966,true
+8693,MI,Abdul El-Sayed,Democrat,0.44104881981822497,false
+8693,MI,Mike Rogers,Republican,0.558951180181775,true
+8693,MN,Michele Tafoya,Republican,0.5039139773756218,true
+8693,MN,Peggy Flanagan,Democrat,0.4960860226243782,false
+8693,MS,Cindy Hyde-Smith,Republican,0.6843611550833179,true
+8693,MS,Scott Colom,Democrat,0.31563884491668204,false
+8693,MT,Alani Bankhead,Democrat,0.3982336144292524,false
+8693,MT,Kurt Alme,Republican,0.5291205900214024,true
+8693,MT,Seth Bodnar,Independent,0.07264579554934517,false
+8693,NC,Michael Whatley,Republican,0.39781503215110975,false
+8693,NC,Roy Cooper,Democrat,0.6021849678488902,true
+8693,NE,Dan Osborn,Independent,0.45113102904579055,false
+8693,NE,Pete Ricketts,Republican,0.5488689709542095,true
+8693,NH,Chris Pappas,Democrat,0.5814186040018303,true
+8693,NH,John E. Sununu,Republican,0.4185813959981697,false
+8693,NJ,Cory Booker,Democrat,0.5701235218787276,true
+8693,NJ,Justin Murphy,Republican,0.42987647812127233,false
+8693,NM,Ben Ray Luján,Democrat,0.6511108320875881,true
+8693,NM,Larry Marker,Republican,0.34888916791241187,false
+8693,OH,Jon Husted,Republican,0.5175944937761243,true
+8693,OH,Sherrod Brown,Democrat,0.4824055062238757,false
+8693,OK,Kevin Hern,Republican,0.717275302694209,true
+8693,OK,N'Kiyla Jasmine Thomas,Democrat,0.282724697305791,false
+8693,OR,David Brock Smith,Republican,0.39868853402184695,false
+8693,OR,Jeff Merkley,Democrat,0.6013114659781531,true
+8693,RI,Jack Reed,Democrat,0.7036058635197945,true
+8693,RI,Raymond McKay,Republican,0.2963941364802056,false
+8693,SC,Annie Andrews,Democrat,0.411503590400778,false
+8693,SC,Darline Graham,Republican,0.588496409599222,true
+8693,SD,Brian Bengs,Independent,0.33582893993916585,false
+8693,SD,Mike Rounds,Republican,0.6641710600608342,true
+8693,TN,Bill Hagerty,Republican,0.6800744697501049,true
+8693,TN,Marquita Bradshaw,Democrat,0.3199255302498952,false
+8693,TX,James Talarico,Democrat,0.43263080444930974,false
+8693,TX,Ken Paxton,Republican,0.5673691955506902,true
+8693,VA,Bert Mizusawa,Republican,0.48803129311298105,false
+8693,VA,Mark Warner,Democrat,0.5119687068870189,true
+8693,WV,Rachel Fetty Anderson,Democrat,0.3312994234091523,false
+8693,WV,Shelley Moore Capito,Republican,0.6687005765908477,true
+8693,WY,Harriet Hageman,Republican,0.7041040719414114,true
+8693,WY,James W. Byrd,Democrat,0.29589592805858855,false
+9298,AK,Dan S. Sullivan,Republican,0.5707390061475823,true
+9298,AK,Mary Peltola,Democrat,0.42926099385241767,false
+9298,AL,Barry Moore,Republican,0.5927453730431395,true
+9298,AL,Everett Wess,Democrat,0.40725462695686054,false
+9298,AR,Hallie Shoffner,Democrat,0.37861965263257047,false
+9298,AR,Tom Cotton,Republican,0.6213803473674295,true
+9298,CO,John Hickenlooper,Democrat,0.6687851663096119,true
+9298,CO,Mark Baisley,Republican,0.3312148336903883,false
+9298,DE,Chris Coons,Democrat,0.7493618405345497,true
+9298,DE,Michael Katz,Republican,0.25063815946545015,false
+9298,FL,Angie Nixon,Democrat,0.5355418241289723,true
+9298,FL,Ashley Moody,Republican,0.46445817587102767,false
+9298,GA,Jon Ossoff,Democrat,0.5120765534543872,true
+9298,GA,Mike Collins,Republican,0.4879234465456127,false
+9298,IA,Ashley Hinson,Republican,0.5165052959307226,true
+9298,IA,Josh Turek,Democrat,0.4834947040692774,false
+9298,ID,Jim Risch,Republican,0.6322868207976209,true
+9298,ID,Todd Achilles,Independent,0.3677131792023791,false
+9298,IL,Don Tracy,Republican,0.37583527770471514,false
+9298,IL,Juliana Stratton,Democrat,0.6241647222952849,true
+9298,KS,Adam Hamilton,Democrat,0.4516193063845065,false
+9298,KS,Roger Marshall,Republican,0.5483806936154935,true
+9298,KY,Andy Barr,Republican,0.5754657216861819,true
+9298,KY,Charles Booker,Democrat,0.42453427831381796,false
+9298,LA,Jamie Davis,Democrat,0.4539354392229627,false
+9298,LA,Julia Letlow,Republican,0.5460645607770374,true
+9298,MA,Ed Markey,Democrat,0.6618106993339667,true
+9298,MA,John Deaton,Republican,0.3381893006660332,false
+9298,ME,Susan Collins,Republican,0.3880741106435567,false
+9298,ME,Troy Jackson,Democrat,0.6119258893564434,true
+9298,MI,Abdul El-Sayed,Democrat,0.5756680738712148,true
+9298,MI,Mike Rogers,Republican,0.4243319261287853,false
+9298,MN,Michele Tafoya,Republican,0.3188160186959621,false
+9298,MN,Peggy Flanagan,Democrat,0.6811839813040379,true
+9298,MS,Cindy Hyde-Smith,Republican,0.6453265198960214,true
+9298,MS,Scott Colom,Democrat,0.3546734801039785,false
+9298,MT,Alani Bankhead,Democrat,0.39275368326899,false
+9298,MT,Kurt Alme,Republican,0.5356001704936986,true
+9298,MT,Seth Bodnar,Independent,0.07164614623731144,false
+9298,NC,Michael Whatley,Republican,0.4824762658436777,false
+9298,NC,Roy Cooper,Democrat,0.5175237341563224,true
+9298,NE,Dan Osborn,Independent,0.5779576066658008,true
+9298,NE,Pete Ricketts,Republican,0.42204239333419935,false
+9298,NH,Chris Pappas,Democrat,0.5278358639843561,true
+9298,NH,John E. Sununu,Republican,0.4721641360156439,false
+9298,NJ,Cory Booker,Democrat,0.675922286934149,true
+9298,NJ,Justin Murphy,Republican,0.324077713065851,false
+9298,NM,Ben Ray Luján,Democrat,0.6241660400525468,true
+9298,NM,Larry Marker,Republican,0.3758339599474531,false
+9298,OH,Jon Husted,Republican,0.5099051981568062,true
+9298,OH,Sherrod Brown,Democrat,0.49009480184319376,false
+9298,OK,Kevin Hern,Republican,0.566857783552039,true
+9298,OK,N'Kiyla Jasmine Thomas,Democrat,0.43314221644796097,false
+9298,OR,David Brock Smith,Republican,0.474764232300831,false
+9298,OR,Jeff Merkley,Democrat,0.525235767699169,true
+9298,RI,Jack Reed,Democrat,0.6659813557650613,true
+9298,RI,Raymond McKay,Republican,0.33401864423493877,false
+9298,SC,Annie Andrews,Democrat,0.5330072831416679,true
+9298,SC,Darline Graham,Republican,0.4669927168583322,false
+9298,SD,Brian Bengs,Independent,0.37746028360481193,false
+9298,SD,Mike Rounds,Republican,0.6225397163951881,true
+9298,TN,Bill Hagerty,Republican,0.6454297650819008,true
+9298,TN,Marquita Bradshaw,Democrat,0.3545702349180993,false
+9298,TX,James Talarico,Democrat,0.5087505510518089,true
+9298,TX,Ken Paxton,Republican,0.4912494489481911,false
+9298,VA,Bert Mizusawa,Republican,0.35335070894663617,false
+9298,VA,Mark Warner,Democrat,0.646649291053364,true
+9298,WV,Rachel Fetty Anderson,Democrat,0.42721841526339344,false
+9298,WV,Shelley Moore Capito,Republican,0.5727815847366066,true
+9298,WY,Harriet Hageman,Republican,0.7099564698781493,true
+9298,WY,James W. Byrd,Democrat,0.2900435301218507,false
