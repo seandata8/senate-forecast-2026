@@ -51,6 +51,7 @@ We used Claude Code, with Claude Opus 5.5 (`claude-opus-5-5`), for the work list
 - 25 and 26 October 2026: the website (`index.qmd`, `_quarto.yml`, `style.scss` and `src/senate_forecast_2026/website.py`), the polls' 95% interval (`poll_interval()` in `src/senate_forecast_2026/poll_average.py`), the summaries for every version, the Senate cross-tabs and the polls and models tables in `scripts/12-summarize_results.py`, `with_versions()` in `src/senate_forecast_2026/forecast_summary.py`, `DECISION_MODELS` in `src/senate_forecast_2026/queries.py`, their schemas and their tests.
 - 26 October 2026: the tests on the real data (`tests/test_real_data.py`, with `share_of()` moved to `tests/helpers.py`).
 - 26 October 2026: the script that combines both runs into one file (`scripts/07-combine_responses.py`).
+- 25 and 26 October 2026: Sean's model trial (`scripts/06-trial_models_sean.py`), the progress report during a run (`scripts/watch_progress.py`, with `cache_key()` and `cache_path()` in `silicon.py`), and the analysis of the trial's results.
 
 The LLMs queried to produce the silicon sample are part of the method, not help with the work; they will be listed with their OpenRouter identifiers in the methods section of the website.
 
