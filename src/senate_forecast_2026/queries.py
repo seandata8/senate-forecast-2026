@@ -4,7 +4,8 @@
 #          No API calls happen here: the function that calls a model (`ask` in silicon.py) is passed in,
 #          so the tests can use a fake one that costs nothing.
 # Author: Furkan Danisman
-# Date: 22 October 2026; draws per model and run costs added 24 October 2026
+# Date: 22 October 2026; draws per model and run costs added 24 October 2026; approach settings moved here from
+#       scripts/05-query_models.py 25 October 2026
 # Pre-requisites: uv sync
 
 import polars as pl
@@ -109,6 +110,25 @@ QUESTION_WORDINGS = {
         "on {date}, only two candidates are left: {candidates}. " + V2_PAST_ELECTIONS + " If you can't choose "
         "between them, say \"Undecided\". If you probably won't vote, say \"Would not vote\". Otherwise, which "
         "of the two would you vote for?",
+    },
+}
+
+
+# Each of us sets our own approach here for #6 (used by scripts/05-query_models.py): models from at least two providers, repeated draws, and the
+# question wording (see QUESTION_WORDINGS above). v1 is the default; v2 is the experimental wording,
+# run with --wording v2 to check how much the answers depend on it. `draws` is one number for every model, or a
+# number per model.
+APPROACH_SETTINGS = {
+    "sean": {
+        "models": ["deepseek/deepseek-v4-flash-0731", "z-ai/glm-5.3-flash"], "draws": 3, "temperature": 1.0, "wording": "v1",
+    },
+    # Jev is a decision model (see DECISION_MODELS in silicon.py): it has no temperature, and each of its 10 draws
+    # is a separate call whose answer is a random pick weighted by its probabilities. Kimi K3 is a chat model.
+    "furkan": {
+        "models": ["typesafe/jev-1.14", "moonshotai/kimi-k3"],
+        "draws": {"typesafe/jev-1.14": 10, "moonshotai/kimi-k3": 3},
+        "temperature": 1.0,
+        "wording": "v1",
     },
 }
 
