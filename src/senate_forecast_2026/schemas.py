@@ -375,6 +375,30 @@ class PollInfluence(pa.DataFrameModel):
         strict = True
 
 
+class PollTable(pa.DataFrameModel):
+    """One row per poll in today's average (every weighting rule on) and candidate: the website's table of polls
+    under each race's chart. Made by #12 into data/03-summary_data/ from polls and poll_influence."""
+
+    state: str = pa.Field(isin=STATES, description=STATE)
+    poll_id: str = pa.Field(description="VoteHub's id for the poll, as in polls.")
+    pollster: str = pa.Field(description="As in polls.")
+    start_date: datetime.date = pa.Field(description="As in polls.")
+    date: datetime.date = pa.Field(description="As in polls: the poll's last day of interviews.")
+    sample_size: int = pa.Field(nullable=True, description="As in polls.")
+    population: str = pa.Field(nullable=True, description="As in polls.")
+    influence: float = pa.Field(ge=0, description="The poll's weight in today's average with every rule on, as in "
+                                "poll_influence.")
+    candidate: str = pa.Field(description="As in polls.")
+    share: float = pa.Field(ge=0, le=1, description="The candidate's share as the poll reported it (undecided "
+                            "included, so the shares can add up to less than 1).")
+    leader: str = pa.Field(description="The candidate with the poll's highest share.")
+    lead: float = pa.Field(ge=0, le=1, description="The leader's share minus the second candidate's (or the leader's "
+                           "share when the poll asked about one candidate).")
+
+    class Config:
+        strict = True
+
+
 class PolymarketPrices(Polymarket):
     """One row per candidate per day: the Polymarket price, as in polymarket. Made by #12 into data/03-summary_data/
     for the website's Polymarket chart."""
@@ -474,33 +498,52 @@ class ForecastRaces(pa.DataFrameModel):
         strict = True
 
 
-class ModelAnswers(pa.DataFrameModel):
-    """One row per model, question and answer: the weighted share of answers. Made by #12 into data/03-summary_data/.
-    Senate answers are grouped by the chosen candidate's party."""
+ANSWER_VERSION_TYPE = 'Which version of the website it belongs to, as in forecast_versions: "model" (one model), ' \
+    '"all" (the average of every model) or "approach" (the average of one approach\'s models).'
+ANSWER_APPROACH = "The approach of the model, or of the approach's average (as in responses); missing for the " \
+    'average of every model.'
 
+
+class ModelAnswers(pa.DataFrameModel):
+    """One row per version, question and answer: the weighted share of answers, for each model and for the models'
+    average (all of them, and each approach's). Made by #12 into data/03-summary_data/. Senate answers are grouped by
+    the chosen candidate's party."""
+
+    version_type: str = pa.Field(isin=["all", "approach", "model"], description=ANSWER_VERSION_TYPE)
+    version: str = pa.Field(description=VERSION)
+    approach: str = pa.Field(nullable=True, description=ANSWER_APPROACH)
     model: str = pa.Field(description=MODEL_OR_AVERAGE)
     question: str = pa.Field(isin=["senate", "generic"], description='"senate" (the race we forecast) or "generic" '
                              "(the House question, a benchmark).")
     answer: str = pa.Field(description="The party of the chosen candidate (Senate), the party (House), Undecided, "
                            "Would not vote or Missing.")
     share: float = pa.Field(ge=0, le=1, description="Share of the answers, weighted by the personas' CES weights; "
-                            "each persona's draws from one model count once in total.")
+                            "each persona's draws from one model count once in total. For an average, a model that "
+                            "never gave the answer counts as 0.")
 
     class Config:
         strict = True
 
 
 class Crosstabs(pa.DataFrameModel):
-    """One row per persona detail, group and model: the Democratic share of the two-party House vote. Made by #12
-    into data/03-summary_data/."""
+    """One row per version, question, persona detail, group and party: the party's share of the group's answers for
+    a party. Made by #12 into data/03-summary_data/."""
 
+    version_type: str = pa.Field(isin=["all", "approach", "model"], description=ANSWER_VERSION_TYPE)
+    version: str = pa.Field(description=VERSION)
+    approach: str = pa.Field(nullable=True, description=ANSWER_APPROACH)
+    model: str = pa.Field(description=MODEL_OR_AVERAGE)
+    question: str = pa.Field(isin=["senate", "generic"], description='"senate" or "generic" (House), as in '
+                             "model_answers.")
     variable: str = pa.Field(description="The persona detail, as in personas (e.g. gender).")
     group: str = pa.Field(description="The group (e.g. Woman).")
-    model: str = pa.Field(description=MODEL_OR_AVERAGE)
-    democratic_share: float = pa.Field(ge=0, le=1, description="Democratic share among the group's Democratic and "
-                                       "Republican House answers, weighted as in model_answers.")
-    personas: int = pa.Field(ge=1, description="Number of personas in the group with a two-party answer (for "
-                             '"average", the smaller of the models\' numbers).')
+    party: str = pa.Field(isin=["Democrat", "Independent", "Republican"], description="Democrat, Independent (Senate "
+                          "only: an independent candidate) or Republican.")
+    share: float = pa.Field(ge=0, le=1, description="The party's share of the group's answers for a party (Undecided, "
+                            "Would not vote and the House's Other left out), weighted as in model_answers. For an "
+                            "average, the models that have answers in the group, counted equally.")
+    personas: int = pa.Field(ge=1, description="Number of personas in the group with an answer for a party (for an "
+                             "average, the models' numbers averaged).")
 
     class Config:
         strict = True
@@ -518,9 +561,12 @@ class PersonaComposition(pa.DataFrameModel):
 
 
 class PastComparison(pa.DataFrameModel):
-    """One row per race and election: the Republican share in past elections next to our 2026 estimate. Made by #12
-    into data/03-summary_data/ from past_results and the forecast (both runs together)."""
+    """One row per race and election (and, for our 2026 estimate, per version): the Republican share in past
+    elections next to our estimate. Made by #12 into data/03-summary_data/ from past_results and forecast_races."""
 
+    version_type: str = pa.Field(isin=["all", "approach", "model"], nullable=True, description=VERSION_TYPE + " "
+                                 "Missing for past elections, which are the same in every version.")
+    version: str = pa.Field(nullable=True, description=VERSION + " Missing for past elections.")
     state: str = pa.Field(isin=STATES, description=STATE)
     election: str = pa.Field(description='As in past_results ("president_2024", "senate_2020", ...), or '
                              '"forecast_2026": our estimate.')
@@ -531,6 +577,29 @@ class PastComparison(pa.DataFrameModel):
                             "Missing for past elections.")
     upper: float = pa.Field(ge=0, le=1, nullable=True, description="Our estimate: upper end of its 95% interval. "
                             "Missing for past elections.")
+
+    class Config:
+        strict = True
+
+
+class Models(pa.DataFrameModel):
+    """One row per approach and model: how the model was asked and what came back. Made by #12 into
+    data/03-summary_data/ from the approach settings (src/senate_forecast_2026/queries.py) and responses."""
+
+    approach: str = pa.Field(description="As in responses.")
+    model: str = pa.Field(description="The model's OpenRouter identifier, as in responses.")
+    kind: str = pa.Field(isin=["chat model", "decision model"], description="A chat model writes its answer; a "
+                         "decision model gives a probability for each option, and each draw is a random pick from them.")
+    draws: int = pa.Field(ge=1, description="How many times the model was asked each question.")
+    temperature: float = pa.Field(ge=0, nullable=True, description="The sampling temperature. Missing for a decision "
+                                  "model, which has none.")
+    wording: str = pa.Field(description="The question wording, as in queries.py (v1 or v2).")
+    personas: int = pa.Field(ge=1, description="Number of personas the model answered as.")
+    answers: int = pa.Field(ge=1, description="Number of answers (rows of responses).")
+    missing: int = pa.Field(ge=0, description="Answers that failed or were not one of the options.")
+    input_tokens: int = pa.Field(ge=0, description="Total input tokens, as in responses.")
+    output_tokens: int = pa.Field(ge=0, description="Total output tokens, as in responses.")
+    cost: float = pa.Field(ge=0, description="Total cost in US dollars, as OpenRouter reported it.")
 
     class Config:
         strict = True

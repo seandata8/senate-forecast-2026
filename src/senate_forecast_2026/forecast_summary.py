@@ -65,3 +65,26 @@ def weighted_shares(rows, by, answer="answer"):
         .with_columns(share=pl.col("weight") / pl.col("weight").sum().over(by))
         .drop("weight")
     )
+
+
+def with_versions(per_model, by, values, missing_is_zero=False):
+    """`per_model` (one row per approach, model and `by`, with the `values` columns) as the website's versions, like
+    the forecast's: each model alone ("model"), and the models counted equally ("average") for all of them ("all")
+    and for each approach ("approach", when there is more than one). With `missing_is_zero`, a model without a row
+    counts as 0 (an answer it never gave); otherwise the average is of the models that have one. Returns version_type,
+    version, approach, model, *by, *values."""
+    def average(rows, version_type, version, approach):
+        models = rows["model"].n_unique()
+        mean = pl.col(values).sum() / models if missing_is_zero else pl.col(values).mean()
+        return rows.group_by(*by).agg(mean).with_columns(
+            version_type=pl.lit(version_type), version=pl.lit(version), approach=pl.lit(approach, pl.String),
+            model=pl.lit("average"),
+        )
+
+    parts = [per_model.with_columns(version_type=pl.lit("model"), version=pl.col("model"))]
+    parts.append(average(per_model, "all", "all", None))
+    if per_model["approach"].n_unique() > 1:
+        parts += [average(rows, "approach", approach, approach)
+                  for (approach,), rows in per_model.group_by("approach", maintain_order=True)]
+    columns = ["version_type", "version", "approach", "model", *by, *values]
+    return pl.concat([part.select(columns) for part in parts])

@@ -262,26 +262,34 @@ One row per forecast version and candidate: their vote share and chance of winni
 
 ## `model_answers`
 
-One row per model, question and answer: the weighted share of answers. Made by #12 into data/03-summary_data/. Senate answers are grouped by the chosen candidate's party.
+One row per version, question and answer: the weighted share of answers, for each model and for the models' average (all of them, and each approach's). Made by #12 into data/03-summary_data/. Senate answers are grouped by the chosen candidate's party.
 
 | Column | Type | Missing | Allowed values | Description |
 |---|---|---|---|---|
+| `version_type` | String | no | all, approach, model | Which version of the website it belongs to, as in forecast_versions: "model" (one model), "all" (the average of every model) or "approach" (the average of one approach's models). |
+| `version` | String | no | any | "all", the approach (as in responses' `approach`) or the model (its OpenRouter identifier). |
+| `approach` | String | yes | any | The approach of the model, or of the approach's average (as in responses); missing for the average of every model. |
 | `model` | String | no | any | The model (its OpenRouter identifier), or "average": the models counted equally. |
 | `question` | String | no | senate, generic | "senate" (the race we forecast) or "generic" (the House question, a benchmark). |
 | `answer` | String | no | any | The party of the chosen candidate (Senate), the party (House), Undecided, Would not vote or Missing. |
-| `share` | Float64 | no | ≥ 0, ≤ 1 | Share of the answers, weighted by the personas' CES weights; each persona's draws from one model count once in total. |
+| `share` | Float64 | no | ≥ 0, ≤ 1 | Share of the answers, weighted by the personas' CES weights; each persona's draws from one model count once in total. For an average, a model that never gave the answer counts as 0. |
 
 ## `crosstabs`
 
-One row per persona detail, group and model: the Democratic share of the two-party House vote. Made by #12 into data/03-summary_data/.
+One row per version, question, persona detail, group and party: the party's share of the group's answers for a party. Made by #12 into data/03-summary_data/.
 
 | Column | Type | Missing | Allowed values | Description |
 |---|---|---|---|---|
+| `version_type` | String | no | all, approach, model | Which version of the website it belongs to, as in forecast_versions: "model" (one model), "all" (the average of every model) or "approach" (the average of one approach's models). |
+| `version` | String | no | any | "all", the approach (as in responses' `approach`) or the model (its OpenRouter identifier). |
+| `approach` | String | yes | any | The approach of the model, or of the approach's average (as in responses); missing for the average of every model. |
+| `model` | String | no | any | The model (its OpenRouter identifier), or "average": the models counted equally. |
+| `question` | String | no | senate, generic | "senate" or "generic" (House), as in model_answers. |
 | `variable` | String | no | any | The persona detail, as in personas (e.g. gender). |
 | `group` | String | no | any | The group (e.g. Woman). |
-| `model` | String | no | any | The model (its OpenRouter identifier), or "average": the models counted equally. |
-| `democratic_share` | Float64 | no | ≥ 0, ≤ 1 | Democratic share among the group's Democratic and Republican House answers, weighted as in model_answers. |
-| `personas` | Int64 | no | ≥ 1 | Number of personas in the group with a two-party answer (for "average", the smaller of the models' numbers). |
+| `party` | String | no | Democrat, Independent, Republican | Democrat, Independent (Senate only: an independent candidate) or Republican. |
+| `share` | Float64 | no | ≥ 0, ≤ 1 | The party's share of the group's answers for a party (Undecided, Would not vote and the House's Other left out), weighted as in model_answers. For an average, the models that have answers in the group, counted equally. |
+| `personas` | Int64 | no | ≥ 1 | Number of personas in the group with an answer for a party (for an average, the models' numbers averaged). |
 
 ## `persona_composition`
 
@@ -309,10 +317,12 @@ One row per approach and model (and "all models"): what each approach's latest f
 
 ## `past_comparison`
 
-One row per race and election: the Republican share in past elections next to our 2026 estimate. Made by #12 into data/03-summary_data/ from past_results and the forecast (both runs together).
+One row per race and election (and, for our 2026 estimate, per version): the Republican share in past elections next to our estimate. Made by #12 into data/03-summary_data/ from past_results and forecast_races.
 
 | Column | Type | Missing | Allowed values | Description |
 |---|---|---|---|---|
+| `version_type` | String | yes | all, approach, model | Which answers the forecast is made from: "all" (both runs together, the forecast), "approach" (one approach's run) or "model" (one model's answers). Missing for past elections, which are the same in every version. |
+| `version` | String | yes | any | "all", the approach (as in responses' `approach`) or the model (its OpenRouter identifier). Missing for past elections. |
 | `state` | String | no | AL, AK, AR, CO, DE, FL, GA, ID, IL, IA, KS, KY, LA, ME, MA, MI, MN, MS, MT, NE, NH, NJ, NM, NC, OH, OK, OR, RI, SC, SD, TN, TX, VA, WV, WY | Two-letter state code. Only the 35 states with a 2026 Senate race. |
 | `election` | String | no | any | As in past_results ("president_2024", "senate_2020", ...), or "forecast_2026": our estimate. |
 | `republican_share` | Float64 | no | ≥ 0, ≤ 1 | Republican share: of all votes cast in past elections (as in past_results); of the votes for the race's candidates in our estimate (undecided left out). |

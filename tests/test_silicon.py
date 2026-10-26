@@ -68,3 +68,8 @@ def test_usage_and_probabilities_are_returned(fake_decisions):
     assert model == "typesafe/jev-1.14-test"
     assert usage["cost"] == 0.00002
     assert probabilities == PROBABILITIES
+
+
+def test_the_decision_models_listed_in_queries_match_silicon():
+    from senate_forecast_2026.queries import DECISION_MODELS
+    assert DECISION_MODELS == silicon.DECISION_MODELS
