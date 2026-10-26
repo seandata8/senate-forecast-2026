@@ -66,7 +66,7 @@ One row per LLM answer. responses_sean and responses_furkan are each person's fu
 
 ## `frame`
 
-Number of voters in each state and demographic cell, for post-stratification. Made by #8 from 2022 CES validated voters (a midterm electorate).
+Number of voters in each state and demographic cell, for post-stratification. Made by #8 from 2024 CES validated voters (the same survey as the personas): each cell's share of its state's voters, times the state's 2024 vote total.
 
 | Column | Type | Missing | Allowed values | Description |
 |---|---|---|---|---|
@@ -76,7 +76,7 @@ Number of voters in each state and demographic cell, for post-stratification. Ma
 | `race` | String | no | White, Black, Hispanic, Asian, Native American, Middle Eastern, Two or more races, Other | CES `race`, unchanged (Hispanic is one of its categories). |
 | `education` | String | no | No HS, High school graduate, Some college, 2-year, 4-year, Post-grad | CES `educ`, unchanged. |
 | `party_group` | String | no | Democrat, Independent or other, Republican | CES `pid7` collapsed to 3 groups with `PARTY_GROUP_OF` in schemas.py: strong, not very strong and leaning partisans count with their party; independents and not sure are "Independent or other". In #8 the `party_id` in personas is collapsed the same way. |
-| `count` | Int64 | no | ≥ 0 | Weighted number of validated voters in the cell. Zero if the cell has none. |
+| `count` | Int64 | no | ≥ 0 | Number of voters in the cell: the cell's share of its state's validated 2024 CES voters (weighted with `vvweight`), times the state's 2024 total votes for President (MIT Election Lab). Zero if the cell has none. |
 
 ## `forecast`
 

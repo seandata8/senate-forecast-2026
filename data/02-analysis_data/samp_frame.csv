@@ -1,0 +1,26 @@
+state,age_group,gender,race,education,party_group,count
+DE,45-64,Non-binary,Native American,Some college,Independent or other,0
+MT,45-64,Woman,Asian,High school graduate,Independent or other,0
+SD,30-44,Other,White,Some college,Independent or other,0
+KS,65+,Woman,White,High school graduate,Democrat,8217
+MT,30-44,Woman,Other,No HS,Independent or other,0
+OK,45-64,Other,Native American,Some college,Republican,0
+SD,30-44,Non-binary,Hispanic,Post-grad,Republican,0
+SD,65+,Man,Asian,Post-grad,Republican,0
+LA,30-44,Non-binary,Asian,High school graduate,Independent or other,0
+SC,30-44,Non-binary,Black,4-year,Independent or other,0
+TN,30-44,Other,Asian,2-year,Independent or other,0
+SD,65+,Other,Asian,Post-grad,Independent or other,0
+VA,45-64,Woman,Black,Post-grad,Republican,0
+DE,45-64,Man,White,Post-grad,Democrat,12624
+GA,45-64,Man,Black,4-year,Independent or other,0
+NE,65+,Non-binary,Native American,2-year,Independent or other,0
+OR,65+,Other,Middle Eastern,High school graduate,Democrat,0
+DE,18-29,Woman,Native American,No HS,Independent or other,0
+IL,45-64,Other,Black,No HS,Independent or other,0
+KY,65+,Woman,Middle Eastern,No HS,Democrat,0
+ME,65+,Woman,Hispanic,High school graduate,Democrat,0
+RI,45-64,Non-binary,Other,No HS,Republican,0
+FL,18-29,Non-binary,Black,4-year,Independent or other,0
+GA,30-44,Man,Black,No HS,Republican,0
+GA,30-44,Woman,Two or more races,2-year,Republican,0
