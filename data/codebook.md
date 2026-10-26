@@ -91,6 +91,21 @@ One row per simulated election, state and candidate. Made by #8 with the Monte C
 | `share` | Float64 | no | ≥ 0, ≤ 1 | Candidate's share of the votes for candidates in this simulated election (undecided, would not vote and missing answers are left out). Alaska: the final ranked-choice round. |
 | `winner` | Boolean | no | any | True for the candidate with the highest share. |
 
+## `forecast_versions`
+
+The forecast made from part of the answers: each approach's run alone, and each model's answers alone. Made by #8 the same way as forecast, so the website can compare them. One row per version, simulated election, state and candidate.
+
+| Column | Type | Missing | Allowed values | Description |
+|---|---|---|---|---|
+| `sim_id` | Int64 | no | ≥ 0 | Simulated election number, from 0 up. |
+| `state` | String | no | AL, AK, AR, CO, DE, FL, GA, ID, IL, IA, KS, KY, LA, ME, MA, MI, MN, MS, MT, NE, NH, NJ, NM, NC, OH, OK, OR, RI, SC, SD, TN, TX, VA, WV, WY | Two-letter state code. Only the 35 states with a 2026 Senate race. |
+| `candidate` | String | no | any | Candidate's name, as in candidates. |
+| `party` | String | no | Democrat, Republican, Independent, Libertarian, Green, Other | Candidate's party, as in candidates. |
+| `share` | Float64 | no | ≥ 0, ≤ 1 | Candidate's share of the votes for candidates in this simulated election (undecided, would not vote and missing answers are left out). Alaska: the final ranked-choice round. |
+| `winner` | Boolean | no | any | True for the candidate with the highest share. |
+| `version_type` | String | no | approach, model | Whether the version is one approach's run or one model's answers. |
+| `version` | String | no | any | The approach (as in responses' `approach`) or the model (its OpenRouter identifier, as in responses' `model`). |
+
 ## `past_results`
 
 Earlier results in each race state: the last Senate election for the seat up in 2026, and the 2024 presidential election. Made by #3 from the MIT Election Lab. A comparison on the website, not a forecast input.
@@ -196,3 +211,94 @@ One row per model, and one for all models, for each run of scripts/05-query_mode
 | `personas` | Int64 | no | ≥ 0 | Number of personas asked. |
 | `total_cost` | Float64 | no | ≥ 0 | Dollars the answers cost (OpenRouter's reported cost). Answers taken from the cache count at what they cost when first asked. |
 | `cost_per_persona` | Float64 | no | ≥ 0 | total_cost / personas: the average cost of one persona. |
+
+## `forecast_control`
+
+One row per forecast version: the chance of Democratic control and the Democratic-caucus seats. Made by #12 into data/03-summary_data/ from forecast and forecast_versions.
+
+| Column | Type | Missing | Allowed values | Description |
+|---|---|---|---|---|
+| `version_type` | String | no | all, approach, model | Which answers the forecast is made from: "all" (both runs together, the forecast), "approach" (one approach's run) or "model" (one model's answers). |
+| `version` | String | no | any | "all", the approach (as in responses' `approach`) or the model (its OpenRouter identifier). |
+| `dem_control` | Float64 | no | ≥ 0, ≤ 1 | Share of the simulated elections with 51 or more Democratic-caucus seats (at 50-50 the Republican Vice President breaks the tie). |
+| `seats` | Float64 | no | ≥ 0, ≤ 100 | Democratic-caucus seats: the median of the simulated elections. |
+| `seats_lower` | Float64 | no | ≥ 0, ≤ 100 | Lower end of the 95% interval of the seats (2.5% of simulations have fewer). |
+| `seats_upper` | Float64 | no | ≥ 0, ≤ 100 | Upper end of the 95% interval of the seats (2.5% of simulations have more). |
+
+## `forecast_seats`
+
+One row per forecast version and number of Democratic-caucus seats: how many simulated elections ended with it (the seat distribution chart). Made by #12 into data/03-summary_data/.
+
+| Column | Type | Missing | Allowed values | Description |
+|---|---|---|---|---|
+| `version_type` | String | no | all, approach, model | Which answers the forecast is made from: "all" (both runs together, the forecast), "approach" (one approach's run) or "model" (one model's answers). |
+| `version` | String | no | any | "all", the approach (as in responses' `approach`) or the model (its OpenRouter identifier). |
+| `dem_seats` | Int64 | no | ≥ 0, ≤ 100 | Democratic-caucus seats. |
+| `simulations` | Int64 | no | ≥ 1 | Number of simulated elections with that many seats. |
+| `share` | Float64 | no | ≥ 0, ≤ 1 | Share of the simulated elections with that many seats. |
+
+## `forecast_races`
+
+One row per forecast version and candidate: their vote share and chance of winning, next to the polls and Polymarket (the race-by-race comparison). Made by #12 into data/03-summary_data/. Alaska: the final round.
+
+| Column | Type | Missing | Allowed values | Description |
+|---|---|---|---|---|
+| `version_type` | String | no | all, approach, model | Which answers the forecast is made from: "all" (both runs together, the forecast), "approach" (one approach's run) or "model" (one model's answers). |
+| `version` | String | no | any | "all", the approach (as in responses' `approach`) or the model (its OpenRouter identifier). |
+| `state` | String | no | AL, AK, AR, CO, DE, FL, GA, ID, IL, IA, KS, KY, LA, ME, MA, MI, MN, MS, MT, NE, NH, NJ, NM, NC, OH, OK, OR, RI, SC, SD, TN, TX, VA, WV, WY | Two-letter state code. Only the 35 states with a 2026 Senate race. |
+| `candidate` | String | no | any | Candidate's name, as in candidates. |
+| `party` | String | no | Democrat, Republican, Independent, Libertarian, Green, Other | Candidate's party, as in candidates. |
+| `share` | Float64 | no | ≥ 0, ≤ 1 | Our estimate of the candidate's vote share: the mean across the simulated elections (undecided left out). |
+| `share_lower` | Float64 | no | ≥ 0, ≤ 1 | Lower end of the 95% interval of the vote share. |
+| `share_upper` | Float64 | no | ≥ 0, ≤ 1 | Upper end of the 95% interval of the vote share. |
+| `chance_of_winning` | Float64 | no | ≥ 0, ≤ 1 | Share of the simulated elections the candidate wins. |
+| `poll_average` | Float64 | yes | ≥ 0, ≤ 1 | Today's polling average with every rule on (undecided left out), as in poll_averages. Missing if the race has no polls. |
+| `poll_spread` | Float64 | yes | ≥ 0 | The polls' spread around that average, as in poll_averages. Not a margin of error. |
+| `polymarket_chance` | Float64 | yes | ≥ 0, ≤ 1 | Polymarket's latest price, scaled to add up to 1 among the race's candidates. Missing if there is no price. |
+
+## `model_answers`
+
+One row per model, question and answer: the weighted share of answers. Made by #12 into data/03-summary_data/. Senate answers are grouped by the chosen candidate's party.
+
+| Column | Type | Missing | Allowed values | Description |
+|---|---|---|---|---|
+| `model` | String | no | any | The model (its OpenRouter identifier), or "average": the models counted equally. |
+| `question` | String | no | senate, generic | "senate" (the race we forecast) or "generic" (the House question, a benchmark). |
+| `answer` | String | no | any | The party of the chosen candidate (Senate), the party (House), Undecided, Would not vote or Missing. |
+| `share` | Float64 | no | ≥ 0, ≤ 1 | Share of the answers, weighted by the personas' CES weights; each persona's draws from one model count once in total. |
+
+## `crosstabs`
+
+One row per persona detail, group and model: the Democratic share of the two-party House vote. Made by #12 into data/03-summary_data/.
+
+| Column | Type | Missing | Allowed values | Description |
+|---|---|---|---|---|
+| `variable` | String | no | any | The persona detail, as in personas (e.g. gender). |
+| `group` | String | no | any | The group (e.g. Woman). |
+| `model` | String | no | any | The model (its OpenRouter identifier), or "average": the models counted equally. |
+| `democratic_share` | Float64 | no | ≥ 0, ≤ 1 | Democratic share among the group's Democratic and Republican House answers, weighted as in model_answers. |
+| `personas` | Int64 | no | ≥ 1 | Number of personas in the group with a two-party answer (for "average", the smaller of the models' numbers). |
+
+## `persona_composition`
+
+One row per persona detail and group: how many personas are in it. Made by #12 into data/03-summary_data/.
+
+| Column | Type | Missing | Allowed values | Description |
+|---|---|---|---|---|
+| `variable` | String | no | any | The persona detail, as in personas (e.g. gender). |
+| `group` | String | no | any | The group (e.g. Woman), or Missing. |
+| `personas` | Int64 | no | ≥ 1 | Number of personas in the group. |
+
+## `costs`
+
+One row per approach and model (and "all models"): what each approach's latest full run cost. Made by #12 into data/03-summary_data/ from the run cost log, data/run_costs.csv.
+
+| Column | Type | Missing | Allowed values | Description |
+|---|---|---|---|---|
+| `approach` | String | no | any | Whose approach, as in responses. |
+| `run_at` | String | no | any | When the run finished, as in run_costs. |
+| `model` | String | no | any | The model's OpenRouter identifier, or "all models". |
+| `calls` | Int64 | no | ≥ 0 | Number of answers. |
+| `personas` | Int64 | no | ≥ 1 | Number of personas asked. |
+| `total_cost` | Float64 | no | ≥ 0 | Total cost in US dollars, as OpenRouter charged it. |
+| `cost_per_persona` | Float64 | no | ≥ 0 | Total cost divided by the number of personas. |
