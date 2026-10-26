@@ -345,6 +345,12 @@ class PollAverages(pa.DataFrameModel):
         ge=0, description="Weighted standard deviation of those shares around the average: how much the polls "
         "disagree. Not a margin of error.",
     )
+    lower: float = pa.Field(
+        ge=0, le=1, description="Lower end of the polls' 95% interval: average - 1.96 x spread, at least 0. Where 95% "
+        "of the polls would fall if spread like a normal distribution; not a margin of error.",
+    )
+    upper: float = pa.Field(ge=0, le=1, description="Upper end of the polls' 95% interval: average + 1.96 x spread, "
+                            "at most 1.")
 
     class Config:
         strict = True
@@ -457,6 +463,10 @@ class ForecastRaces(pa.DataFrameModel):
                                    "on (undecided left out), as in poll_averages. Missing if the race has no polls.")
     poll_spread: float = pa.Field(ge=0, nullable=True, description="The polls' spread around that average, as in "
                                   "poll_averages. Not a margin of error.")
+    poll_lower: float = pa.Field(ge=0, le=1, nullable=True, description="Lower end of the polls' 95% interval, as in "
+                                 "poll_averages. Missing if the race has no polls.")
+    poll_upper: float = pa.Field(ge=0, le=1, nullable=True, description="Upper end of the polls' 95% interval, as in "
+                                 "poll_averages. Missing if the race has no polls.")
     polymarket_chance: float = pa.Field(ge=0, le=1, nullable=True, description="Polymarket's latest price, scaled to "
                                         "add up to 1 among the race's candidates. Missing if there is no price.")
 

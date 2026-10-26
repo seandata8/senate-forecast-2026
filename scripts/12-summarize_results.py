@@ -20,7 +20,13 @@ import polars as pl
 
 from senate_forecast_2026.forecast_summary import answer_weights, race_summary, seat_summary, weighted_shares
 from senate_forecast_2026.paths import ANALYSIS_DATA, DATA, SUMMARY_DATA
-from senate_forecast_2026.poll_average import RULE_COMBINATIONS, poll_influence, race_averages, without_undecided
+from senate_forecast_2026.poll_average import (
+    RULE_COMBINATIONS,
+    poll_influence,
+    poll_interval,
+    race_averages,
+    without_undecided,
+)
 from senate_forecast_2026.queries import STATE_NAMES, alaska_final_candidates
 from senate_forecast_2026.save import save_data
 from senate_forecast_2026.schemas import (
@@ -65,8 +71,9 @@ for state, race_polls in polls.group_by("state", maintain_order=True):
 columns = ["state", *RULE_COMBINATIONS[0]]
 poll_averages = (
     pl.DataFrame(average_rows)
-    .with_columns(pl.col("average", "spread").round(4))
-    .select(*columns, "date", "candidate", "average", "spread")
+    .with_columns(**dict(zip(["lower", "upper"], poll_interval("average", "spread"), strict=True)))
+    .with_columns(pl.col("average", "spread", "lower", "upper").round(4))
+    .select(*columns, "date", "candidate", "average", "spread", "lower", "upper")
     .sort(*columns, "candidate", "date", descending=[False, True, True, True, True, False, False])
 )
 poll_influence_table = (
@@ -121,7 +128,8 @@ forecast_seats = pl.concat(seat_rows).select(*label_columns, "dem_seats", "simul
 
 # Next to each candidate: today's poll average with every rule on (polls without the undecided, as above), and
 # Polymarket's latest price, scaled to add up to 100% among the race's candidates (Alaska: the final round's two).
-poll_now = everything_on.select("state", "candidate", poll_average="average", poll_spread="spread")
+poll_now = everything_on.select("state", "candidate", poll_average="average", poll_spread="spread",
+                                poll_lower="lower", poll_upper="upper")
 race_candidates = pl.concat([
     candidates.filter(pl.col("state") != "AK"),
     alaska_final_candidates(candidates.filter(pl.col("state") == "AK")),
@@ -135,7 +143,7 @@ forecast_races = (
     .join(poll_now, on=["state", "candidate"], how="left")
     .join(polymarket_now, on=["state", "candidate"], how="left")
     .select(*label_columns, "state", "candidate", "party", "share", "share_lower", "share_upper", "chance_of_winning",
-            "poll_average", "poll_spread", "polymarket_chance")
+            "poll_average", "poll_spread", "poll_lower", "poll_upper", "polymarket_chance")
 )
 print("Forecast, every version:")
 print(forecast_control)

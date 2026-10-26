@@ -159,6 +159,8 @@ One row per race, on/off combination of the weighting rules, day and candidate: 
 | `candidate` | String | no | any | Candidate's name, as in candidates. |
 | `average` | Float64 | no | ≥ 0, ≤ 1 | Weighted mean of the candidate's share in the polls that asked about them. Each poll's shares are first scaled to add up to 1 among its candidates, so undecided voters are left out. |
 | `spread` | Float64 | no | ≥ 0 | Weighted standard deviation of those shares around the average: how much the polls disagree. Not a margin of error. |
+| `lower` | Float64 | no | ≥ 0, ≤ 1 | Lower end of the polls' 95% interval: average - 1.96 x spread, at least 0. Where 95% of the polls would fall if spread like a normal distribution; not a margin of error. |
+| `upper` | Float64 | no | ≥ 0, ≤ 1 | Upper end of the polls' 95% interval: average + 1.96 x spread, at most 1. |
 
 ## `poll_influence`
 
@@ -254,6 +256,8 @@ One row per forecast version and candidate: their vote share and chance of winni
 | `chance_of_winning` | Float64 | no | ≥ 0, ≤ 1 | Share of the simulated elections the candidate wins. |
 | `poll_average` | Float64 | yes | ≥ 0, ≤ 1 | Today's polling average with every rule on (undecided left out), as in poll_averages. Missing if the race has no polls. |
 | `poll_spread` | Float64 | yes | ≥ 0 | The polls' spread around that average, as in poll_averages. Not a margin of error. |
+| `poll_lower` | Float64 | yes | ≥ 0, ≤ 1 | Lower end of the polls' 95% interval, as in poll_averages. Missing if the race has no polls. |
+| `poll_upper` | Float64 | yes | ≥ 0, ≤ 1 | Upper end of the polls' 95% interval, as in poll_averages. Missing if the race has no polls. |
 | `polymarket_chance` | Float64 | yes | ≥ 0, ≤ 1 | Polymarket's latest price, scaled to add up to 1 among the race's candidates. Missing if there is no price. |
 
 ## `model_answers`
