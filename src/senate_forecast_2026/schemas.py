@@ -166,6 +166,29 @@ class Responses(pa.DataFrameModel):
         strict = True
 
 
+class ModelChecks(pa.DataFrameModel):
+    """One row per answer in the instructor's checks on an approach's models, on a small slice of personas. Made by
+    #6 scripts/06-check_models.py as model_checks_sean or model_checks_furkan."""
+
+    approach: str = pa.Field(description="Whose models and settings (`sean` or `furkan`).")
+    persona_id: int = pa.Field(ge=0, description=PERSONA_ID)
+    state: str = pa.Field(isin=STATES, description="The persona's state. " + STATE)
+    model: str = pa.Field(description="OpenRouter model id.")
+    draw: int = pa.Field(ge=0, description="Repeat number, from 0 up, as in responses.")
+    check: str = pa.Field(isin=["persona_state", "no_party_id"], description='"persona_state": asked which state '
+                          'they live in. "no_party_id": asked their usual questions without the party ID line.')
+    question: str = pa.Field(isin=["state", *QUESTIONS], description='"state" for persona_state; otherwise the '
+                             "question, as in responses.")
+    answer: str = pa.Field(nullable=True, description="A state name (persona_state) or an answer as in responses. "
+                           "Missing when the model gave no usable answer.")
+    input_tokens: int = pa.Field(ge=0, description="Tokens sent to the model, as reported by OpenRouter.")
+    output_tokens: int = pa.Field(ge=0, description="Tokens the model returned, as reported by OpenRouter.")
+    cost: float = pa.Field(ge=0, description="Dollar cost of the call, as reported by OpenRouter.")
+
+    class Config:
+        strict = True
+
+
 class Frame(pa.DataFrameModel):
     """Number of voters in each state and demographic cell, for post-stratification. Made by #8 from 2024 CES
     validated voters (the same survey as the personas): each cell's share of its state's voters, times the state's
@@ -544,6 +567,8 @@ FILE_SCHEMAS = {
     "persona_composition": PersonaComposition,
     "costs": Costs,
     "past_comparison": PastComparison,
+    "model_checks_sean": ModelChecks,
+    "model_checks_furkan": ModelChecks,
 }
 # The files the simulation (#1) makes; the others exist only as real data.
 SIMULATED_FILES = ["personas", "candidates", "responses_sean", "responses_furkan", "responses", "frame", "forecast"]

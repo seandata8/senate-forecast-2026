@@ -5,7 +5,7 @@
 #          so the tests can use a fake one that costs nothing.
 # Author: Furkan Danisman
 # Date: 22 October 2026; draws per model and run costs added 24 October 2026; approach settings moved here from
-#       scripts/05-query_models.py 25 October 2026
+#       scripts/05-query_models.py, and the checks' prompt, 25 October 2026
 # Pre-requisites: uv sync
 
 import polars as pl
@@ -62,6 +62,21 @@ def persona_to_prompt(persona):
     )
 
 
+# The instructor's checks (scripts/06-check_models.py). Persona attention: does the model give the persona's own
+# state? Party drop: the persona without its party ID line, to see whether the answers change.
+STATE_QUESTION = "Which state do you live in?"
+STATE_OPTIONS = sorted(STATE_NAMES.values())
+
+
+def without_party_id(prompt):
+    """A persona's prompt (from persona_to_prompt) with its "Party identification" line taken out."""
+    lines = prompt.split("\n")
+    kept = [line for line in lines if not line.startswith(f"- {PERSONA_LINES['party_id']}:")]
+    if len(kept) != len(lines) - 1:
+        raise ValueError("Expected exactly one party identification line in the prompt")
+    return "\n".join(kept)
+
+
 def candidate_list(state_candidates, wording):
     """The candidates as they appear in a question. v1: "A (Democrat), B (Republican)".
     v2: "A (Democrat) and B (Republican)", or "A (Democrat), B (Republican) and C (Independent)" for three or more."""
@@ -114,7 +129,8 @@ QUESTION_WORDINGS = {
 }
 
 
-# Each of us sets our own approach here for #6 (used by scripts/05-query_models.py): models from at least two providers, repeated draws, and the
+# Each of us sets our own approach here for #6 (used by scripts/05-query_models.py and the checks in
+# scripts/06-check_models.py): models from at least two providers, repeated draws, and the
 # question wording (see QUESTION_WORDINGS above). v1 is the default; v2 is the experimental wording,
 # run with --wording v2 to check how much the answers depend on it. `draws` is one number for every model, or a
 # number per model.

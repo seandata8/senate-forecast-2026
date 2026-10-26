@@ -314,3 +314,21 @@ One row per race and election: the Republican share in past elections next to ou
 | `republican_share` | Float64 | no | ≥ 0, ≤ 1 | Republican share: of all votes cast in past elections (as in past_results); of the votes for the race's candidates in our estimate (undecided left out). |
 | `lower` | Float64 | yes | ≥ 0, ≤ 1 | Our estimate: lower end of its 95% interval. Missing for past elections. |
 | `upper` | Float64 | yes | ≥ 0, ≤ 1 | Our estimate: upper end of its 95% interval. Missing for past elections. |
+
+## `model_checks_sean`, `model_checks_furkan`
+
+One row per answer in the instructor's checks on an approach's models, on a small slice of personas. Made by #6 scripts/06-check_models.py as model_checks_sean or model_checks_furkan.
+
+| Column | Type | Missing | Allowed values | Description |
+|---|---|---|---|---|
+| `approach` | String | no | any | Whose models and settings (`sean` or `furkan`). |
+| `persona_id` | Int64 | no | ≥ 0 | Our id for each persona, from 0 up. Links responses to personas. |
+| `state` | String | no | AL, AK, AR, CO, DE, FL, GA, ID, IL, IA, KS, KY, LA, ME, MA, MI, MN, MS, MT, NE, NH, NJ, NM, NC, OH, OK, OR, RI, SC, SD, TN, TX, VA, WV, WY | The persona's state. Two-letter state code. Only the 35 states with a 2026 Senate race. |
+| `model` | String | no | any | OpenRouter model id. |
+| `draw` | Int64 | no | ≥ 0 | Repeat number, from 0 up, as in responses. |
+| `check` | String | no | persona_state, no_party_id | "persona_state": asked which state they live in. "no_party_id": asked their usual questions without the party ID line. |
+| `question` | String | no | state, senate, generic, alaska_final | "state" for persona_state; otherwise the question, as in responses. |
+| `answer` | String | yes | any | A state name (persona_state) or an answer as in responses. Missing when the model gave no usable answer. |
+| `input_tokens` | Int64 | no | ≥ 0 | Tokens sent to the model, as reported by OpenRouter. |
+| `output_tokens` | Int64 | no | ≥ 0 | Tokens the model returned, as reported by OpenRouter. |
+| `cost` | Float64 | no | ≥ 0 | Dollar cost of the call, as reported by OpenRouter. |

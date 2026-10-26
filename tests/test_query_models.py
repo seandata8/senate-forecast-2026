@@ -19,6 +19,7 @@ from senate_forecast_2026.queries import (
     query_personas,
     questions_for_state,
     run_costs,
+    without_party_id,
 )
 from senate_forecast_2026.schemas import GENERIC_ANSWERS, NON_CANDIDATE_ANSWERS, STATES, Responses, RunCosts
 
@@ -148,3 +149,10 @@ def test_run_costs_per_model_and_in_total(personas, candidates):
                            data=pl.lit("simulated"), wording=pl.lit("v1")),
         lazy=True,
     )
+
+
+def test_without_party_id_removes_only_the_party_line(personas):
+    prompt = persona_to_prompt(personas.row(0, named=True))
+    shorter = without_party_id(prompt)
+    assert "Party identification" in prompt and "Party identification" not in shorter
+    assert len(prompt.split("\n")) == len(shorter.split("\n")) + 1

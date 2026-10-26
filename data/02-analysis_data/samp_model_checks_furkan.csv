@@ -1,0 +1,26 @@
+approach,persona_id,state,model,draw,check,question,answer,input_tokens,output_tokens,cost
+furkan,30,AL,typesafe/jev-1.14,3,no_party_id,senate,Undecided,522,57,0.000021924
+furkan,180,GA,typesafe/jev-1.14,4,no_party_id,generic,Democrat,532,62,0.000022344
+furkan,60,AR,moonshotai/kimi-k3,2,no_party_id,generic,Democrat,370,94,0.00069
+furkan,90,CO,typesafe/jev-1.14,6,no_party_id,generic,Undecided,537,62,0.000022554
+furkan,180,GA,typesafe/jev-1.14,3,no_party_id,generic,Democrat,532,62,0.000022344
+furkan,270,IL,typesafe/jev-1.14,7,no_party_id,senate,Juliana Stratton,525,56,0.00002205
+furkan,0,AK,typesafe/jev-1.14,2,persona_state,state,Alaska,903,305,0.000037926
+furkan,90,CO,moonshotai/kimi-k3,1,no_party_id,senate,John Hickenlooper,382,210,0.0013334
+furkan,120,DE,typesafe/jev-1.14,7,no_party_id,senate,Undecided,521,54,0.000021882
+furkan,30,AL,moonshotai/kimi-k3,0,no_party_id,generic,Republican,367,252,0.0018264
+furkan,120,DE,moonshotai/kimi-k3,0,no_party_id,senate,Chris Coons,373,258,0.0018666
+furkan,90,CO,moonshotai/kimi-k3,0,no_party_id,generic,Undecided,372,369,0.0024759
+furkan,180,GA,moonshotai/kimi-k3,2,no_party_id,generic,Democrat,370,78,0.000873
+furkan,30,AL,typesafe/jev-1.14,3,no_party_id,generic,Undecided,527,62,0.000022134
+furkan,60,AR,typesafe/jev-1.14,6,no_party_id,senate,Hallie Shoffner,530,58,0.00002226
+furkan,210,IA,typesafe/jev-1.14,5,no_party_id,senate,Ashley Hinson,529,58,0.000022218
+furkan,0,AK,moonshotai/kimi-k3,1,no_party_id,senate,Dan S. Sullivan,402,1544,0.016771278
+furkan,30,AL,typesafe/jev-1.14,2,no_party_id,generic,Undecided,527,62,0.000022134
+furkan,90,CO,typesafe/jev-1.14,3,no_party_id,senate,John Hickenlooper,538,60,0.000022596
+furkan,120,DE,typesafe/jev-1.14,9,no_party_id,senate,Undecided,521,54,0.000021882
+furkan,150,FL,typesafe/jev-1.14,1,no_party_id,senate,Ashley Moody,528,55,0.000022176
+furkan,30,AL,moonshotai/kimi-k3,1,persona_state,state,Alabama,406,50,0.0005432
+furkan,60,AR,typesafe/jev-1.14,7,persona_state,state,Arkansas,912,306,0.000038304
+furkan,60,AR,typesafe/jev-1.14,0,no_party_id,generic,Democrat,535,62,0.00002247
+furkan,60,AR,typesafe/jev-1.14,2,no_party_id,generic,Democrat,535,62,0.00002247
