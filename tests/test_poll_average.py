@@ -16,6 +16,7 @@ from senate_forecast_2026.poll_average import (
     RULE_COMBINATIONS,
     RULES,
     poll_influence,
+    poll_interval,
     poll_weights,
     race_averages,
     weighted_average,
@@ -113,3 +114,11 @@ def test_without_undecided_scales_each_poll_to_100_percent():
                           "share": [0.45, 0.45, 0.4, 0.3, 0.1]})
     scaled = without_undecided(polls)
     assert scaled["share"].to_list() == pytest.approx([0.5, 0.5, 0.5, 0.375, 0.125])
+
+
+def test_poll_interval_is_the_average_plus_or_minus_1_96_spreads_kept_between_0_and_1():
+    averages = pl.DataFrame({"average": [0.5, 0.02], "spread": [0.01, 0.05]})
+    lower, upper = poll_interval("average", "spread")
+    interval = averages.select(lower=lower, upper=upper)
+    assert interval["lower"].to_list() == pytest.approx([0.4804, 0.0])
+    assert interval["upper"].to_list() == pytest.approx([0.5196, 0.118])

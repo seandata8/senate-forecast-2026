@@ -134,6 +134,11 @@ QUESTION_WORDINGS = {
 # question wording (see QUESTION_WORDINGS above). v1 is the default; v2 is the experimental wording,
 # run with --wording v2 to check how much the answers depend on it. `draws` is one number for every model, or a
 # number per model.
+# Decision models have no temperature: each draw's answer is a random pick weighted by the model's probabilities.
+# The same list as DECISION_MODELS in silicon.py, kept here so the summary can say so without importing silicon.py
+# (which needs the API key); tests/test_silicon.py checks that the two lists match.
+DECISION_MODELS = ["typesafe/jev-1.14"]
+
 APPROACH_SETTINGS = {
     "sean": {
         "models": ["deepseek/deepseek-v4-flash-0731", "z-ai/glm-5.3-flash"], "draws": 3, "temperature": 1.0, "wording": "v1",

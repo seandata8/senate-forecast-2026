@@ -1,0 +1,137 @@
+/*-- scss:defaults --*/
+// The website's look: a newspaper page in one column. Colours are also in src/senate_forecast_2026/website.py.
+$dem: #1d4f91;
+$rep: #b8202e;
+$ink: #1a1a1a;
+$muted: #6b6b6b;
+$light-rule: #e4e2dc;
+$paper: #faf9f6;
+
+$body-bg: $paper;
+$body-color: $ink;
+$link-color: $ink;
+$web-font-path: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap";
+$font-family-sans-serif: "IBM Plex Sans", system-ui, sans-serif;
+$headings-font-family: "Fraunces", Georgia, serif;
+$headings-font-weight: 600;
+$font-size-base: 1.02rem;
+$line-height-base: 1.6;
+$table-border-color: $light-rule;
+
+/*-- scss:rules --*/
+body { font-variant-numeric: tabular-nums; }
+a { text-decoration-color: $muted; text-underline-offset: 2px; }
+#quarto-content main { padding-top: 0; }
+
+// The masthead: title, standfirst, the line on synthetic results, and the menu of sections.
+.masthead { text-align: center; padding: 2.5rem 0 0; }
+.masthead-title { font-family: $headings-font-family; line-height: 1.1; font-size: clamp(2.3rem, 6vw, 3.4rem); font-weight: 700; letter-spacing: -0.01em; margin: 0; }
+.masthead .standfirst { font-family: $headings-font-family; font-style: italic; font-size: 1.2rem; color: #333;
+  max-width: 640px; margin: 0.8rem auto 0; line-height: 1.45; }
+.section-menu { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.3rem 1.4rem; margin: 1.6rem 0 0;
+  padding: 0.65rem 0; border-top: 1px solid $ink; border-bottom: 1px solid $ink; }
+.section-menu a { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+  text-decoration: none; }
+.section-menu a:hover { text-decoration: underline; }
+
+// Each section: a thick rule, a small label, a question or title in serif, one line on how to read it.
+section.level2 { border-top: 1px solid $ink; margin-top: 3.2rem; padding-top: 0.9rem; }
+section.level2[data-kicker]::before { content: attr(data-kicker); display: block;
+  font-size: 0.74rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
+h2 { font-size: 1.85rem; line-height: 1.2; margin: 0.25rem 0 0.6rem; border: none; padding: 0; }
+h3 { font-size: 1.3rem; margin-top: 2rem; }
+.how-to-read { color: #3d3d3d; font-size: 0.92rem; margin-bottom: 1.2rem; }
+
+// The headline: the chance of control and the seats.
+.headline { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 2.5rem; margin: 1.6rem 0 1rem; }
+.headline .number { font-family: $headings-font-family; font-size: 3.4rem; font-weight: 700; line-height: 1; }
+.headline .number .interval { font-family: $font-family-sans-serif; font-size: 1rem; font-weight: 500; color: $muted; }
+.headline .label { font-size: 0.92rem; color: #3d3d3d; margin-top: 0.3rem; }
+@media (max-width: 640px) { .headline { grid-template-columns: 1fr; } }
+
+// Split bars (like a stacked bar chart, in HTML).
+.bar-label { display: flex; justify-content: space-between; font-size: 0.88rem; margin: 0.7rem 0 0.2rem; }
+.bar-label span:last-child { color: $muted; }
+.split-bar { display: flex; height: 1.55rem; width: 100%; }
+.split-bar .part { display: flex; align-items: center; padding: 0 0.45rem; font-size: 0.82rem; font-weight: 600;
+  white-space: nowrap; overflow: hidden; }
+.split-bar .part:last-child { justify-content: flex-end; }
+.split-bar.thin { height: 0.6rem; }
+.split-bar.thin .part { padding: 0; }
+.legend { display: flex; flex-wrap: wrap; gap: 0.3rem 1.1rem; font-size: 0.85rem; margin: 0.6rem 0; }
+.legend .key { display: inline-block; width: 0.8rem; height: 0.8rem; margin-right: 0.35rem; vertical-align: -1px; }
+
+// Plain tables: a rule under the header, light rules between rows, coloured numbers.
+table.plain { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin: 0.6rem 0 0.4rem; }
+table.plain th { font-weight: 600; text-align: left; border-bottom: 1px solid $ink; padding: 0.35rem 0.5rem; vertical-align: bottom; }
+table.plain tr, table.plain td { background: transparent !important; box-shadow: none !important; }
+table.plain td { border-bottom: 1px solid $light-rule; padding: 0.35rem 0.5rem; vertical-align: middle; }
+table.plain .num { text-align: right; white-space: nowrap; }
+.muted { color: $muted; }
+.small { font-size: 0.78rem; }
+.dem { color: $dem; }
+.rep { color: $rep; }
+
+// The races: two rows per race (ours and the polls' share; ours and Polymarket's chance).
+table.races { table-layout: fixed; }
+.races td { padding: 0.28rem 0.5rem; border-bottom: none; font-size: 0.86rem; }
+.races tr.first td { padding-top: 0.75rem; }
+.races tr.last td { padding-bottom: 0.75rem; border-bottom: 1px solid $light-rule; }
+.races td.race-cell { vertical-align: top; border-bottom: 1px solid $light-rule; padding-right: 1.4rem; }
+.races th.race-cell { padding-right: 1.4rem; }
+.races .race-name { font-weight: 600; font-size: 0.98rem; }
+.races .race-who { font-size: 0.8rem; color: $muted; margin-bottom: 0.35rem; }
+.races td.source { color: $muted; font-size: 0.8rem; padding-left: 1rem; }
+.chance-row { display: grid; grid-template-columns: 3rem 1fr; align-items: center; gap: 0.6rem; }
+.chance-row > span:last-child { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+// Where the polls or Polymarket have a different leader from ours.
+$flag: #b7791f;
+$flag-bg: #fdf3dd;
+.races td.disagree { background: $flag-bg !important; }
+.races td.source.disagree { box-shadow: inset 3px 0 0 $flag !important; color: $flag; font-weight: 600; }
+.races .flag { display: table; margin-top: 0.2rem; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.04em;
+  text-transform: uppercase; color: $flag; border: 1px solid $flag; padding: 0 0.3rem; vertical-align: 1px; }
+
+// Menus and buttons that switch between views.
+.choice-menu { font: inherit; font-size: 0.92rem; padding: 0.3rem 0.6rem; border: 1px solid $ink; border-radius: 0;
+  background: #fff; margin: 0.3rem 0 0.6rem; }
+.choice-buttons { display: inline-flex; border: 1px solid $ink; margin: 0.3rem 0 0.6rem; }
+.choice-buttons button { font: inherit; font-size: 0.85rem; padding: 0.3rem 0.8rem; border: none; background: #fff; cursor: pointer; }
+.choice-buttons button + button { border-left: 1px solid $ink; }
+.choice-buttons button.active { background: $ink; color: #fff; }
+.chart-title { font-size: 0.9rem; font-weight: 600; margin: 1rem 0 0.2rem; }
+
+details.folded { margin: 0.8rem 0; font-size: 0.9rem; }
+details.folded summary { cursor: pointer; color: #3d3d3d; }
+
+// Text we still have to write: quiet, so the page reads without it.
+.to-write { color: #a3a09a; font-style: italic; font-size: 0.9rem; }
+
+.nav-footer { border-top: 1px solid $ink; font-size: 0.85rem; }
+.races td { white-space: nowrap; }
+.races td.race-cell { white-space: normal; }
+
+// The version menu: stays at the top of the window while scrolling.
+.version-bar { position: sticky; top: 0; z-index: 10; display: flex; flex-wrap: wrap; align-items: center;
+  gap: 0.3rem 0.8rem; background: $paper; border-bottom: 1px solid $ink; padding: 0.5rem 0; font-size: 0.88rem; }
+.version-bar > span:first-child { font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.74rem; }
+.version-bar .choice-menu { margin: 0; }
+.version-bar .muted { font-size: 0.8rem; }
+
+// The polls under each race's charts: a bar for each poll's weight in the average.
+.polls-table td { font-size: 0.84rem; }
+.influence { display: grid; grid-template-columns: 4.5rem 2.2rem; align-items: center; gap: 0.4rem; }
+.influence span { height: 0.6rem; background: #c9c5bb; }
+.influence i { font-style: normal; text-align: right; }
+
+// Cross-tabs: one table, a header row for each persona detail.
+.crosstabs tr.variable th { padding-top: 1rem; border-bottom: 1px solid $light-rule; font-size: 0.85rem;
+  text-transform: uppercase; letter-spacing: 0.06em; }
+.crosstabs td.indent { padding-left: 1.2rem; }
+.crosstabs th.group-head { text-align: center; border-bottom: 1px solid $ink; }
+
+// Composition of the sample: small tables side by side.
+.composition-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 0.5rem 1.6rem;
+  align-items: start; }
+.small-table { font-size: 0.85rem; }
