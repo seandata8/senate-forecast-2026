@@ -5,6 +5,7 @@
 #            #3  scripts/01-download_election_data.py: CES 2024, CES 2022, and possibly the MIT Election Lab
 #                results (also on Dataverse); the 2026 candidate list (Wikipedia)
 #            #10 scripts/10-download_polls.py: Senate polls (VoteHub API)
+#            #11 scripts/11-download_polymarket.py: Senate winner markets and daily prices (Polymarket APIs)
 # Author: Sean Murphy
 # Date: 22 October 2026
 # Pre-requisites: none (uses only Python's standard library)
