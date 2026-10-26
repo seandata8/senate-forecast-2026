@@ -1,69 +1,89 @@
 /*-- scss:defaults --*/
-// The website's look: a newspaper page in one column. Colours are also in src/senate_forecast_2026/website.py.
-$dem: #1d4f91;
-$rep: #b8202e;
-$ink: #1a1a1a;
-$muted: #6b6b6b;
-$light-rule: #e4e2dc;
-$paper: #faf9f6;
+// "Blue Wave": an election-night look. A deep-navy masthead with a wave along its foot, Libre Caslon Display for the
+// title and section titles (Caslon is the typeface the Declaration of Independence was first printed in), condensed
+// headings like a results board for the rest, Public Sans (the US government's own typeface) for the text, and
+// sea-green for everything that is not a party, so the parties' blue and red stay the only blue and red that mean
+// something.
+$dem: #2a5db0;
+$rep: #c8342b;
+$navy: #0b1f3a;
+$ink: #14233a;
+$muted: #5c6b7e;
+$sea: #12808a;      // accents: kickers, links, active buttons
+$foam: #dceff1;     // light fills
+$light-rule: #dbe5ec;
+$paper: #ffffff;
 
 $body-bg: $paper;
 $body-color: $ink;
-$link-color: $ink;
-$web-font-path: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap";
-$font-family-sans-serif: "IBM Plex Sans", system-ui, sans-serif;
-$headings-font-family: "Fraunces", Georgia, serif;
+$link-color: $sea;
+$font-family-sans-serif: "Public Sans", system-ui, sans-serif;
+$headings-font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
 $headings-font-weight: 600;
-$font-size-base: 1.02rem;
+$display-font-family: "Libre Caslon Display", Georgia, serif;  // the fonts are loaded in _quarto.yml
+$font-size-base: 1rem;
 $line-height-base: 1.6;
 $table-border-color: $light-rule;
 
 /*-- scss:rules --*/
-body { font-variant-numeric: tabular-nums; }
-a { text-decoration-color: $muted; text-underline-offset: 2px; }
+// A wave, drawn once and used along the masthead's foot and above each section.
+$wave: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 12' preserveAspectRatio='none'%3E%3Cpath d='M0 0 H120 V6 Q105 12 90 6 T60 6 T30 6 T0 6 Z' fill='%230b1f3a'/%3E%3C/svg%3E";
+$wave-line: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 8'%3E%3Cpath d='M0 4 Q5 0 10 4 T20 4 T30 4 T40 4' fill='none' stroke='%2312808a' stroke-width='2'/%3E%3C/svg%3E";
+
+body { font-variant-numeric: tabular-nums; overflow-x: hidden; }
+a { text-decoration-color: rgba($sea, 0.4); text-underline-offset: 3px; }
 #quarto-content main { padding-top: 0; }
+#quarto-content, main.content { padding-top: 0 !important; margin-top: 0 !important; }  // the masthead starts at the very top
 
-// The masthead: title, standfirst, the line on synthetic results, and the menu of sections.
-.masthead { text-align: center; padding: 2.5rem 0 0; }
-.masthead-title { font-family: $headings-font-family; line-height: 1.1; font-size: clamp(2.3rem, 6vw, 3.4rem); font-weight: 700; letter-spacing: -0.01em; margin: 0; }
-.masthead .standfirst { font-family: $headings-font-family; font-style: italic; font-size: 1.2rem; color: #333;
-  max-width: 640px; margin: 0.8rem auto 0; line-height: 1.45; }
-.section-menu { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.3rem 1.4rem; margin: 1.6rem 0 0;
-  padding: 0.65rem 0; border-top: 1px solid $ink; border-bottom: 1px solid $ink; }
-.section-menu a { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
-  text-decoration: none; }
-.section-menu a:hover { text-decoration: underline; }
+// The masthead: a navy band across the whole window, running into the version bar, which ends in a wave.
+#title-block-header { display: none; }  // empty, but it left a strip above the masthead
+.cell:has(.masthead), .cell-output-display:has(.masthead) { margin-top: 0 !important; padding-top: 0 !important; }
+.masthead { position: relative; text-align: left; color: #fff; background: $navy;
+  margin: 0 calc(50% - 50vw); padding: 2.6rem calc(50vw - 50% + 0.2rem) 1.6rem; }
+.masthead-title { font-family: $display-font-family; line-height: 1.05; font-size: clamp(2.4rem, 6vw, 3.8rem);
+  font-weight: 400; margin: 0; }
+.masthead .standfirst { font-size: 1.08rem; color: #c9d6e6; max-width: 660px; margin: 0.9rem 0 0; line-height: 1.5; }
+.section-menu { display: flex; flex-wrap: wrap; gap: 0.4rem 0.5rem; margin: 1.6rem 0 0; }
+.section-menu a { font-family: $headings-font-family; font-size: 1rem; font-weight: 600; letter-spacing: 0.03em;
+  text-transform: uppercase; text-decoration: none; color: #fff; border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 999px; padding: 0.1rem 0.75rem; }
+.section-menu a:hover { background: #fff; color: $navy; }
 
-// Each section: a thick rule, a small label, a question or title in serif, one line on how to read it.
-section.level2 { border-top: 1px solid $ink; margin-top: 3.2rem; padding-top: 0.9rem; }
-section.level2[data-kicker]::before { content: attr(data-kicker); display: block;
-  font-size: 0.74rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
-h2 { font-size: 1.85rem; line-height: 1.2; margin: 0.25rem 0 0.6rem; border: none; padding: 0; }
-h3 { font-size: 1.3rem; margin-top: 2rem; }
-.how-to-read { color: #3d3d3d; font-size: 0.92rem; margin-bottom: 1.2rem; }
+// Each section: a short sea-green wave, the label beside it, then the title.
+section.level2 { margin-top: 3.4rem; padding-top: 0.2rem; border: none; }
+section.level2[data-kicker]::before { content: attr(data-kicker); display: block; padding-left: 48px;
+  background: url($wave-line) no-repeat left center; background-size: 40px 8px; color: $sea;
+  font-family: $headings-font-family; font-size: 1.05rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; }
+h2 { font-family: $display-font-family; font-weight: 400; font-size: 2.3rem; line-height: 1.1; margin: 0.2rem 0 0.6rem;
+  border: none; padding: 0; color: $navy; }
+h3 { font-size: 1.55rem; margin-top: 2rem; color: $navy; }
+.how-to-read { color: $muted; font-size: 0.92rem; margin-bottom: 1.2rem; }
 
-// The headline: the chance of control and the seats.
-.headline { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 2.5rem; margin: 1.6rem 0 1rem; }
-.headline .number { font-family: $headings-font-family; font-size: 3.4rem; font-weight: 700; line-height: 1; }
-.headline .number .interval { font-family: $font-family-sans-serif; font-size: 1rem; font-weight: 500; color: $muted; }
-.headline .label { font-size: 0.92rem; color: #3d3d3d; margin-top: 0.3rem; }
+// The headline: the chance of control and the seats, like a results board.
+.headline { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.6rem 0 1rem; }
+.headline > div { background: $foam; border-radius: 6px; padding: 1rem 1.2rem; }
+.headline .number { font-family: $headings-font-family; font-size: 4rem; font-weight: 700; line-height: 1; color: $navy; }
+.headline .number .interval { font-family: $font-family-sans-serif; font-size: 0.95rem; font-weight: 500; color: $muted; }
+.headline .label { font-size: 0.92rem; color: $ink; margin-top: 0.3rem; }
 @media (max-width: 640px) { .headline { grid-template-columns: 1fr; } }
 
-// Split bars (like a stacked bar chart, in HTML).
+// Split bars (like a stacked bar chart, in HTML), with rounded ends.
 .bar-label { display: flex; justify-content: space-between; font-size: 0.88rem; margin: 0.7rem 0 0.2rem; }
 .bar-label span:last-child { color: $muted; }
-.split-bar { display: flex; height: 1.55rem; width: 100%; }
-.split-bar .part { display: flex; align-items: center; padding: 0 0.45rem; font-size: 0.82rem; font-weight: 600;
+.split-bar { display: flex; height: 1.6rem; width: 100%; border-radius: 999px; overflow: hidden; }
+.split-bar .part { display: flex; align-items: center; padding: 0 0.6rem; font-size: 0.82rem; font-weight: 600;
   white-space: nowrap; overflow: hidden; }
 .split-bar .part:last-child { justify-content: flex-end; }
-.split-bar.thin { height: 0.6rem; }
+.split-bar.thin { height: 0.55rem; }
 .split-bar.thin .part { padding: 0; }
 .legend { display: flex; flex-wrap: wrap; gap: 0.3rem 1.1rem; font-size: 0.85rem; margin: 0.6rem 0; }
-.legend .key { display: inline-block; width: 0.8rem; height: 0.8rem; margin-right: 0.35rem; vertical-align: -1px; }
+.legend .key { display: inline-block; width: 0.8rem; height: 0.8rem; border-radius: 50%; margin-right: 0.35rem; vertical-align: -1px; }
 
-// Plain tables: a rule under the header, light rules between rows, coloured numbers.
+// Plain tables: a navy rule under the header, light rules between rows.
 table.plain { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin: 0.6rem 0 0.4rem; }
-table.plain th { font-weight: 600; text-align: left; border-bottom: 1px solid $ink; padding: 0.35rem 0.5rem; vertical-align: bottom; }
+table.plain th { font-family: $headings-font-family; font-size: 1rem; font-weight: 600; letter-spacing: 0.02em;
+  text-transform: uppercase; color: $navy; text-align: left; border-bottom: 2px solid $navy; padding: 0.35rem 0.5rem;
+  vertical-align: bottom; }
 table.plain tr, table.plain td { background: transparent !important; box-shadow: none !important; }
 table.plain td { border-bottom: 1px solid $light-rule; padding: 0.35rem 0.5rem; vertical-align: middle; }
 table.plain .num { text-align: right; white-space: nowrap; }
@@ -79,57 +99,66 @@ table.races { table-layout: fixed; }
 .races tr.last td { padding-bottom: 0.75rem; border-bottom: 1px solid $light-rule; }
 .races td.race-cell { vertical-align: top; border-bottom: 1px solid $light-rule; padding-right: 1.4rem; }
 .races th.race-cell { padding-right: 1.4rem; }
-.races .race-name { font-weight: 600; font-size: 0.98rem; }
+.races .race-name { font-family: $headings-font-family; font-weight: 600; font-size: 1.15rem; color: $navy; }
 .races .race-who { font-size: 0.8rem; color: $muted; margin-bottom: 0.35rem; }
 .races td.source { color: $muted; font-size: 0.8rem; padding-left: 1rem; }
 .chance-row { display: grid; grid-template-columns: 3rem 1fr; align-items: center; gap: 0.6rem; }
 .chance-row > span:last-child { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
 // Where the polls or Polymarket have a different leader from ours.
-$flag: #b7791f;
+$flag: #a86a12;
 $flag-bg: #fdf3dd;
 .races td.disagree { background: $flag-bg !important; }
 .races td.source.disagree { box-shadow: inset 3px 0 0 $flag !important; color: $flag; font-weight: 600; }
 .races .flag { display: table; margin-top: 0.2rem; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.04em;
-  text-transform: uppercase; color: $flag; border: 1px solid $flag; padding: 0 0.3rem; vertical-align: 1px; }
+  text-transform: uppercase; color: $flag; border: 1px solid $flag; border-radius: 999px; padding: 0 0.4rem; vertical-align: 1px; }
 
-// Menus and buttons that switch between views.
-.choice-menu { font: inherit; font-size: 0.92rem; padding: 0.3rem 0.6rem; border: 1px solid $ink; border-radius: 0;
-  background: #fff; margin: 0.3rem 0 0.6rem; }
-.choice-buttons { display: inline-flex; border: 1px solid $ink; margin: 0.3rem 0 0.6rem; }
-.choice-buttons button { font: inherit; font-size: 0.85rem; padding: 0.3rem 0.8rem; border: none; background: #fff; cursor: pointer; }
-.choice-buttons button + button { border-left: 1px solid $ink; }
-.choice-buttons button.active { background: $ink; color: #fff; }
-.chart-title { font-size: 0.9rem; font-weight: 600; margin: 1rem 0 0.2rem; }
+// Menus and buttons that switch between views: rounded, sea-green when chosen.
+.choice-menu { font: inherit; font-size: 0.92rem; padding: 0.3rem 0.8rem; border: 1px solid $navy; border-radius: 999px;
+  background: #fff; color: $ink; margin: 0.3rem 0 0.6rem; }
+.choice-buttons { display: inline-flex; border: 1px solid $navy; border-radius: 999px; overflow: hidden; margin: 0.3rem 0 0.6rem; }
+.choice-buttons button { font: inherit; font-size: 0.85rem; padding: 0.3rem 0.9rem; border: none; background: #fff; color: $ink; cursor: pointer; }
+.choice-buttons button + button { border-left: 1px solid $navy; }
+.choice-buttons button.active { background: $sea; color: #fff; }
+.chart-title { font-family: $headings-font-family; font-size: 1.1rem; font-weight: 600; color: $navy; margin: 1rem 0 0.2rem; }
 
 details.folded { margin: 0.8rem 0; font-size: 0.9rem; }
-details.folded summary { cursor: pointer; color: #3d3d3d; }
+details.folded summary { cursor: pointer; color: $sea; font-weight: 500; }
 
 // Text we still have to write: quiet, so the page reads without it.
-.to-write { color: #a3a09a; font-style: italic; font-size: 0.9rem; }
+.to-write { color: #9aa7b6; font-style: italic; font-size: 0.9rem; }
 
-.nav-footer { border-top: 1px solid $ink; font-size: 0.85rem; }
+// The footer: navy like the masthead, with the same wave along its top, upside down, so the page ends as it starts.
+.nav-footer { position: relative; background: $navy; color: #c9d6e6; border-top: none; font-size: 0.85rem; }
+footer.footer { margin-top: 3rem; }  // room for the wave above it
+.nav-footer::before { content: ""; position: absolute; left: 0; right: 0; bottom: 100%; height: 18px;
+  background: url($wave) repeat-x; background-size: 160px 18px; transform: scaleY(-1); pointer-events: none; }
+.nav-footer a { color: #fff; }
 .races td { white-space: nowrap; }
 .races td.race-cell { white-space: normal; }
 
-// The version menu: stays at the top of the window while scrolling.
+// The version menu: a navy bar that stays at the top of the window while scrolling.
 .version-bar { position: sticky; top: 0; z-index: 10; display: flex; flex-wrap: wrap; align-items: center;
-  gap: 0.3rem 0.8rem; background: $paper; border-bottom: 1px solid $ink; padding: 0.5rem 0; font-size: 0.88rem; }
-.version-bar > span:first-child { font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.74rem; }
-.version-bar .choice-menu { margin: 0; }
-.version-bar .muted { font-size: 0.8rem; }
+  gap: 0.3rem 0.8rem; background: $navy; color: #fff; margin: 0 calc(50% - 50vw);
+  padding: 0.55rem calc(50vw - 50% + 0.2rem); font-size: 0.88rem; }
+.version-bar > span:first-child { font-family: $headings-font-family; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.04em; font-size: 1rem; }
+.version-bar { margin-bottom: 2.2rem; }  // room for the wave below it
+.version-bar::after { content: ""; position: absolute; left: 0; right: 0; top: 100%; height: 18px;
+  background: url($wave) repeat-x; background-size: 160px 18px; pointer-events: none; }
+.version-bar .choice-menu { margin: 0; border-color: #fff; }
+.version-bar .muted { font-size: 0.8rem; color: #9fb2c8; }
 
 // The polls under each race's charts: a bar for each poll's weight in the average.
 .polls-table td { font-size: 0.84rem; }
 .influence { display: grid; grid-template-columns: 4.5rem 2.2rem; align-items: center; gap: 0.4rem; }
-.influence span { height: 0.6rem; background: #c9c5bb; }
+.influence span { height: 0.55rem; border-radius: 999px; background: #9fcbd1; }
 .influence i { font-style: normal; text-align: right; }
 
 // Cross-tabs: one table, a header row for each persona detail.
-.crosstabs tr.variable th { padding-top: 1rem; border-bottom: 1px solid $light-rule; font-size: 0.85rem;
-  text-transform: uppercase; letter-spacing: 0.06em; }
+.crosstabs tr.variable th { padding-top: 1rem; border-bottom: 1px solid $light-rule; font-size: 0.95rem; }
 .crosstabs td.indent { padding-left: 1.2rem; }
-.crosstabs th.group-head { text-align: center; border-bottom: 1px solid $ink; }
+.crosstabs th.group-head { text-align: center; border-bottom: 2px solid $navy; }
 
 // Composition of the sample: small tables side by side.
 .composition-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 0.5rem 1.6rem;
