@@ -1,0 +1,18 @@
+#### Preamble ####
+# Purpose: Every night until the website freezes (end of 2 November 2026), download the latest polls and Polymarket
+#          prices, clean them, rerun the summary script and rebuild the website (task #14). The forecast itself does
+#          not change: no models are asked, so no API key is needed.
+# Author: Sean Murphy
+# Date: 26 October 2026
+# Pre-requisites: the forecast and its summaries on main (#7, #8, #12)
+# Run: by itself every night, or by hand from the repo's Actions tab ("Run workflow").
+
+name: Daily update of polls and Polymarket
+
+on:
+  schedule:
+    # Midnight UTC is 8 pm in Toronto until 31 October (7 pm on 1 and 2 November, after the clocks go back), so each
+    # evening's run catches that day's polls, and the last run is on the evening of 2 November. GitHub often starts
+    # scheduled runs a little late.
+    - cron: "0 0 * * *"
+  workflow_dispatch:  # the "Run workflow" button, to run it by hand
