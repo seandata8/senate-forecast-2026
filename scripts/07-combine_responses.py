@@ -10,6 +10,8 @@
 import polars as pl
 
 from senate_forecast_2026.paths import ANALYSIS_DATA
+from senate_forecast_2026.save import save_data
+from senate_forecast_2026.schemas import Responses
 
 RUNS = ["responses_sean", "responses_furkan"]
 
@@ -25,3 +27,18 @@ for name in RUNS:
         print(f"{name}: {runs[name].height:,} answers from {models}")
     else:
         print(f"{name}: not made yet")
+
+if not runs:
+    raise SystemExit("Neither run has been made yet, so there is nothing to combine.")
+
+
+#### Combine and save ####
+# The runs stacked as they are: same columns, nothing chosen or dropped. save_data() checks the Responses schema
+# first, then writes a readable sample CSV next to the parquet: all of one persona's answers from one model and draw
+# together, with an Alaska persona always included (the same sample as 05-query_models.py).
+responses = pl.concat(runs.values())
+print(f"responses: {responses.height:,} answers from {responses['model'].n_unique()} models")
+save_data(
+    responses, Responses, ANALYSIS_DATA, "responses",
+    sample_groups=["approach", "persona_id", "model", "draw"], also_sample_where=pl.col("state") == "AK",
+)
