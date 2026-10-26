@@ -128,3 +128,55 @@ One row per candidate per day: the Polymarket price of a share that pays $1 if t
 | `date` | Date | no | any | The day (UTC) of the price. The last price of each day is kept. |
 | `candidate` | String | no | any | Candidate's name, as in candidates (Polymarket's market title without its party letter, corrected where it differs). |
 | `price` | Float64 | no | ≥ 0, ≤ 1 | Price in dollars of a share that pays $1 if the candidate wins: roughly the market's chance that they win. A race's prices sum to about 1. |
+
+## `poll_averages`
+
+One row per race, on/off combination of the weighting rules, day and candidate: the polling average. Made by #12 into data/03-summary_data/ for the website's polls chart. Days run from the race's first poll to the latest poll in any race.
+
+| Column | Type | Missing | Allowed values | Description |
+|---|---|---|---|---|
+| `state` | String | no | AL, AK, AR, CO, DE, FL, GA, ID, IL, IA, KS, KY, LA, ME, MA, MI, MN, MS, MT, NE, NH, NJ, NM, NC, OH, OK, OR, RI, SC, SD, TN, TX, VA, WV, WY | Two-letter state code. Only the 35 states with a 2026 Senate race. |
+| `by_recency` | Boolean | no | any | Whether newer polls count more (weight halves every 14 days). |
+| `by_sample_size` | Boolean | no | any | Whether polls that asked more people count more (by the square root of the sample size). |
+| `by_pollster` | Boolean | no | any | Whether a pollster's recent polls share one weight (each divided by the square root of their number). |
+| `by_population` | Boolean | no | any | Whether likely voters count more than registered voters (x0.8) and adults (x0.6). |
+| `date` | Date | no | any | The day of the average. It uses the polls that finished by then. |
+| `candidate` | String | no | any | Candidate's name, as in candidates. |
+| `average` | Float64 | no | ≥ 0, ≤ 1 | Weighted mean of the candidate's share in the polls that asked about them. Each poll's shares are first scaled to add up to 1 among its candidates, so undecided voters are left out. |
+| `spread` | Float64 | no | ≥ 0 | Weighted standard deviation of those shares around the average: how much the polls disagree. Not a margin of error. |
+
+## `poll_influence`
+
+One row per poll and on/off combination of the weighting rules: the poll's weight in its race's average on the last day. Made by #12 into data/03-summary_data/ for the website's polls table.
+
+| Column | Type | Missing | Allowed values | Description |
+|---|---|---|---|---|
+| `state` | String | no | AL, AK, AR, CO, DE, FL, GA, ID, IL, IA, KS, KY, LA, ME, MA, MI, MN, MS, MT, NE, NH, NJ, NM, NC, OH, OK, OR, RI, SC, SD, TN, TX, VA, WV, WY | Two-letter state code. Only the 35 states with a 2026 Senate race. |
+| `poll_id` | String | no | any | VoteHub's id for the poll, as in polls. |
+| `by_recency` | Boolean | no | any | Whether newer polls count more (weight halves every 14 days). |
+| `by_sample_size` | Boolean | no | any | Whether polls that asked more people count more (by the square root of the sample size). |
+| `by_pollster` | Boolean | no | any | Whether a pollster's recent polls share one weight (each divided by the square root of their number). |
+| `by_population` | Boolean | no | any | Whether likely voters count more than registered voters (x0.8) and adults (x0.6). |
+| `influence` | Float64 | no | ≥ 0 | The poll's weight: the rules switched on, multiplied together. 1 is a typical poll: a 600-person likely-voter poll that ended that day, its pollster's only recent poll of the race. |
+
+## `polymarket_prices`
+
+One row per candidate per day: the Polymarket price, as in polymarket. Made by #12 into data/03-summary_data/ for the website's Polymarket chart.
+
+| Column | Type | Missing | Allowed values | Description |
+|---|---|---|---|---|
+| `state` | String | no | AL, AK, AR, CO, DE, FL, GA, ID, IL, IA, KS, KY, LA, ME, MA, MI, MN, MS, MT, NE, NH, NJ, NM, NC, OH, OK, OR, RI, SC, SD, TN, TX, VA, WV, WY | Two-letter state code. Only the 35 states with a 2026 Senate race. |
+| `date` | Date | no | any | The day (UTC) of the price. The last price of each day is kept. |
+| `candidate` | String | no | any | Candidate's name, as in candidates (Polymarket's market title without its party letter, corrected where it differs). |
+| `price` | Float64 | no | ≥ 0, ≤ 1 | Price in dollars of a share that pays $1 if the candidate wins: roughly the market's chance that they win. A race's prices sum to about 1. |
+
+## `polymarket_latest`
+
+One row per candidate: their latest Polymarket price and its day. Made by #12 into data/03-summary_data/ for the website's "Traders give ... a ...% chance to win" numbers.
+
+| Column | Type | Missing | Allowed values | Description |
+|---|---|---|---|---|
+| `state` | String | no | AL, AK, AR, CO, DE, FL, GA, ID, IL, IA, KS, KY, LA, ME, MA, MI, MN, MS, MT, NE, NH, NJ, NM, NC, OH, OK, OR, RI, SC, SD, TN, TX, VA, WV, WY | Two-letter state code. Only the 35 states with a 2026 Senate race. |
+| `date` | Date | no | any | The day (UTC) of the price. The last price of each day is kept. |
+| `candidate` | String | no | any | Candidate's name, as in candidates (Polymarket's market title without its party letter, corrected where it differs). |
+| `price` | Float64 | no | ≥ 0, ≤ 1 | Price in dollars of a share that pays $1 if the candidate wins: roughly the market's chance that they win. A race's prices sum to about 1. |

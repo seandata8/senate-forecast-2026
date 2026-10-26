@@ -1,0 +1,26 @@
+state,by_recency,by_sample_size,by_pollster,by_population,date,candidate,average,spread
+FL,true,true,true,true,2026-09-08,Ashley Moody,0.5439,0.0032
+MI,false,false,false,true,2026-05-21,Mike Rogers,0.5289,0.0299
+OH,true,false,false,false,2025-02-22,Sherrod Brown,0.4659,0.0
+ID,false,true,true,false,2026-08-17,Jim Risch,0.5312,0.0
+MI,false,false,true,false,2025-07-19,Mike Rogers,0.5341,0.0
+NH,true,false,true,false,2025-04-25,John E. Sununu,0.5464,0.0
+OH,true,false,false,false,2026-01-27,Jon Husted,0.5121,0.0045
+OH,false,true,true,false,2025-12-02,Jon Husted,0.5184,0.0161
+KS,false,false,false,false,2026-03-21,Adam Hamilton,0.46,0.0
+OH,true,true,false,true,2025-07-18,Jon Husted,0.5166,0.0038
+OH,false,false,true,true,2025-11-22,Sherrod Brown,0.4821,0.0162
+OH,false,true,false,true,2025-10-01,Jon Husted,0.5272,0.0079
+TX,true,true,false,true,2026-01-17,James Talarico,0.4999,0.0013
+AR,false,false,false,true,2026-10-06,Tom Cotton,0.5902,0.0232
+GA,true,true,false,false,2026-07-28,Jon Ossoff,0.5444,0.0153
+MN,false,false,true,false,2026-04-03,Peggy Flanagan,0.5371,0.0
+NH,false,false,true,true,2025-11-27,Chris Pappas,0.5094,0.0245
+AR,false,true,true,false,2026-09-30,Tom Cotton,0.6039,0.0119
+GA,false,false,true,false,2026-08-01,Mike Collins,0.4691,0.0213
+KS,false,true,true,true,2026-05-25,Roger Marshall,0.54,0.0
+MA,true,false,false,false,2025-03-31,Ed Markey,0.6338,0.0
+NH,false,false,false,false,2026-09-06,John E. Sununu,0.4822,0.0212
+FL,true,false,false,false,2026-06-21,Angie Nixon,0.431,0.0068
+GA,true,true,false,true,2025-10-05,Jon Ossoff,0.5019,0.0024
+GA,true,true,false,true,2025-10-13,Mike Collins,0.4981,0.0024

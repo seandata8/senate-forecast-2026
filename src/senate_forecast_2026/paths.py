@@ -16,6 +16,7 @@ DATA = REPO_ROOT / "data"
 SIMULATED_DATA = DATA / "00-simulated_data"
 RAW_DATA = DATA / "01-raw_data"
 ANALYSIS_DATA = DATA / "02-analysis_data"
+SUMMARY_DATA = DATA / "03-summary_data"  # what the website shows, made by scripts/12-summarize_results.py
 CODEBOOK = DATA / "codebook.md"
 
 # Raw files, as saved by scripts/01-download_election_data.py, which also records where each one comes from.

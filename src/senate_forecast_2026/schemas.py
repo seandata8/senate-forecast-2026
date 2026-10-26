@@ -274,6 +274,69 @@ class Polymarket(pa.DataFrameModel):
         strict = True
 
 
+# Whether each poll-weighting rule was used (see poll_average.py), for the summary files below.
+RULE_DESCRIPTIONS = {
+    "by_recency": "Whether newer polls count more (weight halves every 14 days).",
+    "by_sample_size": "Whether polls that asked more people count more (by the square root of the sample size).",
+    "by_pollster": "Whether a pollster's recent polls share one weight (each divided by the square root of their number).",
+    "by_population": "Whether likely voters count more than registered voters (x0.8) and adults (x0.6).",
+}
+
+
+class PollAverages(pa.DataFrameModel):
+    """One row per race, on/off combination of the weighting rules, day and candidate: the polling average.
+    Made by #12 into data/03-summary_data/ for the website's polls chart. Days run from the race's first poll to
+    the latest poll in any race."""
+
+    state: str = pa.Field(isin=STATES, description=STATE)
+    by_recency: bool = pa.Field(description=RULE_DESCRIPTIONS["by_recency"])
+    by_sample_size: bool = pa.Field(description=RULE_DESCRIPTIONS["by_sample_size"])
+    by_pollster: bool = pa.Field(description=RULE_DESCRIPTIONS["by_pollster"])
+    by_population: bool = pa.Field(description=RULE_DESCRIPTIONS["by_population"])
+    date: datetime.date = pa.Field(description="The day of the average. It uses the polls that finished by then.")
+    candidate: str = pa.Field(description="Candidate's name, as in candidates.")
+    average: float = pa.Field(
+        ge=0, le=1, description="Weighted mean of the candidate's share in the polls that asked about them. Each poll's "
+        "shares are first scaled to add up to 1 among its candidates, so undecided voters are left out.",
+    )
+    spread: float = pa.Field(
+        ge=0, description="Weighted standard deviation of those shares around the average: how much the polls "
+        "disagree. Not a margin of error.",
+    )
+
+    class Config:
+        strict = True
+
+
+class PollInfluence(pa.DataFrameModel):
+    """One row per poll and on/off combination of the weighting rules: the poll's weight in its race's average on
+    the last day. Made by #12 into data/03-summary_data/ for the website's polls table."""
+
+    state: str = pa.Field(isin=STATES, description=STATE)
+    poll_id: str = pa.Field(description="VoteHub's id for the poll, as in polls.")
+    by_recency: bool = pa.Field(description=RULE_DESCRIPTIONS["by_recency"])
+    by_sample_size: bool = pa.Field(description=RULE_DESCRIPTIONS["by_sample_size"])
+    by_pollster: bool = pa.Field(description=RULE_DESCRIPTIONS["by_pollster"])
+    by_population: bool = pa.Field(description=RULE_DESCRIPTIONS["by_population"])
+    influence: float = pa.Field(
+        ge=0, description="The poll's weight: the rules switched on, multiplied together. 1 is a typical poll: "
+        "a 600-person likely-voter poll that ended that day, its pollster's only recent poll of the race.",
+    )
+
+    class Config:
+        strict = True
+
+
+class PolymarketPrices(Polymarket):
+    """One row per candidate per day: the Polymarket price, as in polymarket. Made by #12 into data/03-summary_data/
+    for the website's Polymarket chart."""
+
+
+class PolymarketLatest(Polymarket):
+    """One row per candidate: their latest Polymarket price and its day. Made by #12 into data/03-summary_data/ for
+    the website's "Traders give ... a ...% chance to win" numbers."""
+
+
 # Each data file and the schema it must match. Used by the tests and the codebook.
 FILE_SCHEMAS = {
     "personas": Personas,
@@ -286,6 +349,10 @@ FILE_SCHEMAS = {
     "past_results": PastResults,
     "polls": Polls,
     "polymarket": Polymarket,
+    "poll_averages": PollAverages,
+    "poll_influence": PollInfluence,
+    "polymarket_prices": PolymarketPrices,
+    "polymarket_latest": PolymarketLatest,
 }
 # The files the simulation (#1) makes; the others exist only as real data.
 SIMULATED_FILES = ["personas", "candidates", "responses_sean", "responses_furkan", "responses", "frame", "forecast"]

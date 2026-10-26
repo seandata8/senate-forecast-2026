@@ -1,0 +1,26 @@
+state,poll_id,by_recency,by_sample_size,by_pollster,by_population,influence
+GA,us-202bea8e2b79ff,false,false,false,true,0.8
+MT,us-202theb6b894ea,true,true,true,false,0.009
+SC,us-202ins635442db,true,false,true,false,0.0841
+ME,us-202bea00f453c2,false,false,false,true,1.0
+MT,us-202tav5bb1680a,true,true,true,false,0.0017
+OH,us-202bea58e907c0,true,false,false,false,0.0269
+SC,us-202ins635442db,true,true,false,true,0.1682
+SD,us-202quabb30f998,false,false,true,true,1.0
+MI,us-202bea6ed87549,false,false,false,false,1.0
+OH,us-202quad6aba264,false,false,true,true,0.7071
+TX,us-202beab9600d9b,true,false,false,true,0.3048
+TX,us-202a2 1a5590cb,false,false,true,true,1.0
+TX,us-202recc152b3f7,true,false,false,false,0.5
+GA,us-202act204154cb,false,true,true,true,0.8165
+IA,us-202cha781abe34,true,false,false,false,0.0
+NC,us-202easa9c1ac17,false,false,false,false,1.0
+OH,us-202echefadd030,false,false,true,true,0.8
+FL,us-202tarc49d2a14,false,true,false,true,1.1314
+ID,us-202the39a65ca5,true,true,false,true,0.0234
+ME,us-202uni51f1c418,false,false,false,false,1.0
+MI,us-202guic8eacfa2,false,true,false,false,1.1547
+OH,us-202insea9816ae,false,true,false,true,1.4142
+GA,us-202fab389395b2,false,true,true,false,1.3292
+IA,us-202bea93a2c09c,true,true,false,true,0.0032
+IA,us-202beaadb6c4f9,true,true,false,true,0.395
