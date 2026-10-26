@@ -16,3 +16,35 @@ on:
     # scheduled runs a little late.
     - cron: "0 0 * * *"
   workflow_dispatch:  # the "Run workflow" button, to run it by hand
+
+
+jobs:
+  # The website freezes at the end of 2 November (Toronto time), so after that this job says to stop and the update
+  # job below is skipped: the workflow turns itself off without anyone having to remember.
+  check-date:
+    runs-on: ubuntu-latest
+    outputs:
+      before-freeze: ${{ steps.today.outputs.before-freeze }}
+    steps:
+      - id: today
+        run: |
+          today=$(TZ=America/Toronto date +%F)
+          echo "Today in Toronto: $today"
+          if [[ "$today" < "2026-11-03" ]]; then echo "before-freeze=true"; else echo "before-freeze=false"; fi >> "$GITHUB_OUTPUT"
+
+  update:
+    needs: check-date
+    if: needs.check-date.outputs.before-freeze == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get the repo
+        uses: actions/checkout@v4
+
+      - name: Install uv, Python and the packages (with the website's)
+        uses: astral-sh/setup-uv@v6
+      - run: uv sync --group website
+
+      - name: Install Quarto (the version we build the website with)
+        uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: 1.10.19
