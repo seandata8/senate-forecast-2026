@@ -302,3 +302,15 @@ One row per approach and model (and "all models"): what each approach's latest f
 | `personas` | Int64 | no | ≥ 1 | Number of personas asked. |
 | `total_cost` | Float64 | no | ≥ 0 | Total cost in US dollars, as OpenRouter charged it. |
 | `cost_per_persona` | Float64 | no | ≥ 0 | Total cost divided by the number of personas. |
+
+## `past_comparison`
+
+One row per race and election: the Republican share in past elections next to our 2026 estimate. Made by #12 into data/03-summary_data/ from past_results and the forecast (both runs together).
+
+| Column | Type | Missing | Allowed values | Description |
+|---|---|---|---|---|
+| `state` | String | no | AL, AK, AR, CO, DE, FL, GA, ID, IL, IA, KS, KY, LA, ME, MA, MI, MN, MS, MT, NE, NH, NJ, NM, NC, OH, OK, OR, RI, SC, SD, TN, TX, VA, WV, WY | Two-letter state code. Only the 35 states with a 2026 Senate race. |
+| `election` | String | no | any | As in past_results ("president_2024", "senate_2020", ...), or "forecast_2026": our estimate. |
+| `republican_share` | Float64 | no | ≥ 0, ≤ 1 | Republican share: of all votes cast in past elections (as in past_results); of the votes for the race's candidates in our estimate (undecided left out). |
+| `lower` | Float64 | yes | ≥ 0, ≤ 1 | Our estimate: lower end of its 95% interval. Missing for past elections. |
+| `upper` | Float64 | yes | ≥ 0, ≤ 1 | Our estimate: upper end of its 95% interval. Missing for past elections. |

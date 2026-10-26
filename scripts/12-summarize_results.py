@@ -4,8 +4,8 @@
 #          The polling average of each race, for every on/off combination of the weighting rules, and each poll's
 #          influence; Polymarket's daily prices and each candidate's latest price; the forecast (both runs together,
 #          and each approach and model alone): chance of control, seats, each candidate's vote share and chance of
-#          winning next to the polls and Polymarket; what the models answered; the personas; the run costs.
-#          The past results part comes later.
+#          winning next to the polls and Polymarket; what the models answered; the personas; the run costs; past
+#          results next to the forecast.
 # Author: Furkan Danisman
 # Date: 24 October 2026; forecast, answers, personas and costs 25 October 2026
 # Pre-requisites: polls from scripts/10-clean_polls.py; polymarket from scripts/11-clean_polymarket.py;
@@ -29,6 +29,7 @@ from senate_forecast_2026.schemas import (
     ForecastRaces,
     ForecastSeats,
     ModelAnswers,
+    PastComparison,
     PersonaComposition,
     PollAverages,
     PollInfluence,
@@ -210,3 +211,19 @@ costs = (
     .sort("approach", "model")
 )
 save_data(costs, Costs, SUMMARY_DATA, "costs")
+
+
+#### Past results ####
+# Each race's Republican share in the 2024 presidential election and the last election for the seat (of all votes
+# cast, from past_results), next to our 2026 estimate for the Republican candidate (both runs together, of the votes
+# for the race's candidates, with its 95% interval). A comparison on the website, not a forecast input.
+past_results = pl.read_parquet(ANALYSIS_DATA / "past_results.parquet")
+our_estimate = forecast_races.filter((pl.col("version_type") == "all") & (pl.col("party") == "Republican")).select(
+    "state", election=pl.lit("forecast_2026"), republican_share="share", lower="share_lower", upper="share_upper"
+)
+past_comparison = pl.concat([
+    past_results.select("state", "election", republican_share="rep_share",
+                        lower=pl.lit(None, pl.Float64), upper=pl.lit(None, pl.Float64)),
+    our_estimate,
+]).sort("state", "election")
+save_data(past_comparison, PastComparison, SUMMARY_DATA, "past_comparison")

@@ -484,6 +484,25 @@ class PersonaComposition(pa.DataFrameModel):
         strict = True
 
 
+class PastComparison(pa.DataFrameModel):
+    """One row per race and election: the Republican share in past elections next to our 2026 estimate. Made by #12
+    into data/03-summary_data/ from past_results and the forecast (both runs together)."""
+
+    state: str = pa.Field(isin=STATES, description=STATE)
+    election: str = pa.Field(description='As in past_results ("president_2024", "senate_2020", ...), or '
+                             '"forecast_2026": our estimate.')
+    republican_share: float = pa.Field(ge=0, le=1, description="Republican share: of all votes cast in past "
+                                       "elections (as in past_results); of the votes for the race's candidates in "
+                                       "our estimate (undecided left out).")
+    lower: float = pa.Field(ge=0, le=1, nullable=True, description="Our estimate: lower end of its 95% interval. "
+                            "Missing for past elections.")
+    upper: float = pa.Field(ge=0, le=1, nullable=True, description="Our estimate: upper end of its 95% interval. "
+                            "Missing for past elections.")
+
+    class Config:
+        strict = True
+
+
 class Costs(pa.DataFrameModel):
     """One row per approach and model (and "all models"): what each approach's latest full run cost. Made by #12 into
     data/03-summary_data/ from the run cost log, data/run_costs.csv."""
@@ -524,6 +543,7 @@ FILE_SCHEMAS = {
     "crosstabs": Crosstabs,
     "persona_composition": PersonaComposition,
     "costs": Costs,
+    "past_comparison": PastComparison,
 }
 # The files the simulation (#1) makes; the others exist only as real data.
 SIMULATED_FILES = ["personas", "candidates", "responses_sean", "responses_furkan", "responses", "frame", "forecast"]
