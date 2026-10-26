@@ -55,6 +55,7 @@ We used Claude Code, with Claude Opus 5.5 (`claude-opus-5-5`), for the work list
 - 26 October 2026: the script that combines both runs into one file (`scripts/07-combine_responses.py`).
 - 25 and 26 October 2026: Sean's model trial (`scripts/06-trial_models_sean.py`), the progress report during a run (`scripts/watch_progress.py`, with `cache_key()` and `cache_path()` in `silicon.py`), and the analysis of the trial's results.
 - 26 October 2026: the daily update of polls, Polymarket and the website (`.github/workflows/daily-update.yml`) and its note in this README.
+- 26 October 2026: the website's "Blue Wave" design (`style.scss`, the colours and font in `src/senate_forecast_2026/website.py`, the fonts loaded in `_quarto.yml`, and the footer wave), the charts of the polls and Polymarket from 1 August to election day (`CHART_START` and `ELECTION_DAY` in `src/senate_forecast_2026/queries.py`), the slanted labels in the forecast panels (`index.qmd`), and the headline seats as the most common number (`seat_summary()` in `src/senate_forecast_2026/forecast_summary.py`).
 
 The LLMs queried to produce the silicon sample are part of the method, not help with the work; they will be listed with their OpenRouter identifiers in the methods section of the website.
 
