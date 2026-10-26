@@ -1,0 +1,99 @@
+#### Preamble ####
+# Purpose: Every night until the website freezes (end of 2 November 2026), download the latest polls and Polymarket
+#          prices, clean them, rerun the summary script and rebuild the website (task #14). The forecast itself does
+#          not change: no models are asked, so no API key is needed.
+# Author: Sean Murphy
+# Date: 26 October 2026
+# Pre-requisites: the forecast and its summaries on main (#7, #8, #12)
+# Run: by itself every night, or by hand from the repo's Actions tab ("Run workflow").
+
+name: Daily update of polls and Polymarket
+
+on:
+  schedule:
+    # Midnight UTC is 8 pm in Toronto until 31 October (7 pm on 1 and 2 November, after the clocks go back), so each
+    # evening's run catches that day's polls, and the last run is on the evening of 2 November. GitHub often starts
+    # scheduled runs a little late.
+    - cron: "0 0 * * *"
+  workflow_dispatch:  # the "Run workflow" button, to run it by hand
+
+# What the workflow may do: read the repo, and publish to GitHub Pages. It cannot change the repo: the website is
+# published straight to Pages, so main stays protected and nothing is committed (Pages' source must be set to
+# "GitHub Actions" in Settings > Pages).
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Only one update at a time, so two runs never publish over each other.
+concurrency:
+  group: daily-update
+  cancel-in-progress: false
+
+
+jobs:
+  # The website freezes at the end of 2 November (Toronto time), so after that this job says to stop and the update
+  # job below is skipped: the workflow turns itself off without anyone having to remember.
+  check-date:
+    runs-on: ubuntu-latest
+    outputs:
+      before-freeze: ${{ steps.today.outputs.before-freeze }}
+    steps:
+      - id: today
+        run: |
+          today=$(TZ=America/Toronto date +%F)
+          echo "Today in Toronto: $today"
+          if [[ "$today" < "2026-11-03" ]]; then echo "before-freeze=true"; else echo "before-freeze=false"; fi >> "$GITHUB_OUTPUT"
+
+  update:
+    needs: check-date
+    if: needs.check-date.outputs.before-freeze == 'true'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.publish.outputs.page_url }}
+    steps:
+      - name: Get the repo
+        uses: actions/checkout@v4
+
+      - name: Install uv, Python and the packages (with the website's)
+        uses: astral-sh/setup-uv@v6
+      - run: uv sync --group website
+
+      - name: Install Quarto (the version we build the website with)
+        uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: 1.10.19
+
+      - name: Download and clean the polls
+        run: |
+          uv run scripts/10-download_polls.py
+          uv run scripts/10-clean_polls.py
+
+      - name: Download and clean the Polymarket prices
+        run: |
+          uv run scripts/11-download_polymarket.py
+          uv run scripts/11-clean_polymarket.py
+
+      - name: Rerun the summaries
+        run: uv run scripts/12-summarize_results.py
+
+      # The website needs the forecast's summaries, which are on main only once both runs are combined (#7) and the
+      # forecast is made (#8); until then this step is skipped.
+      - name: Rebuild the website
+        if: hashFiles('data/03-summary_data/forecast_control.parquet') != ''
+        run: |
+          uv run quarto render
+          touch docs/.nojekyll  # tells GitHub Pages to serve the site as it is, without its Jekyll tool
+
+      # Hand the built site (docs/) to GitHub Pages, which then serves it. Skipped, like the rebuild, until the
+      # forecast is on main.
+      - name: Package the website for GitHub Pages
+        if: hashFiles('data/03-summary_data/forecast_control.parquet') != ''
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+      - name: Publish the website
+        id: publish
+        if: hashFiles('data/03-summary_data/forecast_control.parquet') != ''
+        uses: actions/deploy-pages@v4
