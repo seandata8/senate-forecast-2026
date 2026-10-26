@@ -35,6 +35,7 @@ from senate_forecast_2026.poll_average import (
 )
 from senate_forecast_2026.queries import (
     APPROACH_SETTINGS,
+    CHART_START,
     DECISION_MODELS,
     STATE_NAMES,
     alaska_final_candidates,
@@ -105,7 +106,9 @@ print("Averages on the last day, with every rule on:")
 with pl.Config(tbl_rows=80):
     print(everything_on.select("state", "candidate", "average", "spread"))
 
-save_data(poll_averages, PollAverages, SUMMARY_DATA, "poll_averages")
+# Only the days the charts show (from CHART_START); the averages before then still count towards the later ones,
+# because each day's average draws on earlier polls.
+save_data(poll_averages.filter(pl.col("date") >= CHART_START), PollAverages, SUMMARY_DATA, "poll_averages")
 save_data(poll_influence_table, PollInfluence, SUMMARY_DATA, "poll_influence")
 
 # The website's table of polls under each race's chart: every poll in today's average (every rule on), with its
@@ -131,7 +134,7 @@ save_data(poll_table, PollTable, SUMMARY_DATA, "poll_table", sample_groups=["pol
 # latest price.
 polymarket_prices = polymarket.sort("state", "candidate", "date")
 polymarket_latest = polymarket_prices.group_by("state", "candidate", maintain_order=True).last()
-save_data(polymarket_prices, PolymarketPrices, SUMMARY_DATA, "polymarket_prices")
+save_data(polymarket_prices.filter(pl.col("date") >= CHART_START), PolymarketPrices, SUMMARY_DATA, "polymarket_prices")
 save_data(polymarket_latest, PolymarketLatest, SUMMARY_DATA, "polymarket_latest")
 
 

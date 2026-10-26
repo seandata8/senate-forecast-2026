@@ -445,7 +445,10 @@ class ForecastControl(pa.DataFrameModel):
     version: str = pa.Field(description=VERSION)
     dem_control: float = pa.Field(ge=0, le=1, description="Share of the simulated elections with 51 or more "
                                   "Democratic-caucus seats (at 50-50 the Republican Vice President breaks the tie).")
-    seats: float = pa.Field(ge=0, le=100, description="Democratic-caucus seats: the median of the simulated elections.")
+    seats: float = pa.Field(
+        ge=0, le=100,
+        description="Democratic-caucus seats: the most common number in the simulated elections (the lower one if two tie).",
+    )
     seats_lower: float = pa.Field(ge=0, le=100, description="Lower end of the 95% interval of the seats (2.5% of "
                                   "simulations have fewer).")
     seats_upper: float = pa.Field(ge=0, le=100, description="Upper end of the 95% interval of the seats (2.5% of "

@@ -223,7 +223,7 @@ One row per forecast version: the chance of Democratic control and the Democrati
 | `version_type` | String | no | all, approach, model | Which answers the forecast is made from: "all" (both runs together, the forecast), "approach" (one approach's run) or "model" (one model's answers). |
 | `version` | String | no | any | "all", the approach (as in responses' `approach`) or the model (its OpenRouter identifier). |
 | `dem_control` | Float64 | no | ≥ 0, ≤ 1 | Share of the simulated elections with 51 or more Democratic-caucus seats (at 50-50 the Republican Vice President breaks the tie). |
-| `seats` | Float64 | no | ≥ 0, ≤ 100 | Democratic-caucus seats: the median of the simulated elections. |
+| `seats` | Float64 | no | ≥ 0, ≤ 100 | Democratic-caucus seats: the most common number in the simulated elections (the lower one if two tie). |
 | `seats_lower` | Float64 | no | ≥ 0, ≤ 100 | Lower end of the 95% interval of the seats (2.5% of simulations have fewer). |
 | `seats_upper` | Float64 | no | ≥ 0, ≤ 100 | Upper end of the 95% interval of the seats (2.5% of simulations have more). |
 

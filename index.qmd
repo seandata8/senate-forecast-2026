@@ -11,7 +11,7 @@ import polars as pl
 from plotly.subplots import make_subplots
 
 from senate_forecast_2026.paths import SUMMARY_DATA
-from senate_forecast_2026.queries import STATE_NAMES
+from senate_forecast_2026.queries import CHART_START, ELECTION_DAY, STATE_NAMES
 from senate_forecast_2026.schemas import (AGE_GROUPS, EDUCATION, GENDERS, IDEOLOGIES, INCOMES, MARITAL_STATUSES,
                                           PARTY_IDS, RACES, REGISTERED, RELIGIONS, SEXUALITIES, VOTES_2024)
 from senate_forecast_2026.website import (DEM, INK, MUTED, REP, choice_menu, choices, colour_of, coloured_share,
@@ -147,7 +147,8 @@ def seat_chart(version_type, version):
         hovertemplate="<b>%{x} Democratic seats</b><br>%{y:.1%} of simulations (%{customdata:,})<extra></extra>",
     ))
     ticks = list(range(int(seats["dem_seats"].min()), int(seats["dem_seats"].max()) + 1, 2))
-    figure.update_xaxes(tickvals=ticks, ticktext=[f"{s}<br><span style='color:{REP}'>{100 - s}</span>" for s in ticks])
+    figure.update_xaxes(tickvals=ticks, ticktext=[f"<span style='color:{DEM}'>{s}</span><br>"
+                                                  f"<span style='color:{REP}'>{100 - s}</span>" for s in ticks])
     figure.update_yaxes(tickformat=".0%")
     figure.add_vline(x=50.5, line_dash="dot", line_color=INK, line_width=1)
     figure.add_annotation(x=50.5, y=1, yref="paper", text="51 seats: control", showarrow=False, xanchor="left",
@@ -279,9 +280,14 @@ def two_panels():
     return figure
 
 
+# Empty slots between one candidate's dots and the next's, wide enough for the combined forecast's number.
+GAP_BETWEEN_CANDIDATES = 3
+
+
 def forecast_panel(figure, forecasts, column, with_interval):
-    """Our forecast for each candidate, from every version side by side (all models combined first): a dot with its
-    number next to it (and its 95% interval), the candidate's name above their group."""
+    """Our forecast for each candidate, from every version side by side (all models combined first): a dot (with its
+    95% interval), the combined forecast's number to its left (every version's number is in its hover label), the
+    versions' names slanted below and the candidate's name above their group."""
     names = short_names(forecasts["candidate"].unique().to_list())
     candidates = forecasts.filter(pl.col("version") == "all").sort("share", descending=True)["candidate"].to_list()
     positions, labels = [], []
@@ -290,31 +296,39 @@ def forecast_panel(figure, forecasts, column, with_interval):
         colour = colour_of(rows["party"][0])
         for j, (version_type, version) in enumerate(VERSIONS):
             row = rows.filter(pl.col("version") == version).row(0, named=True)
-            x, value = i * (len(VERSIONS) + 1) + j, row[column]
+            x, value = i * (len(VERSIONS) + GAP_BETWEEN_CANDIDATES) + j, row[column]
             positions.append(x)
             labels.append(short_version(version_type, version))
             error = (dict(type="data", symmetric=False, array=[row["share_upper"] - value],
                           arrayminus=[value - row["share_lower"]], color=colour, thickness=1.5, width=4)
                      if with_interval else None)
             detail = f" {interval(row['share_lower'], row['share_upper'], True, 1)}" if with_interval else ""
-            figure.add_scatter(x=[x], y=[value], mode="markers+text", row=1, col=2, error_y=error,
-                               marker=dict(color=colour, size=9 if version_type == "all" else 7,
-                                           symbol="circle" if version_type == "all" else "circle-open",
+            is_combined = version_type == "all"
+            figure.add_scatter(x=[x], y=[value], mode="markers+text" if is_combined else "markers", row=1, col=2,
+                               error_y=error,
+                               marker=dict(color=colour, size=9 if is_combined else 7,
+                                           symbol="circle" if is_combined else "circle-open",
                                            line=dict(color=colour, width=1.5)),
-                               text=[pct(value, 1 if with_interval else 0)], textposition="middle right",
+                               text=[pct(value, 1 if with_interval else 0)] if is_combined else None,
+                               textposition="middle left",
                                textfont=dict(color=colour, size=11),
                                hovertemplate=f"<b>{names[candidate]}</b>, {version_label(version_type, version)}: "
                                f"{pct(value, 1)}{detail}<extra></extra>")
-        middle = i * (len(VERSIONS) + 1) + (len(VERSIONS) - 1) / 2
+        middle = i * (len(VERSIONS) + GAP_BETWEEN_CANDIDATES) + (len(VERSIONS) - 1) / 2
         figure.add_annotation(x=middle, y=1, xref="x2", yref="paper", yanchor="bottom", showarrow=False,
                               text=f"<b>{names[candidate]}</b>", font=dict(color=colour, size=12))
-    figure.update_xaxes(tickvals=positions, ticktext=labels, tickangle=0, showline=False, ticks="",
-                        range=[-0.6, max(positions) + 1.2], row=1, col=2)
+    figure.update_xaxes(tickvals=positions, ticktext=labels, tickangle=-60, tickfont=dict(size=10), automargin=True,
+                        showline=False, ticks="", range=[-GAP_BETWEEN_CANDIDATES - 1.5, max(positions) + 1.5],
+                        row=1, col=2)
 
 
-def leave_room_for_labels(figure, first, last):
-    """Widen the time axis on the right, so the names at the lines' ends fit."""
-    figure.update_xaxes(range=[first, last + (last - first) * 0.22], row=1, col=1)
+def leave_room_for_labels(figure, last):
+    """The time axis from CHART_START to election day, marked with a dotted line, and wider on the right if the names
+    at the lines' ends need more room."""
+    figure.update_xaxes(range=[CHART_START, max(ELECTION_DAY, last + (last - CHART_START) * 0.22)], row=1, col=1)
+    figure.add_vline(x=ELECTION_DAY, line=dict(color=MUTED, width=1, dash="dot"), row=1, col=1)
+    figure.add_annotation(x=ELECTION_DAY, y=1, xref="x", yref="paper", yanchor="bottom", showarrow=False,
+                          text="Election day", font=dict(size=11, color=MUTED))
 
 
 def polls_figure(state, rows):
@@ -331,7 +345,7 @@ def polls_figure(state, rows):
                            "[%{customdata[0]:.1f}, %{customdata[1]:.1f}] 95% interval<extra></extra>")
         ends.append({"x": dates[-1], "y": line["average"][-1], "name": name, "colour": colour})
     end_labels(figure, ends, lambda y: pct(y))
-    leave_room_for_labels(figure, rows["date"].min(), rows["date"].max())
+    leave_room_for_labels(figure, rows["date"].max())
     forecast_panel(figure, races.filter(pl.col("state") == state), "share", with_interval=True)
     figure.update_yaxes(tickformat=".0%")
     return figure_html(figure, 320)
@@ -345,7 +359,7 @@ def market_figure(state, rows):
                            hovertemplate=f"<b>{candidate}</b> %{{x|%b %d}}: %{{y:.0%}}<extra></extra>")
         ends.append({"x": line["date"][-1], "y": line["price"][-1], "name": name, "colour": colour})
     end_labels(figure, ends, lambda y: pct(y))
-    leave_room_for_labels(figure, rows["date"].min(), rows["date"].max())
+    leave_room_for_labels(figure, rows["date"].max())
     forecast_panel(figure, races.filter(pl.col("state") == state), "chance_of_winning", with_interval=False)
     figure.update_yaxes(tickformat=".0%", range=[-0.02, 1.02])
     return figure_html(figure, 260)

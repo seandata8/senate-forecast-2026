@@ -11,12 +11,12 @@ import re
 
 from IPython.display import HTML
 
-DEM, REP, IND = "#1d4f91", "#b8202e", "#6b4c9a"
-INK, MUTED, RULE, LIGHT_RULE = "#1a1a1a", "#6b6b6b", "#1a1a1a", "#e4e2dc"
+DEM, REP, IND = "#2a5db0", "#c8342b", "#6b4c9a"
+INK, MUTED, RULE, LIGHT_RULE = "#14233a", "#5c6b7e", "#0b1f3a", "#dbe5ec"
 PARTY_COLOURS = {"Democrat": DEM, "Republican": REP, "Independent": IND}
 # Answers that are not a party: shades of grey, darkest first.
-OTHER_COLOURS = {"Other": "#8f8b82", "Undecided": "#bdbab3", "Would not vote": "#dcd9d1"}
-FONT = {"family": "IBM Plex Sans, system-ui, sans-serif", "size": 13, "color": INK}
+OTHER_COLOURS = {"Other": "#7f8c99", "Undecided": "#b4c0cb", "Would not vote": "#dbe2e8"}
+FONT = {"family": "Public Sans, system-ui, sans-serif", "size": 13, "color": INK}
 
 
 def pct(share, digits=0):

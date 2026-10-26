@@ -8,6 +8,8 @@
 #       scripts/05-query_models.py, and the checks' prompt, 25 October 2026
 # Pre-requisites: uv sync
 
+from datetime import date
+
 import polars as pl
 
 from senate_forecast_2026.schemas import GENERIC_ANSWERS, NON_CANDIDATE_ANSWERS
@@ -47,7 +49,11 @@ PERSONA_LINES = {
     "registered": "Registered to vote",
 }
 
-ELECTION_DATE = "3 November 2026"
+ELECTION_DATE = "3 November 2026"  # as the models read it; changing it would make every answer a new, paid call
+ELECTION_DAY = date(2026, 11, 3)
+# The website's charts of the polls and Polymarket run from here to election day: by 1 August most races had
+# their nominees.
+CHART_START = date(2026, 8, 1)
 
 
 def persona_to_prompt(persona):

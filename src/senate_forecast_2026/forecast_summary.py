@@ -18,12 +18,13 @@ def seat_summary(forecast, candidates):
     """Democratic-caucus seats in each simulated election of `forecast`, summarized.
 
     Returns (control, distribution): control is one row with dem_control (the share of simulations with 51 or more
-    Democratic-caucus seats), seats (the median), seats_lower and seats_upper (the 95% interval); distribution has
-    one row per number of seats, with the number and share of simulations that ended with it."""
+    Democratic-caucus seats), seats (the most common number, the tallest bar of the distribution; the lower one if two
+    tie), seats_lower and seats_upper (the 95% interval); distribution has one row per number of seats, with the
+    number and share of simulations that ended with it."""
     seats = count_seats(forecast, candidates)
     control = seats.select(
         dem_control=pl.col("dem_control").mean(),
-        seats=pl.col("dem_seats").median(),
+        seats=pl.col("dem_seats").mode().min().cast(pl.Float64),
         seats_lower=pl.col("dem_seats").quantile(LOWER),
         seats_upper=pl.col("dem_seats").quantile(UPPER),
     )
