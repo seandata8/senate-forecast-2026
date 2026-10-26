@@ -1,0 +1,1776 @@
+version_type,version,sim_id,state,candidate,party,share,winner
+approach,furkan,316,AK,Dan S. Sullivan,Republican,0.6325,true
+approach,furkan,316,AK,Mary Peltola,Democrat,0.3675,false
+approach,furkan,316,AL,Barry Moore,Republican,0.6597,true
+approach,furkan,316,AL,Everett Wess,Democrat,0.3403,false
+approach,furkan,316,AR,Hallie Shoffner,Democrat,0.2998,false
+approach,furkan,316,AR,Tom Cotton,Republican,0.7002,true
+approach,furkan,316,CO,John Hickenlooper,Democrat,0.4849,false
+approach,furkan,316,CO,Mark Baisley,Republican,0.5151,true
+approach,furkan,316,DE,Chris Coons,Democrat,0.6286,true
+approach,furkan,316,DE,Michael Katz,Republican,0.3714,false
+approach,furkan,316,FL,Angie Nixon,Democrat,0.4176,false
+approach,furkan,316,FL,Ashley Moody,Republican,0.5824,true
+approach,furkan,316,GA,Jon Ossoff,Democrat,0.4721,false
+approach,furkan,316,GA,Mike Collins,Republican,0.5279,true
+approach,furkan,316,IA,Ashley Hinson,Republican,0.5338,true
+approach,furkan,316,IA,Josh Turek,Democrat,0.4662,false
+approach,furkan,316,ID,Jim Risch,Republican,0.6132,true
+approach,furkan,316,ID,Todd Achilles,Independent,0.3868,false
+approach,furkan,316,IL,Don Tracy,Republican,0.4897,false
+approach,furkan,316,IL,Juliana Stratton,Democrat,0.5103,true
+approach,furkan,316,KS,Adam Hamilton,Democrat,0.4363,false
+approach,furkan,316,KS,Roger Marshall,Republican,0.5637,true
+approach,furkan,316,KY,Andy Barr,Republican,0.6756,true
+approach,furkan,316,KY,Charles Booker,Democrat,0.3244,false
+approach,furkan,316,LA,Jamie Davis,Democrat,0.4225,false
+approach,furkan,316,LA,Julia Letlow,Republican,0.5775,true
+approach,furkan,316,MA,Ed Markey,Democrat,0.5436,true
+approach,furkan,316,MA,John Deaton,Republican,0.4564,false
+approach,furkan,316,ME,Susan Collins,Republican,0.4336,false
+approach,furkan,316,ME,Troy Jackson,Democrat,0.5664,true
+approach,furkan,316,MI,Abdul El-Sayed,Democrat,0.5102,true
+approach,furkan,316,MI,Mike Rogers,Republican,0.4898,false
+approach,furkan,316,MN,Michele Tafoya,Republican,0.5015,true
+approach,furkan,316,MN,Peggy Flanagan,Democrat,0.4985,false
+approach,furkan,316,MS,Cindy Hyde-Smith,Republican,0.6618,true
+approach,furkan,316,MS,Scott Colom,Democrat,0.3382,false
+approach,furkan,316,MT,Alani Bankhead,Democrat,0.3761,false
+approach,furkan,316,MT,Kurt Alme,Republican,0.5553,true
+approach,furkan,316,MT,Seth Bodnar,Independent,0.0687,false
+approach,furkan,316,NC,Michael Whatley,Republican,0.4615,false
+approach,furkan,316,NC,Roy Cooper,Democrat,0.5385,true
+approach,furkan,316,NE,Dan Osborn,Independent,0.3954,false
+approach,furkan,316,NE,Pete Ricketts,Republican,0.6046,true
+approach,furkan,316,NH,Chris Pappas,Democrat,0.5431,true
+approach,furkan,316,NH,John E. Sununu,Republican,0.4569,false
+approach,furkan,316,NJ,Cory Booker,Democrat,0.6789,true
+approach,furkan,316,NJ,Justin Murphy,Republican,0.3211,false
+approach,furkan,316,NM,Ben Ray Luján,Democrat,0.585,true
+approach,furkan,316,NM,Larry Marker,Republican,0.415,false
+approach,furkan,316,OH,Jon Husted,Republican,0.5581,true
+approach,furkan,316,OH,Sherrod Brown,Democrat,0.4419,false
+approach,furkan,316,OK,Kevin Hern,Republican,0.6951,true
+approach,furkan,316,OK,N'Kiyla Jasmine Thomas,Democrat,0.3049,false
+approach,furkan,316,OR,David Brock Smith,Republican,0.4157,false
+approach,furkan,316,OR,Jeff Merkley,Democrat,0.5843,true
+approach,furkan,316,RI,Jack Reed,Democrat,0.6219,true
+approach,furkan,316,RI,Raymond McKay,Republican,0.3781,false
+approach,furkan,316,SC,Annie Andrews,Democrat,0.3605,false
+approach,furkan,316,SC,Darline Graham,Republican,0.6395,true
+approach,furkan,316,SD,Brian Bengs,Independent,0.3819,false
+approach,furkan,316,SD,Mike Rounds,Republican,0.6181,true
+approach,furkan,316,TN,Bill Hagerty,Republican,0.6466,true
+approach,furkan,316,TN,Marquita Bradshaw,Democrat,0.3534,false
+approach,furkan,316,TX,James Talarico,Democrat,0.4203,false
+approach,furkan,316,TX,Ken Paxton,Republican,0.5797,true
+approach,furkan,316,VA,Bert Mizusawa,Republican,0.5081,true
+approach,furkan,316,VA,Mark Warner,Democrat,0.4919,false
+approach,furkan,316,WV,Rachel Fetty Anderson,Democrat,0.2616,false
+approach,furkan,316,WV,Shelley Moore Capito,Republican,0.7384,true
+approach,furkan,316,WY,Harriet Hageman,Republican,0.68,true
+approach,furkan,316,WY,James W. Byrd,Democrat,0.32,false
+approach,furkan,1256,AK,Dan S. Sullivan,Republican,0.4421,false
+approach,furkan,1256,AK,Mary Peltola,Democrat,0.5579,true
+approach,furkan,1256,AL,Barry Moore,Republican,0.5887,true
+approach,furkan,1256,AL,Everett Wess,Democrat,0.4113,false
+approach,furkan,1256,AR,Hallie Shoffner,Democrat,0.379,false
+approach,furkan,1256,AR,Tom Cotton,Republican,0.621,true
+approach,furkan,1256,CO,John Hickenlooper,Democrat,0.6109,true
+approach,furkan,1256,CO,Mark Baisley,Republican,0.3891,false
+approach,furkan,1256,DE,Chris Coons,Democrat,0.6523,true
+approach,furkan,1256,DE,Michael Katz,Republican,0.3477,false
+approach,furkan,1256,FL,Angie Nixon,Democrat,0.5377,true
+approach,furkan,1256,FL,Ashley Moody,Republican,0.4623,false
+approach,furkan,1256,GA,Jon Ossoff,Democrat,0.4079,false
+approach,furkan,1256,GA,Mike Collins,Republican,0.5921,true
+approach,furkan,1256,IA,Ashley Hinson,Republican,0.6148,true
+approach,furkan,1256,IA,Josh Turek,Democrat,0.3852,false
+approach,furkan,1256,ID,Jim Risch,Republican,0.5917,true
+approach,furkan,1256,ID,Todd Achilles,Independent,0.4083,false
+approach,furkan,1256,IL,Don Tracy,Republican,0.3826,false
+approach,furkan,1256,IL,Juliana Stratton,Democrat,0.6174,true
+approach,furkan,1256,KS,Adam Hamilton,Democrat,0.4757,false
+approach,furkan,1256,KS,Roger Marshall,Republican,0.5243,true
+approach,furkan,1256,KY,Andy Barr,Republican,0.6528,true
+approach,furkan,1256,KY,Charles Booker,Democrat,0.3472,false
+approach,furkan,1256,LA,Jamie Davis,Democrat,0.4719,false
+approach,furkan,1256,LA,Julia Letlow,Republican,0.5281,true
+approach,furkan,1256,MA,Ed Markey,Democrat,0.5783,true
+approach,furkan,1256,MA,John Deaton,Republican,0.4217,false
+approach,furkan,1256,ME,Susan Collins,Republican,0.4249,false
+approach,furkan,1256,ME,Troy Jackson,Democrat,0.5751,true
+approach,furkan,1256,MI,Abdul El-Sayed,Democrat,0.5454,true
+approach,furkan,1256,MI,Mike Rogers,Republican,0.4546,false
+approach,furkan,1256,MN,Michele Tafoya,Republican,0.5083,true
+approach,furkan,1256,MN,Peggy Flanagan,Democrat,0.4917,false
+approach,furkan,1256,MS,Cindy Hyde-Smith,Republican,0.6277,true
+approach,furkan,1256,MS,Scott Colom,Democrat,0.3723,false
+approach,furkan,1256,MT,Alani Bankhead,Democrat,0.4231,false
+approach,furkan,1256,MT,Kurt Alme,Republican,0.4997,true
+approach,furkan,1256,MT,Seth Bodnar,Independent,0.0772,false
+approach,furkan,1256,NC,Michael Whatley,Republican,0.4083,false
+approach,furkan,1256,NC,Roy Cooper,Democrat,0.5917,true
+approach,furkan,1256,NE,Dan Osborn,Independent,0.4338,false
+approach,furkan,1256,NE,Pete Ricketts,Republican,0.5662,true
+approach,furkan,1256,NH,Chris Pappas,Democrat,0.5975,true
+approach,furkan,1256,NH,John E. Sununu,Republican,0.4025,false
+approach,furkan,1256,NJ,Cory Booker,Democrat,0.6858,true
+approach,furkan,1256,NJ,Justin Murphy,Republican,0.3142,false
+approach,furkan,1256,NM,Ben Ray Luján,Democrat,0.7206,true
+approach,furkan,1256,NM,Larry Marker,Republican,0.2794,false
+approach,furkan,1256,OH,Jon Husted,Republican,0.4549,false
+approach,furkan,1256,OH,Sherrod Brown,Democrat,0.5451,true
+approach,furkan,1256,OK,Kevin Hern,Republican,0.642,true
+approach,furkan,1256,OK,N'Kiyla Jasmine Thomas,Democrat,0.358,false
+approach,furkan,1256,OR,David Brock Smith,Republican,0.3754,false
+approach,furkan,1256,OR,Jeff Merkley,Democrat,0.6246,true
+approach,furkan,1256,RI,Jack Reed,Democrat,0.7134,true
+approach,furkan,1256,RI,Raymond McKay,Republican,0.2866,false
+approach,furkan,1256,SC,Annie Andrews,Democrat,0.5457,true
+approach,furkan,1256,SC,Darline Graham,Republican,0.4543,false
+approach,furkan,1256,SD,Brian Bengs,Independent,0.3325,false
+approach,furkan,1256,SD,Mike Rounds,Republican,0.6675,true
+approach,furkan,1256,TN,Bill Hagerty,Republican,0.634,true
+approach,furkan,1256,TN,Marquita Bradshaw,Democrat,0.366,false
+approach,furkan,1256,TX,James Talarico,Democrat,0.5531,true
+approach,furkan,1256,TX,Ken Paxton,Republican,0.4469,false
+approach,furkan,1256,VA,Bert Mizusawa,Republican,0.5021,true
+approach,furkan,1256,VA,Mark Warner,Democrat,0.4979,false
+approach,furkan,1256,WV,Rachel Fetty Anderson,Democrat,0.2906,false
+approach,furkan,1256,WV,Shelley Moore Capito,Republican,0.7094,true
+approach,furkan,1256,WY,Harriet Hageman,Republican,0.7314,true
+approach,furkan,1256,WY,James W. Byrd,Democrat,0.2686,false
+approach,furkan,3707,AK,Dan S. Sullivan,Republican,0.5489,true
+approach,furkan,3707,AK,Mary Peltola,Democrat,0.4511,false
+approach,furkan,3707,AL,Barry Moore,Republican,0.6369,true
+approach,furkan,3707,AL,Everett Wess,Democrat,0.3631,false
+approach,furkan,3707,AR,Hallie Shoffner,Democrat,0.4186,false
+approach,furkan,3707,AR,Tom Cotton,Republican,0.5814,true
+approach,furkan,3707,CO,John Hickenlooper,Democrat,0.6142,true
+approach,furkan,3707,CO,Mark Baisley,Republican,0.3858,false
+approach,furkan,3707,DE,Chris Coons,Democrat,0.6959,true
+approach,furkan,3707,DE,Michael Katz,Republican,0.3041,false
+approach,furkan,3707,FL,Angie Nixon,Democrat,0.4572,false
+approach,furkan,3707,FL,Ashley Moody,Republican,0.5428,true
+approach,furkan,3707,GA,Jon Ossoff,Democrat,0.4993,false
+approach,furkan,3707,GA,Mike Collins,Republican,0.5007,true
+approach,furkan,3707,IA,Ashley Hinson,Republican,0.5442,true
+approach,furkan,3707,IA,Josh Turek,Democrat,0.4558,false
+approach,furkan,3707,ID,Jim Risch,Republican,0.5807,true
+approach,furkan,3707,ID,Todd Achilles,Independent,0.4193,false
+approach,furkan,3707,IL,Don Tracy,Republican,0.3837,false
+approach,furkan,3707,IL,Juliana Stratton,Democrat,0.6163,true
+approach,furkan,3707,KS,Adam Hamilton,Democrat,0.3908,false
+approach,furkan,3707,KS,Roger Marshall,Republican,0.6092,true
+approach,furkan,3707,KY,Andy Barr,Republican,0.627,true
+approach,furkan,3707,KY,Charles Booker,Democrat,0.373,false
+approach,furkan,3707,LA,Jamie Davis,Democrat,0.4135,false
+approach,furkan,3707,LA,Julia Letlow,Republican,0.5865,true
+approach,furkan,3707,MA,Ed Markey,Democrat,0.6876,true
+approach,furkan,3707,MA,John Deaton,Republican,0.3124,false
+approach,furkan,3707,ME,Susan Collins,Republican,0.5092,true
+approach,furkan,3707,ME,Troy Jackson,Democrat,0.4908,false
+approach,furkan,3707,MI,Abdul El-Sayed,Democrat,0.3726,false
+approach,furkan,3707,MI,Mike Rogers,Republican,0.6274,true
+approach,furkan,3707,MN,Michele Tafoya,Republican,0.4908,false
+approach,furkan,3707,MN,Peggy Flanagan,Democrat,0.5092,true
+approach,furkan,3707,MS,Cindy Hyde-Smith,Republican,0.6846,true
+approach,furkan,3707,MS,Scott Colom,Democrat,0.3154,false
+approach,furkan,3707,MT,Alani Bankhead,Democrat,0.3065,false
+approach,furkan,3707,MT,Kurt Alme,Republican,0.6375,true
+approach,furkan,3707,MT,Seth Bodnar,Independent,0.056,false
+approach,furkan,3707,NC,Michael Whatley,Republican,0.4538,false
+approach,furkan,3707,NC,Roy Cooper,Democrat,0.5462,true
+approach,furkan,3707,NE,Dan Osborn,Independent,0.4057,false
+approach,furkan,3707,NE,Pete Ricketts,Republican,0.5943,true
+approach,furkan,3707,NH,Chris Pappas,Democrat,0.5474,true
+approach,furkan,3707,NH,John E. Sununu,Republican,0.4526,false
+approach,furkan,3707,NJ,Cory Booker,Democrat,0.702,true
+approach,furkan,3707,NJ,Justin Murphy,Republican,0.298,false
+approach,furkan,3707,NM,Ben Ray Luján,Democrat,0.564,true
+approach,furkan,3707,NM,Larry Marker,Republican,0.436,false
+approach,furkan,3707,OH,Jon Husted,Republican,0.5488,true
+approach,furkan,3707,OH,Sherrod Brown,Democrat,0.4512,false
+approach,furkan,3707,OK,Kevin Hern,Republican,0.6075,true
+approach,furkan,3707,OK,N'Kiyla Jasmine Thomas,Democrat,0.3925,false
+approach,furkan,3707,OR,David Brock Smith,Republican,0.4027,false
+approach,furkan,3707,OR,Jeff Merkley,Democrat,0.5973,true
+approach,furkan,3707,RI,Jack Reed,Democrat,0.5771,true
+approach,furkan,3707,RI,Raymond McKay,Republican,0.4229,false
+approach,furkan,3707,SC,Annie Andrews,Democrat,0.393,false
+approach,furkan,3707,SC,Darline Graham,Republican,0.607,true
+approach,furkan,3707,SD,Brian Bengs,Independent,0.4146,false
+approach,furkan,3707,SD,Mike Rounds,Republican,0.5854,true
+approach,furkan,3707,TN,Bill Hagerty,Republican,0.6012,true
+approach,furkan,3707,TN,Marquita Bradshaw,Democrat,0.3988,false
+approach,furkan,3707,TX,James Talarico,Democrat,0.4536,false
+approach,furkan,3707,TX,Ken Paxton,Republican,0.5464,true
+approach,furkan,3707,VA,Bert Mizusawa,Republican,0.4058,false
+approach,furkan,3707,VA,Mark Warner,Democrat,0.5942,true
+approach,furkan,3707,WV,Rachel Fetty Anderson,Democrat,0.3381,false
+approach,furkan,3707,WV,Shelley Moore Capito,Republican,0.6619,true
+approach,furkan,3707,WY,Harriet Hageman,Republican,0.7245,true
+approach,furkan,3707,WY,James W. Byrd,Democrat,0.2755,false
+approach,sean,4091,AK,Dan S. Sullivan,Republican,0.4977,false
+approach,sean,4091,AK,Mary Peltola,Democrat,0.5023,true
+approach,sean,4091,AL,Barry Moore,Republican,0.658,true
+approach,sean,4091,AL,Everett Wess,Democrat,0.342,false
+approach,sean,4091,AR,Hallie Shoffner,Democrat,0.4094,false
+approach,sean,4091,AR,Tom Cotton,Republican,0.5906,true
+approach,sean,4091,CO,John Hickenlooper,Democrat,0.5184,true
+approach,sean,4091,CO,Mark Baisley,Republican,0.4816,false
+approach,sean,4091,DE,Chris Coons,Democrat,0.7236,true
+approach,sean,4091,DE,Michael Katz,Republican,0.2764,false
+approach,sean,4091,FL,Angie Nixon,Democrat,0.502,true
+approach,sean,4091,FL,Ashley Moody,Republican,0.498,false
+approach,sean,4091,GA,Jon Ossoff,Democrat,0.4575,false
+approach,sean,4091,GA,Mike Collins,Republican,0.5425,true
+approach,sean,4091,IA,Ashley Hinson,Republican,0.4666,false
+approach,sean,4091,IA,Josh Turek,Democrat,0.5334,true
+approach,sean,4091,ID,Jim Risch,Republican,0.5034,true
+approach,sean,4091,ID,Todd Achilles,Independent,0.4966,false
+approach,sean,4091,IL,Don Tracy,Republican,0.3824,false
+approach,sean,4091,IL,Juliana Stratton,Democrat,0.6176,true
+approach,sean,4091,KS,Adam Hamilton,Democrat,0.4845,false
+approach,sean,4091,KS,Roger Marshall,Republican,0.5155,true
+approach,sean,4091,KY,Andy Barr,Republican,0.7169,true
+approach,sean,4091,KY,Charles Booker,Democrat,0.2831,false
+approach,sean,4091,LA,Jamie Davis,Democrat,0.4327,false
+approach,sean,4091,LA,Julia Letlow,Republican,0.5673,true
+approach,sean,4091,MA,Ed Markey,Democrat,0.6488,true
+approach,sean,4091,MA,John Deaton,Republican,0.3512,false
+approach,sean,4091,ME,Susan Collins,Republican,0.3867,false
+approach,sean,4091,ME,Troy Jackson,Democrat,0.6133,true
+approach,sean,4091,MI,Abdul El-Sayed,Democrat,0.5061,true
+approach,sean,4091,MI,Mike Rogers,Republican,0.4939,false
+approach,sean,4091,MN,Michele Tafoya,Republican,0.4654,false
+approach,sean,4091,MN,Peggy Flanagan,Democrat,0.5346,true
+approach,sean,4091,MS,Cindy Hyde-Smith,Republican,0.5203,true
+approach,sean,4091,MS,Scott Colom,Democrat,0.4797,false
+approach,sean,4091,MT,Alani Bankhead,Democrat,0.3481,false
+approach,sean,4091,MT,Kurt Alme,Republican,0.5727,true
+approach,sean,4091,MT,Seth Bodnar,Independent,0.0792,false
+approach,sean,4091,NC,Michael Whatley,Republican,0.5281,true
+approach,sean,4091,NC,Roy Cooper,Democrat,0.4719,false
+approach,sean,4091,NE,Dan Osborn,Independent,0.4591,false
+approach,sean,4091,NE,Pete Ricketts,Republican,0.5409,true
+approach,sean,4091,NH,Chris Pappas,Democrat,0.5076,true
+approach,sean,4091,NH,John E. Sununu,Republican,0.4924,false
+approach,sean,4091,NJ,Cory Booker,Democrat,0.6881,true
+approach,sean,4091,NJ,Justin Murphy,Republican,0.3119,false
+approach,sean,4091,NM,Ben Ray Luján,Democrat,0.6084,true
+approach,sean,4091,NM,Larry Marker,Republican,0.3916,false
+approach,sean,4091,OH,Jon Husted,Republican,0.5857,true
+approach,sean,4091,OH,Sherrod Brown,Democrat,0.4143,false
+approach,sean,4091,OK,Kevin Hern,Republican,0.7196,true
+approach,sean,4091,OK,N'Kiyla Jasmine Thomas,Democrat,0.2804,false
+approach,sean,4091,OR,David Brock Smith,Republican,0.4498,false
+approach,sean,4091,OR,Jeff Merkley,Democrat,0.5502,true
+approach,sean,4091,RI,Jack Reed,Democrat,0.6338,true
+approach,sean,4091,RI,Raymond McKay,Republican,0.3662,false
+approach,sean,4091,SC,Annie Andrews,Democrat,0.3907,false
+approach,sean,4091,SC,Darline Graham,Republican,0.6093,true
+approach,sean,4091,SD,Brian Bengs,Independent,0.3148,false
+approach,sean,4091,SD,Mike Rounds,Republican,0.6852,true
+approach,sean,4091,TN,Bill Hagerty,Republican,0.6086,true
+approach,sean,4091,TN,Marquita Bradshaw,Democrat,0.3914,false
+approach,sean,4091,TX,James Talarico,Democrat,0.4004,false
+approach,sean,4091,TX,Ken Paxton,Republican,0.5996,true
+approach,sean,4091,VA,Bert Mizusawa,Republican,0.436,false
+approach,sean,4091,VA,Mark Warner,Democrat,0.564,true
+approach,sean,4091,WV,Rachel Fetty Anderson,Democrat,0.351,false
+approach,sean,4091,WV,Shelley Moore Capito,Republican,0.649,true
+approach,sean,4091,WY,Harriet Hageman,Republican,0.6577,true
+approach,sean,4091,WY,James W. Byrd,Democrat,0.3423,false
+approach,sean,6246,AK,Dan S. Sullivan,Republican,0.4949,false
+approach,sean,6246,AK,Mary Peltola,Democrat,0.5051,true
+approach,sean,6246,AL,Barry Moore,Republican,0.6186,true
+approach,sean,6246,AL,Everett Wess,Democrat,0.3814,false
+approach,sean,6246,AR,Hallie Shoffner,Democrat,0.3362,false
+approach,sean,6246,AR,Tom Cotton,Republican,0.6638,true
+approach,sean,6246,CO,John Hickenlooper,Democrat,0.4921,false
+approach,sean,6246,CO,Mark Baisley,Republican,0.5079,true
+approach,sean,6246,DE,Chris Coons,Democrat,0.6147,true
+approach,sean,6246,DE,Michael Katz,Republican,0.3853,false
+approach,sean,6246,FL,Angie Nixon,Democrat,0.4381,false
+approach,sean,6246,FL,Ashley Moody,Republican,0.5619,true
+approach,sean,6246,GA,Jon Ossoff,Democrat,0.4489,false
+approach,sean,6246,GA,Mike Collins,Republican,0.5511,true
+approach,sean,6246,IA,Ashley Hinson,Republican,0.4974,false
+approach,sean,6246,IA,Josh Turek,Democrat,0.5026,true
+approach,sean,6246,ID,Jim Risch,Republican,0.6314,true
+approach,sean,6246,ID,Todd Achilles,Independent,0.3686,false
+approach,sean,6246,IL,Don Tracy,Republican,0.515,true
+approach,sean,6246,IL,Juliana Stratton,Democrat,0.485,false
+approach,sean,6246,KS,Adam Hamilton,Democrat,0.3967,false
+approach,sean,6246,KS,Roger Marshall,Republican,0.6033,true
+approach,sean,6246,KY,Andy Barr,Republican,0.5956,true
+approach,sean,6246,KY,Charles Booker,Democrat,0.4044,false
+approach,sean,6246,LA,Jamie Davis,Democrat,0.4044,false
+approach,sean,6246,LA,Julia Letlow,Republican,0.5956,true
+approach,sean,6246,MA,Ed Markey,Democrat,0.604,true
+approach,sean,6246,MA,John Deaton,Republican,0.396,false
+approach,sean,6246,ME,Susan Collins,Republican,0.3881,false
+approach,sean,6246,ME,Troy Jackson,Democrat,0.6119,true
+approach,sean,6246,MI,Abdul El-Sayed,Democrat,0.498,false
+approach,sean,6246,MI,Mike Rogers,Republican,0.502,true
+approach,sean,6246,MN,Michele Tafoya,Republican,0.5149,true
+approach,sean,6246,MN,Peggy Flanagan,Democrat,0.4851,false
+approach,sean,6246,MS,Cindy Hyde-Smith,Republican,0.6657,true
+approach,sean,6246,MS,Scott Colom,Democrat,0.3343,false
+approach,sean,6246,MT,Alani Bankhead,Democrat,0.3384,false
+approach,sean,6246,MT,Kurt Alme,Republican,0.5846,true
+approach,sean,6246,MT,Seth Bodnar,Independent,0.077,false
+approach,sean,6246,NC,Michael Whatley,Republican,0.5105,true
+approach,sean,6246,NC,Roy Cooper,Democrat,0.4895,false
+approach,sean,6246,NE,Dan Osborn,Independent,0.5184,true
+approach,sean,6246,NE,Pete Ricketts,Republican,0.4816,false
+approach,sean,6246,NH,Chris Pappas,Democrat,0.442,false
+approach,sean,6246,NH,John E. Sununu,Republican,0.558,true
+approach,sean,6246,NJ,Cory Booker,Democrat,0.5579,true
+approach,sean,6246,NJ,Justin Murphy,Republican,0.4421,false
+approach,sean,6246,NM,Ben Ray Luján,Democrat,0.5879,true
+approach,sean,6246,NM,Larry Marker,Republican,0.4121,false
+approach,sean,6246,OH,Jon Husted,Republican,0.5344,true
+approach,sean,6246,OH,Sherrod Brown,Democrat,0.4656,false
+approach,sean,6246,OK,Kevin Hern,Republican,0.7013,true
+approach,sean,6246,OK,N'Kiyla Jasmine Thomas,Democrat,0.2987,false
+approach,sean,6246,OR,David Brock Smith,Republican,0.4868,false
+approach,sean,6246,OR,Jeff Merkley,Democrat,0.5132,true
+approach,sean,6246,RI,Jack Reed,Democrat,0.6397,true
+approach,sean,6246,RI,Raymond McKay,Republican,0.3603,false
+approach,sean,6246,SC,Annie Andrews,Democrat,0.4237,false
+approach,sean,6246,SC,Darline Graham,Republican,0.5763,true
+approach,sean,6246,SD,Brian Bengs,Independent,0.2749,false
+approach,sean,6246,SD,Mike Rounds,Republican,0.7251,true
+approach,sean,6246,TN,Bill Hagerty,Republican,0.611,true
+approach,sean,6246,TN,Marquita Bradshaw,Democrat,0.389,false
+approach,sean,6246,TX,James Talarico,Democrat,0.4811,false
+approach,sean,6246,TX,Ken Paxton,Republican,0.5189,true
+approach,sean,6246,VA,Bert Mizusawa,Republican,0.4371,false
+approach,sean,6246,VA,Mark Warner,Democrat,0.5629,true
+approach,sean,6246,WV,Rachel Fetty Anderson,Democrat,0.3284,false
+approach,sean,6246,WV,Shelley Moore Capito,Republican,0.6716,true
+approach,sean,6246,WY,Harriet Hageman,Republican,0.7549,true
+approach,sean,6246,WY,James W. Byrd,Democrat,0.2451,false
+approach,sean,7451,AK,Dan S. Sullivan,Republican,0.5112,true
+approach,sean,7451,AK,Mary Peltola,Democrat,0.4888,false
+approach,sean,7451,AL,Barry Moore,Republican,0.5381,true
+approach,sean,7451,AL,Everett Wess,Democrat,0.4619,false
+approach,sean,7451,AR,Hallie Shoffner,Democrat,0.4083,false
+approach,sean,7451,AR,Tom Cotton,Republican,0.5917,true
+approach,sean,7451,CO,John Hickenlooper,Democrat,0.4808,false
+approach,sean,7451,CO,Mark Baisley,Republican,0.5192,true
+approach,sean,7451,DE,Chris Coons,Democrat,0.7176,true
+approach,sean,7451,DE,Michael Katz,Republican,0.2824,false
+approach,sean,7451,FL,Angie Nixon,Democrat,0.4928,false
+approach,sean,7451,FL,Ashley Moody,Republican,0.5072,true
+approach,sean,7451,GA,Jon Ossoff,Democrat,0.5056,true
+approach,sean,7451,GA,Mike Collins,Republican,0.4944,false
+approach,sean,7451,IA,Ashley Hinson,Republican,0.4783,false
+approach,sean,7451,IA,Josh Turek,Democrat,0.5217,true
+approach,sean,7451,ID,Jim Risch,Republican,0.5267,true
+approach,sean,7451,ID,Todd Achilles,Independent,0.4733,false
+approach,sean,7451,IL,Don Tracy,Republican,0.4042,false
+approach,sean,7451,IL,Juliana Stratton,Democrat,0.5958,true
+approach,sean,7451,KS,Adam Hamilton,Democrat,0.4818,false
+approach,sean,7451,KS,Roger Marshall,Republican,0.5182,true
+approach,sean,7451,KY,Andy Barr,Republican,0.562,true
+approach,sean,7451,KY,Charles Booker,Democrat,0.438,false
+approach,sean,7451,LA,Jamie Davis,Democrat,0.4689,false
+approach,sean,7451,LA,Julia Letlow,Republican,0.5311,true
+approach,sean,7451,MA,Ed Markey,Democrat,0.7676,true
+approach,sean,7451,MA,John Deaton,Republican,0.2324,false
+approach,sean,7451,ME,Susan Collins,Republican,0.3802,false
+approach,sean,7451,ME,Troy Jackson,Democrat,0.6198,true
+approach,sean,7451,MI,Abdul El-Sayed,Democrat,0.5714,true
+approach,sean,7451,MI,Mike Rogers,Republican,0.4286,false
+approach,sean,7451,MN,Michele Tafoya,Republican,0.4796,false
+approach,sean,7451,MN,Peggy Flanagan,Democrat,0.5204,true
+approach,sean,7451,MS,Cindy Hyde-Smith,Republican,0.6118,true
+approach,sean,7451,MS,Scott Colom,Democrat,0.3882,false
+approach,sean,7451,MT,Alani Bankhead,Democrat,0.3015,false
+approach,sean,7451,MT,Kurt Alme,Republican,0.6299,true
+approach,sean,7451,MT,Seth Bodnar,Independent,0.0686,false
+approach,sean,7451,NC,Michael Whatley,Republican,0.4546,false
+approach,sean,7451,NC,Roy Cooper,Democrat,0.5454,true
+approach,sean,7451,NE,Dan Osborn,Independent,0.4538,false
+approach,sean,7451,NE,Pete Ricketts,Republican,0.5462,true
+approach,sean,7451,NH,Chris Pappas,Democrat,0.503,true
+approach,sean,7451,NH,John E. Sununu,Republican,0.497,false
+approach,sean,7451,NJ,Cory Booker,Democrat,0.7129,true
+approach,sean,7451,NJ,Justin Murphy,Republican,0.2871,false
+approach,sean,7451,NM,Ben Ray Luján,Democrat,0.5886,true
+approach,sean,7451,NM,Larry Marker,Republican,0.4114,false
+approach,sean,7451,OH,Jon Husted,Republican,0.3613,false
+approach,sean,7451,OH,Sherrod Brown,Democrat,0.6387,true
+approach,sean,7451,OK,Kevin Hern,Republican,0.5622,true
+approach,sean,7451,OK,N'Kiyla Jasmine Thomas,Democrat,0.4378,false
+approach,sean,7451,OR,David Brock Smith,Republican,0.3596,false
+approach,sean,7451,OR,Jeff Merkley,Democrat,0.6404,true
+approach,sean,7451,RI,Jack Reed,Democrat,0.5964,true
+approach,sean,7451,RI,Raymond McKay,Republican,0.4036,false
+approach,sean,7451,SC,Annie Andrews,Democrat,0.4379,false
+approach,sean,7451,SC,Darline Graham,Republican,0.5621,true
+approach,sean,7451,SD,Brian Bengs,Independent,0.3897,false
+approach,sean,7451,SD,Mike Rounds,Republican,0.6103,true
+approach,sean,7451,TN,Bill Hagerty,Republican,0.5273,true
+approach,sean,7451,TN,Marquita Bradshaw,Democrat,0.4727,false
+approach,sean,7451,TX,James Talarico,Democrat,0.4731,false
+approach,sean,7451,TX,Ken Paxton,Republican,0.5269,true
+approach,sean,7451,VA,Bert Mizusawa,Republican,0.344,false
+approach,sean,7451,VA,Mark Warner,Democrat,0.656,true
+approach,sean,7451,WV,Rachel Fetty Anderson,Democrat,0.424,false
+approach,sean,7451,WV,Shelley Moore Capito,Republican,0.576,true
+approach,sean,7451,WY,Harriet Hageman,Republican,0.6289,true
+approach,sean,7451,WY,James W. Byrd,Democrat,0.3711,false
+approach,sean,8663,AK,Dan S. Sullivan,Republican,0.5158,true
+approach,sean,8663,AK,Mary Peltola,Democrat,0.4842,false
+approach,sean,8663,AL,Barry Moore,Republican,0.6115,true
+approach,sean,8663,AL,Everett Wess,Democrat,0.3885,false
+approach,sean,8663,AR,Hallie Shoffner,Democrat,0.3722,false
+approach,sean,8663,AR,Tom Cotton,Republican,0.6278,true
+approach,sean,8663,CO,John Hickenlooper,Democrat,0.6066,true
+approach,sean,8663,CO,Mark Baisley,Republican,0.3934,false
+approach,sean,8663,DE,Chris Coons,Democrat,0.6713,true
+approach,sean,8663,DE,Michael Katz,Republican,0.3287,false
+approach,sean,8663,FL,Angie Nixon,Democrat,0.5321,true
+approach,sean,8663,FL,Ashley Moody,Republican,0.4679,false
+approach,sean,8663,GA,Jon Ossoff,Democrat,0.5247,true
+approach,sean,8663,GA,Mike Collins,Republican,0.4753,false
+approach,sean,8663,IA,Ashley Hinson,Republican,0.4989,false
+approach,sean,8663,IA,Josh Turek,Democrat,0.5011,true
+approach,sean,8663,ID,Jim Risch,Republican,0.5398,true
+approach,sean,8663,ID,Todd Achilles,Independent,0.4602,false
+approach,sean,8663,IL,Don Tracy,Republican,0.3887,false
+approach,sean,8663,IL,Juliana Stratton,Democrat,0.6113,true
+approach,sean,8663,KS,Adam Hamilton,Democrat,0.5792,true
+approach,sean,8663,KS,Roger Marshall,Republican,0.4208,false
+approach,sean,8663,KY,Andy Barr,Republican,0.5935,true
+approach,sean,8663,KY,Charles Booker,Democrat,0.4065,false
+approach,sean,8663,LA,Jamie Davis,Democrat,0.5491,true
+approach,sean,8663,LA,Julia Letlow,Republican,0.4509,false
+approach,sean,8663,MA,Ed Markey,Democrat,0.7212,true
+approach,sean,8663,MA,John Deaton,Republican,0.2788,false
+approach,sean,8663,ME,Susan Collins,Republican,0.3967,false
+approach,sean,8663,ME,Troy Jackson,Democrat,0.6033,true
+approach,sean,8663,MI,Abdul El-Sayed,Democrat,0.4965,false
+approach,sean,8663,MI,Mike Rogers,Republican,0.5035,true
+approach,sean,8663,MN,Michele Tafoya,Republican,0.4718,false
+approach,sean,8663,MN,Peggy Flanagan,Democrat,0.5282,true
+approach,sean,8663,MS,Cindy Hyde-Smith,Republican,0.5855,true
+approach,sean,8663,MS,Scott Colom,Democrat,0.4145,false
+approach,sean,8663,MT,Alani Bankhead,Democrat,0.3895,false
+approach,sean,8663,MT,Kurt Alme,Republican,0.5219,true
+approach,sean,8663,MT,Seth Bodnar,Independent,0.0886,false
+approach,sean,8663,NC,Michael Whatley,Republican,0.4614,false
+approach,sean,8663,NC,Roy Cooper,Democrat,0.5386,true
+approach,sean,8663,NE,Dan Osborn,Independent,0.5425,true
+approach,sean,8663,NE,Pete Ricketts,Republican,0.4575,false
+approach,sean,8663,NH,Chris Pappas,Democrat,0.588,true
+approach,sean,8663,NH,John E. Sununu,Republican,0.412,false
+approach,sean,8663,NJ,Cory Booker,Democrat,0.5697,true
+approach,sean,8663,NJ,Justin Murphy,Republican,0.4303,false
+approach,sean,8663,NM,Ben Ray Luján,Democrat,0.6219,true
+approach,sean,8663,NM,Larry Marker,Republican,0.3781,false
+approach,sean,8663,OH,Jon Husted,Republican,0.4386,false
+approach,sean,8663,OH,Sherrod Brown,Democrat,0.5614,true
+approach,sean,8663,OK,Kevin Hern,Republican,0.5641,true
+approach,sean,8663,OK,N'Kiyla Jasmine Thomas,Democrat,0.4359,false
+approach,sean,8663,OR,David Brock Smith,Republican,0.2904,false
+approach,sean,8663,OR,Jeff Merkley,Democrat,0.7096,true
+approach,sean,8663,RI,Jack Reed,Democrat,0.5456,true
+approach,sean,8663,RI,Raymond McKay,Republican,0.4544,false
+approach,sean,8663,SC,Annie Andrews,Democrat,0.4419,false
+approach,sean,8663,SC,Darline Graham,Republican,0.5581,true
+approach,sean,8663,SD,Brian Bengs,Independent,0.3997,false
+approach,sean,8663,SD,Mike Rounds,Republican,0.6003,true
+approach,sean,8663,TN,Bill Hagerty,Republican,0.5639,true
+approach,sean,8663,TN,Marquita Bradshaw,Democrat,0.4361,false
+approach,sean,8663,TX,James Talarico,Democrat,0.5509,true
+approach,sean,8663,TX,Ken Paxton,Republican,0.4491,false
+approach,sean,8663,VA,Bert Mizusawa,Republican,0.3402,false
+approach,sean,8663,VA,Mark Warner,Democrat,0.6598,true
+approach,sean,8663,WV,Rachel Fetty Anderson,Democrat,0.4349,false
+approach,sean,8663,WV,Shelley Moore Capito,Republican,0.5651,true
+approach,sean,8663,WY,Harriet Hageman,Republican,0.6582,true
+approach,sean,8663,WY,James W. Byrd,Democrat,0.3418,false
+model,anthropic/claude-haiku-5.5,7018,AK,Dan S. Sullivan,Republican,0.6131,true
+model,anthropic/claude-haiku-5.5,7018,AK,Mary Peltola,Democrat,0.3869,false
+model,anthropic/claude-haiku-5.5,7018,AL,Barry Moore,Republican,0.5185,true
+model,anthropic/claude-haiku-5.5,7018,AL,Everett Wess,Democrat,0.4815,false
+model,anthropic/claude-haiku-5.5,7018,AR,Hallie Shoffner,Democrat,0.2892,false
+model,anthropic/claude-haiku-5.5,7018,AR,Tom Cotton,Republican,0.7108,true
+model,anthropic/claude-haiku-5.5,7018,CO,John Hickenlooper,Democrat,0.5704,true
+model,anthropic/claude-haiku-5.5,7018,CO,Mark Baisley,Republican,0.4296,false
+model,anthropic/claude-haiku-5.5,7018,DE,Chris Coons,Democrat,0.5985,true
+model,anthropic/claude-haiku-5.5,7018,DE,Michael Katz,Republican,0.4015,false
+model,anthropic/claude-haiku-5.5,7018,FL,Angie Nixon,Democrat,0.4642,false
+model,anthropic/claude-haiku-5.5,7018,FL,Ashley Moody,Republican,0.5358,true
+model,anthropic/claude-haiku-5.5,7018,GA,Jon Ossoff,Democrat,0.3753,false
+model,anthropic/claude-haiku-5.5,7018,GA,Mike Collins,Republican,0.6247,true
+model,anthropic/claude-haiku-5.5,7018,IA,Ashley Hinson,Republican,0.5282,true
+model,anthropic/claude-haiku-5.5,7018,IA,Josh Turek,Democrat,0.4718,false
+model,anthropic/claude-haiku-5.5,7018,ID,Jim Risch,Republican,0.5872,true
+model,anthropic/claude-haiku-5.5,7018,ID,Todd Achilles,Independent,0.4128,false
+model,anthropic/claude-haiku-5.5,7018,IL,Don Tracy,Republican,0.4211,false
+model,anthropic/claude-haiku-5.5,7018,IL,Juliana Stratton,Democrat,0.5789,true
+model,anthropic/claude-haiku-5.5,7018,KS,Adam Hamilton,Democrat,0.3294,false
+model,anthropic/claude-haiku-5.5,7018,KS,Roger Marshall,Republican,0.6706,true
+model,anthropic/claude-haiku-5.5,7018,KY,Andy Barr,Republican,0.5055,true
+model,anthropic/claude-haiku-5.5,7018,KY,Charles Booker,Democrat,0.4945,false
+model,anthropic/claude-haiku-5.5,7018,LA,Jamie Davis,Democrat,0.4977,false
+model,anthropic/claude-haiku-5.5,7018,LA,Julia Letlow,Republican,0.5023,true
+model,anthropic/claude-haiku-5.5,7018,MA,Ed Markey,Democrat,0.6351,true
+model,anthropic/claude-haiku-5.5,7018,MA,John Deaton,Republican,0.3649,false
+model,anthropic/claude-haiku-5.5,7018,ME,Susan Collins,Republican,0.4299,false
+model,anthropic/claude-haiku-5.5,7018,ME,Troy Jackson,Democrat,0.5701,true
+model,anthropic/claude-haiku-5.5,7018,MI,Abdul El-Sayed,Democrat,0.4716,false
+model,anthropic/claude-haiku-5.5,7018,MI,Mike Rogers,Republican,0.5284,true
+model,anthropic/claude-haiku-5.5,7018,MN,Michele Tafoya,Republican,0.6275,true
+model,anthropic/claude-haiku-5.5,7018,MN,Peggy Flanagan,Democrat,0.3725,false
+model,anthropic/claude-haiku-5.5,7018,MS,Cindy Hyde-Smith,Republican,0.6289,true
+model,anthropic/claude-haiku-5.5,7018,MS,Scott Colom,Democrat,0.3711,false
+model,anthropic/claude-haiku-5.5,7018,MT,Alani Bankhead,Democrat,0.2547,false
+model,anthropic/claude-haiku-5.5,7018,MT,Kurt Alme,Republican,0.6603,true
+model,anthropic/claude-haiku-5.5,7018,MT,Seth Bodnar,Independent,0.085,false
+model,anthropic/claude-haiku-5.5,7018,NC,Michael Whatley,Republican,0.5324,true
+model,anthropic/claude-haiku-5.5,7018,NC,Roy Cooper,Democrat,0.4676,false
+model,anthropic/claude-haiku-5.5,7018,NE,Dan Osborn,Independent,0.5982,true
+model,anthropic/claude-haiku-5.5,7018,NE,Pete Ricketts,Republican,0.4018,false
+model,anthropic/claude-haiku-5.5,7018,NH,Chris Pappas,Democrat,0.5603,true
+model,anthropic/claude-haiku-5.5,7018,NH,John E. Sununu,Republican,0.4397,false
+model,anthropic/claude-haiku-5.5,7018,NJ,Cory Booker,Democrat,0.5524,true
+model,anthropic/claude-haiku-5.5,7018,NJ,Justin Murphy,Republican,0.4476,false
+model,anthropic/claude-haiku-5.5,7018,NM,Ben Ray Luján,Democrat,0.5786,true
+model,anthropic/claude-haiku-5.5,7018,NM,Larry Marker,Republican,0.4214,false
+model,anthropic/claude-haiku-5.5,7018,OH,Jon Husted,Republican,0.5534,true
+model,anthropic/claude-haiku-5.5,7018,OH,Sherrod Brown,Democrat,0.4466,false
+model,anthropic/claude-haiku-5.5,7018,OK,Kevin Hern,Republican,0.5758,true
+model,anthropic/claude-haiku-5.5,7018,OK,N'Kiyla Jasmine Thomas,Democrat,0.4242,false
+model,anthropic/claude-haiku-5.5,7018,OR,David Brock Smith,Republican,0.4686,false
+model,anthropic/claude-haiku-5.5,7018,OR,Jeff Merkley,Democrat,0.5314,true
+model,anthropic/claude-haiku-5.5,7018,RI,Jack Reed,Democrat,0.6129,true
+model,anthropic/claude-haiku-5.5,7018,RI,Raymond McKay,Republican,0.3871,false
+model,anthropic/claude-haiku-5.5,7018,SC,Annie Andrews,Democrat,0.472,false
+model,anthropic/claude-haiku-5.5,7018,SC,Darline Graham,Republican,0.528,true
+model,anthropic/claude-haiku-5.5,7018,SD,Brian Bengs,Independent,0.3366,false
+model,anthropic/claude-haiku-5.5,7018,SD,Mike Rounds,Republican,0.6634,true
+model,anthropic/claude-haiku-5.5,7018,TN,Bill Hagerty,Republican,0.7187,true
+model,anthropic/claude-haiku-5.5,7018,TN,Marquita Bradshaw,Democrat,0.2813,false
+model,anthropic/claude-haiku-5.5,7018,TX,James Talarico,Democrat,0.504,true
+model,anthropic/claude-haiku-5.5,7018,TX,Ken Paxton,Republican,0.496,false
+model,anthropic/claude-haiku-5.5,7018,VA,Bert Mizusawa,Republican,0.4476,false
+model,anthropic/claude-haiku-5.5,7018,VA,Mark Warner,Democrat,0.5524,true
+model,anthropic/claude-haiku-5.5,7018,WV,Rachel Fetty Anderson,Democrat,0.369,false
+model,anthropic/claude-haiku-5.5,7018,WV,Shelley Moore Capito,Republican,0.631,true
+model,anthropic/claude-haiku-5.5,7018,WY,Harriet Hageman,Republican,0.747,true
+model,anthropic/claude-haiku-5.5,7018,WY,James W. Byrd,Democrat,0.253,false
+model,anthropic/claude-haiku-5.5,7725,AK,Dan S. Sullivan,Republican,0.5883,true
+model,anthropic/claude-haiku-5.5,7725,AK,Mary Peltola,Democrat,0.4117,false
+model,anthropic/claude-haiku-5.5,7725,AL,Barry Moore,Republican,0.6771,true
+model,anthropic/claude-haiku-5.5,7725,AL,Everett Wess,Democrat,0.3229,false
+model,anthropic/claude-haiku-5.5,7725,AR,Hallie Shoffner,Democrat,0.3469,false
+model,anthropic/claude-haiku-5.5,7725,AR,Tom Cotton,Republican,0.6531,true
+model,anthropic/claude-haiku-5.5,7725,CO,John Hickenlooper,Democrat,0.5387,true
+model,anthropic/claude-haiku-5.5,7725,CO,Mark Baisley,Republican,0.4613,false
+model,anthropic/claude-haiku-5.5,7725,DE,Chris Coons,Democrat,0.5595,true
+model,anthropic/claude-haiku-5.5,7725,DE,Michael Katz,Republican,0.4405,false
+model,anthropic/claude-haiku-5.5,7725,FL,Angie Nixon,Democrat,0.4931,false
+model,anthropic/claude-haiku-5.5,7725,FL,Ashley Moody,Republican,0.5069,true
+model,anthropic/claude-haiku-5.5,7725,GA,Jon Ossoff,Democrat,0.5071,true
+model,anthropic/claude-haiku-5.5,7725,GA,Mike Collins,Republican,0.4929,false
+model,anthropic/claude-haiku-5.5,7725,IA,Ashley Hinson,Republican,0.5489,true
+model,anthropic/claude-haiku-5.5,7725,IA,Josh Turek,Democrat,0.4511,false
+model,anthropic/claude-haiku-5.5,7725,ID,Jim Risch,Republican,0.5754,true
+model,anthropic/claude-haiku-5.5,7725,ID,Todd Achilles,Independent,0.4246,false
+model,anthropic/claude-haiku-5.5,7725,IL,Don Tracy,Republican,0.4536,false
+model,anthropic/claude-haiku-5.5,7725,IL,Juliana Stratton,Democrat,0.5464,true
+model,anthropic/claude-haiku-5.5,7725,KS,Adam Hamilton,Democrat,0.4209,false
+model,anthropic/claude-haiku-5.5,7725,KS,Roger Marshall,Republican,0.5791,true
+model,anthropic/claude-haiku-5.5,7725,KY,Andy Barr,Republican,0.622,true
+model,anthropic/claude-haiku-5.5,7725,KY,Charles Booker,Democrat,0.378,false
+model,anthropic/claude-haiku-5.5,7725,LA,Jamie Davis,Democrat,0.4956,false
+model,anthropic/claude-haiku-5.5,7725,LA,Julia Letlow,Republican,0.5044,true
+model,anthropic/claude-haiku-5.5,7725,MA,Ed Markey,Democrat,0.6263,true
+model,anthropic/claude-haiku-5.5,7725,MA,John Deaton,Republican,0.3737,false
+model,anthropic/claude-haiku-5.5,7725,ME,Susan Collins,Republican,0.42,false
+model,anthropic/claude-haiku-5.5,7725,ME,Troy Jackson,Democrat,0.58,true
+model,anthropic/claude-haiku-5.5,7725,MI,Abdul El-Sayed,Democrat,0.4994,false
+model,anthropic/claude-haiku-5.5,7725,MI,Mike Rogers,Republican,0.5006,true
+model,anthropic/claude-haiku-5.5,7725,MN,Michele Tafoya,Republican,0.4264,false
+model,anthropic/claude-haiku-5.5,7725,MN,Peggy Flanagan,Democrat,0.5736,true
+model,anthropic/claude-haiku-5.5,7725,MS,Cindy Hyde-Smith,Republican,0.6511,true
+model,anthropic/claude-haiku-5.5,7725,MS,Scott Colom,Democrat,0.3489,false
+model,anthropic/claude-haiku-5.5,7725,MT,Alani Bankhead,Democrat,0.2852,false
+model,anthropic/claude-haiku-5.5,7725,MT,Kurt Alme,Republican,0.6196,true
+model,anthropic/claude-haiku-5.5,7725,MT,Seth Bodnar,Independent,0.0952,false
+model,anthropic/claude-haiku-5.5,7725,NC,Michael Whatley,Republican,0.6346,true
+model,anthropic/claude-haiku-5.5,7725,NC,Roy Cooper,Democrat,0.3654,false
+model,anthropic/claude-haiku-5.5,7725,NE,Dan Osborn,Independent,0.4358,false
+model,anthropic/claude-haiku-5.5,7725,NE,Pete Ricketts,Republican,0.5642,true
+model,anthropic/claude-haiku-5.5,7725,NH,Chris Pappas,Democrat,0.5905,true
+model,anthropic/claude-haiku-5.5,7725,NH,John E. Sununu,Republican,0.4095,false
+model,anthropic/claude-haiku-5.5,7725,NJ,Cory Booker,Democrat,0.6257,true
+model,anthropic/claude-haiku-5.5,7725,NJ,Justin Murphy,Republican,0.3743,false
+model,anthropic/claude-haiku-5.5,7725,NM,Ben Ray Luján,Democrat,0.5062,true
+model,anthropic/claude-haiku-5.5,7725,NM,Larry Marker,Republican,0.4938,false
+model,anthropic/claude-haiku-5.5,7725,OH,Jon Husted,Republican,0.4696,false
+model,anthropic/claude-haiku-5.5,7725,OH,Sherrod Brown,Democrat,0.5304,true
+model,anthropic/claude-haiku-5.5,7725,OK,Kevin Hern,Republican,0.6867,true
+model,anthropic/claude-haiku-5.5,7725,OK,N'Kiyla Jasmine Thomas,Democrat,0.3133,false
+model,anthropic/claude-haiku-5.5,7725,OR,David Brock Smith,Republican,0.441,false
+model,anthropic/claude-haiku-5.5,7725,OR,Jeff Merkley,Democrat,0.559,true
+model,anthropic/claude-haiku-5.5,7725,RI,Jack Reed,Democrat,0.5833,true
+model,anthropic/claude-haiku-5.5,7725,RI,Raymond McKay,Republican,0.4167,false
+model,anthropic/claude-haiku-5.5,7725,SC,Annie Andrews,Democrat,0.495,false
+model,anthropic/claude-haiku-5.5,7725,SC,Darline Graham,Republican,0.505,true
+model,anthropic/claude-haiku-5.5,7725,SD,Brian Bengs,Independent,0.2877,false
+model,anthropic/claude-haiku-5.5,7725,SD,Mike Rounds,Republican,0.7123,true
+model,anthropic/claude-haiku-5.5,7725,TN,Bill Hagerty,Republican,0.6383,true
+model,anthropic/claude-haiku-5.5,7725,TN,Marquita Bradshaw,Democrat,0.3617,false
+model,anthropic/claude-haiku-5.5,7725,TX,James Talarico,Democrat,0.5115,true
+model,anthropic/claude-haiku-5.5,7725,TX,Ken Paxton,Republican,0.4885,false
+model,anthropic/claude-haiku-5.5,7725,VA,Bert Mizusawa,Republican,0.4192,false
+model,anthropic/claude-haiku-5.5,7725,VA,Mark Warner,Democrat,0.5808,true
+model,anthropic/claude-haiku-5.5,7725,WV,Rachel Fetty Anderson,Democrat,0.3342,false
+model,anthropic/claude-haiku-5.5,7725,WV,Shelley Moore Capito,Republican,0.6658,true
+model,anthropic/claude-haiku-5.5,7725,WY,Harriet Hageman,Republican,0.8072,true
+model,anthropic/claude-haiku-5.5,7725,WY,James W. Byrd,Democrat,0.1928,false
+model,anthropic/claude-haiku-5.5,7987,AK,Dan S. Sullivan,Republican,0.5466,true
+model,anthropic/claude-haiku-5.5,7987,AK,Mary Peltola,Democrat,0.4534,false
+model,anthropic/claude-haiku-5.5,7987,AL,Barry Moore,Republican,0.6151,true
+model,anthropic/claude-haiku-5.5,7987,AL,Everett Wess,Democrat,0.3849,false
+model,anthropic/claude-haiku-5.5,7987,AR,Hallie Shoffner,Democrat,0.3839,false
+model,anthropic/claude-haiku-5.5,7987,AR,Tom Cotton,Republican,0.6161,true
+model,anthropic/claude-haiku-5.5,7987,CO,John Hickenlooper,Democrat,0.4876,false
+model,anthropic/claude-haiku-5.5,7987,CO,Mark Baisley,Republican,0.5124,true
+model,anthropic/claude-haiku-5.5,7987,DE,Chris Coons,Democrat,0.5521,true
+model,anthropic/claude-haiku-5.5,7987,DE,Michael Katz,Republican,0.4479,false
+model,anthropic/claude-haiku-5.5,7987,FL,Angie Nixon,Democrat,0.5478,true
+model,anthropic/claude-haiku-5.5,7987,FL,Ashley Moody,Republican,0.4522,false
+model,anthropic/claude-haiku-5.5,7987,GA,Jon Ossoff,Democrat,0.4976,false
+model,anthropic/claude-haiku-5.5,7987,GA,Mike Collins,Republican,0.5024,true
+model,anthropic/claude-haiku-5.5,7987,IA,Ashley Hinson,Republican,0.5138,true
+model,anthropic/claude-haiku-5.5,7987,IA,Josh Turek,Democrat,0.4862,false
+model,anthropic/claude-haiku-5.5,7987,ID,Jim Risch,Republican,0.5815,true
+model,anthropic/claude-haiku-5.5,7987,ID,Todd Achilles,Independent,0.4185,false
+model,anthropic/claude-haiku-5.5,7987,IL,Don Tracy,Republican,0.4242,false
+model,anthropic/claude-haiku-5.5,7987,IL,Juliana Stratton,Democrat,0.5758,true
+model,anthropic/claude-haiku-5.5,7987,KS,Adam Hamilton,Democrat,0.5266,true
+model,anthropic/claude-haiku-5.5,7987,KS,Roger Marshall,Republican,0.4734,false
+model,anthropic/claude-haiku-5.5,7987,KY,Andy Barr,Republican,0.5873,true
+model,anthropic/claude-haiku-5.5,7987,KY,Charles Booker,Democrat,0.4127,false
+model,anthropic/claude-haiku-5.5,7987,LA,Jamie Davis,Democrat,0.5048,true
+model,anthropic/claude-haiku-5.5,7987,LA,Julia Letlow,Republican,0.4952,false
+model,anthropic/claude-haiku-5.5,7987,MA,Ed Markey,Democrat,0.6568,true
+model,anthropic/claude-haiku-5.5,7987,MA,John Deaton,Republican,0.3432,false
+model,anthropic/claude-haiku-5.5,7987,ME,Susan Collins,Republican,0.405,false
+model,anthropic/claude-haiku-5.5,7987,ME,Troy Jackson,Democrat,0.595,true
+model,anthropic/claude-haiku-5.5,7987,MI,Abdul El-Sayed,Democrat,0.5104,true
+model,anthropic/claude-haiku-5.5,7987,MI,Mike Rogers,Republican,0.4896,false
+model,anthropic/claude-haiku-5.5,7987,MN,Michele Tafoya,Republican,0.3499,false
+model,anthropic/claude-haiku-5.5,7987,MN,Peggy Flanagan,Democrat,0.6501,true
+model,anthropic/claude-haiku-5.5,7987,MS,Cindy Hyde-Smith,Republican,0.6088,true
+model,anthropic/claude-haiku-5.5,7987,MS,Scott Colom,Democrat,0.3912,false
+model,anthropic/claude-haiku-5.5,7987,MT,Alani Bankhead,Democrat,0.3408,false
+model,anthropic/claude-haiku-5.5,7987,MT,Kurt Alme,Republican,0.5454,true
+model,anthropic/claude-haiku-5.5,7987,MT,Seth Bodnar,Independent,0.1138,false
+model,anthropic/claude-haiku-5.5,7987,NC,Michael Whatley,Republican,0.4729,false
+model,anthropic/claude-haiku-5.5,7987,NC,Roy Cooper,Democrat,0.5271,true
+model,anthropic/claude-haiku-5.5,7987,NE,Dan Osborn,Independent,0.469,false
+model,anthropic/claude-haiku-5.5,7987,NE,Pete Ricketts,Republican,0.531,true
+model,anthropic/claude-haiku-5.5,7987,NH,Chris Pappas,Democrat,0.536,true
+model,anthropic/claude-haiku-5.5,7987,NH,John E. Sununu,Republican,0.464,false
+model,anthropic/claude-haiku-5.5,7987,NJ,Cory Booker,Democrat,0.5036,true
+model,anthropic/claude-haiku-5.5,7987,NJ,Justin Murphy,Republican,0.4964,false
+model,anthropic/claude-haiku-5.5,7987,NM,Ben Ray Luján,Democrat,0.5469,true
+model,anthropic/claude-haiku-5.5,7987,NM,Larry Marker,Republican,0.4531,false
+model,anthropic/claude-haiku-5.5,7987,OH,Jon Husted,Republican,0.5185,true
+model,anthropic/claude-haiku-5.5,7987,OH,Sherrod Brown,Democrat,0.4815,false
+model,anthropic/claude-haiku-5.5,7987,OK,Kevin Hern,Republican,0.7283,true
+model,anthropic/claude-haiku-5.5,7987,OK,N'Kiyla Jasmine Thomas,Democrat,0.2717,false
+model,anthropic/claude-haiku-5.5,7987,OR,David Brock Smith,Republican,0.4399,false
+model,anthropic/claude-haiku-5.5,7987,OR,Jeff Merkley,Democrat,0.5601,true
+model,anthropic/claude-haiku-5.5,7987,RI,Jack Reed,Democrat,0.5803,true
+model,anthropic/claude-haiku-5.5,7987,RI,Raymond McKay,Republican,0.4197,false
+model,anthropic/claude-haiku-5.5,7987,SC,Annie Andrews,Democrat,0.4912,false
+model,anthropic/claude-haiku-5.5,7987,SC,Darline Graham,Republican,0.5088,true
+model,anthropic/claude-haiku-5.5,7987,SD,Brian Bengs,Independent,0.4402,false
+model,anthropic/claude-haiku-5.5,7987,SD,Mike Rounds,Republican,0.5598,true
+model,anthropic/claude-haiku-5.5,7987,TN,Bill Hagerty,Republican,0.6394,true
+model,anthropic/claude-haiku-5.5,7987,TN,Marquita Bradshaw,Democrat,0.3606,false
+model,anthropic/claude-haiku-5.5,7987,TX,James Talarico,Democrat,0.3947,false
+model,anthropic/claude-haiku-5.5,7987,TX,Ken Paxton,Republican,0.6053,true
+model,anthropic/claude-haiku-5.5,7987,VA,Bert Mizusawa,Republican,0.5129,true
+model,anthropic/claude-haiku-5.5,7987,VA,Mark Warner,Democrat,0.4871,false
+model,anthropic/claude-haiku-5.5,7987,WV,Rachel Fetty Anderson,Democrat,0.4472,false
+model,anthropic/claude-haiku-5.5,7987,WV,Shelley Moore Capito,Republican,0.5528,true
+model,anthropic/claude-haiku-5.5,7987,WY,Harriet Hageman,Republican,0.702,true
+model,anthropic/claude-haiku-5.5,7987,WY,James W. Byrd,Democrat,0.298,false
+model,anthropic/claude-haiku-5.5,8809,AK,Dan S. Sullivan,Republican,0.5409,true
+model,anthropic/claude-haiku-5.5,8809,AK,Mary Peltola,Democrat,0.4591,false
+model,anthropic/claude-haiku-5.5,8809,AL,Barry Moore,Republican,0.6763,true
+model,anthropic/claude-haiku-5.5,8809,AL,Everett Wess,Democrat,0.3237,false
+model,anthropic/claude-haiku-5.5,8809,AR,Hallie Shoffner,Democrat,0.3709,false
+model,anthropic/claude-haiku-5.5,8809,AR,Tom Cotton,Republican,0.6291,true
+model,anthropic/claude-haiku-5.5,8809,CO,John Hickenlooper,Democrat,0.4383,false
+model,anthropic/claude-haiku-5.5,8809,CO,Mark Baisley,Republican,0.5617,true
+model,anthropic/claude-haiku-5.5,8809,DE,Chris Coons,Democrat,0.7278,true
+model,anthropic/claude-haiku-5.5,8809,DE,Michael Katz,Republican,0.2722,false
+model,anthropic/claude-haiku-5.5,8809,FL,Angie Nixon,Democrat,0.4403,false
+model,anthropic/claude-haiku-5.5,8809,FL,Ashley Moody,Republican,0.5597,true
+model,anthropic/claude-haiku-5.5,8809,GA,Jon Ossoff,Democrat,0.4993,false
+model,anthropic/claude-haiku-5.5,8809,GA,Mike Collins,Republican,0.5007,true
+model,anthropic/claude-haiku-5.5,8809,IA,Ashley Hinson,Republican,0.524,true
+model,anthropic/claude-haiku-5.5,8809,IA,Josh Turek,Democrat,0.476,false
+model,anthropic/claude-haiku-5.5,8809,ID,Jim Risch,Republican,0.5065,true
+model,anthropic/claude-haiku-5.5,8809,ID,Todd Achilles,Independent,0.4935,false
+model,anthropic/claude-haiku-5.5,8809,IL,Don Tracy,Republican,0.4317,false
+model,anthropic/claude-haiku-5.5,8809,IL,Juliana Stratton,Democrat,0.5683,true
+model,anthropic/claude-haiku-5.5,8809,KS,Adam Hamilton,Democrat,0.4133,false
+model,anthropic/claude-haiku-5.5,8809,KS,Roger Marshall,Republican,0.5867,true
+model,anthropic/claude-haiku-5.5,8809,KY,Andy Barr,Republican,0.6016,true
+model,anthropic/claude-haiku-5.5,8809,KY,Charles Booker,Democrat,0.3984,false
+model,anthropic/claude-haiku-5.5,8809,LA,Jamie Davis,Democrat,0.4273,false
+model,anthropic/claude-haiku-5.5,8809,LA,Julia Letlow,Republican,0.5727,true
+model,anthropic/claude-haiku-5.5,8809,MA,Ed Markey,Democrat,0.7067,true
+model,anthropic/claude-haiku-5.5,8809,MA,John Deaton,Republican,0.2933,false
+model,anthropic/claude-haiku-5.5,8809,ME,Susan Collins,Republican,0.4213,false
+model,anthropic/claude-haiku-5.5,8809,ME,Troy Jackson,Democrat,0.5787,true
+model,anthropic/claude-haiku-5.5,8809,MI,Abdul El-Sayed,Democrat,0.3853,false
+model,anthropic/claude-haiku-5.5,8809,MI,Mike Rogers,Republican,0.6147,true
+model,anthropic/claude-haiku-5.5,8809,MN,Michele Tafoya,Republican,0.5233,true
+model,anthropic/claude-haiku-5.5,8809,MN,Peggy Flanagan,Democrat,0.4767,false
+model,anthropic/claude-haiku-5.5,8809,MS,Cindy Hyde-Smith,Republican,0.677,true
+model,anthropic/claude-haiku-5.5,8809,MS,Scott Colom,Democrat,0.323,false
+model,anthropic/claude-haiku-5.5,8809,MT,Alani Bankhead,Democrat,0.3104,false
+model,anthropic/claude-haiku-5.5,8809,MT,Kurt Alme,Republican,0.5859,true
+model,anthropic/claude-haiku-5.5,8809,MT,Seth Bodnar,Independent,0.1036,false
+model,anthropic/claude-haiku-5.5,8809,NC,Michael Whatley,Republican,0.6168,true
+model,anthropic/claude-haiku-5.5,8809,NC,Roy Cooper,Democrat,0.3832,false
+model,anthropic/claude-haiku-5.5,8809,NE,Dan Osborn,Independent,0.385,false
+model,anthropic/claude-haiku-5.5,8809,NE,Pete Ricketts,Republican,0.615,true
+model,anthropic/claude-haiku-5.5,8809,NH,Chris Pappas,Democrat,0.5907,true
+model,anthropic/claude-haiku-5.5,8809,NH,John E. Sununu,Republican,0.4093,false
+model,anthropic/claude-haiku-5.5,8809,NJ,Cory Booker,Democrat,0.5533,true
+model,anthropic/claude-haiku-5.5,8809,NJ,Justin Murphy,Republican,0.4467,false
+model,anthropic/claude-haiku-5.5,8809,NM,Ben Ray Luján,Democrat,0.5596,true
+model,anthropic/claude-haiku-5.5,8809,NM,Larry Marker,Republican,0.4404,false
+model,anthropic/claude-haiku-5.5,8809,OH,Jon Husted,Republican,0.6062,true
+model,anthropic/claude-haiku-5.5,8809,OH,Sherrod Brown,Democrat,0.3938,false
+model,anthropic/claude-haiku-5.5,8809,OK,Kevin Hern,Republican,0.6247,true
+model,anthropic/claude-haiku-5.5,8809,OK,N'Kiyla Jasmine Thomas,Democrat,0.3753,false
+model,anthropic/claude-haiku-5.5,8809,OR,David Brock Smith,Republican,0.4541,false
+model,anthropic/claude-haiku-5.5,8809,OR,Jeff Merkley,Democrat,0.5459,true
+model,anthropic/claude-haiku-5.5,8809,RI,Jack Reed,Democrat,0.5196,true
+model,anthropic/claude-haiku-5.5,8809,RI,Raymond McKay,Republican,0.4804,false
+model,anthropic/claude-haiku-5.5,8809,SC,Annie Andrews,Democrat,0.4607,false
+model,anthropic/claude-haiku-5.5,8809,SC,Darline Graham,Republican,0.5393,true
+model,anthropic/claude-haiku-5.5,8809,SD,Brian Bengs,Independent,0.2266,false
+model,anthropic/claude-haiku-5.5,8809,SD,Mike Rounds,Republican,0.7734,true
+model,anthropic/claude-haiku-5.5,8809,TN,Bill Hagerty,Republican,0.7034,true
+model,anthropic/claude-haiku-5.5,8809,TN,Marquita Bradshaw,Democrat,0.2966,false
+model,anthropic/claude-haiku-5.5,8809,TX,James Talarico,Democrat,0.4844,false
+model,anthropic/claude-haiku-5.5,8809,TX,Ken Paxton,Republican,0.5156,true
+model,anthropic/claude-haiku-5.5,8809,VA,Bert Mizusawa,Republican,0.4852,false
+model,anthropic/claude-haiku-5.5,8809,VA,Mark Warner,Democrat,0.5148,true
+model,anthropic/claude-haiku-5.5,8809,WV,Rachel Fetty Anderson,Democrat,0.2738,false
+model,anthropic/claude-haiku-5.5,8809,WV,Shelley Moore Capito,Republican,0.7262,true
+model,anthropic/claude-haiku-5.5,8809,WY,Harriet Hageman,Republican,0.713,true
+model,anthropic/claude-haiku-5.5,8809,WY,James W. Byrd,Democrat,0.287,false
+model,cohere/command-a-plus,729,AK,Dan S. Sullivan,Republican,0.5013,true
+model,cohere/command-a-plus,729,AK,Mary Peltola,Democrat,0.4987,false
+model,cohere/command-a-plus,729,AL,Barry Moore,Republican,0.604,true
+model,cohere/command-a-plus,729,AL,Everett Wess,Democrat,0.396,false
+model,cohere/command-a-plus,729,AR,Hallie Shoffner,Democrat,0.3941,false
+model,cohere/command-a-plus,729,AR,Tom Cotton,Republican,0.6059,true
+model,cohere/command-a-plus,729,CO,John Hickenlooper,Democrat,0.6946,true
+model,cohere/command-a-plus,729,CO,Mark Baisley,Republican,0.3054,false
+model,cohere/command-a-plus,729,DE,Chris Coons,Democrat,0.7068,true
+model,cohere/command-a-plus,729,DE,Michael Katz,Republican,0.2932,false
+model,cohere/command-a-plus,729,FL,Angie Nixon,Democrat,0.4868,false
+model,cohere/command-a-plus,729,FL,Ashley Moody,Republican,0.5132,true
+model,cohere/command-a-plus,729,GA,Jon Ossoff,Democrat,0.447,false
+model,cohere/command-a-plus,729,GA,Mike Collins,Republican,0.553,true
+model,cohere/command-a-plus,729,IA,Ashley Hinson,Republican,0.5185,true
+model,cohere/command-a-plus,729,IA,Josh Turek,Democrat,0.4815,false
+model,cohere/command-a-plus,729,ID,Jim Risch,Republican,0.6444,true
+model,cohere/command-a-plus,729,ID,Todd Achilles,Independent,0.3556,false
+model,cohere/command-a-plus,729,IL,Don Tracy,Republican,0.4198,false
+model,cohere/command-a-plus,729,IL,Juliana Stratton,Democrat,0.5802,true
+model,cohere/command-a-plus,729,KS,Adam Hamilton,Democrat,0.3953,false
+model,cohere/command-a-plus,729,KS,Roger Marshall,Republican,0.6047,true
+model,cohere/command-a-plus,729,KY,Andy Barr,Republican,0.6604,true
+model,cohere/command-a-plus,729,KY,Charles Booker,Democrat,0.3396,false
+model,cohere/command-a-plus,729,LA,Jamie Davis,Democrat,0.3532,false
+model,cohere/command-a-plus,729,LA,Julia Letlow,Republican,0.6468,true
+model,cohere/command-a-plus,729,MA,Ed Markey,Democrat,0.4633,false
+model,cohere/command-a-plus,729,MA,John Deaton,Republican,0.5367,true
+model,cohere/command-a-plus,729,ME,Susan Collins,Republican,0.4332,false
+model,cohere/command-a-plus,729,ME,Troy Jackson,Democrat,0.5668,true
+model,cohere/command-a-plus,729,MI,Abdul El-Sayed,Democrat,0.4319,false
+model,cohere/command-a-plus,729,MI,Mike Rogers,Republican,0.5681,true
+model,cohere/command-a-plus,729,MN,Michele Tafoya,Republican,0.455,false
+model,cohere/command-a-plus,729,MN,Peggy Flanagan,Democrat,0.545,true
+model,cohere/command-a-plus,729,MS,Cindy Hyde-Smith,Republican,0.5775,true
+model,cohere/command-a-plus,729,MS,Scott Colom,Democrat,0.4225,false
+model,cohere/command-a-plus,729,MT,Alani Bankhead,Democrat,0.3087,false
+model,cohere/command-a-plus,729,MT,Kurt Alme,Republican,0.6372,true
+model,cohere/command-a-plus,729,MT,Seth Bodnar,Independent,0.0542,false
+model,cohere/command-a-plus,729,NC,Michael Whatley,Republican,0.4714,false
+model,cohere/command-a-plus,729,NC,Roy Cooper,Democrat,0.5286,true
+model,cohere/command-a-plus,729,NE,Dan Osborn,Independent,0.4776,false
+model,cohere/command-a-plus,729,NE,Pete Ricketts,Republican,0.5224,true
+model,cohere/command-a-plus,729,NH,Chris Pappas,Democrat,0.5073,true
+model,cohere/command-a-plus,729,NH,John E. Sununu,Republican,0.4927,false
+model,cohere/command-a-plus,729,NJ,Cory Booker,Democrat,0.6429,true
+model,cohere/command-a-plus,729,NJ,Justin Murphy,Republican,0.3571,false
+model,cohere/command-a-plus,729,NM,Ben Ray Luján,Democrat,0.5506,true
+model,cohere/command-a-plus,729,NM,Larry Marker,Republican,0.4494,false
+model,cohere/command-a-plus,729,OH,Jon Husted,Republican,0.6808,true
+model,cohere/command-a-plus,729,OH,Sherrod Brown,Democrat,0.3192,false
+model,cohere/command-a-plus,729,OK,Kevin Hern,Republican,0.6665,true
+model,cohere/command-a-plus,729,OK,N'Kiyla Jasmine Thomas,Democrat,0.3335,false
+model,cohere/command-a-plus,729,OR,David Brock Smith,Republican,0.3974,false
+model,cohere/command-a-plus,729,OR,Jeff Merkley,Democrat,0.6026,true
+model,cohere/command-a-plus,729,RI,Jack Reed,Democrat,0.5651,true
+model,cohere/command-a-plus,729,RI,Raymond McKay,Republican,0.4349,false
+model,cohere/command-a-plus,729,SC,Annie Andrews,Democrat,0.4718,false
+model,cohere/command-a-plus,729,SC,Darline Graham,Republican,0.5282,true
+model,cohere/command-a-plus,729,SD,Brian Bengs,Independent,0.2887,false
+model,cohere/command-a-plus,729,SD,Mike Rounds,Republican,0.7113,true
+model,cohere/command-a-plus,729,TN,Bill Hagerty,Republican,0.6583,true
+model,cohere/command-a-plus,729,TN,Marquita Bradshaw,Democrat,0.3417,false
+model,cohere/command-a-plus,729,TX,James Talarico,Democrat,0.4133,false
+model,cohere/command-a-plus,729,TX,Ken Paxton,Republican,0.5867,true
+model,cohere/command-a-plus,729,VA,Bert Mizusawa,Republican,0.3604,false
+model,cohere/command-a-plus,729,VA,Mark Warner,Democrat,0.6396,true
+model,cohere/command-a-plus,729,WV,Rachel Fetty Anderson,Democrat,0.3619,false
+model,cohere/command-a-plus,729,WV,Shelley Moore Capito,Republican,0.6381,true
+model,cohere/command-a-plus,729,WY,Harriet Hageman,Republican,0.7151,true
+model,cohere/command-a-plus,729,WY,James W. Byrd,Democrat,0.2849,false
+model,cohere/command-a-plus,910,AK,Dan S. Sullivan,Republican,0.4277,false
+model,cohere/command-a-plus,910,AK,Mary Peltola,Democrat,0.5723,true
+model,cohere/command-a-plus,910,AL,Barry Moore,Republican,0.6653,true
+model,cohere/command-a-plus,910,AL,Everett Wess,Democrat,0.3347,false
+model,cohere/command-a-plus,910,AR,Hallie Shoffner,Democrat,0.3705,false
+model,cohere/command-a-plus,910,AR,Tom Cotton,Republican,0.6295,true
+model,cohere/command-a-plus,910,CO,John Hickenlooper,Democrat,0.4985,false
+model,cohere/command-a-plus,910,CO,Mark Baisley,Republican,0.5015,true
+model,cohere/command-a-plus,910,DE,Chris Coons,Democrat,0.7185,true
+model,cohere/command-a-plus,910,DE,Michael Katz,Republican,0.2815,false
+model,cohere/command-a-plus,910,FL,Angie Nixon,Democrat,0.3554,false
+model,cohere/command-a-plus,910,FL,Ashley Moody,Republican,0.6446,true
+model,cohere/command-a-plus,910,GA,Jon Ossoff,Democrat,0.3993,false
+model,cohere/command-a-plus,910,GA,Mike Collins,Republican,0.6007,true
+model,cohere/command-a-plus,910,IA,Ashley Hinson,Republican,0.5978,true
+model,cohere/command-a-plus,910,IA,Josh Turek,Democrat,0.4022,false
+model,cohere/command-a-plus,910,ID,Jim Risch,Republican,0.61,true
+model,cohere/command-a-plus,910,ID,Todd Achilles,Independent,0.39,false
+model,cohere/command-a-plus,910,IL,Don Tracy,Republican,0.4778,false
+model,cohere/command-a-plus,910,IL,Juliana Stratton,Democrat,0.5222,true
+model,cohere/command-a-plus,910,KS,Adam Hamilton,Democrat,0.4888,false
+model,cohere/command-a-plus,910,KS,Roger Marshall,Republican,0.5112,true
+model,cohere/command-a-plus,910,KY,Andy Barr,Republican,0.7221,true
+model,cohere/command-a-plus,910,KY,Charles Booker,Democrat,0.2779,false
+model,cohere/command-a-plus,910,LA,Jamie Davis,Democrat,0.4641,false
+model,cohere/command-a-plus,910,LA,Julia Letlow,Republican,0.5359,true
+model,cohere/command-a-plus,910,MA,Ed Markey,Democrat,0.6162,true
+model,cohere/command-a-plus,910,MA,John Deaton,Republican,0.3838,false
+model,cohere/command-a-plus,910,ME,Susan Collins,Republican,0.4146,false
+model,cohere/command-a-plus,910,ME,Troy Jackson,Democrat,0.5854,true
+model,cohere/command-a-plus,910,MI,Abdul El-Sayed,Democrat,0.4883,false
+model,cohere/command-a-plus,910,MI,Mike Rogers,Republican,0.5117,true
+model,cohere/command-a-plus,910,MN,Michele Tafoya,Republican,0.4318,false
+model,cohere/command-a-plus,910,MN,Peggy Flanagan,Democrat,0.5682,true
+model,cohere/command-a-plus,910,MS,Cindy Hyde-Smith,Republican,0.6401,true
+model,cohere/command-a-plus,910,MS,Scott Colom,Democrat,0.3599,false
+model,cohere/command-a-plus,910,MT,Alani Bankhead,Democrat,0.2492,false
+model,cohere/command-a-plus,910,MT,Kurt Alme,Republican,0.7071,true
+model,cohere/command-a-plus,910,MT,Seth Bodnar,Independent,0.0437,false
+model,cohere/command-a-plus,910,NC,Michael Whatley,Republican,0.4235,false
+model,cohere/command-a-plus,910,NC,Roy Cooper,Democrat,0.5765,true
+model,cohere/command-a-plus,910,NE,Dan Osborn,Independent,0.4267,false
+model,cohere/command-a-plus,910,NE,Pete Ricketts,Republican,0.5733,true
+model,cohere/command-a-plus,910,NH,Chris Pappas,Democrat,0.5545,true
+model,cohere/command-a-plus,910,NH,John E. Sununu,Republican,0.4455,false
+model,cohere/command-a-plus,910,NJ,Cory Booker,Democrat,0.5416,true
+model,cohere/command-a-plus,910,NJ,Justin Murphy,Republican,0.4584,false
+model,cohere/command-a-plus,910,NM,Ben Ray Luján,Democrat,0.5435,true
+model,cohere/command-a-plus,910,NM,Larry Marker,Republican,0.4565,false
+model,cohere/command-a-plus,910,OH,Jon Husted,Republican,0.5258,true
+model,cohere/command-a-plus,910,OH,Sherrod Brown,Democrat,0.4742,false
+model,cohere/command-a-plus,910,OK,Kevin Hern,Republican,0.7208,true
+model,cohere/command-a-plus,910,OK,N'Kiyla Jasmine Thomas,Democrat,0.2792,false
+model,cohere/command-a-plus,910,OR,David Brock Smith,Republican,0.3929,false
+model,cohere/command-a-plus,910,OR,Jeff Merkley,Democrat,0.6071,true
+model,cohere/command-a-plus,910,RI,Jack Reed,Democrat,0.6801,true
+model,cohere/command-a-plus,910,RI,Raymond McKay,Republican,0.3199,false
+model,cohere/command-a-plus,910,SC,Annie Andrews,Democrat,0.5037,true
+model,cohere/command-a-plus,910,SC,Darline Graham,Republican,0.4963,false
+model,cohere/command-a-plus,910,SD,Brian Bengs,Independent,0.3358,false
+model,cohere/command-a-plus,910,SD,Mike Rounds,Republican,0.6642,true
+model,cohere/command-a-plus,910,TN,Bill Hagerty,Republican,0.6477,true
+model,cohere/command-a-plus,910,TN,Marquita Bradshaw,Democrat,0.3523,false
+model,cohere/command-a-plus,910,TX,James Talarico,Democrat,0.4694,false
+model,cohere/command-a-plus,910,TX,Ken Paxton,Republican,0.5306,true
+model,cohere/command-a-plus,910,VA,Bert Mizusawa,Republican,0.5199,true
+model,cohere/command-a-plus,910,VA,Mark Warner,Democrat,0.4801,false
+model,cohere/command-a-plus,910,WV,Rachel Fetty Anderson,Democrat,0.3716,false
+model,cohere/command-a-plus,910,WV,Shelley Moore Capito,Republican,0.6284,true
+model,cohere/command-a-plus,910,WY,Harriet Hageman,Republican,0.6968,true
+model,cohere/command-a-plus,910,WY,James W. Byrd,Democrat,0.3032,false
+model,cohere/command-a-plus,1165,AK,Dan S. Sullivan,Republican,0.4744,false
+model,cohere/command-a-plus,1165,AK,Mary Peltola,Democrat,0.5256,true
+model,cohere/command-a-plus,1165,AL,Barry Moore,Republican,0.5116,true
+model,cohere/command-a-plus,1165,AL,Everett Wess,Democrat,0.4884,false
+model,cohere/command-a-plus,1165,AR,Hallie Shoffner,Democrat,0.4685,false
+model,cohere/command-a-plus,1165,AR,Tom Cotton,Republican,0.5315,true
+model,cohere/command-a-plus,1165,CO,John Hickenlooper,Democrat,0.6209,true
+model,cohere/command-a-plus,1165,CO,Mark Baisley,Republican,0.3791,false
+model,cohere/command-a-plus,1165,DE,Chris Coons,Democrat,0.8088,true
+model,cohere/command-a-plus,1165,DE,Michael Katz,Republican,0.1912,false
+model,cohere/command-a-plus,1165,FL,Angie Nixon,Democrat,0.589,true
+model,cohere/command-a-plus,1165,FL,Ashley Moody,Republican,0.411,false
+model,cohere/command-a-plus,1165,GA,Jon Ossoff,Democrat,0.5422,true
+model,cohere/command-a-plus,1165,GA,Mike Collins,Republican,0.4578,false
+model,cohere/command-a-plus,1165,IA,Ashley Hinson,Republican,0.3901,false
+model,cohere/command-a-plus,1165,IA,Josh Turek,Democrat,0.6099,true
+model,cohere/command-a-plus,1165,ID,Jim Risch,Republican,0.5593,true
+model,cohere/command-a-plus,1165,ID,Todd Achilles,Independent,0.4407,false
+model,cohere/command-a-plus,1165,IL,Don Tracy,Republican,0.3809,false
+model,cohere/command-a-plus,1165,IL,Juliana Stratton,Democrat,0.6191,true
+model,cohere/command-a-plus,1165,KS,Adam Hamilton,Democrat,0.5684,true
+model,cohere/command-a-plus,1165,KS,Roger Marshall,Republican,0.4316,false
+model,cohere/command-a-plus,1165,KY,Andy Barr,Republican,0.6492,true
+model,cohere/command-a-plus,1165,KY,Charles Booker,Democrat,0.3508,false
+model,cohere/command-a-plus,1165,LA,Jamie Davis,Democrat,0.4756,false
+model,cohere/command-a-plus,1165,LA,Julia Letlow,Republican,0.5244,true
+model,cohere/command-a-plus,1165,MA,Ed Markey,Democrat,0.7015,true
+model,cohere/command-a-plus,1165,MA,John Deaton,Republican,0.2985,false
+model,cohere/command-a-plus,1165,ME,Susan Collins,Republican,0.4309,false
+model,cohere/command-a-plus,1165,ME,Troy Jackson,Democrat,0.5691,true
+model,cohere/command-a-plus,1165,MI,Abdul El-Sayed,Democrat,0.5137,true
+model,cohere/command-a-plus,1165,MI,Mike Rogers,Republican,0.4863,false
+model,cohere/command-a-plus,1165,MN,Michele Tafoya,Republican,0.3831,false
+model,cohere/command-a-plus,1165,MN,Peggy Flanagan,Democrat,0.6169,true
+model,cohere/command-a-plus,1165,MS,Cindy Hyde-Smith,Republican,0.6295,true
+model,cohere/command-a-plus,1165,MS,Scott Colom,Democrat,0.3705,false
+model,cohere/command-a-plus,1165,MT,Alani Bankhead,Democrat,0.4285,false
+model,cohere/command-a-plus,1165,MT,Kurt Alme,Republican,0.4964,true
+model,cohere/command-a-plus,1165,MT,Seth Bodnar,Independent,0.0752,false
+model,cohere/command-a-plus,1165,NC,Michael Whatley,Republican,0.4152,false
+model,cohere/command-a-plus,1165,NC,Roy Cooper,Democrat,0.5848,true
+model,cohere/command-a-plus,1165,NE,Dan Osborn,Independent,0.4795,false
+model,cohere/command-a-plus,1165,NE,Pete Ricketts,Republican,0.5205,true
+model,cohere/command-a-plus,1165,NH,Chris Pappas,Democrat,0.481,false
+model,cohere/command-a-plus,1165,NH,John E. Sununu,Republican,0.519,true
+model,cohere/command-a-plus,1165,NJ,Cory Booker,Democrat,0.5721,true
+model,cohere/command-a-plus,1165,NJ,Justin Murphy,Republican,0.4279,false
+model,cohere/command-a-plus,1165,NM,Ben Ray Luján,Democrat,0.5977,true
+model,cohere/command-a-plus,1165,NM,Larry Marker,Republican,0.4023,false
+model,cohere/command-a-plus,1165,OH,Jon Husted,Republican,0.4083,false
+model,cohere/command-a-plus,1165,OH,Sherrod Brown,Democrat,0.5917,true
+model,cohere/command-a-plus,1165,OK,Kevin Hern,Republican,0.6042,true
+model,cohere/command-a-plus,1165,OK,N'Kiyla Jasmine Thomas,Democrat,0.3958,false
+model,cohere/command-a-plus,1165,OR,David Brock Smith,Republican,0.4971,false
+model,cohere/command-a-plus,1165,OR,Jeff Merkley,Democrat,0.5029,true
+model,cohere/command-a-plus,1165,RI,Jack Reed,Democrat,0.6256,true
+model,cohere/command-a-plus,1165,RI,Raymond McKay,Republican,0.3744,false
+model,cohere/command-a-plus,1165,SC,Annie Andrews,Democrat,0.4898,false
+model,cohere/command-a-plus,1165,SC,Darline Graham,Republican,0.5102,true
+model,cohere/command-a-plus,1165,SD,Brian Bengs,Independent,0.3584,false
+model,cohere/command-a-plus,1165,SD,Mike Rounds,Republican,0.6416,true
+model,cohere/command-a-plus,1165,TN,Bill Hagerty,Republican,0.6136,true
+model,cohere/command-a-plus,1165,TN,Marquita Bradshaw,Democrat,0.3864,false
+model,cohere/command-a-plus,1165,TX,James Talarico,Democrat,0.5544,true
+model,cohere/command-a-plus,1165,TX,Ken Paxton,Republican,0.4456,false
+model,cohere/command-a-plus,1165,VA,Bert Mizusawa,Republican,0.3911,false
+model,cohere/command-a-plus,1165,VA,Mark Warner,Democrat,0.6089,true
+model,cohere/command-a-plus,1165,WV,Rachel Fetty Anderson,Democrat,0.3566,false
+model,cohere/command-a-plus,1165,WV,Shelley Moore Capito,Republican,0.6434,true
+model,cohere/command-a-plus,1165,WY,Harriet Hageman,Republican,0.6847,true
+model,cohere/command-a-plus,1165,WY,James W. Byrd,Democrat,0.3153,false
+model,cohere/command-a-plus,4906,AK,Dan S. Sullivan,Republican,0.4162,false
+model,cohere/command-a-plus,4906,AK,Mary Peltola,Democrat,0.5838,true
+model,cohere/command-a-plus,4906,AL,Barry Moore,Republican,0.636,true
+model,cohere/command-a-plus,4906,AL,Everett Wess,Democrat,0.364,false
+model,cohere/command-a-plus,4906,AR,Hallie Shoffner,Democrat,0.5174,true
+model,cohere/command-a-plus,4906,AR,Tom Cotton,Republican,0.4826,false
+model,cohere/command-a-plus,4906,CO,John Hickenlooper,Democrat,0.7114,true
+model,cohere/command-a-plus,4906,CO,Mark Baisley,Republican,0.2886,false
+model,cohere/command-a-plus,4906,DE,Chris Coons,Democrat,0.7105,true
+model,cohere/command-a-plus,4906,DE,Michael Katz,Republican,0.2895,false
+model,cohere/command-a-plus,4906,FL,Angie Nixon,Democrat,0.5272,true
+model,cohere/command-a-plus,4906,FL,Ashley Moody,Republican,0.4728,false
+model,cohere/command-a-plus,4906,GA,Jon Ossoff,Democrat,0.5635,true
+model,cohere/command-a-plus,4906,GA,Mike Collins,Republican,0.4365,false
+model,cohere/command-a-plus,4906,IA,Ashley Hinson,Republican,0.4548,false
+model,cohere/command-a-plus,4906,IA,Josh Turek,Democrat,0.5452,true
+model,cohere/command-a-plus,4906,ID,Jim Risch,Republican,0.542,true
+model,cohere/command-a-plus,4906,ID,Todd Achilles,Independent,0.458,false
+model,cohere/command-a-plus,4906,IL,Don Tracy,Republican,0.4118,false
+model,cohere/command-a-plus,4906,IL,Juliana Stratton,Democrat,0.5882,true
+model,cohere/command-a-plus,4906,KS,Adam Hamilton,Democrat,0.5679,true
+model,cohere/command-a-plus,4906,KS,Roger Marshall,Republican,0.4321,false
+model,cohere/command-a-plus,4906,KY,Andy Barr,Republican,0.6755,true
+model,cohere/command-a-plus,4906,KY,Charles Booker,Democrat,0.3245,false
+model,cohere/command-a-plus,4906,LA,Jamie Davis,Democrat,0.5628,true
+model,cohere/command-a-plus,4906,LA,Julia Letlow,Republican,0.4372,false
+model,cohere/command-a-plus,4906,MA,Ed Markey,Democrat,0.7361,true
+model,cohere/command-a-plus,4906,MA,John Deaton,Republican,0.2639,false
+model,cohere/command-a-plus,4906,ME,Susan Collins,Republican,0.3989,false
+model,cohere/command-a-plus,4906,ME,Troy Jackson,Democrat,0.6011,true
+model,cohere/command-a-plus,4906,MI,Abdul El-Sayed,Democrat,0.5043,true
+model,cohere/command-a-plus,4906,MI,Mike Rogers,Republican,0.4957,false
+model,cohere/command-a-plus,4906,MN,Michele Tafoya,Republican,0.2769,false
+model,cohere/command-a-plus,4906,MN,Peggy Flanagan,Democrat,0.7231,true
+model,cohere/command-a-plus,4906,MS,Cindy Hyde-Smith,Republican,0.5417,true
+model,cohere/command-a-plus,4906,MS,Scott Colom,Democrat,0.4583,false
+model,cohere/command-a-plus,4906,MT,Alani Bankhead,Democrat,0.3573,false
+model,cohere/command-a-plus,4906,MT,Kurt Alme,Republican,0.5799,true
+model,cohere/command-a-plus,4906,MT,Seth Bodnar,Independent,0.0627,false
+model,cohere/command-a-plus,4906,NC,Michael Whatley,Republican,0.4591,false
+model,cohere/command-a-plus,4906,NC,Roy Cooper,Democrat,0.5409,true
+model,cohere/command-a-plus,4906,NE,Dan Osborn,Independent,0.5508,true
+model,cohere/command-a-plus,4906,NE,Pete Ricketts,Republican,0.4492,false
+model,cohere/command-a-plus,4906,NH,Chris Pappas,Democrat,0.5858,true
+model,cohere/command-a-plus,4906,NH,John E. Sununu,Republican,0.4142,false
+model,cohere/command-a-plus,4906,NJ,Cory Booker,Democrat,0.65,true
+model,cohere/command-a-plus,4906,NJ,Justin Murphy,Republican,0.35,false
+model,cohere/command-a-plus,4906,NM,Ben Ray Luján,Democrat,0.7463,true
+model,cohere/command-a-plus,4906,NM,Larry Marker,Republican,0.2537,false
+model,cohere/command-a-plus,4906,OH,Jon Husted,Republican,0.4363,false
+model,cohere/command-a-plus,4906,OH,Sherrod Brown,Democrat,0.5637,true
+model,cohere/command-a-plus,4906,OK,Kevin Hern,Republican,0.6429,true
+model,cohere/command-a-plus,4906,OK,N'Kiyla Jasmine Thomas,Democrat,0.3571,false
+model,cohere/command-a-plus,4906,OR,David Brock Smith,Republican,0.3933,false
+model,cohere/command-a-plus,4906,OR,Jeff Merkley,Democrat,0.6067,true
+model,cohere/command-a-plus,4906,RI,Jack Reed,Democrat,0.7493,true
+model,cohere/command-a-plus,4906,RI,Raymond McKay,Republican,0.2507,false
+model,cohere/command-a-plus,4906,SC,Annie Andrews,Democrat,0.5163,true
+model,cohere/command-a-plus,4906,SC,Darline Graham,Republican,0.4837,false
+model,cohere/command-a-plus,4906,SD,Brian Bengs,Independent,0.4703,false
+model,cohere/command-a-plus,4906,SD,Mike Rounds,Republican,0.5297,true
+model,cohere/command-a-plus,4906,TN,Bill Hagerty,Republican,0.5841,true
+model,cohere/command-a-plus,4906,TN,Marquita Bradshaw,Democrat,0.4159,false
+model,cohere/command-a-plus,4906,TX,James Talarico,Democrat,0.5769,true
+model,cohere/command-a-plus,4906,TX,Ken Paxton,Republican,0.4231,false
+model,cohere/command-a-plus,4906,VA,Bert Mizusawa,Republican,0.5084,true
+model,cohere/command-a-plus,4906,VA,Mark Warner,Democrat,0.4916,false
+model,cohere/command-a-plus,4906,WV,Rachel Fetty Anderson,Democrat,0.4412,false
+model,cohere/command-a-plus,4906,WV,Shelley Moore Capito,Republican,0.5588,true
+model,cohere/command-a-plus,4906,WY,Harriet Hageman,Republican,0.7177,true
+model,cohere/command-a-plus,4906,WY,James W. Byrd,Democrat,0.2823,false
+model,cohere/command-a-plus,8536,AK,Dan S. Sullivan,Republican,0.625,true
+model,cohere/command-a-plus,8536,AK,Mary Peltola,Democrat,0.375,false
+model,cohere/command-a-plus,8536,AL,Barry Moore,Republican,0.6103,true
+model,cohere/command-a-plus,8536,AL,Everett Wess,Democrat,0.3897,false
+model,cohere/command-a-plus,8536,AR,Hallie Shoffner,Democrat,0.3283,false
+model,cohere/command-a-plus,8536,AR,Tom Cotton,Republican,0.6717,true
+model,cohere/command-a-plus,8536,CO,John Hickenlooper,Democrat,0.5213,true
+model,cohere/command-a-plus,8536,CO,Mark Baisley,Republican,0.4787,false
+model,cohere/command-a-plus,8536,DE,Chris Coons,Democrat,0.7798,true
+model,cohere/command-a-plus,8536,DE,Michael Katz,Republican,0.2202,false
+model,cohere/command-a-plus,8536,FL,Angie Nixon,Democrat,0.5174,true
+model,cohere/command-a-plus,8536,FL,Ashley Moody,Republican,0.4826,false
+model,cohere/command-a-plus,8536,GA,Jon Ossoff,Democrat,0.3717,false
+model,cohere/command-a-plus,8536,GA,Mike Collins,Republican,0.6283,true
+model,cohere/command-a-plus,8536,IA,Ashley Hinson,Republican,0.6016,true
+model,cohere/command-a-plus,8536,IA,Josh Turek,Democrat,0.3984,false
+model,cohere/command-a-plus,8536,ID,Jim Risch,Republican,0.5606,true
+model,cohere/command-a-plus,8536,ID,Todd Achilles,Independent,0.4394,false
+model,cohere/command-a-plus,8536,IL,Don Tracy,Republican,0.3942,false
+model,cohere/command-a-plus,8536,IL,Juliana Stratton,Democrat,0.6058,true
+model,cohere/command-a-plus,8536,KS,Adam Hamilton,Democrat,0.4807,false
+model,cohere/command-a-plus,8536,KS,Roger Marshall,Republican,0.5193,true
+model,cohere/command-a-plus,8536,KY,Andy Barr,Republican,0.5274,true
+model,cohere/command-a-plus,8536,KY,Charles Booker,Democrat,0.4726,false
+model,cohere/command-a-plus,8536,LA,Jamie Davis,Democrat,0.4295,false
+model,cohere/command-a-plus,8536,LA,Julia Letlow,Republican,0.5705,true
+model,cohere/command-a-plus,8536,MA,Ed Markey,Democrat,0.5727,true
+model,cohere/command-a-plus,8536,MA,John Deaton,Republican,0.4273,false
+model,cohere/command-a-plus,8536,ME,Susan Collins,Republican,0.3923,false
+model,cohere/command-a-plus,8536,ME,Troy Jackson,Democrat,0.6077,true
+model,cohere/command-a-plus,8536,MI,Abdul El-Sayed,Democrat,0.4588,false
+model,cohere/command-a-plus,8536,MI,Mike Rogers,Republican,0.5412,true
+model,cohere/command-a-plus,8536,MN,Michele Tafoya,Republican,0.29,false
+model,cohere/command-a-plus,8536,MN,Peggy Flanagan,Democrat,0.71,true
+model,cohere/command-a-plus,8536,MS,Cindy Hyde-Smith,Republican,0.5805,true
+model,cohere/command-a-plus,8536,MS,Scott Colom,Democrat,0.4195,false
+model,cohere/command-a-plus,8536,MT,Alani Bankhead,Democrat,0.4072,false
+model,cohere/command-a-plus,8536,MT,Kurt Alme,Republican,0.5213,true
+model,cohere/command-a-plus,8536,MT,Seth Bodnar,Independent,0.0715,false
+model,cohere/command-a-plus,8536,NC,Michael Whatley,Republican,0.5533,true
+model,cohere/command-a-plus,8536,NC,Roy Cooper,Democrat,0.4467,false
+model,cohere/command-a-plus,8536,NE,Dan Osborn,Independent,0.4613,false
+model,cohere/command-a-plus,8536,NE,Pete Ricketts,Republican,0.5387,true
+model,cohere/command-a-plus,8536,NH,Chris Pappas,Democrat,0.5844,true
+model,cohere/command-a-plus,8536,NH,John E. Sununu,Republican,0.4156,false
+model,cohere/command-a-plus,8536,NJ,Cory Booker,Democrat,0.5295,true
+model,cohere/command-a-plus,8536,NJ,Justin Murphy,Republican,0.4705,false
+model,cohere/command-a-plus,8536,NM,Ben Ray Luján,Democrat,0.5257,true
+model,cohere/command-a-plus,8536,NM,Larry Marker,Republican,0.4743,false
+model,cohere/command-a-plus,8536,OH,Jon Husted,Republican,0.3761,false
+model,cohere/command-a-plus,8536,OH,Sherrod Brown,Democrat,0.6239,true
+model,cohere/command-a-plus,8536,OK,Kevin Hern,Republican,0.6247,true
+model,cohere/command-a-plus,8536,OK,N'Kiyla Jasmine Thomas,Democrat,0.3753,false
+model,cohere/command-a-plus,8536,OR,David Brock Smith,Republican,0.394,false
+model,cohere/command-a-plus,8536,OR,Jeff Merkley,Democrat,0.606,true
+model,cohere/command-a-plus,8536,RI,Jack Reed,Democrat,0.6704,true
+model,cohere/command-a-plus,8536,RI,Raymond McKay,Republican,0.3296,false
+model,cohere/command-a-plus,8536,SC,Annie Andrews,Democrat,0.3668,false
+model,cohere/command-a-plus,8536,SC,Darline Graham,Republican,0.6332,true
+model,cohere/command-a-plus,8536,SD,Brian Bengs,Independent,0.4252,false
+model,cohere/command-a-plus,8536,SD,Mike Rounds,Republican,0.5748,true
+model,cohere/command-a-plus,8536,TN,Bill Hagerty,Republican,0.5827,true
+model,cohere/command-a-plus,8536,TN,Marquita Bradshaw,Democrat,0.4173,false
+model,cohere/command-a-plus,8536,TX,James Talarico,Democrat,0.5675,true
+model,cohere/command-a-plus,8536,TX,Ken Paxton,Republican,0.4325,false
+model,cohere/command-a-plus,8536,VA,Bert Mizusawa,Republican,0.3718,false
+model,cohere/command-a-plus,8536,VA,Mark Warner,Democrat,0.6282,true
+model,cohere/command-a-plus,8536,WV,Rachel Fetty Anderson,Democrat,0.2611,false
+model,cohere/command-a-plus,8536,WV,Shelley Moore Capito,Republican,0.7389,true
+model,cohere/command-a-plus,8536,WY,Harriet Hageman,Republican,0.6747,true
+model,cohere/command-a-plus,8536,WY,James W. Byrd,Democrat,0.3253,false
+model,moonshotai/kimi-k3,1484,AK,Dan S. Sullivan,Republican,0.4908,false
+model,moonshotai/kimi-k3,1484,AK,Mary Peltola,Democrat,0.5092,true
+model,moonshotai/kimi-k3,1484,AL,Barry Moore,Republican,0.5468,true
+model,moonshotai/kimi-k3,1484,AL,Everett Wess,Democrat,0.4532,false
+model,moonshotai/kimi-k3,1484,AR,Hallie Shoffner,Democrat,0.4524,false
+model,moonshotai/kimi-k3,1484,AR,Tom Cotton,Republican,0.5476,true
+model,moonshotai/kimi-k3,1484,CO,John Hickenlooper,Democrat,0.5916,true
+model,moonshotai/kimi-k3,1484,CO,Mark Baisley,Republican,0.4084,false
+model,moonshotai/kimi-k3,1484,DE,Chris Coons,Democrat,0.7519,true
+model,moonshotai/kimi-k3,1484,DE,Michael Katz,Republican,0.2481,false
+model,moonshotai/kimi-k3,1484,FL,Angie Nixon,Democrat,0.5076,true
+model,moonshotai/kimi-k3,1484,FL,Ashley Moody,Republican,0.4924,false
+model,moonshotai/kimi-k3,1484,GA,Jon Ossoff,Democrat,0.4901,false
+model,moonshotai/kimi-k3,1484,GA,Mike Collins,Republican,0.5099,true
+model,moonshotai/kimi-k3,1484,IA,Ashley Hinson,Republican,0.4895,false
+model,moonshotai/kimi-k3,1484,IA,Josh Turek,Democrat,0.5105,true
+model,moonshotai/kimi-k3,1484,ID,Jim Risch,Republican,0.5805,true
+model,moonshotai/kimi-k3,1484,ID,Todd Achilles,Independent,0.4195,false
+model,moonshotai/kimi-k3,1484,IL,Don Tracy,Republican,0.3924,false
+model,moonshotai/kimi-k3,1484,IL,Juliana Stratton,Democrat,0.6076,true
+model,moonshotai/kimi-k3,1484,KS,Adam Hamilton,Democrat,0.515,true
+model,moonshotai/kimi-k3,1484,KS,Roger Marshall,Republican,0.485,false
+model,moonshotai/kimi-k3,1484,KY,Andy Barr,Republican,0.7255,true
+model,moonshotai/kimi-k3,1484,KY,Charles Booker,Democrat,0.2745,false
+model,moonshotai/kimi-k3,1484,LA,Jamie Davis,Democrat,0.3588,false
+model,moonshotai/kimi-k3,1484,LA,Julia Letlow,Republican,0.6412,true
+model,moonshotai/kimi-k3,1484,MA,Ed Markey,Democrat,0.6838,true
+model,moonshotai/kimi-k3,1484,MA,John Deaton,Republican,0.3162,false
+model,moonshotai/kimi-k3,1484,ME,Susan Collins,Republican,0.5381,true
+model,moonshotai/kimi-k3,1484,ME,Troy Jackson,Democrat,0.4619,false
+model,moonshotai/kimi-k3,1484,MI,Abdul El-Sayed,Democrat,0.5348,true
+model,moonshotai/kimi-k3,1484,MI,Mike Rogers,Republican,0.4652,false
+model,moonshotai/kimi-k3,1484,MN,Michele Tafoya,Republican,0.4397,false
+model,moonshotai/kimi-k3,1484,MN,Peggy Flanagan,Democrat,0.5603,true
+model,moonshotai/kimi-k3,1484,MS,Cindy Hyde-Smith,Republican,0.5843,true
+model,moonshotai/kimi-k3,1484,MS,Scott Colom,Democrat,0.4157,false
+model,moonshotai/kimi-k3,1484,MT,Alani Bankhead,Democrat,0.3402,false
+model,moonshotai/kimi-k3,1484,MT,Kurt Alme,Republican,0.57,true
+model,moonshotai/kimi-k3,1484,MT,Seth Bodnar,Independent,0.0898,false
+model,moonshotai/kimi-k3,1484,NC,Michael Whatley,Republican,0.3943,false
+model,moonshotai/kimi-k3,1484,NC,Roy Cooper,Democrat,0.6057,true
+model,moonshotai/kimi-k3,1484,NE,Dan Osborn,Independent,0.5108,true
+model,moonshotai/kimi-k3,1484,NE,Pete Ricketts,Republican,0.4892,false
+model,moonshotai/kimi-k3,1484,NH,Chris Pappas,Democrat,0.6069,true
+model,moonshotai/kimi-k3,1484,NH,John E. Sununu,Republican,0.3931,false
+model,moonshotai/kimi-k3,1484,NJ,Cory Booker,Democrat,0.6773,true
+model,moonshotai/kimi-k3,1484,NJ,Justin Murphy,Republican,0.3227,false
+model,moonshotai/kimi-k3,1484,NM,Ben Ray Luján,Democrat,0.5188,true
+model,moonshotai/kimi-k3,1484,NM,Larry Marker,Republican,0.4812,false
+model,moonshotai/kimi-k3,1484,OH,Jon Husted,Republican,0.4663,false
+model,moonshotai/kimi-k3,1484,OH,Sherrod Brown,Democrat,0.5337,true
+model,moonshotai/kimi-k3,1484,OK,Kevin Hern,Republican,0.6193,true
+model,moonshotai/kimi-k3,1484,OK,N'Kiyla Jasmine Thomas,Democrat,0.3807,false
+model,moonshotai/kimi-k3,1484,OR,David Brock Smith,Republican,0.4437,false
+model,moonshotai/kimi-k3,1484,OR,Jeff Merkley,Democrat,0.5563,true
+model,moonshotai/kimi-k3,1484,RI,Jack Reed,Democrat,0.7092,true
+model,moonshotai/kimi-k3,1484,RI,Raymond McKay,Republican,0.2908,false
+model,moonshotai/kimi-k3,1484,SC,Annie Andrews,Democrat,0.4492,false
+model,moonshotai/kimi-k3,1484,SC,Darline Graham,Republican,0.5508,true
+model,moonshotai/kimi-k3,1484,SD,Brian Bengs,Independent,0.3287,false
+model,moonshotai/kimi-k3,1484,SD,Mike Rounds,Republican,0.6713,true
+model,moonshotai/kimi-k3,1484,TN,Bill Hagerty,Republican,0.6037,true
+model,moonshotai/kimi-k3,1484,TN,Marquita Bradshaw,Democrat,0.3963,false
+model,moonshotai/kimi-k3,1484,TX,James Talarico,Democrat,0.4464,false
+model,moonshotai/kimi-k3,1484,TX,Ken Paxton,Republican,0.5536,true
+model,moonshotai/kimi-k3,1484,VA,Bert Mizusawa,Republican,0.5025,true
+model,moonshotai/kimi-k3,1484,VA,Mark Warner,Democrat,0.4975,false
+model,moonshotai/kimi-k3,1484,WV,Rachel Fetty Anderson,Democrat,0.4112,false
+model,moonshotai/kimi-k3,1484,WV,Shelley Moore Capito,Republican,0.5888,true
+model,moonshotai/kimi-k3,1484,WY,Harriet Hageman,Republican,0.7152,true
+model,moonshotai/kimi-k3,1484,WY,James W. Byrd,Democrat,0.2848,false
+model,moonshotai/kimi-k3,1862,AK,Dan S. Sullivan,Republican,0.3973,false
+model,moonshotai/kimi-k3,1862,AK,Mary Peltola,Democrat,0.6027,true
+model,moonshotai/kimi-k3,1862,AL,Barry Moore,Republican,0.506,true
+model,moonshotai/kimi-k3,1862,AL,Everett Wess,Democrat,0.494,false
+model,moonshotai/kimi-k3,1862,AR,Hallie Shoffner,Democrat,0.4649,false
+model,moonshotai/kimi-k3,1862,AR,Tom Cotton,Republican,0.5351,true
+model,moonshotai/kimi-k3,1862,CO,John Hickenlooper,Democrat,0.5638,true
+model,moonshotai/kimi-k3,1862,CO,Mark Baisley,Republican,0.4362,false
+model,moonshotai/kimi-k3,1862,DE,Chris Coons,Democrat,0.6863,true
+model,moonshotai/kimi-k3,1862,DE,Michael Katz,Republican,0.3137,false
+model,moonshotai/kimi-k3,1862,FL,Angie Nixon,Democrat,0.4116,false
+model,moonshotai/kimi-k3,1862,FL,Ashley Moody,Republican,0.5884,true
+model,moonshotai/kimi-k3,1862,GA,Jon Ossoff,Democrat,0.3962,false
+model,moonshotai/kimi-k3,1862,GA,Mike Collins,Republican,0.6038,true
+model,moonshotai/kimi-k3,1862,IA,Ashley Hinson,Republican,0.5614,true
+model,moonshotai/kimi-k3,1862,IA,Josh Turek,Democrat,0.4386,false
+model,moonshotai/kimi-k3,1862,ID,Jim Risch,Republican,0.6329,true
+model,moonshotai/kimi-k3,1862,ID,Todd Achilles,Independent,0.3671,false
+model,moonshotai/kimi-k3,1862,IL,Don Tracy,Republican,0.4335,false
+model,moonshotai/kimi-k3,1862,IL,Juliana Stratton,Democrat,0.5665,true
+model,moonshotai/kimi-k3,1862,KS,Adam Hamilton,Democrat,0.4695,false
+model,moonshotai/kimi-k3,1862,KS,Roger Marshall,Republican,0.5305,true
+model,moonshotai/kimi-k3,1862,KY,Andy Barr,Republican,0.6001,true
+model,moonshotai/kimi-k3,1862,KY,Charles Booker,Democrat,0.3999,false
+model,moonshotai/kimi-k3,1862,LA,Jamie Davis,Democrat,0.4286,false
+model,moonshotai/kimi-k3,1862,LA,Julia Letlow,Republican,0.5714,true
+model,moonshotai/kimi-k3,1862,MA,Ed Markey,Democrat,0.6454,true
+model,moonshotai/kimi-k3,1862,MA,John Deaton,Republican,0.3546,false
+model,moonshotai/kimi-k3,1862,ME,Susan Collins,Republican,0.5571,true
+model,moonshotai/kimi-k3,1862,ME,Troy Jackson,Democrat,0.4429,false
+model,moonshotai/kimi-k3,1862,MI,Abdul El-Sayed,Democrat,0.4135,false
+model,moonshotai/kimi-k3,1862,MI,Mike Rogers,Republican,0.5865,true
+model,moonshotai/kimi-k3,1862,MN,Michele Tafoya,Republican,0.4439,false
+model,moonshotai/kimi-k3,1862,MN,Peggy Flanagan,Democrat,0.5561,true
+model,moonshotai/kimi-k3,1862,MS,Cindy Hyde-Smith,Republican,0.6088,true
+model,moonshotai/kimi-k3,1862,MS,Scott Colom,Democrat,0.3912,false
+model,moonshotai/kimi-k3,1862,MT,Alani Bankhead,Democrat,0.2785,false
+model,moonshotai/kimi-k3,1862,MT,Kurt Alme,Republican,0.648,true
+model,moonshotai/kimi-k3,1862,MT,Seth Bodnar,Independent,0.0735,false
+model,moonshotai/kimi-k3,1862,NC,Michael Whatley,Republican,0.451,false
+model,moonshotai/kimi-k3,1862,NC,Roy Cooper,Democrat,0.549,true
+model,moonshotai/kimi-k3,1862,NE,Dan Osborn,Independent,0.5058,true
+model,moonshotai/kimi-k3,1862,NE,Pete Ricketts,Republican,0.4942,false
+model,moonshotai/kimi-k3,1862,NH,Chris Pappas,Democrat,0.4946,false
+model,moonshotai/kimi-k3,1862,NH,John E. Sununu,Republican,0.5054,true
+model,moonshotai/kimi-k3,1862,NJ,Cory Booker,Democrat,0.6202,true
+model,moonshotai/kimi-k3,1862,NJ,Justin Murphy,Republican,0.3798,false
+model,moonshotai/kimi-k3,1862,NM,Ben Ray Luján,Democrat,0.6078,true
+model,moonshotai/kimi-k3,1862,NM,Larry Marker,Republican,0.3922,false
+model,moonshotai/kimi-k3,1862,OH,Jon Husted,Republican,0.5483,true
+model,moonshotai/kimi-k3,1862,OH,Sherrod Brown,Democrat,0.4517,false
+model,moonshotai/kimi-k3,1862,OK,Kevin Hern,Republican,0.8328,true
+model,moonshotai/kimi-k3,1862,OK,N'Kiyla Jasmine Thomas,Democrat,0.1672,false
+model,moonshotai/kimi-k3,1862,OR,David Brock Smith,Republican,0.4134,false
+model,moonshotai/kimi-k3,1862,OR,Jeff Merkley,Democrat,0.5866,true
+model,moonshotai/kimi-k3,1862,RI,Jack Reed,Democrat,0.5829,true
+model,moonshotai/kimi-k3,1862,RI,Raymond McKay,Republican,0.4171,false
+model,moonshotai/kimi-k3,1862,SC,Annie Andrews,Democrat,0.4904,false
+model,moonshotai/kimi-k3,1862,SC,Darline Graham,Republican,0.5096,true
+model,moonshotai/kimi-k3,1862,SD,Brian Bengs,Independent,0.3948,false
+model,moonshotai/kimi-k3,1862,SD,Mike Rounds,Republican,0.6052,true
+model,moonshotai/kimi-k3,1862,TN,Bill Hagerty,Republican,0.6057,true
+model,moonshotai/kimi-k3,1862,TN,Marquita Bradshaw,Democrat,0.3943,false
+model,moonshotai/kimi-k3,1862,TX,James Talarico,Democrat,0.6027,true
+model,moonshotai/kimi-k3,1862,TX,Ken Paxton,Republican,0.3973,false
+model,moonshotai/kimi-k3,1862,VA,Bert Mizusawa,Republican,0.4203,false
+model,moonshotai/kimi-k3,1862,VA,Mark Warner,Democrat,0.5797,true
+model,moonshotai/kimi-k3,1862,WV,Rachel Fetty Anderson,Democrat,0.3305,false
+model,moonshotai/kimi-k3,1862,WV,Shelley Moore Capito,Republican,0.6695,true
+model,moonshotai/kimi-k3,1862,WY,Harriet Hageman,Republican,0.6946,true
+model,moonshotai/kimi-k3,1862,WY,James W. Byrd,Democrat,0.3054,false
+model,moonshotai/kimi-k3,4131,AK,Dan S. Sullivan,Republican,0.4773,false
+model,moonshotai/kimi-k3,4131,AK,Mary Peltola,Democrat,0.5227,true
+model,moonshotai/kimi-k3,4131,AL,Barry Moore,Republican,0.5942,true
+model,moonshotai/kimi-k3,4131,AL,Everett Wess,Democrat,0.4058,false
+model,moonshotai/kimi-k3,4131,AR,Hallie Shoffner,Democrat,0.3937,false
+model,moonshotai/kimi-k3,4131,AR,Tom Cotton,Republican,0.6063,true
+model,moonshotai/kimi-k3,4131,CO,John Hickenlooper,Democrat,0.7273,true
+model,moonshotai/kimi-k3,4131,CO,Mark Baisley,Republican,0.2727,false
+model,moonshotai/kimi-k3,4131,DE,Chris Coons,Democrat,0.7556,true
+model,moonshotai/kimi-k3,4131,DE,Michael Katz,Republican,0.2444,false
+model,moonshotai/kimi-k3,4131,FL,Angie Nixon,Democrat,0.4296,false
+model,moonshotai/kimi-k3,4131,FL,Ashley Moody,Republican,0.5704,true
+model,moonshotai/kimi-k3,4131,GA,Jon Ossoff,Democrat,0.4424,false
+model,moonshotai/kimi-k3,4131,GA,Mike Collins,Republican,0.5576,true
+model,moonshotai/kimi-k3,4131,IA,Ashley Hinson,Republican,0.5351,true
+model,moonshotai/kimi-k3,4131,IA,Josh Turek,Democrat,0.4649,false
+model,moonshotai/kimi-k3,4131,ID,Jim Risch,Republican,0.5468,true
+model,moonshotai/kimi-k3,4131,ID,Todd Achilles,Independent,0.4532,false
+model,moonshotai/kimi-k3,4131,IL,Don Tracy,Republican,0.4324,false
+model,moonshotai/kimi-k3,4131,IL,Juliana Stratton,Democrat,0.5676,true
+model,moonshotai/kimi-k3,4131,KS,Adam Hamilton,Democrat,0.4536,false
+model,moonshotai/kimi-k3,4131,KS,Roger Marshall,Republican,0.5464,true
+model,moonshotai/kimi-k3,4131,KY,Andy Barr,Republican,0.5739,true
+model,moonshotai/kimi-k3,4131,KY,Charles Booker,Democrat,0.4261,false
+model,moonshotai/kimi-k3,4131,LA,Jamie Davis,Democrat,0.3769,false
+model,moonshotai/kimi-k3,4131,LA,Julia Letlow,Republican,0.6231,true
+model,moonshotai/kimi-k3,4131,MA,Ed Markey,Democrat,0.5798,true
+model,moonshotai/kimi-k3,4131,MA,John Deaton,Republican,0.4202,false
+model,moonshotai/kimi-k3,4131,ME,Susan Collins,Republican,0.4304,false
+model,moonshotai/kimi-k3,4131,ME,Troy Jackson,Democrat,0.5696,true
+model,moonshotai/kimi-k3,4131,MI,Abdul El-Sayed,Democrat,0.3831,false
+model,moonshotai/kimi-k3,4131,MI,Mike Rogers,Republican,0.6169,true
+model,moonshotai/kimi-k3,4131,MN,Michele Tafoya,Republican,0.4828,false
+model,moonshotai/kimi-k3,4131,MN,Peggy Flanagan,Democrat,0.5172,true
+model,moonshotai/kimi-k3,4131,MS,Cindy Hyde-Smith,Republican,0.5882,true
+model,moonshotai/kimi-k3,4131,MS,Scott Colom,Democrat,0.4118,false
+model,moonshotai/kimi-k3,4131,MT,Alani Bankhead,Democrat,0.4266,false
+model,moonshotai/kimi-k3,4131,MT,Kurt Alme,Republican,0.4608,true
+model,moonshotai/kimi-k3,4131,MT,Seth Bodnar,Independent,0.1126,false
+model,moonshotai/kimi-k3,4131,NC,Michael Whatley,Republican,0.4505,false
+model,moonshotai/kimi-k3,4131,NC,Roy Cooper,Democrat,0.5495,true
+model,moonshotai/kimi-k3,4131,NE,Dan Osborn,Independent,0.5233,true
+model,moonshotai/kimi-k3,4131,NE,Pete Ricketts,Republican,0.4767,false
+model,moonshotai/kimi-k3,4131,NH,Chris Pappas,Democrat,0.5418,true
+model,moonshotai/kimi-k3,4131,NH,John E. Sununu,Republican,0.4582,false
+model,moonshotai/kimi-k3,4131,NJ,Cory Booker,Democrat,0.5598,true
+model,moonshotai/kimi-k3,4131,NJ,Justin Murphy,Republican,0.4402,false
+model,moonshotai/kimi-k3,4131,NM,Ben Ray Luján,Democrat,0.7081,true
+model,moonshotai/kimi-k3,4131,NM,Larry Marker,Republican,0.2919,false
+model,moonshotai/kimi-k3,4131,OH,Jon Husted,Republican,0.424,false
+model,moonshotai/kimi-k3,4131,OH,Sherrod Brown,Democrat,0.576,true
+model,moonshotai/kimi-k3,4131,OK,Kevin Hern,Republican,0.6584,true
+model,moonshotai/kimi-k3,4131,OK,N'Kiyla Jasmine Thomas,Democrat,0.3416,false
+model,moonshotai/kimi-k3,4131,OR,David Brock Smith,Republican,0.3929,false
+model,moonshotai/kimi-k3,4131,OR,Jeff Merkley,Democrat,0.6071,true
+model,moonshotai/kimi-k3,4131,RI,Jack Reed,Democrat,0.6352,true
+model,moonshotai/kimi-k3,4131,RI,Raymond McKay,Republican,0.3648,false
+model,moonshotai/kimi-k3,4131,SC,Annie Andrews,Democrat,0.3817,false
+model,moonshotai/kimi-k3,4131,SC,Darline Graham,Republican,0.6183,true
+model,moonshotai/kimi-k3,4131,SD,Brian Bengs,Independent,0.3657,false
+model,moonshotai/kimi-k3,4131,SD,Mike Rounds,Republican,0.6343,true
+model,moonshotai/kimi-k3,4131,TN,Bill Hagerty,Republican,0.6484,true
+model,moonshotai/kimi-k3,4131,TN,Marquita Bradshaw,Democrat,0.3516,false
+model,moonshotai/kimi-k3,4131,TX,James Talarico,Democrat,0.5069,true
+model,moonshotai/kimi-k3,4131,TX,Ken Paxton,Republican,0.4931,false
+model,moonshotai/kimi-k3,4131,VA,Bert Mizusawa,Republican,0.4835,false
+model,moonshotai/kimi-k3,4131,VA,Mark Warner,Democrat,0.5165,true
+model,moonshotai/kimi-k3,4131,WV,Rachel Fetty Anderson,Democrat,0.403,false
+model,moonshotai/kimi-k3,4131,WV,Shelley Moore Capito,Republican,0.597,true
+model,moonshotai/kimi-k3,4131,WY,Harriet Hageman,Republican,0.72,true
+model,moonshotai/kimi-k3,4131,WY,James W. Byrd,Democrat,0.28,false
+model,typesafe/jev-1.14,393,AK,Dan S. Sullivan,Republican,0.5951,true
+model,typesafe/jev-1.14,393,AK,Mary Peltola,Democrat,0.4049,false
+model,typesafe/jev-1.14,393,AL,Barry Moore,Republican,0.5871,true
+model,typesafe/jev-1.14,393,AL,Everett Wess,Democrat,0.4129,false
+model,typesafe/jev-1.14,393,AR,Hallie Shoffner,Democrat,0.3852,false
+model,typesafe/jev-1.14,393,AR,Tom Cotton,Republican,0.6148,true
+model,typesafe/jev-1.14,393,CO,John Hickenlooper,Democrat,0.6746,true
+model,typesafe/jev-1.14,393,CO,Mark Baisley,Republican,0.3254,false
+model,typesafe/jev-1.14,393,DE,Chris Coons,Democrat,0.5825,true
+model,typesafe/jev-1.14,393,DE,Michael Katz,Republican,0.4175,false
+model,typesafe/jev-1.14,393,FL,Angie Nixon,Democrat,0.5081,true
+model,typesafe/jev-1.14,393,FL,Ashley Moody,Republican,0.4919,false
+model,typesafe/jev-1.14,393,GA,Jon Ossoff,Democrat,0.6345,true
+model,typesafe/jev-1.14,393,GA,Mike Collins,Republican,0.3655,false
+model,typesafe/jev-1.14,393,IA,Ashley Hinson,Republican,0.5,true
+model,typesafe/jev-1.14,393,IA,Josh Turek,Democrat,0.5,false
+model,typesafe/jev-1.14,393,ID,Jim Risch,Republican,0.4163,false
+model,typesafe/jev-1.14,393,ID,Todd Achilles,Independent,0.5837,true
+model,typesafe/jev-1.14,393,IL,Don Tracy,Republican,0.3863,false
+model,typesafe/jev-1.14,393,IL,Juliana Stratton,Democrat,0.6137,true
+model,typesafe/jev-1.14,393,KS,Adam Hamilton,Democrat,0.4253,false
+model,typesafe/jev-1.14,393,KS,Roger Marshall,Republican,0.5747,true
+model,typesafe/jev-1.14,393,KY,Andy Barr,Republican,0.6767,true
+model,typesafe/jev-1.14,393,KY,Charles Booker,Democrat,0.3233,false
+model,typesafe/jev-1.14,393,LA,Jamie Davis,Democrat,0.464,false
+model,typesafe/jev-1.14,393,LA,Julia Letlow,Republican,0.536,true
+model,typesafe/jev-1.14,393,MA,Ed Markey,Democrat,0.7178,true
+model,typesafe/jev-1.14,393,MA,John Deaton,Republican,0.2822,false
+model,typesafe/jev-1.14,393,ME,Susan Collins,Republican,0.2462,false
+model,typesafe/jev-1.14,393,ME,Troy Jackson,Democrat,0.7538,true
+model,typesafe/jev-1.14,393,MI,Abdul El-Sayed,Democrat,0.5165,true
+model,typesafe/jev-1.14,393,MI,Mike Rogers,Republican,0.4835,false
+model,typesafe/jev-1.14,393,MN,Michele Tafoya,Republican,0.4562,false
+model,typesafe/jev-1.14,393,MN,Peggy Flanagan,Democrat,0.5438,true
+model,typesafe/jev-1.14,393,MS,Cindy Hyde-Smith,Republican,0.5543,true
+model,typesafe/jev-1.14,393,MS,Scott Colom,Democrat,0.4457,false
+model,typesafe/jev-1.14,393,MT,Alani Bankhead,Democrat,0.4223,false
+model,typesafe/jev-1.14,393,MT,Kurt Alme,Republican,0.5126,true
+model,typesafe/jev-1.14,393,MT,Seth Bodnar,Independent,0.0652,false
+model,typesafe/jev-1.14,393,NC,Michael Whatley,Republican,0.4837,false
+model,typesafe/jev-1.14,393,NC,Roy Cooper,Democrat,0.5163,true
+model,typesafe/jev-1.14,393,NE,Dan Osborn,Independent,0.4963,false
+model,typesafe/jev-1.14,393,NE,Pete Ricketts,Republican,0.5037,true
+model,typesafe/jev-1.14,393,NH,Chris Pappas,Democrat,0.6274,true
+model,typesafe/jev-1.14,393,NH,John E. Sununu,Republican,0.3726,false
+model,typesafe/jev-1.14,393,NJ,Cory Booker,Democrat,0.4442,false
+model,typesafe/jev-1.14,393,NJ,Justin Murphy,Republican,0.5558,true
+model,typesafe/jev-1.14,393,NM,Ben Ray Luján,Democrat,0.7325,true
+model,typesafe/jev-1.14,393,NM,Larry Marker,Republican,0.2675,false
+model,typesafe/jev-1.14,393,OH,Jon Husted,Republican,0.4492,false
+model,typesafe/jev-1.14,393,OH,Sherrod Brown,Democrat,0.5508,true
+model,typesafe/jev-1.14,393,OK,Kevin Hern,Republican,0.6004,true
+model,typesafe/jev-1.14,393,OK,N'Kiyla Jasmine Thomas,Democrat,0.3996,false
+model,typesafe/jev-1.14,393,OR,David Brock Smith,Republican,0.4028,false
+model,typesafe/jev-1.14,393,OR,Jeff Merkley,Democrat,0.5972,true
+model,typesafe/jev-1.14,393,RI,Jack Reed,Democrat,0.6251,true
+model,typesafe/jev-1.14,393,RI,Raymond McKay,Republican,0.3749,false
+model,typesafe/jev-1.14,393,SC,Annie Andrews,Democrat,0.4354,false
+model,typesafe/jev-1.14,393,SC,Darline Graham,Republican,0.5646,true
+model,typesafe/jev-1.14,393,SD,Brian Bengs,Independent,0.4058,false
+model,typesafe/jev-1.14,393,SD,Mike Rounds,Republican,0.5942,true
+model,typesafe/jev-1.14,393,TN,Bill Hagerty,Republican,0.6788,true
+model,typesafe/jev-1.14,393,TN,Marquita Bradshaw,Democrat,0.3212,false
+model,typesafe/jev-1.14,393,TX,James Talarico,Democrat,0.5915,true
+model,typesafe/jev-1.14,393,TX,Ken Paxton,Republican,0.4085,false
+model,typesafe/jev-1.14,393,VA,Bert Mizusawa,Republican,0.4048,false
+model,typesafe/jev-1.14,393,VA,Mark Warner,Democrat,0.5952,true
+model,typesafe/jev-1.14,393,WV,Rachel Fetty Anderson,Democrat,0.3288,false
+model,typesafe/jev-1.14,393,WV,Shelley Moore Capito,Republican,0.6712,true
+model,typesafe/jev-1.14,393,WY,Harriet Hageman,Republican,0.6602,true
+model,typesafe/jev-1.14,393,WY,James W. Byrd,Democrat,0.3398,false
+model,typesafe/jev-1.14,465,AK,Dan S. Sullivan,Republican,0.42,false
+model,typesafe/jev-1.14,465,AK,Mary Peltola,Democrat,0.58,true
+model,typesafe/jev-1.14,465,AL,Barry Moore,Republican,0.6633,true
+model,typesafe/jev-1.14,465,AL,Everett Wess,Democrat,0.3367,false
+model,typesafe/jev-1.14,465,AR,Hallie Shoffner,Democrat,0.4773,false
+model,typesafe/jev-1.14,465,AR,Tom Cotton,Republican,0.5227,true
+model,typesafe/jev-1.14,465,CO,John Hickenlooper,Democrat,0.5475,true
+model,typesafe/jev-1.14,465,CO,Mark Baisley,Republican,0.4525,false
+model,typesafe/jev-1.14,465,DE,Chris Coons,Democrat,0.6908,true
+model,typesafe/jev-1.14,465,DE,Michael Katz,Republican,0.3092,false
+model,typesafe/jev-1.14,465,FL,Angie Nixon,Democrat,0.4499,false
+model,typesafe/jev-1.14,465,FL,Ashley Moody,Republican,0.5501,true
+model,typesafe/jev-1.14,465,GA,Jon Ossoff,Democrat,0.4747,false
+model,typesafe/jev-1.14,465,GA,Mike Collins,Republican,0.5253,true
+model,typesafe/jev-1.14,465,IA,Ashley Hinson,Republican,0.3995,false
+model,typesafe/jev-1.14,465,IA,Josh Turek,Democrat,0.6005,true
+model,typesafe/jev-1.14,465,ID,Jim Risch,Republican,0.4408,false
+model,typesafe/jev-1.14,465,ID,Todd Achilles,Independent,0.5592,true
+model,typesafe/jev-1.14,465,IL,Don Tracy,Republican,0.4211,false
+model,typesafe/jev-1.14,465,IL,Juliana Stratton,Democrat,0.5789,true
+model,typesafe/jev-1.14,465,KS,Adam Hamilton,Democrat,0.495,false
+model,typesafe/jev-1.14,465,KS,Roger Marshall,Republican,0.505,true
+model,typesafe/jev-1.14,465,KY,Andy Barr,Republican,0.6059,true
+model,typesafe/jev-1.14,465,KY,Charles Booker,Democrat,0.3941,false
+model,typesafe/jev-1.14,465,LA,Jamie Davis,Democrat,0.4819,false
+model,typesafe/jev-1.14,465,LA,Julia Letlow,Republican,0.5181,true
+model,typesafe/jev-1.14,465,MA,Ed Markey,Democrat,0.71,true
+model,typesafe/jev-1.14,465,MA,John Deaton,Republican,0.29,false
+model,typesafe/jev-1.14,465,ME,Susan Collins,Republican,0.4733,false
+model,typesafe/jev-1.14,465,ME,Troy Jackson,Democrat,0.5267,true
+model,typesafe/jev-1.14,465,MI,Abdul El-Sayed,Democrat,0.5839,true
+model,typesafe/jev-1.14,465,MI,Mike Rogers,Republican,0.4161,false
+model,typesafe/jev-1.14,465,MN,Michele Tafoya,Republican,0.4685,false
+model,typesafe/jev-1.14,465,MN,Peggy Flanagan,Democrat,0.5315,true
+model,typesafe/jev-1.14,465,MS,Cindy Hyde-Smith,Republican,0.5272,true
+model,typesafe/jev-1.14,465,MS,Scott Colom,Democrat,0.4728,false
+model,typesafe/jev-1.14,465,MT,Alani Bankhead,Democrat,0.3547,false
+model,typesafe/jev-1.14,465,MT,Kurt Alme,Republican,0.5906,true
+model,typesafe/jev-1.14,465,MT,Seth Bodnar,Independent,0.0547,false
+model,typesafe/jev-1.14,465,NC,Michael Whatley,Republican,0.5003,true
+model,typesafe/jev-1.14,465,NC,Roy Cooper,Democrat,0.4997,false
+model,typesafe/jev-1.14,465,NE,Dan Osborn,Independent,0.563,true
+model,typesafe/jev-1.14,465,NE,Pete Ricketts,Republican,0.437,false
+model,typesafe/jev-1.14,465,NH,Chris Pappas,Democrat,0.5879,true
+model,typesafe/jev-1.14,465,NH,John E. Sununu,Republican,0.4121,false
+model,typesafe/jev-1.14,465,NJ,Cory Booker,Democrat,0.767,true
+model,typesafe/jev-1.14,465,NJ,Justin Murphy,Republican,0.233,false
+model,typesafe/jev-1.14,465,NM,Ben Ray Luján,Democrat,0.6864,true
+model,typesafe/jev-1.14,465,NM,Larry Marker,Republican,0.3136,false
+model,typesafe/jev-1.14,465,OH,Jon Husted,Republican,0.4459,false
+model,typesafe/jev-1.14,465,OH,Sherrod Brown,Democrat,0.5541,true
+model,typesafe/jev-1.14,465,OK,Kevin Hern,Republican,0.6275,true
+model,typesafe/jev-1.14,465,OK,N'Kiyla Jasmine Thomas,Democrat,0.3725,false
+model,typesafe/jev-1.14,465,OR,David Brock Smith,Republican,0.5174,true
+model,typesafe/jev-1.14,465,OR,Jeff Merkley,Democrat,0.4826,false
+model,typesafe/jev-1.14,465,RI,Jack Reed,Democrat,0.6019,true
+model,typesafe/jev-1.14,465,RI,Raymond McKay,Republican,0.3981,false
+model,typesafe/jev-1.14,465,SC,Annie Andrews,Democrat,0.5276,true
+model,typesafe/jev-1.14,465,SC,Darline Graham,Republican,0.4724,false
+model,typesafe/jev-1.14,465,SD,Brian Bengs,Independent,0.3307,false
+model,typesafe/jev-1.14,465,SD,Mike Rounds,Republican,0.6693,true
+model,typesafe/jev-1.14,465,TN,Bill Hagerty,Republican,0.532,true
+model,typesafe/jev-1.14,465,TN,Marquita Bradshaw,Democrat,0.468,false
+model,typesafe/jev-1.14,465,TX,James Talarico,Democrat,0.5688,true
+model,typesafe/jev-1.14,465,TX,Ken Paxton,Republican,0.4312,false
+model,typesafe/jev-1.14,465,VA,Bert Mizusawa,Republican,0.4527,false
+model,typesafe/jev-1.14,465,VA,Mark Warner,Democrat,0.5473,true
+model,typesafe/jev-1.14,465,WV,Rachel Fetty Anderson,Democrat,0.3704,false
+model,typesafe/jev-1.14,465,WV,Shelley Moore Capito,Republican,0.6296,true
+model,typesafe/jev-1.14,465,WY,Harriet Hageman,Republican,0.7809,true
+model,typesafe/jev-1.14,465,WY,James W. Byrd,Democrat,0.2191,false
+model,typesafe/jev-1.14,1049,AK,Dan S. Sullivan,Republican,0.613,true
+model,typesafe/jev-1.14,1049,AK,Mary Peltola,Democrat,0.387,false
+model,typesafe/jev-1.14,1049,AL,Barry Moore,Republican,0.6083,true
+model,typesafe/jev-1.14,1049,AL,Everett Wess,Democrat,0.3917,false
+model,typesafe/jev-1.14,1049,AR,Hallie Shoffner,Democrat,0.3405,false
+model,typesafe/jev-1.14,1049,AR,Tom Cotton,Republican,0.6595,true
+model,typesafe/jev-1.14,1049,CO,John Hickenlooper,Democrat,0.6513,true
+model,typesafe/jev-1.14,1049,CO,Mark Baisley,Republican,0.3487,false
+model,typesafe/jev-1.14,1049,DE,Chris Coons,Democrat,0.6188,true
+model,typesafe/jev-1.14,1049,DE,Michael Katz,Republican,0.3812,false
+model,typesafe/jev-1.14,1049,FL,Angie Nixon,Democrat,0.4103,false
+model,typesafe/jev-1.14,1049,FL,Ashley Moody,Republican,0.5897,true
+model,typesafe/jev-1.14,1049,GA,Jon Ossoff,Democrat,0.4195,false
+model,typesafe/jev-1.14,1049,GA,Mike Collins,Republican,0.5805,true
+model,typesafe/jev-1.14,1049,IA,Ashley Hinson,Republican,0.5799,true
+model,typesafe/jev-1.14,1049,IA,Josh Turek,Democrat,0.4201,false
+model,typesafe/jev-1.14,1049,ID,Jim Risch,Republican,0.6446,true
+model,typesafe/jev-1.14,1049,ID,Todd Achilles,Independent,0.3554,false
+model,typesafe/jev-1.14,1049,IL,Don Tracy,Republican,0.5062,true
+model,typesafe/jev-1.14,1049,IL,Juliana Stratton,Democrat,0.4938,false
+model,typesafe/jev-1.14,1049,KS,Adam Hamilton,Democrat,0.4409,false
+model,typesafe/jev-1.14,1049,KS,Roger Marshall,Republican,0.5591,true
+model,typesafe/jev-1.14,1049,KY,Andy Barr,Republican,0.5927,true
+model,typesafe/jev-1.14,1049,KY,Charles Booker,Democrat,0.4073,false
+model,typesafe/jev-1.14,1049,LA,Jamie Davis,Democrat,0.3284,false
+model,typesafe/jev-1.14,1049,LA,Julia Letlow,Republican,0.6716,true
+model,typesafe/jev-1.14,1049,MA,Ed Markey,Democrat,0.5802,true
+model,typesafe/jev-1.14,1049,MA,John Deaton,Republican,0.4198,false
+model,typesafe/jev-1.14,1049,ME,Susan Collins,Republican,0.5258,true
+model,typesafe/jev-1.14,1049,ME,Troy Jackson,Democrat,0.4742,false
+model,typesafe/jev-1.14,1049,MI,Abdul El-Sayed,Democrat,0.6021,true
+model,typesafe/jev-1.14,1049,MI,Mike Rogers,Republican,0.3979,false
+model,typesafe/jev-1.14,1049,MN,Michele Tafoya,Republican,0.4496,false
+model,typesafe/jev-1.14,1049,MN,Peggy Flanagan,Democrat,0.5504,true
+model,typesafe/jev-1.14,1049,MS,Cindy Hyde-Smith,Republican,0.6592,true
+model,typesafe/jev-1.14,1049,MS,Scott Colom,Democrat,0.3408,false
+model,typesafe/jev-1.14,1049,MT,Alani Bankhead,Democrat,0.2357,false
+model,typesafe/jev-1.14,1049,MT,Kurt Alme,Republican,0.7279,true
+model,typesafe/jev-1.14,1049,MT,Seth Bodnar,Independent,0.0364,false
+model,typesafe/jev-1.14,1049,NC,Michael Whatley,Republican,0.5104,true
+model,typesafe/jev-1.14,1049,NC,Roy Cooper,Democrat,0.4896,false
+model,typesafe/jev-1.14,1049,NE,Dan Osborn,Independent,0.4674,false
+model,typesafe/jev-1.14,1049,NE,Pete Ricketts,Republican,0.5326,true
+model,typesafe/jev-1.14,1049,NH,Chris Pappas,Democrat,0.5602,true
+model,typesafe/jev-1.14,1049,NH,John E. Sununu,Republican,0.4398,false
+model,typesafe/jev-1.14,1049,NJ,Cory Booker,Democrat,0.5394,true
+model,typesafe/jev-1.14,1049,NJ,Justin Murphy,Republican,0.4606,false
+model,typesafe/jev-1.14,1049,NM,Ben Ray Luján,Democrat,0.5592,true
+model,typesafe/jev-1.14,1049,NM,Larry Marker,Republican,0.4408,false
+model,typesafe/jev-1.14,1049,OH,Jon Husted,Republican,0.4936,false
+model,typesafe/jev-1.14,1049,OH,Sherrod Brown,Democrat,0.5064,true
+model,typesafe/jev-1.14,1049,OK,Kevin Hern,Republican,0.6739,true
+model,typesafe/jev-1.14,1049,OK,N'Kiyla Jasmine Thomas,Democrat,0.3261,false
+model,typesafe/jev-1.14,1049,OR,David Brock Smith,Republican,0.4888,false
+model,typesafe/jev-1.14,1049,OR,Jeff Merkley,Democrat,0.5112,true
+model,typesafe/jev-1.14,1049,RI,Jack Reed,Democrat,0.5729,true
+model,typesafe/jev-1.14,1049,RI,Raymond McKay,Republican,0.4271,false
+model,typesafe/jev-1.14,1049,SC,Annie Andrews,Democrat,0.3836,false
+model,typesafe/jev-1.14,1049,SC,Darline Graham,Republican,0.6164,true
+model,typesafe/jev-1.14,1049,SD,Brian Bengs,Independent,0.3419,false
+model,typesafe/jev-1.14,1049,SD,Mike Rounds,Republican,0.6581,true
+model,typesafe/jev-1.14,1049,TN,Bill Hagerty,Republican,0.7583,true
+model,typesafe/jev-1.14,1049,TN,Marquita Bradshaw,Democrat,0.2417,false
+model,typesafe/jev-1.14,1049,TX,James Talarico,Democrat,0.4133,false
+model,typesafe/jev-1.14,1049,TX,Ken Paxton,Republican,0.5867,true
+model,typesafe/jev-1.14,1049,VA,Bert Mizusawa,Republican,0.4725,false
+model,typesafe/jev-1.14,1049,VA,Mark Warner,Democrat,0.5275,true
+model,typesafe/jev-1.14,1049,WV,Rachel Fetty Anderson,Democrat,0.3349,false
+model,typesafe/jev-1.14,1049,WV,Shelley Moore Capito,Republican,0.6651,true
+model,typesafe/jev-1.14,1049,WY,Harriet Hageman,Republican,0.8262,true
+model,typesafe/jev-1.14,1049,WY,James W. Byrd,Democrat,0.1738,false
+model,typesafe/jev-1.14,1370,AK,Dan S. Sullivan,Republican,0.5407,true
+model,typesafe/jev-1.14,1370,AK,Mary Peltola,Democrat,0.4593,false
+model,typesafe/jev-1.14,1370,AL,Barry Moore,Republican,0.5519,true
+model,typesafe/jev-1.14,1370,AL,Everett Wess,Democrat,0.4481,false
+model,typesafe/jev-1.14,1370,AR,Hallie Shoffner,Democrat,0.4397,false
+model,typesafe/jev-1.14,1370,AR,Tom Cotton,Republican,0.5603,true
+model,typesafe/jev-1.14,1370,CO,John Hickenlooper,Democrat,0.6596,true
+model,typesafe/jev-1.14,1370,CO,Mark Baisley,Republican,0.3404,false
+model,typesafe/jev-1.14,1370,DE,Chris Coons,Democrat,0.624,true
+model,typesafe/jev-1.14,1370,DE,Michael Katz,Republican,0.376,false
+model,typesafe/jev-1.14,1370,FL,Angie Nixon,Democrat,0.53,true
+model,typesafe/jev-1.14,1370,FL,Ashley Moody,Republican,0.47,false
+model,typesafe/jev-1.14,1370,GA,Jon Ossoff,Democrat,0.4856,false
+model,typesafe/jev-1.14,1370,GA,Mike Collins,Republican,0.5144,true
+model,typesafe/jev-1.14,1370,IA,Ashley Hinson,Republican,0.5239,true
+model,typesafe/jev-1.14,1370,IA,Josh Turek,Democrat,0.4761,false
+model,typesafe/jev-1.14,1370,ID,Jim Risch,Republican,0.5209,true
+model,typesafe/jev-1.14,1370,ID,Todd Achilles,Independent,0.4791,false
+model,typesafe/jev-1.14,1370,IL,Don Tracy,Republican,0.4018,false
+model,typesafe/jev-1.14,1370,IL,Juliana Stratton,Democrat,0.5982,true
+model,typesafe/jev-1.14,1370,KS,Adam Hamilton,Democrat,0.5015,true
+model,typesafe/jev-1.14,1370,KS,Roger Marshall,Republican,0.4985,false
+model,typesafe/jev-1.14,1370,KY,Andy Barr,Republican,0.5944,true
+model,typesafe/jev-1.14,1370,KY,Charles Booker,Democrat,0.4056,false
+model,typesafe/jev-1.14,1370,LA,Jamie Davis,Democrat,0.3876,false
+model,typesafe/jev-1.14,1370,LA,Julia Letlow,Republican,0.6124,true
+model,typesafe/jev-1.14,1370,MA,Ed Markey,Democrat,0.7038,true
+model,typesafe/jev-1.14,1370,MA,John Deaton,Republican,0.2962,false
+model,typesafe/jev-1.14,1370,ME,Susan Collins,Republican,0.4097,false
+model,typesafe/jev-1.14,1370,ME,Troy Jackson,Democrat,0.5903,true
+model,typesafe/jev-1.14,1370,MI,Abdul El-Sayed,Democrat,0.4988,false
+model,typesafe/jev-1.14,1370,MI,Mike Rogers,Republican,0.5012,true
+model,typesafe/jev-1.14,1370,MN,Michele Tafoya,Republican,0.3411,false
+model,typesafe/jev-1.14,1370,MN,Peggy Flanagan,Democrat,0.6589,true
+model,typesafe/jev-1.14,1370,MS,Cindy Hyde-Smith,Republican,0.4995,false
+model,typesafe/jev-1.14,1370,MS,Scott Colom,Democrat,0.5005,true
+model,typesafe/jev-1.14,1370,MT,Alani Bankhead,Democrat,0.3266,false
+model,typesafe/jev-1.14,1370,MT,Kurt Alme,Republican,0.623,true
+model,typesafe/jev-1.14,1370,MT,Seth Bodnar,Independent,0.0504,false
+model,typesafe/jev-1.14,1370,NC,Michael Whatley,Republican,0.4974,false
+model,typesafe/jev-1.14,1370,NC,Roy Cooper,Democrat,0.5026,true
+model,typesafe/jev-1.14,1370,NE,Dan Osborn,Independent,0.5073,true
+model,typesafe/jev-1.14,1370,NE,Pete Ricketts,Republican,0.4927,false
+model,typesafe/jev-1.14,1370,NH,Chris Pappas,Democrat,0.6088,true
+model,typesafe/jev-1.14,1370,NH,John E. Sununu,Republican,0.3912,false
+model,typesafe/jev-1.14,1370,NJ,Cory Booker,Democrat,0.6858,true
+model,typesafe/jev-1.14,1370,NJ,Justin Murphy,Republican,0.3142,false
+model,typesafe/jev-1.14,1370,NM,Ben Ray Luján,Democrat,0.7703,true
+model,typesafe/jev-1.14,1370,NM,Larry Marker,Republican,0.2297,false
+model,typesafe/jev-1.14,1370,OH,Jon Husted,Republican,0.3448,false
+model,typesafe/jev-1.14,1370,OH,Sherrod Brown,Democrat,0.6552,true
+model,typesafe/jev-1.14,1370,OK,Kevin Hern,Republican,0.4744,false
+model,typesafe/jev-1.14,1370,OK,N'Kiyla Jasmine Thomas,Democrat,0.5256,true
+model,typesafe/jev-1.14,1370,OR,David Brock Smith,Republican,0.3534,false
+model,typesafe/jev-1.14,1370,OR,Jeff Merkley,Democrat,0.6466,true
+model,typesafe/jev-1.14,1370,RI,Jack Reed,Democrat,0.6645,true
+model,typesafe/jev-1.14,1370,RI,Raymond McKay,Republican,0.3355,false
+model,typesafe/jev-1.14,1370,SC,Annie Andrews,Democrat,0.5333,true
+model,typesafe/jev-1.14,1370,SC,Darline Graham,Republican,0.4667,false
+model,typesafe/jev-1.14,1370,SD,Brian Bengs,Independent,0.4265,false
+model,typesafe/jev-1.14,1370,SD,Mike Rounds,Republican,0.5735,true
+model,typesafe/jev-1.14,1370,TN,Bill Hagerty,Republican,0.6196,true
+model,typesafe/jev-1.14,1370,TN,Marquita Bradshaw,Democrat,0.3804,false
+model,typesafe/jev-1.14,1370,TX,James Talarico,Democrat,0.4982,false
+model,typesafe/jev-1.14,1370,TX,Ken Paxton,Republican,0.5018,true
+model,typesafe/jev-1.14,1370,VA,Bert Mizusawa,Republican,0.4414,false
+model,typesafe/jev-1.14,1370,VA,Mark Warner,Democrat,0.5586,true
+model,typesafe/jev-1.14,1370,WV,Rachel Fetty Anderson,Democrat,0.4616,false
+model,typesafe/jev-1.14,1370,WV,Shelley Moore Capito,Republican,0.5384,true
+model,typesafe/jev-1.14,1370,WY,Harriet Hageman,Republican,0.7486,true
+model,typesafe/jev-1.14,1370,WY,James W. Byrd,Democrat,0.2514,false
+model,typesafe/jev-1.14,2223,AK,Dan S. Sullivan,Republican,0.5197,true
+model,typesafe/jev-1.14,2223,AK,Mary Peltola,Democrat,0.4803,false
+model,typesafe/jev-1.14,2223,AL,Barry Moore,Republican,0.5082,true
+model,typesafe/jev-1.14,2223,AL,Everett Wess,Democrat,0.4918,false
+model,typesafe/jev-1.14,2223,AR,Hallie Shoffner,Democrat,0.4405,false
+model,typesafe/jev-1.14,2223,AR,Tom Cotton,Republican,0.5595,true
+model,typesafe/jev-1.14,2223,CO,John Hickenlooper,Democrat,0.5318,true
+model,typesafe/jev-1.14,2223,CO,Mark Baisley,Republican,0.4682,false
+model,typesafe/jev-1.14,2223,DE,Chris Coons,Democrat,0.7532,true
+model,typesafe/jev-1.14,2223,DE,Michael Katz,Republican,0.2468,false
+model,typesafe/jev-1.14,2223,FL,Angie Nixon,Democrat,0.4467,false
+model,typesafe/jev-1.14,2223,FL,Ashley Moody,Republican,0.5533,true
+model,typesafe/jev-1.14,2223,GA,Jon Ossoff,Democrat,0.5669,true
+model,typesafe/jev-1.14,2223,GA,Mike Collins,Republican,0.4331,false
+model,typesafe/jev-1.14,2223,IA,Ashley Hinson,Republican,0.5316,true
+model,typesafe/jev-1.14,2223,IA,Josh Turek,Democrat,0.4684,false
+model,typesafe/jev-1.14,2223,ID,Jim Risch,Republican,0.5923,true
+model,typesafe/jev-1.14,2223,ID,Todd Achilles,Independent,0.4077,false
+model,typesafe/jev-1.14,2223,IL,Don Tracy,Republican,0.426,false
+model,typesafe/jev-1.14,2223,IL,Juliana Stratton,Democrat,0.574,true
+model,typesafe/jev-1.14,2223,KS,Adam Hamilton,Democrat,0.5078,true
+model,typesafe/jev-1.14,2223,KS,Roger Marshall,Republican,0.4922,false
+model,typesafe/jev-1.14,2223,KY,Andy Barr,Republican,0.6382,true
+model,typesafe/jev-1.14,2223,KY,Charles Booker,Democrat,0.3618,false
+model,typesafe/jev-1.14,2223,LA,Jamie Davis,Democrat,0.5021,true
+model,typesafe/jev-1.14,2223,LA,Julia Letlow,Republican,0.4979,false
+model,typesafe/jev-1.14,2223,MA,Ed Markey,Democrat,0.7251,true
+model,typesafe/jev-1.14,2223,MA,John Deaton,Republican,0.2749,false
+model,typesafe/jev-1.14,2223,ME,Susan Collins,Republican,0.4123,false
+model,typesafe/jev-1.14,2223,ME,Troy Jackson,Democrat,0.5877,true
+model,typesafe/jev-1.14,2223,MI,Abdul El-Sayed,Democrat,0.5872,true
+model,typesafe/jev-1.14,2223,MI,Mike Rogers,Republican,0.4128,false
+model,typesafe/jev-1.14,2223,MN,Michele Tafoya,Republican,0.3537,false
+model,typesafe/jev-1.14,2223,MN,Peggy Flanagan,Democrat,0.6463,true
+model,typesafe/jev-1.14,2223,MS,Cindy Hyde-Smith,Republican,0.5921,true
+model,typesafe/jev-1.14,2223,MS,Scott Colom,Democrat,0.4079,false
+model,typesafe/jev-1.14,2223,MT,Alani Bankhead,Democrat,0.3227,false
+model,typesafe/jev-1.14,2223,MT,Kurt Alme,Republican,0.6275,true
+model,typesafe/jev-1.14,2223,MT,Seth Bodnar,Independent,0.0498,false
+model,typesafe/jev-1.14,2223,NC,Michael Whatley,Republican,0.5053,true
+model,typesafe/jev-1.14,2223,NC,Roy Cooper,Democrat,0.4947,false
+model,typesafe/jev-1.14,2223,NE,Dan Osborn,Independent,0.3615,false
+model,typesafe/jev-1.14,2223,NE,Pete Ricketts,Republican,0.6385,true
+model,typesafe/jev-1.14,2223,NH,Chris Pappas,Democrat,0.6233,true
+model,typesafe/jev-1.14,2223,NH,John E. Sununu,Republican,0.3767,false
+model,typesafe/jev-1.14,2223,NJ,Cory Booker,Democrat,0.6463,true
+model,typesafe/jev-1.14,2223,NJ,Justin Murphy,Republican,0.3537,false
+model,typesafe/jev-1.14,2223,NM,Ben Ray Luján,Democrat,0.5582,true
+model,typesafe/jev-1.14,2223,NM,Larry Marker,Republican,0.4418,false
+model,typesafe/jev-1.14,2223,OH,Jon Husted,Republican,0.4979,false
+model,typesafe/jev-1.14,2223,OH,Sherrod Brown,Democrat,0.5021,true
+model,typesafe/jev-1.14,2223,OK,Kevin Hern,Republican,0.551,true
+model,typesafe/jev-1.14,2223,OK,N'Kiyla Jasmine Thomas,Democrat,0.449,false
+model,typesafe/jev-1.14,2223,OR,David Brock Smith,Republican,0.3092,false
+model,typesafe/jev-1.14,2223,OR,Jeff Merkley,Democrat,0.6908,true
+model,typesafe/jev-1.14,2223,RI,Jack Reed,Democrat,0.619,true
+model,typesafe/jev-1.14,2223,RI,Raymond McKay,Republican,0.381,false
+model,typesafe/jev-1.14,2223,SC,Annie Andrews,Democrat,0.4502,false
+model,typesafe/jev-1.14,2223,SC,Darline Graham,Republican,0.5498,true
+model,typesafe/jev-1.14,2223,SD,Brian Bengs,Independent,0.3064,false
+model,typesafe/jev-1.14,2223,SD,Mike Rounds,Republican,0.6936,true
+model,typesafe/jev-1.14,2223,TN,Bill Hagerty,Republican,0.5697,true
+model,typesafe/jev-1.14,2223,TN,Marquita Bradshaw,Democrat,0.4303,false
+model,typesafe/jev-1.14,2223,TX,James Talarico,Democrat,0.4203,false
+model,typesafe/jev-1.14,2223,TX,Ken Paxton,Republican,0.5797,true
+model,typesafe/jev-1.14,2223,VA,Bert Mizusawa,Republican,0.3913,false
+model,typesafe/jev-1.14,2223,VA,Mark Warner,Democrat,0.6087,true
+model,typesafe/jev-1.14,2223,WV,Rachel Fetty Anderson,Democrat,0.3422,false
+model,typesafe/jev-1.14,2223,WV,Shelley Moore Capito,Republican,0.6578,true
+model,typesafe/jev-1.14,2223,WY,Harriet Hageman,Republican,0.7411,true
+model,typesafe/jev-1.14,2223,WY,James W. Byrd,Democrat,0.2589,false
+model,typesafe/jev-1.14,5845,AK,Dan S. Sullivan,Republican,0.6665,true
+model,typesafe/jev-1.14,5845,AK,Mary Peltola,Democrat,0.3335,false
+model,typesafe/jev-1.14,5845,AL,Barry Moore,Republican,0.6852,true
+model,typesafe/jev-1.14,5845,AL,Everett Wess,Democrat,0.3148,false
+model,typesafe/jev-1.14,5845,AR,Hallie Shoffner,Democrat,0.3842,false
+model,typesafe/jev-1.14,5845,AR,Tom Cotton,Republican,0.6158,true
+model,typesafe/jev-1.14,5845,CO,John Hickenlooper,Democrat,0.5643,true
+model,typesafe/jev-1.14,5845,CO,Mark Baisley,Republican,0.4357,false
+model,typesafe/jev-1.14,5845,DE,Chris Coons,Democrat,0.5363,true
+model,typesafe/jev-1.14,5845,DE,Michael Katz,Republican,0.4637,false
+model,typesafe/jev-1.14,5845,FL,Angie Nixon,Democrat,0.5548,true
+model,typesafe/jev-1.14,5845,FL,Ashley Moody,Republican,0.4452,false
+model,typesafe/jev-1.14,5845,GA,Jon Ossoff,Democrat,0.5829,true
+model,typesafe/jev-1.14,5845,GA,Mike Collins,Republican,0.4171,false
+model,typesafe/jev-1.14,5845,IA,Ashley Hinson,Republican,0.5374,true
+model,typesafe/jev-1.14,5845,IA,Josh Turek,Democrat,0.4626,false
+model,typesafe/jev-1.14,5845,ID,Jim Risch,Republican,0.6881,true
+model,typesafe/jev-1.14,5845,ID,Todd Achilles,Independent,0.3119,false
+model,typesafe/jev-1.14,5845,IL,Don Tracy,Republican,0.4207,false
+model,typesafe/jev-1.14,5845,IL,Juliana Stratton,Democrat,0.5793,true
+model,typesafe/jev-1.14,5845,KS,Adam Hamilton,Democrat,0.262,false
+model,typesafe/jev-1.14,5845,KS,Roger Marshall,Republican,0.738,true
+model,typesafe/jev-1.14,5845,KY,Andy Barr,Republican,0.5843,true
+model,typesafe/jev-1.14,5845,KY,Charles Booker,Democrat,0.4157,false
+model,typesafe/jev-1.14,5845,LA,Jamie Davis,Democrat,0.3604,false
+model,typesafe/jev-1.14,5845,LA,Julia Letlow,Republican,0.6396,true
+model,typesafe/jev-1.14,5845,MA,Ed Markey,Democrat,0.5178,true
+model,typesafe/jev-1.14,5845,MA,John Deaton,Republican,0.4822,false
+model,typesafe/jev-1.14,5845,ME,Susan Collins,Republican,0.5507,true
+model,typesafe/jev-1.14,5845,ME,Troy Jackson,Democrat,0.4493,false
+model,typesafe/jev-1.14,5845,MI,Abdul El-Sayed,Democrat,0.4426,false
+model,typesafe/jev-1.14,5845,MI,Mike Rogers,Republican,0.5574,true
+model,typesafe/jev-1.14,5845,MN,Michele Tafoya,Republican,0.5372,true
+model,typesafe/jev-1.14,5845,MN,Peggy Flanagan,Democrat,0.4628,false
+model,typesafe/jev-1.14,5845,MS,Cindy Hyde-Smith,Republican,0.5544,true
+model,typesafe/jev-1.14,5845,MS,Scott Colom,Democrat,0.4456,false
+model,typesafe/jev-1.14,5845,MT,Alani Bankhead,Democrat,0.3003,false
+model,typesafe/jev-1.14,5845,MT,Kurt Alme,Republican,0.6533,true
+model,typesafe/jev-1.14,5845,MT,Seth Bodnar,Independent,0.0463,false
+model,typesafe/jev-1.14,5845,NC,Michael Whatley,Republican,0.5948,true
+model,typesafe/jev-1.14,5845,NC,Roy Cooper,Democrat,0.4052,false
+model,typesafe/jev-1.14,5845,NE,Dan Osborn,Independent,0.463,false
+model,typesafe/jev-1.14,5845,NE,Pete Ricketts,Republican,0.537,true
+model,typesafe/jev-1.14,5845,NH,Chris Pappas,Democrat,0.5518,true
+model,typesafe/jev-1.14,5845,NH,John E. Sununu,Republican,0.4482,false
+model,typesafe/jev-1.14,5845,NJ,Cory Booker,Democrat,0.6641,true
+model,typesafe/jev-1.14,5845,NJ,Justin Murphy,Republican,0.3359,false
+model,typesafe/jev-1.14,5845,NM,Ben Ray Luján,Democrat,0.6944,true
+model,typesafe/jev-1.14,5845,NM,Larry Marker,Republican,0.3056,false
+model,typesafe/jev-1.14,5845,OH,Jon Husted,Republican,0.598,true
+model,typesafe/jev-1.14,5845,OH,Sherrod Brown,Democrat,0.402,false
+model,typesafe/jev-1.14,5845,OK,Kevin Hern,Republican,0.675,true
+model,typesafe/jev-1.14,5845,OK,N'Kiyla Jasmine Thomas,Democrat,0.325,false
+model,typesafe/jev-1.14,5845,OR,David Brock Smith,Republican,0.4029,false
+model,typesafe/jev-1.14,5845,OR,Jeff Merkley,Democrat,0.5971,true
+model,typesafe/jev-1.14,5845,RI,Jack Reed,Democrat,0.555,true
+model,typesafe/jev-1.14,5845,RI,Raymond McKay,Republican,0.445,false
+model,typesafe/jev-1.14,5845,SC,Annie Andrews,Democrat,0.3193,false
+model,typesafe/jev-1.14,5845,SC,Darline Graham,Republican,0.6807,true
+model,typesafe/jev-1.14,5845,SD,Brian Bengs,Independent,0.3272,false
+model,typesafe/jev-1.14,5845,SD,Mike Rounds,Republican,0.6728,true
+model,typesafe/jev-1.14,5845,TN,Bill Hagerty,Republican,0.6747,true
+model,typesafe/jev-1.14,5845,TN,Marquita Bradshaw,Democrat,0.3253,false
+model,typesafe/jev-1.14,5845,TX,James Talarico,Democrat,0.565,true
+model,typesafe/jev-1.14,5845,TX,Ken Paxton,Republican,0.435,false
+model,typesafe/jev-1.14,5845,VA,Bert Mizusawa,Republican,0.4555,false
+model,typesafe/jev-1.14,5845,VA,Mark Warner,Democrat,0.5445,true
+model,typesafe/jev-1.14,5845,WV,Rachel Fetty Anderson,Democrat,0.5034,true
+model,typesafe/jev-1.14,5845,WV,Shelley Moore Capito,Republican,0.4966,false
+model,typesafe/jev-1.14,5845,WY,Harriet Hageman,Republican,0.8461,true
+model,typesafe/jev-1.14,5845,WY,James W. Byrd,Democrat,0.1539,false

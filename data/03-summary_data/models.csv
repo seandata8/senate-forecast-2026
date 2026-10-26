@@ -1,0 +1,5 @@
+approach,model,kind,draws,temperature,wording,personas,answers,missing,input_tokens,output_tokens,cost
+furkan,moonshotai/kimi-k3,chat model,3,1.0,v1,1050,6390,0,2430615,903808,11.385366239
+furkan,typesafe/jev-1.14,decision model,10,,v1,1050,21300,0,11467040,1268107,0.48161568
+sean,anthropic/claude-haiku-5.5,chat model,3,1.0,v1,1050,6390,0,3256842,163100,0.4072342
+sean,cohere/command-a-plus,chat model,3,1.0,v1,1050,6390,0,1129836,2118424,3.5165868

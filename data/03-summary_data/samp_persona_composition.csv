@@ -1,0 +1,26 @@
+variable,group,personas
+ideology,Liberal,199
+religion,Protestant,364
+state,OR,30
+party_id,Not very strong Democrat,96
+age_group,30-44,177
+state,MI,30
+age_group,45-64,444
+state,SC,30
+race,Native American,13
+state,OH,30
+state,TN,30
+state,SD,30
+vote_2024,Cornel West,2
+income,Under $30K,201
+marital_status,Widowed,81
+state,AL,30
+state,NH,30
+marital_status,Domestic / civil partnership,52
+race,Asian,15
+registered,Yes,982
+religion,Jewish,16
+education,Some college,246
+party_id,Lean Republican,95
+party_id,Strong Democrat,273
+party_id,Strong Republican,219

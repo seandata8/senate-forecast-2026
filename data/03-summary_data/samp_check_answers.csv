@@ -1,0 +1,26 @@
+approach,model,persona_id,state,party_id,check,question,prompt,answer,draws
+furkan,moonshotai/kimi-k3,150,FL,Strong Republican,no_party_id,senate,with party ID,Ashley Moody,3
+furkan,typesafe/jev-1.14,240,ID,Not very strong Democrat,persona_state,state,as asked,Idaho,10
+sean,cohere/command-a-plus,60,AR,Not very strong Democrat,no_party_id,generic,with party ID,Democrat,3
+furkan,typesafe/jev-1.14,30,AL,Lean Republican,persona_state,state,as asked,Alabama,10
+furkan,moonshotai/kimi-k3,0,AK,Independent,no_party_id,alaska_final,without party ID,Mary Peltola,3
+sean,anthropic/claude-haiku-5.5,240,ID,Not very strong Democrat,no_party_id,generic,with party ID,Democrat,3
+furkan,moonshotai/kimi-k3,0,AK,Independent,no_party_id,generic,with party ID,Undecided,3
+sean,cohere/command-a-plus,60,AR,Not very strong Democrat,no_party_id,senate,without party ID,Hallie Shoffner,3
+furkan,typesafe/jev-1.14,90,CO,Independent,no_party_id,senate,with party ID,John Hickenlooper,6
+sean,cohere/command-a-plus,0,AK,Independent,persona_state,state,as asked,Alaska,3
+sean,cohere/command-a-plus,90,CO,Independent,no_party_id,senate,without party ID,John Hickenlooper,3
+sean,cohere/command-a-plus,90,CO,Independent,no_party_id,generic,with party ID,Undecided,3
+sean,cohere/command-a-plus,180,GA,Strong Democrat,no_party_id,senate,without party ID,Jon Ossoff,3
+furkan,moonshotai/kimi-k3,210,IA,Lean Republican,no_party_id,senate,with party ID,Ashley Hinson,3
+furkan,typesafe/jev-1.14,0,AK,Independent,no_party_id,alaska_final,without party ID,Dan S. Sullivan,3
+sean,anthropic/claude-haiku-5.5,0,AK,Independent,no_party_id,senate,without party ID,Mary Peltola,2
+sean,cohere/command-a-plus,0,AK,Independent,no_party_id,alaska_final,with party ID,Undecided,2
+furkan,moonshotai/kimi-k3,210,IA,Lean Republican,no_party_id,senate,without party ID,Ashley Hinson,3
+furkan,typesafe/jev-1.14,30,AL,Lean Republican,no_party_id,senate,with party ID,Barry Moore,9
+furkan,typesafe/jev-1.14,90,CO,Independent,no_party_id,senate,without party ID,Undecided,4
+furkan,typesafe/jev-1.14,150,FL,Strong Republican,no_party_id,senate,without party ID,Ashley Moody,10
+sean,cohere/command-a-plus,0,AK,Independent,no_party_id,senate,with party ID,Undecided,3
+furkan,moonshotai/kimi-k3,270,IL,Strong Democrat,persona_state,state,as asked,Illinois,3
+furkan,typesafe/jev-1.14,0,AK,Independent,no_party_id,generic,without party ID,Democrat,2
+furkan,typesafe/jev-1.14,0,AK,Independent,no_party_id,generic,without party ID,Undecided,6

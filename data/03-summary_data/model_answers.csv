@@ -1,0 +1,69 @@
+version_type,version,approach,model,question,answer,share
+all,all,,average,generic,Democrat,0.3698336252880008
+all,all,,average,generic,Other,0.0003758009822175376
+all,all,,average,generic,Republican,0.40820008565998256
+all,all,,average,generic,Undecided,0.07401961650661833
+all,all,,average,generic,Would not vote,0.14757087156318074
+approach,furkan,furkan,average,generic,Democrat,0.3711723014114441
+approach,furkan,furkan,average,generic,Other,0.00024668056763914824
+approach,furkan,furkan,average,generic,Republican,0.4146538162786071
+approach,furkan,furkan,average,generic,Undecided,0.08819802794894824
+approach,furkan,furkan,average,generic,Would not vote,0.12572917379336132
+approach,sean,sean,average,generic,Democrat,0.36849494916455755
+approach,sean,sean,average,generic,Other,0.0005049213967959269
+approach,sean,sean,average,generic,Republican,0.4017463550413579
+approach,sean,sean,average,generic,Undecided,0.0598412050642884
+approach,sean,sean,average,generic,Would not vote,0.1694125693330002
+model,anthropic/claude-haiku-5.5,sean,anthropic/claude-haiku-5.5,generic,Democrat,0.3665300649163685
+model,anthropic/claude-haiku-5.5,sean,anthropic/claude-haiku-5.5,generic,Other,0.0010098427935918539
+model,anthropic/claude-haiku-5.5,sean,anthropic/claude-haiku-5.5,generic,Republican,0.4025667428382582
+model,anthropic/claude-haiku-5.5,sean,anthropic/claude-haiku-5.5,generic,Undecided,0.05630511665738036
+model,anthropic/claude-haiku-5.5,sean,anthropic/claude-haiku-5.5,generic,Would not vote,0.1735882327944011
+model,cohere/command-a-plus,sean,cohere/command-a-plus,generic,Democrat,0.3704598334127466
+model,cohere/command-a-plus,sean,cohere/command-a-plus,generic,Republican,0.40092596724445767
+model,cohere/command-a-plus,sean,cohere/command-a-plus,generic,Undecided,0.06337729347119644
+model,cohere/command-a-plus,sean,cohere/command-a-plus,generic,Would not vote,0.16523690587159925
+model,moonshotai/kimi-k3,furkan,moonshotai/kimi-k3,generic,Democrat,0.37900290091814515
+model,moonshotai/kimi-k3,furkan,moonshotai/kimi-k3,generic,Republican,0.41802395836481604
+model,moonshotai/kimi-k3,furkan,moonshotai/kimi-k3,generic,Undecided,0.0462954688136611
+model,moonshotai/kimi-k3,furkan,moonshotai/kimi-k3,generic,Would not vote,0.15667767190337764
+model,typesafe/jev-1.14,furkan,typesafe/jev-1.14,generic,Democrat,0.363341701904743
+model,typesafe/jev-1.14,furkan,typesafe/jev-1.14,generic,Other,0.0004933611352782965
+model,typesafe/jev-1.14,furkan,typesafe/jev-1.14,generic,Republican,0.4112836741923982
+model,typesafe/jev-1.14,furkan,typesafe/jev-1.14,generic,Undecided,0.1301005870842354
+model,typesafe/jev-1.14,furkan,typesafe/jev-1.14,generic,Would not vote,0.094780675683345
+all,all,,average,senate,Democrat,0.343217619389004
+all,all,,average,senate,Independent,0.032442380864475484
+all,all,,average,senate,Republican,0.4023412976867625
+all,all,,average,senate,Undecided,0.06767776473575025
+all,all,,average,senate,Would not vote,0.15432093732400776
+approach,furkan,furkan,average,senate,Democrat,0.3454613295485411
+approach,furkan,furkan,average,senate,Independent,0.030232294559317335
+approach,furkan,furkan,average,senate,Republican,0.4119589099135449
+approach,furkan,furkan,average,senate,Undecided,0.07327642192378771
+approach,furkan,furkan,average,senate,Would not vote,0.1390710440548089
+approach,sean,sean,average,senate,Democrat,0.34097390922946696
+approach,sean,sean,average,senate,Independent,0.03465246716963363
+approach,sean,sean,average,senate,Republican,0.3927236854599801
+approach,sean,sean,average,senate,Undecided,0.0620791075477128
+approach,sean,sean,average,senate,Would not vote,0.1695708305932066
+model,anthropic/claude-haiku-5.5,sean,anthropic/claude-haiku-5.5,senate,Democrat,0.330367407226231
+model,anthropic/claude-haiku-5.5,sean,anthropic/claude-haiku-5.5,senate,Independent,0.03635473686844285
+model,anthropic/claude-haiku-5.5,sean,anthropic/claude-haiku-5.5,senate,Republican,0.39302469435396165
+model,anthropic/claude-haiku-5.5,sean,anthropic/claude-haiku-5.5,senate,Undecided,0.05640164888438372
+model,anthropic/claude-haiku-5.5,sean,anthropic/claude-haiku-5.5,senate,Would not vote,0.18385151266698085
+model,cohere/command-a-plus,sean,cohere/command-a-plus,senate,Democrat,0.35158041123270295
+model,cohere/command-a-plus,sean,cohere/command-a-plus,senate,Independent,0.032950197470824415
+model,cohere/command-a-plus,sean,cohere/command-a-plus,senate,Republican,0.39242267656599855
+model,cohere/command-a-plus,sean,cohere/command-a-plus,senate,Undecided,0.06775656621104188
+model,cohere/command-a-plus,sean,cohere/command-a-plus,senate,Would not vote,0.15529014851943235
+model,moonshotai/kimi-k3,furkan,moonshotai/kimi-k3,senate,Democrat,0.3641954299217365
+model,moonshotai/kimi-k3,furkan,moonshotai/kimi-k3,senate,Independent,0.0363866022263399
+model,moonshotai/kimi-k3,furkan,moonshotai/kimi-k3,senate,Republican,0.4152234102541428
+model,moonshotai/kimi-k3,furkan,moonshotai/kimi-k3,senate,Undecided,0.013930957234153768
+model,moonshotai/kimi-k3,furkan,moonshotai/kimi-k3,senate,Would not vote,0.17026360036362703
+model,typesafe/jev-1.14,furkan,typesafe/jev-1.14,senate,Democrat,0.3267272291753457
+model,typesafe/jev-1.14,furkan,typesafe/jev-1.14,senate,Independent,0.02407798689229477
+model,typesafe/jev-1.14,furkan,typesafe/jev-1.14,senate,Republican,0.40869440957294706
+model,typesafe/jev-1.14,furkan,typesafe/jev-1.14,senate,Undecided,0.13262188661342164
+model,typesafe/jev-1.14,furkan,typesafe/jev-1.14,senate,Would not vote,0.10787848774599079
