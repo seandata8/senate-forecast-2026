@@ -48,3 +48,24 @@ jobs:
         uses: quarto-dev/quarto-actions/setup@v2
         with:
           version: 1.10.19
+
+      - name: Download and clean the polls
+        run: |
+          uv run scripts/10-download_polls.py
+          uv run scripts/10-clean_polls.py
+
+      - name: Download and clean the Polymarket prices
+        run: |
+          uv run scripts/11-download_polymarket.py
+          uv run scripts/11-clean_polymarket.py
+
+      - name: Rerun the summaries
+        run: uv run scripts/12-summarize_results.py
+
+      # The website needs the forecast's summaries, which are on main only once both runs are combined (#7) and the
+      # forecast is made (#8); until then this step is skipped.
+      - name: Rebuild the website
+        if: hashFiles('data/03-summary_data/forecast_control.parquet') != ''
+        run: |
+          uv run quarto render
+          touch docs/.nojekyll  # tells GitHub Pages to serve the site as it is, without its Jekyll tool
