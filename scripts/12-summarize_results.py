@@ -18,10 +18,28 @@ import sys
 
 import polars as pl
 
-from senate_forecast_2026.forecast_summary import answer_weights, race_summary, seat_summary, weighted_shares
+from senate_forecast_2026.forecast_summary import (
+    answer_weights,
+    race_summary,
+    seat_summary,
+    weighted_shares,
+    with_versions,
+)
 from senate_forecast_2026.paths import ANALYSIS_DATA, DATA, SUMMARY_DATA
-from senate_forecast_2026.poll_average import RULE_COMBINATIONS, poll_influence, race_averages, without_undecided
-from senate_forecast_2026.queries import STATE_NAMES, alaska_final_candidates
+from senate_forecast_2026.poll_average import (
+    RULE_COMBINATIONS,
+    poll_influence,
+    poll_interval,
+    race_averages,
+    without_undecided,
+)
+from senate_forecast_2026.queries import (
+    APPROACH_SETTINGS,
+    DECISION_MODELS,
+    STATE_NAMES,
+    alaska_final_candidates,
+    draws_by_model,
+)
 from senate_forecast_2026.save import save_data
 from senate_forecast_2026.schemas import (
     CheckAnswers,
@@ -32,10 +50,12 @@ from senate_forecast_2026.schemas import (
     ForecastRaces,
     ForecastSeats,
     ModelAnswers,
+    Models,
     PastComparison,
     PersonaComposition,
     PollAverages,
     PollInfluence,
+    PollTable,
     PolymarketLatest,
     PolymarketPrices,
 )
@@ -43,7 +63,8 @@ from senate_forecast_2026.schemas import (
 #### Read data ####
 # Each poll's shares are scaled to add up to 100% among its candidates: the undecided are left out, as in our
 # forecast, so the two can be compared.
-polls = without_undecided(pl.read_parquet(ANALYSIS_DATA / "polls.parquet"))
+reported_polls = pl.read_parquet(ANALYSIS_DATA / "polls.parquet")
+polls = without_undecided(reported_polls)
 polymarket = pl.read_parquet(ANALYSIS_DATA / "polymarket.parquet")
 
 
@@ -65,8 +86,9 @@ for state, race_polls in polls.group_by("state", maintain_order=True):
 columns = ["state", *RULE_COMBINATIONS[0]]
 poll_averages = (
     pl.DataFrame(average_rows)
-    .with_columns(pl.col("average", "spread").round(4))
-    .select(*columns, "date", "candidate", "average", "spread")
+    .with_columns(**dict(zip(["lower", "upper"], poll_interval("average", "spread"), strict=True)))
+    .with_columns(pl.col("average", "spread", "lower", "upper").round(4))
+    .select(*columns, "date", "candidate", "average", "spread", "lower", "upper")
     .sort(*columns, "candidate", "date", descending=[False, True, True, True, True, False, False])
 )
 poll_influence_table = (
@@ -85,6 +107,23 @@ with pl.Config(tbl_rows=80):
 
 save_data(poll_averages, PollAverages, SUMMARY_DATA, "poll_averages")
 save_data(poll_influence_table, PollInfluence, SUMMARY_DATA, "poll_influence")
+
+# The website's table of polls under each race's chart: every poll in today's average (every rule on), with its
+# weight and each candidate's share as the poll reported it (undecided included), and the leader's lead in points.
+poll_table = (
+    poll_influence_table.filter(pl.all_horizontal(columns[1:])).select("state", "poll_id", "influence")
+    .join(reported_polls.drop("state"), on="poll_id")
+    .with_columns(rank=pl.col("share").rank("ordinal", descending=True).over("poll_id"))
+    .with_columns(
+        leader=pl.col("candidate").filter(pl.col("rank") == 1).first().over("poll_id"),
+        lead=(pl.col("share").filter(pl.col("rank") == 1).first() - pl.col("share").filter(pl.col("rank") == 2).first())
+        .over("poll_id").fill_null(pl.col("share")).round(4),
+    )
+    .select("state", "poll_id", "pollster", "start_date", "date", "sample_size", "population", "influence",
+            "candidate", "share", "leader", "lead")
+    .sort("state", "influence", "poll_id", "share", descending=[False, True, False, True])
+)
+save_data(poll_table, PollTable, SUMMARY_DATA, "poll_table", sample_groups=["poll_id"])
 
 
 #### Polymarket ####
@@ -121,7 +160,8 @@ forecast_seats = pl.concat(seat_rows).select(*label_columns, "dem_seats", "simul
 
 # Next to each candidate: today's poll average with every rule on (polls without the undecided, as above), and
 # Polymarket's latest price, scaled to add up to 100% among the race's candidates (Alaska: the final round's two).
-poll_now = everything_on.select("state", "candidate", poll_average="average", poll_spread="spread")
+poll_now = everything_on.select("state", "candidate", poll_average="average", poll_spread="spread",
+                                poll_lower="lower", poll_upper="upper")
 race_candidates = pl.concat([
     candidates.filter(pl.col("state") != "AK"),
     alaska_final_candidates(candidates.filter(pl.col("state") == "AK")),
@@ -135,7 +175,7 @@ forecast_races = (
     .join(poll_now, on=["state", "candidate"], how="left")
     .join(polymarket_now, on=["state", "candidate"], how="left")
     .select(*label_columns, "state", "candidate", "party", "share", "share_lower", "share_upper", "chance_of_winning",
-            "poll_average", "poll_spread", "polymarket_chance")
+            "poll_average", "poll_spread", "poll_lower", "poll_upper", "polymarket_chance")
 )
 print("Forecast, every version:")
 print(forecast_control)
@@ -146,8 +186,8 @@ save_data(forecast_races, ForecastRaces, SUMMARY_DATA, "forecast_races")
 
 #### What the models answered ####
 # Each model's answers to the Senate question (grouped by the chosen candidate's party) and the House question,
-# weighted by the personas' CES weights; each persona's draws from one model count once in total. "average" is the
-# models counted equally, as on the instructor's site.
+# weighted by the personas' CES weights; each persona's draws from one model count once in total. Then the website's
+# versions: each model, and the models counted equally ("average") for all of them and for each approach.
 personas = pl.read_parquet(ANALYSIS_DATA / "personas.parquet")
 # Both runs combined (#7), or until then each person's run that exists.
 if (ANALYSIS_DATA / "responses.parquet").exists():
@@ -161,35 +201,35 @@ senate = (
     .with_columns(answer=pl.coalesce("party", "answer"))
 )
 house = weighted.filter(pl.col("question") == "generic")
-per_model = pl.concat([weighted_shares(senate, ["model", "question"]), weighted_shares(house, ["model", "question"])])
-average = (
-    per_model.group_by("question", "answer").agg(share=pl.col("share").sum() / per_model["model"].n_unique())
-    .with_columns(model=pl.lit("average"))
+by_model = ["approach", "model", "question"]
+per_model = pl.concat([weighted_shares(senate, by_model), weighted_shares(house, by_model)])
+model_answers = with_versions(per_model, ["question", "answer"], ["share"], missing_is_zero=True).sort(
+    "question", "version_type", "version", "model", "answer"
 )
-model_answers = pl.concat([per_model, average.select(per_model.columns)]).sort("question", "model", "answer")
 save_data(model_answers, ModelAnswers, SUMMARY_DATA, "model_answers")
 
 
 #### Cross-tabs ####
-# The Democratic share of the two-party House vote in each group of personas, per model, and the models' average.
+# In each group of personas, the share of each party among the answers for a party: the Senate question (Democrat,
+# Independent or Republican candidate) and the House question (Democrat or Republican; the few "Other" answers are
+# left out). Per model, then the versions as above.
 CROSSTAB_VARIABLES = ["gender", "race", "age_group", "education", "party_id", "ideology", "income", "religion",
                       "marital_status", "sexuality", "registered", "state"]
-two_party = house.filter(pl.col("answer").is_in(["Democrat", "Republican"])).join(
-    personas.drop("state", "weight"), on="persona_id"
-)
+party_answers = pl.concat([
+    senate.filter(pl.col("answer").is_in(["Democrat", "Independent", "Republican"])),
+    house.filter(pl.col("answer").is_in(["Democrat", "Republican"])),
+], how="diagonal_relaxed").join(personas.drop("state", "weight"), on="persona_id")
 crosstab_rows = []
 for variable in CROSSTAB_VARIABLES:
-    by_model = two_party.group_by(pl.col(variable).alias("group"), "model").agg(
-        democratic_share=(pl.col("weight") * (pl.col("answer") == "Democrat")).sum() / pl.col("weight").sum(),
-        personas=pl.col("persona_id").n_unique(),
-    )
-    by_average = by_model.group_by("group").agg(
-        pl.col("democratic_share").mean(), pl.col("personas").min(), model=pl.lit("average")
-    )
-    crosstab_rows += [by_model.with_columns(variable=pl.lit(variable)),
-                      by_average.select(by_model.columns).with_columns(variable=pl.lit(variable))]
-crosstabs = pl.concat(crosstab_rows).select("variable", "group", "model", "democratic_share", pl.col("personas").cast(pl.Int64)).sort(
-    "variable", "group", "model"
+    rows = party_answers.with_columns(group=pl.col(variable).cast(pl.String), variable=pl.lit(variable))
+    by = ["approach", "model", "question", "variable", "group"]
+    shares = weighted_shares(rows, by).rename({"answer": "party"})
+    sizes = rows.group_by(by).agg(personas=pl.col("persona_id").n_unique().cast(pl.Float64))
+    crosstab_rows.append(shares.join(sizes, on=by))
+crosstabs = with_versions(
+    pl.concat(crosstab_rows), ["question", "variable", "group", "party"], ["share", "personas"], missing_is_zero=False
+).with_columns(pl.col("personas").round(0).cast(pl.Int64)).sort(
+    "variable", "group", "question", "version_type", "version", "model", "party"
 )
 save_data(crosstabs, Crosstabs, SUMMARY_DATA, "crosstabs")
 
@@ -202,6 +242,30 @@ persona_composition = pl.concat([
     "variable", "group", "personas"
 ).sort("variable", "group")
 save_data(persona_composition, PersonaComposition, SUMMARY_DATA, "persona_composition")
+
+
+#### Models ####
+# Each model of each approach: how it was asked (its settings in queries.py) and what came back.
+settings = pl.DataFrame([
+    {"approach": approach, "model": model, "draws": draws,
+     "kind": "decision model" if model in DECISION_MODELS else "chat model",
+     "temperature": None if model in DECISION_MODELS else float(approach_settings["temperature"]),
+     "wording": approach_settings["wording"]}
+    for approach, approach_settings in APPROACH_SETTINGS.items()
+    for model, draws in draws_by_model(approach_settings["models"], approach_settings["draws"]).items()
+], schema_overrides={"temperature": pl.Float64})
+models = (
+    responses.group_by("approach", "model").agg(
+        personas=pl.col("persona_id").n_unique().cast(pl.Int64), answers=pl.len().cast(pl.Int64),
+        missing=pl.col("answer").null_count().cast(pl.Int64), input_tokens=pl.col("input_tokens").sum(),
+        output_tokens=pl.col("output_tokens").sum(), cost=pl.col("cost").sum(),
+    )
+    .join(settings, on=["approach", "model"], how="left")
+    .select("approach", "model", "kind", "draws", "temperature", "wording", "personas", "answers", "missing",
+            "input_tokens", "output_tokens", "cost")
+    .sort("approach", "model")
+)
+save_data(models, Models, SUMMARY_DATA, "models")
 
 
 #### Costs ####
@@ -218,17 +282,20 @@ save_data(costs, Costs, SUMMARY_DATA, "costs")
 
 #### Past results ####
 # Each race's Republican share in the 2024 presidential election and the last election for the seat (of all votes
-# cast, from past_results), next to our 2026 estimate for the Republican candidate (both runs together, of the votes
-# for the race's candidates, with its 95% interval). A comparison on the website, not a forecast input.
+# cast, from past_results), next to our 2026 estimate for the Republican candidate (of the votes for the race's
+# candidates, with its 95% interval, in every version). A comparison on the website, not a forecast
+# input.
 past_results = pl.read_parquet(ANALYSIS_DATA / "past_results.parquet")
-our_estimate = forecast_races.filter((pl.col("version_type") == "all") & (pl.col("party") == "Republican")).select(
-    "state", election=pl.lit("forecast_2026"), republican_share="share", lower="share_lower", upper="share_upper"
+our_estimate = forecast_races.filter(pl.col("party") == "Republican").select(
+    "version_type", "version", "state", election=pl.lit("forecast_2026"), republican_share="share",
+    lower="share_lower", upper="share_upper",
 )
 past_comparison = pl.concat([
-    past_results.select("state", "election", republican_share="rep_share",
+    past_results.select(version_type=pl.lit(None, pl.String), version=pl.lit(None, pl.String), state="state",
+                        election="election", republican_share="rep_share",
                         lower=pl.lit(None, pl.Float64), upper=pl.lit(None, pl.Float64)),
     our_estimate,
-]).sort("state", "election")
+]).sort("state", "election", "version_type", "version")
 save_data(past_comparison, PastComparison, SUMMARY_DATA, "past_comparison")
 
 
