@@ -166,6 +166,29 @@ class Responses(pa.DataFrameModel):
         strict = True
 
 
+class ModelChecks(pa.DataFrameModel):
+    """One row per answer in the instructor's checks on an approach's models, on a small slice of personas. Made by
+    #6 scripts/06-check_models.py as model_checks_sean or model_checks_furkan."""
+
+    approach: str = pa.Field(description="Whose models and settings (`sean` or `furkan`).")
+    persona_id: int = pa.Field(ge=0, description=PERSONA_ID)
+    state: str = pa.Field(isin=STATES, description="The persona's state. " + STATE)
+    model: str = pa.Field(description="OpenRouter model id.")
+    draw: int = pa.Field(ge=0, description="Repeat number, from 0 up, as in responses.")
+    check: str = pa.Field(isin=["persona_state", "no_party_id"], description='"persona_state": asked which state '
+                          'they live in. "no_party_id": asked their usual questions without the party ID line.')
+    question: str = pa.Field(isin=["state", *QUESTIONS], description='"state" for persona_state; otherwise the '
+                             "question, as in responses.")
+    answer: str = pa.Field(nullable=True, description="A state name (persona_state) or an answer as in responses. "
+                           "Missing when the model gave no usable answer.")
+    input_tokens: int = pa.Field(ge=0, description="Tokens sent to the model, as reported by OpenRouter.")
+    output_tokens: int = pa.Field(ge=0, description="Tokens the model returned, as reported by OpenRouter.")
+    cost: float = pa.Field(ge=0, description="Dollar cost of the call, as reported by OpenRouter.")
+
+    class Config:
+        strict = True
+
+
 class Frame(pa.DataFrameModel):
     """Number of voters in each state and demographic cell, for post-stratification. Made by #8 from 2024 CES
     validated voters (the same survey as the personas): each cell's share of its state's voters, times the state's
@@ -484,6 +507,25 @@ class PersonaComposition(pa.DataFrameModel):
         strict = True
 
 
+class PastComparison(pa.DataFrameModel):
+    """One row per race and election: the Republican share in past elections next to our 2026 estimate. Made by #12
+    into data/03-summary_data/ from past_results and the forecast (both runs together)."""
+
+    state: str = pa.Field(isin=STATES, description=STATE)
+    election: str = pa.Field(description='As in past_results ("president_2024", "senate_2020", ...), or '
+                             '"forecast_2026": our estimate.')
+    republican_share: float = pa.Field(ge=0, le=1, description="Republican share: of all votes cast in past "
+                                       "elections (as in past_results); of the votes for the race's candidates in "
+                                       "our estimate (undecided left out).")
+    lower: float = pa.Field(ge=0, le=1, nullable=True, description="Our estimate: lower end of its 95% interval. "
+                            "Missing for past elections.")
+    upper: float = pa.Field(ge=0, le=1, nullable=True, description="Our estimate: upper end of its 95% interval. "
+                            "Missing for past elections.")
+
+    class Config:
+        strict = True
+
+
 class Costs(pa.DataFrameModel):
     """One row per approach and model (and "all models"): what each approach's latest full run cost. Made by #12 into
     data/03-summary_data/ from the run cost log, data/run_costs.csv."""
@@ -495,6 +537,43 @@ class Costs(pa.DataFrameModel):
     personas: int = pa.Field(ge=1, description="Number of personas asked.")
     total_cost: float = pa.Field(ge=0, description="Total cost in US dollars, as OpenRouter charged it.")
     cost_per_persona: float = pa.Field(ge=0, description="Total cost divided by the number of personas.")
+
+    class Config:
+        strict = True
+
+
+class CheckResults(pa.DataFrameModel):
+    """One row per approach, model and check: the result of the instructor's checks. Made by #12 into
+    data/03-summary_data/ from model_checks_sean and model_checks_furkan."""
+
+    approach: str = pa.Field(description="Whose models and settings (`sean` or `furkan`).")
+    model: str = pa.Field(description="OpenRouter model id.")
+    check: str = pa.Field(isin=["persona_state", "no_party_id"], description="As in model_checks.")
+    personas: int = pa.Field(ge=1, description="Number of personas checked.")
+    count: int = pa.Field(ge=0, description="persona_state: personas who named their own state in every draw. "
+                          "no_party_id: personas whose most common answer to at least one question changed without "
+                          "the party ID line (a tie between answers counts as a change if the tied answers differ).")
+    cost: float = pa.Field(ge=0, description="Dollar cost of the check's answers, as first charged.")
+
+    class Config:
+        strict = True
+
+
+class CheckAnswers(pa.DataFrameModel):
+    """One row per approach, model, persona, check, question, prompt and answer: how many draws gave it (the
+    checks' table on the website). Made by #12 into data/03-summary_data/."""
+
+    approach: str = pa.Field(description="Whose models and settings (`sean` or `furkan`).")
+    model: str = pa.Field(description="OpenRouter model id.")
+    persona_id: int = pa.Field(ge=0, description=PERSONA_ID)
+    state: str = pa.Field(isin=STATES, description="The persona's state. " + STATE)
+    party_id: str = pa.Field(description="The persona's party ID, as in personas.")
+    check: str = pa.Field(isin=["persona_state", "no_party_id"], description="As in model_checks.")
+    question: str = pa.Field(isin=["state", *QUESTIONS], description="As in model_checks.")
+    prompt: str = pa.Field(isin=["as asked", "with party ID", "without party ID"], description='"as asked" for '
+                           'persona_state; for no_party_id, "with party ID" (the full run) or "without party ID".')
+    answer: str = pa.Field(description="The answer, or Missing.")
+    draws: int = pa.Field(ge=1, description="Number of draws that gave this answer.")
 
     class Config:
         strict = True
@@ -524,6 +603,11 @@ FILE_SCHEMAS = {
     "crosstabs": Crosstabs,
     "persona_composition": PersonaComposition,
     "costs": Costs,
+    "past_comparison": PastComparison,
+    "model_checks_sean": ModelChecks,
+    "model_checks_furkan": ModelChecks,
+    "check_results": CheckResults,
+    "check_answers": CheckAnswers,
 }
 # The files the simulation (#1) makes; the others exist only as real data.
 SIMULATED_FILES = ["personas", "candidates", "responses_sean", "responses_furkan", "responses", "frame", "forecast"]

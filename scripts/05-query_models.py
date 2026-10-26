@@ -20,6 +20,7 @@ import polars as pl
 
 from senate_forecast_2026.paths import DATA
 from senate_forecast_2026.queries import (
+    APPROACH_SETTINGS,
     QUESTION_WORDINGS,
     draws_by_model,
     persona_to_prompt,
@@ -31,24 +32,6 @@ from senate_forecast_2026.save import save_data
 from senate_forecast_2026.schemas import Responses, RunCosts
 
 DATA_FOLDERS = {"simulated": Path("data/00-simulated_data"), "real": Path("data/02-analysis_data")}
-
-# Each of us sets our own approach here for #6: models from at least two providers, repeated draws, and the
-# question wording (see QUESTION_WORDINGS in queries.py). v1 is the default; v2 is the experimental wording,
-# run with --wording v2 to check how much the answers depend on it. `draws` is one number for every model, or a
-# number per model.
-APPROACH_SETTINGS = {
-    "sean": {
-        "models": ["deepseek/deepseek-v4-flash-0731", "z-ai/glm-5.3-flash"], "draws": 3, "temperature": 1.0, "wording": "v1",
-    },
-    # Jev is a decision model (see DECISION_MODELS in silicon.py): it has no temperature, and each of its 10 draws
-    # is a separate call whose answer is a random pick weighted by its probabilities. Kimi K3 is a chat model.
-    "furkan": {
-        "models": ["typesafe/jev-1.14", "moonshotai/kimi-k3"],
-        "draws": {"typesafe/jev-1.14": 10, "moonshotai/kimi-k3": 3},
-        "temperature": 1.0,
-        "wording": "v1",
-    },
-}
 
 parser = argparse.ArgumentParser(description="Ask LLMs every persona's questions and save the answers.")
 parser.add_argument("--approach", choices=APPROACH_SETTINGS, required=True, help="whose models and settings to use")
