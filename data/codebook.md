@@ -332,3 +332,33 @@ One row per answer in the instructor's checks on an approach's models, on a smal
 | `input_tokens` | Int64 | no | ≥ 0 | Tokens sent to the model, as reported by OpenRouter. |
 | `output_tokens` | Int64 | no | ≥ 0 | Tokens the model returned, as reported by OpenRouter. |
 | `cost` | Float64 | no | ≥ 0 | Dollar cost of the call, as reported by OpenRouter. |
+
+## `check_results`
+
+One row per approach, model and check: the result of the instructor's checks. Made by #12 into data/03-summary_data/ from model_checks_sean and model_checks_furkan.
+
+| Column | Type | Missing | Allowed values | Description |
+|---|---|---|---|---|
+| `approach` | String | no | any | Whose models and settings (`sean` or `furkan`). |
+| `model` | String | no | any | OpenRouter model id. |
+| `check` | String | no | persona_state, no_party_id | As in model_checks. |
+| `personas` | Int64 | no | ≥ 1 | Number of personas checked. |
+| `count` | Int64 | no | ≥ 0 | persona_state: personas who named their own state in every draw. no_party_id: personas whose most common answer to at least one question changed without the party ID line (a tie between answers counts as a change if the tied answers differ). |
+| `cost` | Float64 | no | ≥ 0 | Dollar cost of the check's answers, as first charged. |
+
+## `check_answers`
+
+One row per approach, model, persona, check, question, prompt and answer: how many draws gave it (the checks' table on the website). Made by #12 into data/03-summary_data/.
+
+| Column | Type | Missing | Allowed values | Description |
+|---|---|---|---|---|
+| `approach` | String | no | any | Whose models and settings (`sean` or `furkan`). |
+| `model` | String | no | any | OpenRouter model id. |
+| `persona_id` | Int64 | no | ≥ 0 | Our id for each persona, from 0 up. Links responses to personas. |
+| `state` | String | no | AL, AK, AR, CO, DE, FL, GA, ID, IL, IA, KS, KY, LA, ME, MA, MI, MN, MS, MT, NE, NH, NJ, NM, NC, OH, OK, OR, RI, SC, SD, TN, TX, VA, WV, WY | The persona's state. Two-letter state code. Only the 35 states with a 2026 Senate race. |
+| `party_id` | String | no | any | The persona's party ID, as in personas. |
+| `check` | String | no | persona_state, no_party_id | As in model_checks. |
+| `question` | String | no | state, senate, generic, alaska_final | As in model_checks. |
+| `prompt` | String | no | as asked, with party ID, without party ID | "as asked" for persona_state; for no_party_id, "with party ID" (the full run) or "without party ID". |
+| `answer` | String | no | any | The answer, or Missing. |
+| `draws` | Int64 | no | ≥ 1 | Number of draws that gave this answer. |

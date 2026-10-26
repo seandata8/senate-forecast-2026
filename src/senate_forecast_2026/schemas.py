@@ -542,6 +542,43 @@ class Costs(pa.DataFrameModel):
         strict = True
 
 
+class CheckResults(pa.DataFrameModel):
+    """One row per approach, model and check: the result of the instructor's checks. Made by #12 into
+    data/03-summary_data/ from model_checks_sean and model_checks_furkan."""
+
+    approach: str = pa.Field(description="Whose models and settings (`sean` or `furkan`).")
+    model: str = pa.Field(description="OpenRouter model id.")
+    check: str = pa.Field(isin=["persona_state", "no_party_id"], description="As in model_checks.")
+    personas: int = pa.Field(ge=1, description="Number of personas checked.")
+    count: int = pa.Field(ge=0, description="persona_state: personas who named their own state in every draw. "
+                          "no_party_id: personas whose most common answer to at least one question changed without "
+                          "the party ID line (a tie between answers counts as a change if the tied answers differ).")
+    cost: float = pa.Field(ge=0, description="Dollar cost of the check's answers, as first charged.")
+
+    class Config:
+        strict = True
+
+
+class CheckAnswers(pa.DataFrameModel):
+    """One row per approach, model, persona, check, question, prompt and answer: how many draws gave it (the
+    checks' table on the website). Made by #12 into data/03-summary_data/."""
+
+    approach: str = pa.Field(description="Whose models and settings (`sean` or `furkan`).")
+    model: str = pa.Field(description="OpenRouter model id.")
+    persona_id: int = pa.Field(ge=0, description=PERSONA_ID)
+    state: str = pa.Field(isin=STATES, description="The persona's state. " + STATE)
+    party_id: str = pa.Field(description="The persona's party ID, as in personas.")
+    check: str = pa.Field(isin=["persona_state", "no_party_id"], description="As in model_checks.")
+    question: str = pa.Field(isin=["state", *QUESTIONS], description="As in model_checks.")
+    prompt: str = pa.Field(isin=["as asked", "with party ID", "without party ID"], description='"as asked" for '
+                           'persona_state; for no_party_id, "with party ID" (the full run) or "without party ID".')
+    answer: str = pa.Field(description="The answer, or Missing.")
+    draws: int = pa.Field(ge=1, description="Number of draws that gave this answer.")
+
+    class Config:
+        strict = True
+
+
 FILE_SCHEMAS = {
     "personas": Personas,
     "candidates": Candidates,
@@ -569,6 +606,8 @@ FILE_SCHEMAS = {
     "past_comparison": PastComparison,
     "model_checks_sean": ModelChecks,
     "model_checks_furkan": ModelChecks,
+    "check_results": CheckResults,
+    "check_answers": CheckAnswers,
 }
 # The files the simulation (#1) makes; the others exist only as real data.
 SIMULATED_FILES = ["personas", "candidates", "responses_sean", "responses_furkan", "responses", "frame", "forecast"]

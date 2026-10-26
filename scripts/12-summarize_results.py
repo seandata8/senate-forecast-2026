@@ -5,12 +5,13 @@
 #          influence; Polymarket's daily prices and each candidate's latest price; the forecast (both runs together,
 #          and each approach and model alone): chance of control, seats, each candidate's vote share and chance of
 #          winning next to the polls and Polymarket; what the models answered; the personas; the run costs; past
-#          results next to the forecast.
+#          results next to the forecast; the instructor's checks on the models.
 # Author: Furkan Danisman
 # Date: 24 October 2026; forecast, answers, personas and costs 25 October 2026
 # Pre-requisites: polls from scripts/10-clean_polls.py; polymarket from scripts/11-clean_polymarket.py;
 #                 forecast and forecast_versions from scripts/08-forecast.py (without them, the forecast part is
-#                 skipped); personas, candidates and responses
+#                 skipped); personas, candidates and responses; model_checks_<approach> from
+#                 scripts/06-check_models.py
 # Run: uv run scripts/12-summarize_results.py (or PyCharm's run button)
 
 import sys
@@ -20,9 +21,11 @@ import polars as pl
 from senate_forecast_2026.forecast_summary import answer_weights, race_summary, seat_summary, weighted_shares
 from senate_forecast_2026.paths import ANALYSIS_DATA, DATA, SUMMARY_DATA
 from senate_forecast_2026.poll_average import RULE_COMBINATIONS, poll_influence, race_averages, without_undecided
-from senate_forecast_2026.queries import alaska_final_candidates
+from senate_forecast_2026.queries import STATE_NAMES, alaska_final_candidates
 from senate_forecast_2026.save import save_data
 from senate_forecast_2026.schemas import (
+    CheckAnswers,
+    CheckResults,
     Costs,
     Crosstabs,
     ForecastControl,
@@ -227,3 +230,63 @@ past_comparison = pl.concat([
     our_estimate,
 ]).sort("state", "election")
 save_data(past_comparison, PastComparison, SUMMARY_DATA, "past_comparison")
+
+
+#### The instructor's checks ####
+# For each check, how many draws gave each answer: the state question as asked; the usual questions with party ID
+# (the approach's full run) and without it. Then each model's result: personas who named their own state in every
+# draw, and personas whose most common answer to a question changed without party ID.
+check_runs = sorted(ANALYSIS_DATA.glob("model_checks_*.parquet"))
+if check_runs:
+    model_checks = pl.concat([pl.read_parquet(path) for path in check_runs]).with_columns(pl.col("answer").fill_null("Missing"))
+    checked = model_checks.select("approach", "persona_id", "model").unique()
+    with_party = (
+        responses.join(checked, on=["approach", "persona_id", "model"], how="semi")
+        .with_columns(check=pl.lit("no_party_id"), prompt=pl.lit("with party ID"), answer=pl.col("answer").fill_null("Missing"))
+    )
+    asked = model_checks.with_columns(
+        prompt=pl.when(pl.col("check") == "persona_state").then(pl.lit("as asked")).otherwise(pl.lit("without party ID"))
+    )
+    keys = ["approach", "model", "persona_id", "state", "check", "question", "prompt", "answer"]
+    check_answers = (
+        pl.concat([asked.select(keys), with_party.select(keys)])
+        .group_by(keys).len("draws")
+        .join(personas.select("persona_id", "party_id"), on="persona_id")
+        .with_columns(pl.col("draws").cast(pl.Int64))
+        .select("approach", "model", "persona_id", "state", "party_id", "check", "question", "prompt", "answer", "draws")
+        .sort("approach", "model", "persona_id", "check", "question", "prompt", "answer")
+    )
+
+    # Persona attention: every draw named the persona's own state.
+    state_names = pl.DataFrame({"state": list(STATE_NAMES), "state_name": list(STATE_NAMES.values())})
+    attention = (
+        model_checks.filter(pl.col("check") == "persona_state").join(state_names, on="state")
+        .group_by("approach", "model", "persona_id").agg(right=(pl.col("answer") == pl.col("state_name")).all())
+        .group_by("approach", "model").agg(personas=pl.len(), count=pl.col("right").sum())
+        .with_columns(check=pl.lit("persona_state"))
+    )
+    # Party drop: the most common answers (all of them, if tied) with and without party ID differ, on any question.
+    most_common = (
+        check_answers.filter(pl.col("check") == "no_party_id")
+        .filter(pl.col("draws") == pl.col("draws").max().over("approach", "model", "persona_id", "question", "prompt"))
+        .group_by("approach", "model", "persona_id", "question", "prompt").agg(pl.col("answer").sort())
+    )
+    changed = (
+        most_common.filter(pl.col("prompt") == "with party ID")
+        .join(most_common.filter(pl.col("prompt") == "without party ID"), on=["approach", "model", "persona_id", "question"])
+        .group_by("approach", "model", "persona_id").agg(changed=(pl.col("answer") != pl.col("answer_right")).any())
+        .group_by("approach", "model").agg(personas=pl.len(), count=pl.col("changed").sum())
+        .with_columns(check=pl.lit("no_party_id"))
+    )
+    check_costs = model_checks.group_by("approach", "model", "check").agg(pl.col("cost").sum())
+    check_results = (
+        pl.concat([attention, changed])
+        .join(check_costs, on=["approach", "model", "check"])
+        .with_columns(pl.col("personas", "count").cast(pl.Int64))
+        .select("approach", "model", "check", "personas", "count", "cost")
+        .sort("approach", "model", "check")
+    )
+    print("The instructor's checks:")
+    print(check_results)
+    save_data(check_results, CheckResults, SUMMARY_DATA, "check_results")
+    save_data(check_answers, CheckAnswers, SUMMARY_DATA, "check_answers")
