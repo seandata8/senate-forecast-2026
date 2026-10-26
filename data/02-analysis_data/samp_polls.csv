@@ -1,0 +1,54 @@
+poll_id,state,pollster,start_date,date,sample_size,population,candidate,share
+us-202alab987738a,AK,Alaska Survey Research,2026-05-14,2026-05-17,1401,Likely voters,Dan S. Sullivan,0.438
+us-202alab987738a,AK,Alaska Survey Research,2026-05-14,2026-05-17,1401,Likely voters,Gerald Heikes,0.027
+us-202alab987738a,AK,Alaska Survey Research,2026-05-14,2026-05-17,1401,Likely voters,Mary Peltola,0.484
+us-202data959fae6,AK,Data for Progress,2026-10-08,2026-10-16,671,Likely voters,Dan S. Sullivan,0.49
+us-202data959fae6,AK,Data for Progress,2026-10-08,2026-10-16,671,Likely voters,Mary Peltola,0.51
+us-202emed67d42c8,FL,Emerson College,2026-03-29,2026-03-31,1125,Likely voters,Angie Nixon,0.36
+us-202emed67d42c8,FL,Emerson College,2026-03-29,2026-03-31,1125,Likely voters,Ashley Moody,0.47
+us-202traba6abade,GA,Trafalgar Group,2025-04-24,2025-04-27,1426,Likely voters,Jon Ossoff,0.475
+us-202traba6abade,GA,Trafalgar Group,2025-04-24,2025-04-27,1426,Likely voters,Mike Collins,0.428
+us-202tip0382be0d,GA,TIPP Insights,2025-07-28,2025-08-01,2395,Likely voters,Jon Ossoff,0.45
+us-202tip0382be0d,GA,TIPP Insights,2025-07-28,2025-08-01,2395,Likely voters,Mike Collins,0.44
+us-202newc8f58efe,IA,New River Strategies/GS Strategy Group,2026-10-09,2026-10-13,602,Likely voters,Ashley Hinson,0.44
+us-202newc8f58efe,IA,New River Strategies/GS Strategy Group,2026-10-09,2026-10-13,602,Likely voters,Josh Turek,0.46
+us-202uni06038789,MA,University of New Hampshire,2026-02-12,2026-02-16,616,Likely voters,Ed Markey,0.56
+us-202uni06038789,MA,University of New Hampshire,2026-02-12,2026-02-16,616,Likely voters,John Deaton,0.27
+us-202uni13705323,MA,University of Massachusetts Department of Political Science/YouGov,2026-10-05,2026-10-12,800,Registered voters,Ed Markey,0.56
+us-202uni13705323,MA,University of Massachusetts Department of Political Science/YouGov,2026-10-05,2026-10-12,800,Registered voters,John Deaton,0.29
+us-202uni51f1c418,ME,University of New Hampshire,2026-09-17,2026-09-21,1312,Likely voters,Susan Collins,0.47
+us-202uni51f1c418,ME,University of New Hampshire,2026-09-17,2026-09-21,1312,Likely voters,Troy Jackson,0.51
+us-202tul3efe64f6,MI,Tulchin Research,2026-06-02,2026-06-04,500,Likely voters,Abdul El-Sayed,0.46
+us-202tul3efe64f6,MI,Tulchin Research,2026-06-02,2026-06-04,500,Likely voters,Mike Rogers,0.41
+us-202qua3b4e634a,MI,Quantus Insights,2026-06-29,2026-06-30,947,Likely voters,Abdul El-Sayed,0.452
+us-202qua3b4e634a,MI,Quantus Insights,2026-06-29,2026-06-30,947,Likely voters,Mike Rogers,0.441
+us-202thee5a838a4,MI,The Tyson Group,2026-09-24,2026-09-27,600,Likely voters,Abdul El-Sayed,0.44
+us-202thee5a838a4,MI,The Tyson Group,2026-09-24,2026-09-27,600,Likely voters,Mike Rogers,0.43
+us-202tav5960dbe5,MT,Tavern Research,2026-07-23,2026-07-27,517,Likely voters,Alani Bankhead,0.22
+us-202tav5960dbe5,MT,Tavern Research,2026-07-23,2026-07-27,517,Likely voters,Kurt Alme,0.49
+us-202tav5960dbe5,MT,Tavern Research,2026-07-23,2026-07-27,517,Likely voters,Seth Bodnar,0.27
+us-202har82b4bcdc,MT,Hart Research Associates,2026-08-01,2026-08-04,800,Likely voters,Alani Bankhead,0.15
+us-202har82b4bcdc,MT,Hart Research Associates,2026-08-01,2026-08-04,800,Likely voters,Kurt Alme,0.45
+us-202har82b4bcdc,MT,Hart Research Associates,2026-08-01,2026-08-04,800,Likely voters,Seth Bodnar,0.3
+us-202elodaa5cffa,NC,Elon University/YouGov,2026-07-21,2026-07-23,717,Registered voters,Michael Whatley,0.35
+us-202elodaa5cffa,NC,Elon University/YouGov,2026-07-21,2026-07-23,717,Registered voters,Roy Cooper,0.51
+us-202har1cef6d8a,NC,Harper Polling,2026-08-09,2026-08-10,600,Likely voters,Michael Whatley,0.39
+us-202har1cef6d8a,NC,Harper Polling,2026-08-09,2026-08-10,600,Likely voters,Roy Cooper,0.515
+us-202chaa0d9b00c,NC,Change Research,2026-10-01,2026-10-07,829,Likely voters,Michael Whatley,0.4
+us-202chaa0d9b00c,NC,Change Research,2026-10-01,2026-10-07,829,Likely voters,Roy Cooper,0.5
+us-202co/0b672f7f,NH,co/efficient,2025-10-09,2025-10-13,1034,Likely voters,Chris Pappas,0.45
+us-202co/0b672f7f,NH,co/efficient,2025-10-09,2025-10-13,1034,Likely voters,John E. Sununu,0.42
+us-202echefadd030,OH,Echelon Insights,2026-04-03,2026-04-09,,,Jon Husted,0.51
+us-202echefadd030,OH,Echelon Insights,2026-04-03,2026-04-09,,,Sherrod Brown,0.45
+us-202fabc4750dc3,OH,Fabrizio Ward/Impact Research,2026-06-14,2026-06-16,800,Likely voters,Jon Husted,0.45
+us-202fabc4750dc3,OH,Fabrizio Ward/Impact Research,2026-06-14,2026-06-16,800,Likely voters,Sherrod Brown,0.48
+us-202new8d3274bf,OH,New River Strategies/GS Strategy Group,2026-10-09,2026-10-13,959,Likely voters,Jon Husted,0.43
+us-202new8d3274bf,OH,New River Strategies/GS Strategy Group,2026-10-09,2026-10-13,959,Likely voters,Sherrod Brown,0.49
+us-202vot936927b5,OH,VoteHub/Verasight,2026-10-01,2026-10-20,531,Likely voters,Jon Husted,0.436
+us-202vot936927b5,OH,VoteHub/Verasight,2026-10-01,2026-10-20,531,Likely voters,Sherrod Brown,0.475
+us-202embbacff0bd,RI,Embold Research,2026-10-05,2026-10-08,815,Likely voters,Jack Reed,0.55
+us-202embbacff0bd,RI,Embold Research,2026-10-05,2026-10-08,815,Likely voters,Raymond McKay,0.32
+us-202ins635442db,SC,InsiderAdvantage,2026-09-08,2026-09-09,1200,Likely voters,Annie Andrews,0.432
+us-202ins635442db,SC,InsiderAdvantage,2026-09-08,2026-09-09,1200,Likely voters,Darline Graham,0.451
+us-202the5a104154,VA,The Public Sentiment Institute,2026-06-12,2026-06-16,996,Registered voters,Bert Mizusawa,0.32
+us-202the5a104154,VA,The Public Sentiment Institute,2026-06-12,2026-06-16,996,Registered voters,Mark Warner,0.48

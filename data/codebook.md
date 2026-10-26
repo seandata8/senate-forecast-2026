@@ -101,3 +101,19 @@ Earlier results in each race state: the last Senate election for the seat up in 
 | `election` | String | no | any | Which election: "senate_2020", "senate_2022" or "senate_2024_special" (the last election for the seat, from MIT `year` and `special`; Georgia 2020 uses its January runoff, which decided the seat), or "president_2024". |
 | `dem_share` | Float64 | no | ≥ 0, ≤ 1 | Democratic share of all votes cast in the race (MIT `party_simplified` DEMOCRAT, which includes Minnesota's DFL), so the two shares need not sum to 1. |
 | `rep_share` | Float64 | no | ≥ 0, ≤ 1 | Republican share of all votes cast in the race. |
+
+## `polls`
+
+One row per candidate in each general-election poll of a 2026 Senate race. Made by #10 from the VoteHub polls API (CC BY 4.0). A comparison on the website, not a forecast input.
+
+| Column | Type | Missing | Allowed values | Description |
+|---|---|---|---|---|
+| `poll_id` | String | no | any | VoteHub's id for the poll. Links the rows (one per candidate) of one poll. |
+| `state` | String | no | AL, AK, AR, CO, DE, FL, GA, ID, IL, IA, KS, KY, LA, ME, MA, MI, MN, MS, MT, NE, NH, NJ, NM, NC, OH, OK, OR, RI, SC, SD, TN, TX, VA, WV, WY | Two-letter state code. Only the 35 states with a 2026 Senate race. From VoteHub `subject`, e.g. "2026 Texas". |
+| `pollster` | String | no | any | VoteHub `pollster`, unchanged. |
+| `start_date` | Date | no | any | The poll's first day of interviews (VoteHub `start_date`). |
+| `date` | Date | no | any | The poll's last day of interviews (VoteHub `end_date`). |
+| `sample_size` | Int64 | yes | > 0 | Number of people interviewed (VoteHub `sample_size`). Missing if VoteHub has none. |
+| `population` | String | yes | Likely voters, Registered voters, Adults | Who was interviewed: VoteHub `population` lv, rv and a, written out. Missing if VoteHub has none. |
+| `candidate` | String | no | any | Candidate's name, as in candidates (VoteHub's spelling corrected where it differs). |
+| `share` | Float64 | no | ≥ 0, ≤ 1 | Candidate's share of everyone asked (VoteHub `pct` / 100). Undecided and other candidates are not rows, so a poll's shares usually sum to less than 1. |

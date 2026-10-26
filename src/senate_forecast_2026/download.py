@@ -1,14 +1,16 @@
 #### Preamble ####
-# Purpose: Download raw data files: from Harvard Dataverse (checked against their checksum) and from Wikipedia
-#          (one fixed revision of a page).
+# Purpose: Download raw data files: from Harvard Dataverse (checked against their checksum), from Wikipedia
+#          (one fixed revision of a page), and from web APIs that answer in JSON.
 #          Used by:
 #            #3  scripts/01-download_election_data.py: CES 2024, CES 2022, and possibly the MIT Election Lab
 #                results (also on Dataverse); the 2026 candidate list (Wikipedia)
+#            #10 scripts/10-download_polls.py: Senate polls (VoteHub API)
 # Author: Sean Murphy
 # Date: 22 October 2026
 # Pre-requisites: none (uses only Python's standard library)
 
 import hashlib
+import json
 import urllib.request
 from pathlib import Path
 
@@ -102,3 +104,14 @@ def download_wikipedia_revision(revision_id, in_path):
         wikitext = response.read().decode("utf-8")
     path.write_text(wikitext)
     print(f"Done: {path} ({len(wikitext):,} characters).", flush=True)
+
+
+def fetch_json(url):
+    """Download `url` and return its JSON, read into Python lists and dicts.
+
+    For web APIs whose data changes every day (polls, market prices). Unlike the files above, there is no fixed
+    version to ask for, so each run gets the latest data, and the script saves it with the date it was downloaded."""
+    print(f"Downloading {url}", flush=True)
+    request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+    with urllib.request.urlopen(request, timeout=60) as response:
+        return json.loads(response.read().decode("utf-8"))
