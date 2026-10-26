@@ -56,3 +56,7 @@ data/01-raw_data/CCES*
 
 # Model answers cached by silicon.py (paid for with our own API keys); kept on each person's computer only
 cache/
+
+# Quarto's working files while it builds the website
+/.quarto/
+**/*.quarto_ipynb
