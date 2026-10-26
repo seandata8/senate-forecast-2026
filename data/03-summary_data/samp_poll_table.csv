@@ -1,0 +1,54 @@
+state,poll_id,pollster,start_date,date,sample_size,population,influence,candidate,share,leader,lead
+AK,us-202data959fae6,Data for Progress,2026-10-08,2026-10-16,671,Likely voters,0.7857,Mary Peltola,0.51,Mary Peltola,0.02
+AK,us-202data959fae6,Data for Progress,2026-10-08,2026-10-16,671,Likely voters,0.7857,Dan S. Sullivan,0.49,Mary Peltola,0.02
+AK,us-202alab987738a,Alaska Survey Research,2026-05-14,2026-05-17,1401,Likely voters,0.0006,Mary Peltola,0.484,Mary Peltola,0.046
+AK,us-202alab987738a,Alaska Survey Research,2026-05-14,2026-05-17,1401,Likely voters,0.0006,Dan S. Sullivan,0.438,Mary Peltola,0.046
+AK,us-202alab987738a,Alaska Survey Research,2026-05-14,2026-05-17,1401,Likely voters,0.0006,Gerald Heikes,0.027,Mary Peltola,0.046
+FL,us-202emed67d42c8,Emerson College,2026-03-29,2026-03-31,1125,Likely voters,0.0001,Ashley Moody,0.47,Ashley Moody,0.11
+FL,us-202emed67d42c8,Emerson College,2026-03-29,2026-03-31,1125,Likely voters,0.0001,Angie Nixon,0.36,Ashley Moody,0.11
+GA,us-202tip0382be0d,TIPP Insights,2025-07-28,2025-08-01,2395,Likely voters,0.0,Jon Ossoff,0.45,Jon Ossoff,0.01
+GA,us-202tip0382be0d,TIPP Insights,2025-07-28,2025-08-01,2395,Likely voters,0.0,Mike Collins,0.44,Jon Ossoff,0.01
+GA,us-202traba6abade,Trafalgar Group,2025-04-24,2025-04-27,1426,Likely voters,0.0,Jon Ossoff,0.475,Jon Ossoff,0.047
+GA,us-202traba6abade,Trafalgar Group,2025-04-24,2025-04-27,1426,Likely voters,0.0,Mike Collins,0.428,Jon Ossoff,0.047
+IA,us-202newc8f58efe,New River Strategies/GS Strategy Group,2026-10-09,2026-10-13,602,Likely voters,0.6415,Josh Turek,0.46,Josh Turek,0.02
+IA,us-202newc8f58efe,New River Strategies/GS Strategy Group,2026-10-09,2026-10-13,602,Likely voters,0.6415,Ashley Hinson,0.44,Josh Turek,0.02
+MA,us-202uni13705323,University of Massachusetts Department of Political Science/YouGov,2026-10-05,2026-10-12,800,Registered voters,0.563,Ed Markey,0.56,Ed Markey,0.27
+MA,us-202uni13705323,University of Massachusetts Department of Political Science/YouGov,2026-10-05,2026-10-12,800,Registered voters,0.563,John Deaton,0.29,Ed Markey,0.27
+MA,us-202uni06038789,University of New Hampshire,2026-02-12,2026-02-16,616,Likely voters,0.0,Ed Markey,0.56,Ed Markey,0.29
+MA,us-202uni06038789,University of New Hampshire,2026-02-12,2026-02-16,616,Likely voters,0.0,John Deaton,0.27,Ed Markey,0.29
+ME,us-202uni51f1c418,University of New Hampshire,2026-09-17,2026-09-21,1312,Likely voters,0.3187,Troy Jackson,0.51,Troy Jackson,0.04
+ME,us-202uni51f1c418,University of New Hampshire,2026-09-17,2026-09-21,1312,Likely voters,0.3187,Susan Collins,0.47,Troy Jackson,0.04
+MI,us-202thee5a838a4,The Tyson Group,2026-09-24,2026-09-27,600,Likely voters,0.2051,Abdul El-Sayed,0.44,Abdul El-Sayed,0.01
+MI,us-202thee5a838a4,The Tyson Group,2026-09-24,2026-09-27,600,Likely voters,0.2051,Mike Rogers,0.43,Abdul El-Sayed,0.01
+MI,us-202qua3b4e634a,Quantus Insights,2026-06-29,2026-06-30,947,Likely voters,0.0044,Abdul El-Sayed,0.452,Abdul El-Sayed,0.011
+MI,us-202qua3b4e634a,Quantus Insights,2026-06-29,2026-06-30,947,Likely voters,0.0044,Mike Rogers,0.441,Abdul El-Sayed,0.011
+MI,us-202tul3efe64f6,Tulchin Research,2026-06-02,2026-06-04,500,Likely voters,0.0009,Abdul El-Sayed,0.46,Abdul El-Sayed,0.05
+MI,us-202tul3efe64f6,Tulchin Research,2026-06-02,2026-06-04,500,Likely voters,0.0009,Mike Rogers,0.41,Abdul El-Sayed,0.05
+MT,us-202har82b4bcdc,Hart Research Associates,2026-08-01,2026-08-04,800,Likely voters,0.0231,Kurt Alme,0.45,Kurt Alme,0.15
+MT,us-202har82b4bcdc,Hart Research Associates,2026-08-01,2026-08-04,800,Likely voters,0.0231,Seth Bodnar,0.3,Kurt Alme,0.15
+MT,us-202har82b4bcdc,Hart Research Associates,2026-08-01,2026-08-04,800,Likely voters,0.0231,Alani Bankhead,0.15,Kurt Alme,0.15
+MT,us-202tav5960dbe5,Tavern Research,2026-07-23,2026-07-27,517,Likely voters,0.0125,Kurt Alme,0.49,Kurt Alme,0.22
+MT,us-202tav5960dbe5,Tavern Research,2026-07-23,2026-07-27,517,Likely voters,0.0125,Seth Bodnar,0.27,Kurt Alme,0.22
+MT,us-202tav5960dbe5,Tavern Research,2026-07-23,2026-07-27,517,Likely voters,0.0125,Alani Bankhead,0.22,Kurt Alme,0.22
+NC,us-202chaa0d9b00c,Change Research,2026-10-01,2026-10-07,829,Likely voters,0.5593,Roy Cooper,0.5,Roy Cooper,0.1
+NC,us-202chaa0d9b00c,Change Research,2026-10-01,2026-10-07,829,Likely voters,0.5593,Michael Whatley,0.4,Roy Cooper,0.1
+NC,us-202har1cef6d8a,Harper Polling,2026-08-09,2026-08-10,600,Likely voters,0.0156,Roy Cooper,0.515,Roy Cooper,0.125
+NC,us-202har1cef6d8a,Harper Polling,2026-08-09,2026-08-10,600,Likely voters,0.0156,Michael Whatley,0.39,Roy Cooper,0.125
+NC,us-202elodaa5cffa,Elon University/YouGov,2026-07-21,2026-07-23,717,Registered voters,0.0056,Roy Cooper,0.51,Roy Cooper,0.16
+NC,us-202elodaa5cffa,Elon University/YouGov,2026-07-21,2026-07-23,717,Registered voters,0.0056,Michael Whatley,0.35,Roy Cooper,0.16
+NH,us-202co/0b672f7f,co/efficient,2025-10-09,2025-10-13,1034,Likely voters,0.0,Chris Pappas,0.45,Chris Pappas,0.03
+NH,us-202co/0b672f7f,co/efficient,2025-10-09,2025-10-13,1034,Likely voters,0.0,John E. Sununu,0.42,Chris Pappas,0.03
+OH,us-202vot936927b5,VoteHub/Verasight,2026-10-01,2026-10-20,531,Likely voters,0.8521,Sherrod Brown,0.475,Sherrod Brown,0.039
+OH,us-202vot936927b5,VoteHub/Verasight,2026-10-01,2026-10-20,531,Likely voters,0.8521,Jon Husted,0.436,Sherrod Brown,0.039
+OH,us-202new8d3274bf,New River Strategies/GS Strategy Group,2026-10-09,2026-10-13,959,Likely voters,0.8097,Sherrod Brown,0.49,Sherrod Brown,0.06
+OH,us-202new8d3274bf,New River Strategies/GS Strategy Group,2026-10-09,2026-10-13,959,Likely voters,0.8097,Jon Husted,0.43,Sherrod Brown,0.06
+OH,us-202fabc4750dc3,Fabrizio Ward/Impact Research,2026-06-14,2026-06-16,800,Likely voters,0.002,Sherrod Brown,0.48,Sherrod Brown,0.03
+OH,us-202fabc4750dc3,Fabrizio Ward/Impact Research,2026-06-14,2026-06-16,800,Likely voters,0.002,Jon Husted,0.45,Sherrod Brown,0.03
+OH,us-202echefadd030,Echelon Insights,2026-04-03,2026-04-09,,,0.0,Jon Husted,0.51,Jon Husted,0.06
+OH,us-202echefadd030,Echelon Insights,2026-04-03,2026-04-09,,,0.0,Sherrod Brown,0.45,Jon Husted,0.06
+RI,us-202embbacff0bd,Embold Research,2026-10-05,2026-10-08,815,Likely voters,0.5827,Jack Reed,0.55,Jack Reed,0.23
+RI,us-202embbacff0bd,Embold Research,2026-10-05,2026-10-08,815,Likely voters,0.5827,Raymond McKay,0.32,Jack Reed,0.23
+SC,us-202ins635442db,InsiderAdvantage,2026-09-08,2026-09-09,1200,Likely voters,0.119,Darline Graham,0.451,Darline Graham,0.019
+SC,us-202ins635442db,InsiderAdvantage,2026-09-08,2026-09-09,1200,Likely voters,0.119,Annie Andrews,0.432,Darline Graham,0.019
+VA,us-202the5a104154,The Public Sentiment Institute,2026-06-12,2026-06-16,996,Registered voters,0.0018,Mark Warner,0.48,Mark Warner,0.16
+VA,us-202the5a104154,The Public Sentiment Institute,2026-06-12,2026-06-16,996,Registered voters,0.0018,Bert Mizusawa,0.32,Mark Warner,0.16

@@ -1,0 +1,668 @@
+---
+pagetitle: "Predicting Control of the Senate, 2026"
+jupyter: python3
+---
+
+```{python}
+#| label: setup
+# This page only reads the summary files made by scripts/12-summarize_results.py and shows them; no analysis here.
+import plotly.graph_objects as go
+import polars as pl
+from plotly.subplots import make_subplots
+
+from senate_forecast_2026.paths import SUMMARY_DATA
+from senate_forecast_2026.queries import STATE_NAMES
+from senate_forecast_2026.schemas import (AGE_GROUPS, EDUCATION, GENDERS, IDEOLOGIES, INCOMES, MARITAL_STATUSES,
+                                          PARTY_IDS, RACES, REGISTERED, RELIGIONS, SEXUALITIES, VOTES_2024)
+from senate_forecast_2026.website import (DEM, INK, MUTED, REP, choice_menu, choices, colour_of, coloured_share,
+                                          figure_html, folded, interval, last_name, pct, show, split_bar, table)
+
+
+def read(name):
+    return pl.read_parquet(SUMMARY_DATA / f"{name}.parquet")
+
+
+control = read("forecast_control")
+seats = read("forecast_seats")
+races = read("forecast_races")
+models = read("models")
+
+# The versions of the results, as the forecast has them: every model together ("all"), each approach, each model.
+VERSION_ORDER = {"all": 0, "approach": 1, "model": 2}
+VERSIONS = control.sort(pl.col("version_type").replace_strict(VERSION_ORDER), "version").select(
+    "version_type", "version").rows()
+
+
+def version_label(version_type, version):
+    return {"all": "All models combined", "approach": f"{version.title()}'s approach"}.get(version_type, version)
+
+
+def short_version(version_type, version):
+    """A short name for chart labels: "All", the approach, or the model's name without provider or version."""
+    return {"all": "All", "approach": version.title()}.get(version_type, version.split("/")[-1].split("-")[0].title())
+
+
+def models_of(version_type, version):
+    """The models behind a version."""
+    if version_type == "all":
+        return models["model"].to_list()
+    if version_type == "approach":
+        return models.filter(pl.col("approach") == version)["model"].to_list()
+    return [version]
+
+
+def by_version(build):
+    """One view per version, switched by the version menu at the top of the page. `build(version_type, version)`
+    makes each view's HTML."""
+    return choices("version", {version_label(*v): build(*v) for v in VERSIONS}, picker=False)
+
+
+# The persona variables, in the order of their categories in the CES.
+VARIABLES = {
+    "gender": ("Gender", GENDERS), "race": ("Race", RACES), "age_group": ("Age", AGE_GROUPS),
+    "education": ("Education", EDUCATION), "income": ("Income", INCOMES), "party_id": ("Party ID", PARTY_IDS),
+    "ideology": ("Ideology", IDEOLOGIES), "religion": ("Religion", RELIGIONS),
+    "marital_status": ("Marital status", MARITAL_STATUSES), "sexuality": ("Sexuality", SEXUALITIES),
+    "registered": ("Registered to vote", REGISTERED), "vote_2024": ("2024 vote", VOTES_2024),
+    "state": ("State", sorted(STATE_NAMES, key=STATE_NAMES.get)),  # in the order of the states' names
+}
+
+
+def in_order(groups, order):
+    """`groups` in the CES order, with any not in it (e.g. "Missing") at the end."""
+    return sorted(groups, key=lambda g: order.index(g) if g in order else len(order))
+
+
+def short_names(candidates):
+    """Each candidate's last name, or their full name when two candidates share a last name (Alaska's Sullivans)."""
+    last_names = [last_name(c) for c in candidates]
+    return {c: (c if last_names.count(last_name(c)) > 1 else last_name(c)) for c in candidates}
+
+
+# Races ordered from the most Republican to the most Democratic in the combined forecast.
+order = races.filter((pl.col("version") == "all") & (pl.col("party") == "Republican")).sort(
+    "share", descending=True)["state"].to_list()
+```
+
+```{python}
+#| label: masthead
+show(
+    '<header class="masthead">',
+    '<div class="masthead-title" role="heading" aria-level="1">Predicting Control of the Senate, 2026</div>',
+    '<p class="standfirst">A forecast of all 35 US Senate races from a silicon sample: language models answering as '
+    'real respondents to the 2024 Cooperative Election Study. The results are synthetic.</p>',
+    '<nav class="section-menu">',
+    '<a href="#forecast">Forecast</a><a href="#races">Races</a><a href="#polls">Polls &amp; markets</a>',
+    '<a href="#past">Past elections</a><a href="#answers">Model answers</a><a href="#crosstabs">Cross-tabs</a>',
+    '<a href="#composition">Composition</a><a href="#models">Models</a><a href="#costs">Costs</a>',
+    '<a href="#methods">Methods</a><a href="#discussion">Discussion</a>',
+    "</nav></header>",
+    '<div class="version-bar"><span>Results from</span>',
+    choice_menu("version", [version_label(*v) for v in VERSIONS]),
+    '<span class="muted">Switches the forecast, the races, past elections, the model answers, cross-tabs and checks.'
+    "</span></div>",
+)
+```
+
+[Text: two or three sentences on what this page is.]{.to-write}
+
+## Who controls the Senate? {#forecast data-kicker="The forecast"}
+
+```{python}
+#| label: headline
+def headline(version_type, version):
+    result = control.filter(pl.col("version") == version).row(0, named=True)
+    return (
+        '<div class="headline">'
+        f'<div><div class="number" style="color:{DEM}">{pct(result["dem_control"])}</div>'
+        '<div class="label">chance the Democrats control the Senate, from 10,000 simulated elections</div></div>'
+        f'<div><div class="number">{result["seats"]:.0f} <span class="interval">'
+        f'{interval(result["seats_lower"], result["seats_upper"])}</span></div>'
+        '<div class="label">Democratic-caucus seats; 51 gives control</div></div></div>'
+        '<div class="bar-label"><span>Chance of control</span><span>Democrats / Republicans</span></div>'
+        + split_bar([(f"{pct(result['dem_control'])} Democrats", result["dem_control"], DEM),
+                     (f"{pct(1 - result['dem_control'])} Republicans", 1 - result["dem_control"], REP)])
+    )
+
+
+show(by_version(headline))
+```
+
+[Text: the main finding in a few sentences.]{.to-write}
+
+### How many seats
+
+::: {.how-to-read}
+Each bar is the share of the 10,000 simulated elections that ended with that many Democratic-caucus seats. Blue bars
+give the Democrats control.
+:::
+
+```{python}
+#| label: seat-distribution
+def seat_chart(version_type, version):
+    rows = seats.filter(pl.col("version") == version).sort("dem_seats")
+    figure = go.Figure(go.Bar(
+        x=rows["dem_seats"], y=rows["share"], marker_color=[DEM if s >= 51 else REP for s in rows["dem_seats"]],
+        marker_line_width=0, customdata=rows["simulations"],
+        hovertemplate="<b>%{x} Democratic seats</b><br>%{y:.1%} of simulations (%{customdata:,})<extra></extra>",
+    ))
+    ticks = list(range(int(seats["dem_seats"].min()), int(seats["dem_seats"].max()) + 1, 2))
+    figure.update_xaxes(tickvals=ticks, ticktext=[f"{s}<br><span style='color:{REP}'>{100 - s}</span>" for s in ticks])
+    figure.update_yaxes(tickformat=".0%")
+    figure.add_vline(x=50.5, line_dash="dot", line_color=INK, line_width=1)
+    figure.add_annotation(x=50.5, y=1, yref="paper", text="51 seats: control", showarrow=False, xanchor="left",
+                          xshift=6, font=dict(size=12, color=MUTED))
+    return ('<p class="bar-label"><span></span><span>Democratic seats, with Republican seats in red below</span></p>'
+            + figure_html(figure, 320))
+
+
+show(by_version(seat_chart))
+```
+
+[Text: how to read the spread of seats.]{.to-write}
+
+## Race by race: our forecast, the polls and Polymarket {#races data-kicker="The races"}
+
+::: {.how-to-read}
+**Leading vote share:** the share of the candidate ahead, in our forecast and in the latest poll average, coloured by
+the leader's party. **95% CI:** for ours, from the simulated elections; for the polls, the average ± 1.96 times how
+much the polls disagree with each other, where 95% of the polls would fall. **Chance of winning:** ours, from the
+simulated elections, and Polymarket's latest price. Rows where the polls or Polymarket have a different leader from
+ours are highlighted. Races are ordered from the most Republican to the most Democratic in the combined forecast.
+:::
+
+```{python}
+#| label: races
+def race_rows(state, candidates):
+    """Two rows for one race. Leading vote share: ours and the latest poll average's, with their 95% CI. Chance of
+    winning: ours and Polymarket's latest price."""
+    who = " v ".join(f"{last_name(c['candidate'])} ({c['party'][0]})" for c in candidates.iter_rows(named=True))
+
+    def chance(column):
+        if candidates[column].null_count() > 0:
+            return '<span class="muted">no market</span>'
+        leader = candidates.sort(column, descending=True).row(0, named=True)
+        bar = split_bar([(c["candidate"], c[column], colour_of(c["party"]))
+                         for c in candidates.sort("party").iter_rows(named=True)], thin=True)
+        return (f'<div class="chance-row">{bar}<span style="color:{colour_of(leader["party"])}">'
+                f'{pct(leader[column])} {last_name(leader["candidate"])}</span></div>')
+
+    def leader_share(candidate, share):
+        return f'<b style="color:{colour_of(candidate["party"])}">{pct(share, 1)} {last_name(candidate["candidate"])}</b>'
+
+    ours = candidates.sort("share", descending=True).row(0, named=True)
+    ours_share = leader_share(ours, ours["share"])
+    ours_uncertainty = interval(ours["share_lower"], ours["share_upper"], True, 1, label=False)
+    polls_disagree = False
+    if candidates["poll_average"].null_count() == candidates.height:
+        polls_share, polls_uncertainty = '<span class="muted">no polls</span>', ""
+    else:
+        polls = candidates.sort("poll_average", descending=True, nulls_last=True).row(0, named=True)
+        polls_share = leader_share(polls, polls["poll_average"])
+        polls_uncertainty = interval(polls["poll_lower"], polls["poll_upper"], True, 1, label=False)
+        polls_disagree = polls["candidate"] != ours["candidate"]
+    our_favourite = candidates.sort("chance_of_winning", descending=True).row(0, named=True)
+    market_disagree = (candidates["polymarket_chance"].null_count() == 0 and
+                       candidates.sort("polymarket_chance", descending=True).row(0, named=True)["candidate"]
+                       != our_favourite["candidate"])
+
+    # Where the polls or Polymarket have a different leader from ours, their row is highlighted.
+    flag = '<span class="flag">different leader</span>'
+    polls_class = ' class="disagree"' if polls_disagree else ""
+    market_class = ' class="disagree"' if market_disagree else ""
+    race = (f'<td rowspan="2" class="race-cell"><div class="race-name">{STATE_NAMES[state]}</div>'
+            f'<div class="race-who">{who}</div></td>')
+    return (f'<tbody class="race">'
+            f'<tr class="first">{race}<td class="source">Ours</td><td>{ours_share}</td>'
+            f'<td class="muted">{ours_uncertainty}</td>'
+            f'<td class="source">Ours</td><td>{chance("chance_of_winning")}</td></tr>'
+            f'<tr class="last"><td class="source{" disagree" if polls_disagree else ""}">Polls</td>'
+            f'<td{polls_class}>{polls_share}{flag if polls_disagree else ""}</td>'
+            f'<td{polls_class}><span class="muted">{polls_uncertainty}</span></td>'
+            f'<td class="source{" disagree" if market_disagree else ""}">Polymarket</td>'
+            f'<td{market_class}>{chance("polymarket_chance")}{flag if market_disagree else ""}</td></tr></tbody>')
+
+
+def race_table(version_type, version):
+    version_races = races.filter(pl.col("version") == version)
+    return (
+        '<table class="plain races" data-quarto-disable-processing="true"><thead><tr>'
+        '<th style="width:15%">Race</th><th style="width:8%"></th><th style="width:20%">Leading vote share</th>'
+        '<th style="width:23%">95% CI</th><th style="width:11%"></th><th style="width:23%">Chance of winning</th>'
+        "</tr></thead>"
+        + "".join(race_rows(state, version_races.filter(pl.col("state") == state)) for state in order)
+        + "</table>"
+    )
+
+
+show(by_version(race_table))
+```
+
+[Text: where we agree and disagree with the polls and Polymarket, and why.]{.to-write}
+
+## The polls and Polymarket, race by race {#polls data-kicker="Polls & markets"}
+
+::: {.how-to-read}
+Pick a race. **Top:** the poll average over time (undecided left out) with the polls' 95% interval as a band; on the
+right, our forecast of each candidate's share with its 95% interval, from all models combined and from each version.
+**Bottom:** Polymarket's daily price for each candidate; on the right, our chance of winning. **Table:** the polls in
+today's average, the most influential first.
+:::
+
+```{python}
+#| label: polls-and-markets
+rule_columns = [c for c in read("poll_averages").columns if c.startswith("by_")]
+parties = races.filter(pl.col("version") == "all").select("state", "candidate", "party")
+averages = read("poll_averages").filter(pl.all_horizontal(rule_columns)).join(parties, on=["state", "candidate"],
+                                                                                  how="left")
+prices = read("polymarket_prices").join(parties, on=["state", "candidate"], how="left")
+poll_table = read("poll_table").join(parties, on=["state", "candidate"], how="left")
+
+
+def end_labels(figure, lines, value_format):
+    """Each line's name at its right end, nudged apart so that close lines' names do not overlap."""
+    ends = sorted(lines, key=lambda line: line["y"])
+    for lower, upper in zip(ends, ends[1:]):
+        upper["label_y"] = max(upper["y"], lower.get("label_y", lower["y"]) + 0.045)
+    for line in ends:
+        figure.add_annotation(x=line["x"], y=line.get("label_y", line["y"]), xanchor="left", xshift=4, showarrow=False,
+                              text=f"<b>{line['name']}</b> {value_format(line['y'])}",
+                              font=dict(color=line["colour"], size=12), row=1, col=1)
+
+
+def two_panels():
+    """A chart over time on the left and our forecast on the right, side by side so they never overlap."""
+    figure = make_subplots(rows=1, cols=2, shared_yaxes=True, column_widths=[0.62, 0.38], horizontal_spacing=0.06)
+    figure.add_annotation(text="Our forecast", x=0.5, xref="x2 domain", y=1, yref="paper", yanchor="bottom", yshift=14,
+                          showarrow=False, font=dict(size=12, color=MUTED))
+    figure.update_layout(hovermode="closest", margin=dict(t=44))
+    return figure
+
+
+def forecast_panel(figure, forecasts, column, with_interval):
+    """Our forecast for each candidate, from every version side by side (all models combined first): a dot with its
+    number next to it (and its 95% interval), the candidate's name above their group."""
+    names = short_names(forecasts["candidate"].unique().to_list())
+    candidates = forecasts.filter(pl.col("version") == "all").sort("share", descending=True)["candidate"].to_list()
+    positions, labels = [], []
+    for i, candidate in enumerate(candidates):
+        rows = forecasts.filter(pl.col("candidate") == candidate)
+        colour = colour_of(rows["party"][0])
+        for j, (version_type, version) in enumerate(VERSIONS):
+            row = rows.filter(pl.col("version") == version).row(0, named=True)
+            x, value = i * (len(VERSIONS) + 1) + j, row[column]
+            positions.append(x)
+            labels.append(short_version(version_type, version))
+            error = (dict(type="data", symmetric=False, array=[row["share_upper"] - value],
+                          arrayminus=[value - row["share_lower"]], color=colour, thickness=1.5, width=4)
+                     if with_interval else None)
+            detail = f" {interval(row['share_lower'], row['share_upper'], True, 1)}" if with_interval else ""
+            figure.add_scatter(x=[x], y=[value], mode="markers+text", row=1, col=2, error_y=error,
+                               marker=dict(color=colour, size=9 if version_type == "all" else 7,
+                                           symbol="circle" if version_type == "all" else "circle-open",
+                                           line=dict(color=colour, width=1.5)),
+                               text=[pct(value, 1 if with_interval else 0)], textposition="middle right",
+                               textfont=dict(color=colour, size=11),
+                               hovertemplate=f"<b>{names[candidate]}</b>, {version_label(version_type, version)}: "
+                               f"{pct(value, 1)}{detail}<extra></extra>")
+        middle = i * (len(VERSIONS) + 1) + (len(VERSIONS) - 1) / 2
+        figure.add_annotation(x=middle, y=1, xref="x2", yref="paper", yanchor="bottom", showarrow=False,
+                              text=f"<b>{names[candidate]}</b>", font=dict(color=colour, size=12))
+    figure.update_xaxes(tickvals=positions, ticktext=labels, tickangle=0, showline=False, ticks="",
+                        range=[-0.6, max(positions) + 1.2], row=1, col=2)
+
+
+def leave_room_for_labels(figure, first, last):
+    """Widen the time axis on the right, so the names at the lines' ends fit."""
+    figure.update_xaxes(range=[first, last + (last - first) * 0.22], row=1, col=1)
+
+
+def polls_figure(state, rows):
+    figure, ends, names = two_panels(), [], short_names(rows["candidate"].unique().to_list())
+    for (candidate,), line in rows.sort("date").group_by("candidate", maintain_order=True):
+        colour, name = colour_of(line["party"][0]), names[candidate]
+        dates = line["date"].to_list()
+        figure.add_scatter(x=dates + dates[::-1], hoverinfo="skip", line=dict(width=0), fill="toself",
+                           fillcolor=colour, opacity=0.12, row=1, col=1,
+                           y=line["upper"].to_list() + line["lower"].to_list()[::-1])
+        figure.add_scatter(x=line["date"], y=line["average"], mode="lines", line=dict(color=colour, width=2.5),
+                           customdata=line.select(pl.col("lower", "upper") * 100), row=1, col=1,
+                           hovertemplate=f"<b>{name}</b> %{{x|%b %d}}: %{{y:.1%}} "
+                           "[%{customdata[0]:.1f}, %{customdata[1]:.1f}] 95% interval<extra></extra>")
+        ends.append({"x": dates[-1], "y": line["average"][-1], "name": name, "colour": colour})
+    end_labels(figure, ends, lambda y: pct(y))
+    leave_room_for_labels(figure, rows["date"].min(), rows["date"].max())
+    forecast_panel(figure, races.filter(pl.col("state") == state), "share", with_interval=True)
+    figure.update_yaxes(tickformat=".0%")
+    return figure_html(figure, 320)
+
+
+def market_figure(state, rows):
+    figure, ends, names = two_panels(), [], short_names(rows["candidate"].unique().to_list())
+    for (candidate,), line in rows.sort("date").group_by("candidate", maintain_order=True):
+        colour, name = colour_of(line["party"][0]), names[candidate]
+        figure.add_scatter(x=line["date"], y=line["price"], mode="lines", line=dict(color=colour, width=2), row=1, col=1,
+                           hovertemplate=f"<b>{candidate}</b> %{{x|%b %d}}: %{{y:.0%}}<extra></extra>")
+        ends.append({"x": line["date"][-1], "y": line["price"][-1], "name": name, "colour": colour})
+    end_labels(figure, ends, lambda y: pct(y))
+    leave_room_for_labels(figure, rows["date"].min(), rows["date"].max())
+    forecast_panel(figure, races.filter(pl.col("state") == state), "chance_of_winning", with_interval=False)
+    figure.update_yaxes(tickformat=".0%", range=[-0.02, 1.02])
+    return figure_html(figure, 260)
+
+
+POPULATIONS = {"Likely voters": "LV", "Registered voters": "RV", "Adults": "A"}
+
+
+def polls_in_average(rows):
+    """The table of polls under the charts: dates, pollster, sample, its weight in the average (with a bar), each
+    candidate's share as the poll reported it, and the leader's lead."""
+    names = short_names(rows["candidate"].unique().to_list())
+    candidates = rows.group_by("candidate", "party").agg(pl.col("share").mean()).sort("share", descending=True)
+    largest = rows["influence"].max()
+    table_rows = []
+    for (poll_id,), poll in rows.group_by("poll_id", maintain_order=True):
+        first = poll.row(0, named=True)
+        shares = dict(zip(poll["candidate"], poll["share"], strict=True))
+        start, end = first["start_date"], first["date"]
+        dates = f"{start:%b %-d}–{end:%b %-d}" if start != end else f"{end:%b %-d}"
+        sample = (f'{first["sample_size"]:,}' if first["sample_size"] else "–") + \
+            (f' {POPULATIONS.get(first["population"], "")}' if first["population"] else "")
+        bar = (f'<div class="influence"><span style="width:{100 * first["influence"] / largest:.0f}%"></span>'
+               f'<i>{first["influence"]:.2f}</i></div>')
+        leader_party = candidates.filter(pl.col("candidate") == first["leader"])["party"]
+        lead_colour = colour_of(leader_party[0]) if leader_party.len() else MUTED
+        lead = ("Tie" if first["lead"] == 0 else
+                f'<span style="color:{lead_colour}">{names.get(first["leader"], first["leader"])} '
+                f'+{100 * first["lead"]:.0f}</span>')
+        table_rows.append([dates, first["pollster"], sample, bar]
+                          + [f'<span style="color:{colour_of(c["party"])}">{pct(shares[c["candidate"]])}</span>'
+                             if c["candidate"] in shares else "–" for c in candidates.iter_rows(named=True)]
+                          + [lead])
+    headers = ["Dates", "Pollster", "Sample", "Influence", *[names[c] for c in candidates["candidate"]], "Lead"]
+    return ('<p class="chart-title">Polls in today\'s average</p>'
+            + table(headers, table_rows, numeric_from=4, css_class="polls-table"))
+
+
+views = {}
+for state in sorted(STATE_NAMES, key=STATE_NAMES.get):
+    poll_rows, price_rows = averages.filter(pl.col("state") == state), prices.filter(pl.col("state") == state)
+    content = '<p class="chart-title">Poll average</p>'
+    content += polls_figure(state, poll_rows) if poll_rows.height else '<p class="muted">No polls for this race.</p>'
+    content += '<p class="chart-title">Polymarket price</p>'
+    content += (market_figure(state, price_rows) if price_rows.height
+                else '<p class="muted">No market for this race.</p>')
+    state_polls = poll_table.filter(pl.col("state") == state)
+    content += polls_in_average(state_polls) if state_polls.height else ""
+    views[STATE_NAMES[state]] = content
+show(choices("state", views))
+```
+
+[Text: what the poll average and its 95% interval are, what influence means, and what a Polymarket price means.]{.to-write}
+
+## Compared with past elections {#past data-kicker="Past elections"}
+
+::: {.how-to-read}
+The Republican share of all votes in each state's recent elections, and our 2026 forecast with its 95% interval. Red
+above 50%, blue below.
+:::
+
+```{python}
+#| label: past-elections
+past = read("past_comparison")
+ELECTIONS = {"senate_2020": "Senate 2020", "senate_2022": "Senate 2022", "president_2024": "President 2024",
+             "senate_2024_special": "Senate 2024 special"}
+
+
+def past_table(version_type, version):
+    rows = []
+    for state in order:
+        state_rows = past.filter((pl.col("state") == state)
+                                 & (pl.col("version").is_null() | (pl.col("version") == version)))
+        by_election = {r["election"]: r for r in state_rows.iter_rows(named=True)}
+        ours = by_election["forecast_2026"]
+        rows.append([STATE_NAMES[state]]
+                    + [coloured_share(by_election[e]["republican_share"], 1) if e in by_election else ""
+                       for e in ELECTIONS]
+                    + [f'<b>{coloured_share(ours["republican_share"], 1)}</b><br>'
+                       f'<span class="muted small">{interval(ours["lower"], ours["upper"], True, 1)}</span>'])
+    return table(["State", *ELECTIONS.values(), "Our forecast, 2026"], rows)
+
+
+show(by_version(past_table))
+```
+
+[Text: how our forecast compares with each state's recent results.]{.to-write}
+
+## What the models answered {#answers data-kicker="Model answers"}
+
+::: {.how-to-read}
+The weighted share of each answer. With all models combined (or an approach), each model is shown and then their
+average, the models counted equally. The Senate question names the race's real candidates (grouped here by party);
+the House question is a generic ballot asked as a benchmark, not used in the forecast.
+:::
+
+```{python}
+#| label: model-answers
+answers = read("model_answers")
+ANSWER_ORDER = ["Democrat", "Independent", "Other", "Undecided", "Would not vote", "Republican"]
+QUESTIONS = {"senate": "Senate: “Who will you vote for?”", "generic": "House: “Which party's candidate will you vote for?”"}
+
+
+def answer_bars(version_type, version):
+    shown = answers.filter(pl.col("model").is_in(models_of(version_type, version)) & (pl.col("version_type") == "model"))
+    if version_type != "model":
+        shown = pl.concat([shown, answers.filter(pl.col("version") == version)])
+    pieces = ['<div class="legend">' + "".join(
+        f'<span><span class="key" style="background:{colour_of(a)}"></span>{a}</span>' for a in ANSWER_ORDER) + "</div>"]
+    for question, title in QUESTIONS.items():
+        pieces.append(f"<h3>{title}</h3>")
+        for (model,), rows in shown.filter(pl.col("question") == question).group_by("model", maintain_order=True):
+            shares = dict(zip(rows["answer"], rows["share"], strict=True))
+            pieces.append(f'<div class="bar-label"><span>{"Average of the models" if model == "average" else model}'
+                          f'</span><span>{pct(shares.get("Democrat", 0))} D / {pct(shares.get("Republican", 0))} R'
+                          "</span></div>")
+            pieces.append(split_bar([(pct(shares[a]), shares[a], colour_of(a)) for a in ANSWER_ORDER if a in shares]))
+    return "".join(pieces)
+
+
+show(by_version(answer_bars))
+```
+
+[Text: what the answers show, and how the models differ.]{.to-write}
+
+### Checks
+
+::: {.how-to-read}
+Two checks on 10 personas: does the model give the persona's own state when asked, and does its Senate answer change
+when party ID is left out of the prompt.
+:::
+
+```{python}
+#| label: checks
+CHECKS = {"persona_state": "Gives the persona's own state", "no_party_id": "Senate answer changes without party ID"}
+check_results = read("check_results").sort("check", "model", descending=[True, False])
+check_answers = read("check_answers").sort("check", "model", "persona_id", "question", "prompt")
+
+
+def check_tables(version_type, version):
+    chosen = models_of(version_type, version)
+    results = check_results.filter(pl.col("model").is_in(chosen))
+    details = check_answers.filter(pl.col("model").is_in(chosen))
+    return (
+        table(["Check", "Model", "Personas", "Cost"],
+              [[CHECKS[r["check"]], r["model"], f'{r["count"]} of {r["personas"]}', f'${r["cost"]:.4f}']
+               for r in results.iter_rows(named=True)], numeric_from=2)
+        + folded("Every answer in the checks", table(
+            ["Check", "Model", "Persona", "State", "Party ID", "Question", "Prompt", "Answer", "Draws"],
+            [[CHECKS[r["check"]], r["model"], r["persona_id"], r["state"], r["party_id"], r["question"], r["prompt"],
+              r["answer"], r["draws"]] for r in details.iter_rows(named=True)], numeric_from=8))
+    )
+
+
+show(by_version(check_tables))
+```
+
+[Text: what the checks show.]{.to-write}
+
+## Cross-tabs {#crosstabs data-kicker="Cross-tabs"}
+
+::: {.how-to-read}
+Each party's share of the answers for a party, in each group of personas: the Senate question (the race's Democratic,
+independent or Republican candidate) and the House question (Democrat or Republican). Undecided and would-not-vote
+answers are left out. With all models combined (or an approach), each model's share is worked out first and then
+averaged, the models counted equally. Personas: how many answered for a party in that group (on the Senate question).
+:::
+
+```{python}
+#| label: crosstabs
+crosstabs = read("crosstabs")
+COLUMNS = [("senate", "Democrat"), ("senate", "Independent"), ("senate", "Republican"),
+           ("generic", "Democrat"), ("generic", "Republican")]
+
+
+def crosstab_table(version_type, version):
+    rows_of_version = crosstabs.filter(pl.col("version") == version)
+    shares = {(r["variable"], r["group"], r["question"], r["party"]): r["share"]
+              for r in rows_of_version.iter_rows(named=True)}
+    sizes = {(r["variable"], r["group"]): r["personas"]
+             for r in rows_of_version.filter(pl.col("question") == "senate").iter_rows(named=True)}
+    body = []
+    for variable, (name, order_of_groups) in VARIABLES.items():
+        groups = rows_of_version.filter(pl.col("variable") == variable)["group"].unique().to_list()
+        if not groups:
+            continue
+        body.append(f'<tr class="variable"><th colspan="7">{name}</th></tr>')
+        for group in in_order(groups, order_of_groups):
+            cells = []
+            for question, party in COLUMNS:
+                share = shares.get((variable, group, question, party))
+                cells.append("–" if share is None else f'<span style="color:{colour_of(party)}">{pct(share)}</span>')
+            label = STATE_NAMES.get(group, group) if variable == "state" else group
+            body.append(f'<tr><td class="indent">{label}</td><td class="num muted">{sizes.get((variable, group), "")}'
+                        "</td>" + "".join(f'<td class="num">{c}</td>' for c in cells) + "</tr>")
+    head = ('<thead><tr><th></th><th></th><th colspan="3" class="group-head">Senate</th>'
+            '<th colspan="2" class="group-head">House</th></tr><tr><th>Group</th><th class="num">Personas</th>'
+            '<th class="num">Democrat</th><th class="num">Independent</th><th class="num">Republican</th>'
+            '<th class="num">Democrat</th><th class="num">Republican</th></tr></thead>')
+    return (f'<table class="plain crosstabs" data-quarto-disable-processing="true">{head}<tbody>{"".join(body)}'
+            "</tbody></table>")
+
+
+show(by_version(crosstab_table))
+```
+
+## Composition of the sample {#composition data-kicker="Composition"}
+
+::: {.how-to-read}
+The personas: how many are in each group, and their share of all personas. Every detail here is in the persona's
+prompt, except the 2024 vote, which is shown for reference only.
+:::
+
+```{python}
+#| label: composition
+composition = read("persona_composition")
+grid = []
+for variable, (name, order_of_groups) in VARIABLES.items():
+    rows = composition.filter(pl.col("variable") == variable)
+    counts = dict(zip(rows["group"], rows["personas"], strict=True))
+    total = sum(counts.values())
+    grid.append(
+        f'<table class="plain small-table" data-quarto-disable-processing="true"><thead><tr><th colspan="2">{name}'
+        "</th></tr></thead><tbody>"
+        + "".join(f'<tr><td>{STATE_NAMES.get(group, group) if variable == "state" else group}</td>'
+                  f'<td class="num">{counts[group]:,} <span class="muted">'
+                  f"({pct(counts[group] / total)})</span></td></tr>"
+                  for group in in_order(list(counts), order_of_groups))
+        + "</tbody></table>"
+    )
+show('<div class="composition-grid">', *grid, "</div>")
+```
+
+[Text: who the personas are, and how they were picked from the CES.]{.to-write}
+
+## Models {#models data-kicker="Models"}
+
+::: {.how-to-read}
+Each approach's models, as OpenRouter names them, how they were asked, and what came back. A decision model gives a
+probability for each option and each draw is a random pick from them, so it has no temperature.
+:::
+
+```{python}
+#| label: models
+show(table(
+    ["Approach", "Model", "Kind", "Draws", "Temperature", "Wording", "Personas", "Answers", "Missing"],
+    [[r["approach"].title(), r["model"], r["kind"], r["draws"],
+      "none" if r["temperature"] is None else f'{r["temperature"]:g}', r["wording"], f'{r["personas"]:,}',
+      f'{r["answers"]:,}', f'{r["missing"]:,}'] for r in models.iter_rows(named=True)],
+    numeric_from=3,
+))
+```
+
+[Text: why these models.]{.to-write}
+
+## Costs {#costs data-kicker="Costs"}
+
+```{python}
+#| label: costs
+costs = read("costs").sort("approach", pl.col("model") == "all models", "model")
+tokens = {r["model"]: r for r in models.iter_rows(named=True)}
+show(table(
+    ["Approach", "Model", "Calls", "Personas", "Input tokens", "Output tokens", "Cost", "Cost per persona", "Run on"],
+    [[r["approach"].title(), f'<b>{r["model"]}</b>' if r["model"] == "all models" else r["model"], f'{r["calls"]:,}',
+      f'{r["personas"]:,}',
+      f'{tokens[r["model"]]["input_tokens"]:,}' if r["model"] in tokens else "",
+      f'{tokens[r["model"]]["output_tokens"]:,}' if r["model"] in tokens else "",
+      f'${r["total_cost"]:.2f}', f'${r["cost_per_persona"]:.4f}', r["run_at"][:10]]
+     for r in costs.iter_rows(named=True)], numeric_from=2,
+))
+```
+
+[Text: what the forecast cost, and how that compares with a real poll.]{.to-write}
+
+## Methods {#methods data-kicker="Methods"}
+
+### Data
+
+[Text: the CES, the candidates, past results, polls and Polymarket, and how each was cleaned.]{.to-write}
+
+### The silicon sample
+
+[Text: the prompts, the questions, the two approaches, the models, draws and temperatures.]{.to-write}
+
+### From answers to a forecast
+
+[Text: the MRP model, the weighting frame, and the simulation of 10,000 elections.]{.to-write}
+
+### Uncertainty
+
+[Text: where the 95% intervals come from.]{.to-write}
+
+## Discussion {#discussion data-kicker="Discussion"}
+
+[Text: what we learned, and how it fits the literature on silicon samples and election forecasting.]{.to-write}
+
+### Limitations
+
+[Text: what this forecast cannot do.]{.to-write}
+
+### References
+
+[References: Python, the CES, MIT Election Lab, Wikipedia, VoteHub, Polymarket, the papers in the discussion.]{.to-write}
+
+```{=html}
+<script>
+// Menus and buttons that show one view at a time (made by choices() in src/senate_forecast_2026/website.py). A
+// menu and the views it switches share a name; several groups of views can share one menu (the version menu).
+function showChoice(name, value) {
+  document.querySelectorAll(`[data-choice-view="${name}"]`).forEach(view => {
+    view.hidden = view.dataset.value !== value;
+    if (!view.hidden && window.Plotly) view.querySelectorAll(".js-plotly-plot").forEach(p => Plotly.Plots.resize(p));
+  });
+  document.querySelectorAll(`select[data-choice="${name}"]`).forEach(s => s.value = value);
+  document.querySelectorAll(`button[data-choice="${name}"]`).forEach(b => b.classList.toggle("active", b.dataset.value === value));
+}
+document.querySelectorAll("select[data-choice]").forEach(s => s.addEventListener("change", () => showChoice(s.dataset.choice, s.value)));
+document.querySelectorAll("button[data-choice]").forEach(b => b.addEventListener("click", () => showChoice(b.dataset.choice, b.dataset.value)));
+</script>
+```

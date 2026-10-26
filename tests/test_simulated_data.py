@@ -10,6 +10,7 @@
 
 import polars as pl
 import pytest
+from helpers import share_of
 from scipy.stats import chisquare
 
 from senate_forecast_2026.paths import SIMULATED_DATA
@@ -44,12 +45,6 @@ RESPONSE_FILES = ["responses_sean", "responses_furkan", "responses"]  # same col
 def data():
     """All the simulated files, read once for the whole module."""
     return {name: pl.read_parquet(DATA_FOLDER / f"{name}.parquet") for name in SIMULATED_FILES}
-
-
-def share_of(table, group_column, group, outcome_column, outcomes):
-    """One cell of a cross-tab: among rows where `group_column` is `group`, the share whose `outcome_column` is in `outcomes`."""
-    in_group = table.filter(pl.col(group_column) == group)
-    return in_group[outcome_column].is_in(outcomes).mean()
 
 
 @pytest.fixture(scope="module")

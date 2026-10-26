@@ -1,0 +1,31 @@
+# The website: one page (index.qmd), built with `uv run quarto render` from the repo root into docs/,
+# which GitHub Pages serves.
+# It only reads the summary files in data/03-summary_data/ (made by scripts/12-summarize_results.py) and shows them.
+project:
+  type: website
+  output-dir: docs
+  render:
+    - index.qmd  # only the website, not the README or other Markdown files
+
+website:
+  title: "Senate Forecast 2026"
+  page-footer:
+    center: >
+      Sean Murphy and Furkan Danisman, University of Toronto ·
+      [Code and data on GitHub](https://github.com/seandata8/senate-forecast-2026)
+
+format:
+  html:
+    theme: [default, style.scss]
+    toc: false
+    page-layout: article
+    grid:
+      body-width: 1000px
+      sidebar-width: 0px
+      margin-width: 0px
+    title-block-style: none
+    anchor-sections: false
+
+execute:
+  echo: false
+  warning: false

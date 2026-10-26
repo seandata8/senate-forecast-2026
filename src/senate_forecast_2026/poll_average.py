@@ -5,7 +5,7 @@
 #          turned on or off, so the website can show how much each one moves the average.
 #          Used by #12 scripts/12-summarize_results.py, which saves the average for every on/off combination.
 # Author: Furkan Danisman
-# Date: 24 October 2026; undecided left out 25 October 2026
+# Date: 24 October 2026; undecided left out 25 October 2026; 95% interval 26 October 2026
 # Pre-requisites: polls from scripts/10-clean_polls.py
 
 import itertools
@@ -40,6 +40,18 @@ def without_undecided(polls):
 
     `polls` has the polls columns, one row per candidate per poll."""
     return polls.with_columns(pl.col("share") / pl.col("share").sum().over("poll_id"))
+
+
+# The polls' 95% interval: the average ± 1.96 spreads, where 95% of the polls would fall if their shares were spread
+# like a normal distribution around the average. It shows how much the polls disagree, not a margin of error.
+SPREADS_FOR_95_PERCENT = 1.96
+
+
+def poll_interval(average, spread):
+    """The lower and upper ends of the polls' 95% interval, as polars expressions, kept between 0 and 1."""
+    lower = (pl.col(average) - SPREADS_FOR_95_PERCENT * pl.col(spread)).clip(0, 1)
+    upper = (pl.col(average) + SPREADS_FOR_95_PERCENT * pl.col(spread)).clip(0, 1)
+    return lower, upper
 
 
 def poll_weights(end_days, sample_sizes, pollsters, populations, day, rules):
