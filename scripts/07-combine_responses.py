@@ -42,3 +42,18 @@ save_data(
     responses, Responses, ANALYSIS_DATA, "responses",
     sample_groups=["approach", "persona_id", "model", "draw"], also_sample_where=pl.col("state") == "AK",
 )
+
+
+#### Summary ####
+# What went in, per approach and model, to check at a glance that every model made it in, with all its draws.
+summary = (
+    responses.group_by("approach", "model")
+    .agg(
+        answers=pl.len(),
+        personas=pl.col("persona_id").n_unique(),
+        draws=pl.col("draw").n_unique(),
+        missing=pl.col("answer").null_count(),
+    )
+    .sort("approach", "model")
+)
+print(summary)
