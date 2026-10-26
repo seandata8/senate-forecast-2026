@@ -135,8 +135,13 @@ QUESTION_WORDINGS = {
 # run with --wording v2 to check how much the answers depend on it. `draws` is one number for every model, or a
 # number per model.
 APPROACH_SETTINGS = {
+    # Chosen from Sean's trial of 15 cheap models on 25 personas (#6, scripts/06-trial_models_sean.py): both always gave a
+    # usable answer, and they come from makers Furkan's approach doesn't use. Cohere is Canadian.
     "sean": {
-        "models": ["deepseek/deepseek-v4-flash-0731", "z-ai/glm-5.3-flash"], "draws": 3, "temperature": 1.0, "wording": "v1",
+        "models": ["cohere/command-a-plus", "anthropic/claude-haiku-5.5"],
+        "draws": 3,
+        "temperature": 1.0,
+        "wording": "v1",
     },
     # Jev is a decision model (see DECISION_MODELS in silicon.py): it has no temperature, and each of its 10 draws
     # is a separate call whose answer is a random pick weighted by its probabilities. Kimi K3 is a chat model.

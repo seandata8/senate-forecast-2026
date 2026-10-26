@@ -33,8 +33,8 @@ University of Toronto data science course project (Sean Murphy and Furkan Danism
 
 ## Gotchas
 - `ask()` caches to `cache/<sha256>.json`, keyed on model, temperature, draw, persona, question and answer options. Any change to those creates a new, billed call. For repeated samples of the same persona and question, vary `draw`.
-- `cache/` is committed to git so results are reproducible without new API calls. Commit new cache files along with the scripts that made them.
+- `cache/` is gitignored, so each person decides whether to commit their answers. Sean's are committed (with `git add -f cache/`) so his run is reproducible without new API calls; new answers need `git add -f` again.
 - Failed or unparseable answers, and answers that are not one of the options, are cached with `"answer": None` and are not retried. Delete the cache file to retry.
-- `BUDGET_USD` (2.00) is per process, not persistent. Cache hits are free and don't count toward it.
+- `BUDGET_USD` (5.00) is per process, not persistent. Cache hits are free and don't count toward it.
 - `instructions/` holds course materials. It is gitignored, so treat it as the assignment spec and don't modify it.
 - Model IDs in `MODELS` are OpenRouter slugs. Check they exist before changing them.
