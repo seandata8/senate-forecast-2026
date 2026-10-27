@@ -11,10 +11,11 @@ name: Daily update of polls and Polymarket
 
 on:
   schedule:
-    # Midnight UTC is 8 pm in Toronto until 31 October (7 pm on 1 and 2 November, after the clocks go back), so each
-    # evening's run catches that day's polls, and the last run is on the evening of 2 November. GitHub often starts
-    # scheduled runs a little late.
-    - cron: "0 0 * * *"
+    # 23:37 UTC is 7:37 pm in Toronto until 31 October (6:37 pm on 1 and 2 November, after the clocks go back), so each
+    # evening's run catches that day's polls, and the last run is on the evening of 2 November. GitHub starts scheduled
+    # runs late, or skips them, when it is busy, and it is busiest on the hour (our first try, midnight UTC, had not
+    # started 90 minutes later), so this is at an odd minute; if a run is skipped, use "Run workflow".
+    - cron: "37 23 * * *"
   workflow_dispatch:  # the "Run workflow" button, to run it by hand
 
 # What the workflow may do: read the repo, and publish to GitHub Pages. It cannot change the repo: the website is
