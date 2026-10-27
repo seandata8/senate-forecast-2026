@@ -111,6 +111,7 @@ show(
 )
 ```
 
+<!-- Writer: Sean (see the writing plan) -->
 [Text: two or three sentences on what this page is.]{.to-write}
 
 ## Who controls the Senate? {#forecast data-kicker="The forecast"}
@@ -135,6 +136,7 @@ def headline(version_type, version):
 show(by_version(headline))
 ```
 
+<!-- Writer: Sean (see the writing plan) -->
 [Text: the main finding in a few sentences.]{.to-write}
 
 ### How many seats
@@ -167,6 +169,7 @@ def seat_chart(version_type, version):
 show(by_version(seat_chart))
 ```
 
+<!-- Writer: Sean (see the writing plan) -->
 [Text: how to read the spread of seats.]{.to-write}
 
 ### Compared with other forecasts
@@ -226,6 +229,7 @@ def comparison_chart():
 show(comparison_chart())
 ```
 
+<!-- Writer: not yet assigned (see the writing plan) -->
 [Text: how our forecast compares with the others, and why they might differ.]{.to-write}
 
 ## Race by race: our forecast, the polls and Polymarket {#races data-kicker="The races"}
@@ -305,6 +309,7 @@ def race_table(version_type, version):
 show(by_version(race_table))
 ```
 
+<!-- Writer: Furkan (see the writing plan) -->
 [Text: where we agree and disagree with the polls and Polymarket, and why.]{.to-write}
 
 ## The polls and Polymarket, race by race {#polls data-kicker="Polls & markets"}
@@ -478,6 +483,7 @@ for state in sorted(STATE_NAMES, key=STATE_NAMES.get):
 show(choices("state", views))
 ```
 
+<!-- Writer: Furkan (see the writing plan) -->
 [Text: what the poll average and its 95% interval are, what influence means, and what a Polymarket price means.]{.to-write}
 
 ## Compared with past elections {#past data-kicker="Past elections"}
@@ -512,6 +518,7 @@ def past_table(version_type, version):
 show(by_version(past_table))
 ```
 
+<!-- Writer: Furkan (see the writing plan) -->
 [Text: how our forecast compares with each state's recent results.]{.to-write}
 
 ## What the models answered {#answers data-kicker="Model answers"}
@@ -549,6 +556,7 @@ def answer_bars(version_type, version):
 show(by_version(answer_bars))
 ```
 
+<!-- Writer: Furkan (see the writing plan) -->
 [Text: what the answers show, and how the models differ.]{.to-write}
 
 ### Checks
@@ -583,6 +591,7 @@ def check_tables(version_type, version):
 show(by_version(check_tables))
 ```
 
+<!-- Writer: Furkan (see the writing plan) -->
 [Text: what the checks show.]{.to-write}
 
 ## Cross-tabs {#crosstabs data-kicker="Cross-tabs"}
@@ -659,6 +668,7 @@ for variable, (name, order_of_groups) in VARIABLES.items():
 show('<div class="composition-grid">', *grid, "</div>")
 ```
 
+<!-- Writer: Furkan (see the writing plan) -->
 [Text: who the personas are, and how they were picked from the CES.]{.to-write}
 
 ## Models {#models data-kicker="Models"}
@@ -679,6 +689,7 @@ show(table(
 ))
 ```
 
+<!-- Writer: Furkan / Sean (see the writing plan) -->
 [Text: why these models.]{.to-write}
 
 ## Costs {#costs data-kicker="Costs"}
@@ -698,36 +709,44 @@ show(table(
 ))
 ```
 
+<!-- Writer: Furkan / Sean (see the writing plan) -->
 [Text: what the forecast cost, and how that compares with a real poll.]{.to-write}
 
 ## Methods {#methods data-kicker="Methods"}
 
 ### Data
 
+<!-- Writer: Furkan (see the writing plan) -->
 [Text: the CES, the candidates, past results, polls and Polymarket, and how each was cleaned.]{.to-write}
 
 ### The silicon sample
 
+<!-- Writer: Furkan (see the writing plan) -->
 [Text: the prompts, the questions, the two approaches, the models, draws and temperatures.]{.to-write}
 
 ### From answers to a forecast
 
+<!-- Writer: Furkan (see the writing plan) -->
 [Text: the MRP model, the weighting frame, and the simulation of 10,000 elections.]{.to-write}
 
 ### Uncertainty
 
+<!-- Writer: Furkan (see the writing plan) -->
 [Text: where the 95% intervals come from.]{.to-write}
 
 ## Discussion {#discussion data-kicker="Discussion"}
 
+<!-- Writer: Sean (see the writing plan) -->
 [Text: what we learned, and how it fits the literature on silicon samples and election forecasting.]{.to-write}
 
 ### Limitations
 
+<!-- Writer: Sean (see the writing plan) -->
 [Text: what this forecast cannot do.]{.to-write}
 
 ### References
 
+<!-- Writer: Sean (see the writing plan) -->
 [References: Python, the CES, MIT Election Lab, Wikipedia, VoteHub, Polymarket, the papers in the discussion.]{.to-write}
 
 ```{=html}
