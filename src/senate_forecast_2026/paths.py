@@ -27,6 +27,7 @@ RAW_SENATE_RESULTS = RAW_DATA / "1976-2024-senate-state.csv"
 RAW_PRESIDENT_RESULTS = RAW_DATA / "1976-2024-president.csv"
 RAW_POLLS = RAW_DATA / "votehub_senate_polls.json"  # saved by scripts/10-download_polls.py
 RAW_POLYMARKET = RAW_DATA / "polymarket_senate_prices.json"  # saved by scripts/11-download_polymarket.py
+RAW_SILVER_BULLETIN = RAW_DATA / "silver_bulletin_senate_control.csv"  # typed in by hand from the Silver Bulletin
 
 # The full CES files are too big for GitHub, so small samples of them are committed instead: the same file names
 # and every column, so the scripts that read the CES can run without the full files. See the README.

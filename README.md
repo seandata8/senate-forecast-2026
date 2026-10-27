@@ -18,7 +18,8 @@ The forecast website will be deployed with GitHub Pages and frozen at the end of
 | `1976-2024-senate-state.csv` | MIT Election Data and Science Lab, [doi:10.7910/DVN/PEJ5QU](https://doi.org/10.7910/DVN/PEJ5QU), version 8 | Yes |
 | `1976-2024-president.csv` | MIT Election Data and Science Lab, [doi:10.7910/DVN/42MVDX](https://doi.org/10.7910/DVN/42MVDX), version 10.1 | Yes |
 | `votehub_senate_polls.json` | VoteHub Polls API, [votehub.com/polls/api](https://votehub.com/polls/api/), CC BY 4.0; downloaded by `scripts/10-download_polls.py`, which replaces it with the latest polls on each run | Yes |
-| `polymarket_senate_prices.json` | Polymarket, [polymarket.com](https://polymarket.com), the "Senate Election Winner" market of each race and its daily prices (Gamma and CLOB APIs); downloaded by `scripts/11-download_polymarket.py`, which replaces it with the latest prices on each run | Yes |
+| `polymarket_senate_prices.json` | Polymarket, [polymarket.com](https://polymarket.com), the "Senate Election Winner" market of each race and the "Which party will win the Senate in 2026?" market, with their daily prices (Gamma and CLOB APIs); downloaded by `scripts/11-download_polymarket.py`, which replaces it with the latest prices on each run | Yes |
+| `silver_bulletin_senate_control.csv` | Silver Bulletin, [2026 Midterm Election Forecast](https://www.natesilver.net/p/nate-silver-2026-midterm-election-polls-model), the chance of Democratic control of the Senate (subscription required), typed in by hand with the day it was read | Yes |
 
 **The CES files.** Both are over GitHub's 100 MB file limit, so they are gitignored and not in the repo. To get them, run the download script above. To download them by hand instead, open the DOI link, download the CSV file named in the table (on Dataverse, choose "Original File Format" if offered), and save it in `data/01-raw_data/` under that name.
 
@@ -30,7 +31,7 @@ The forecast website will be deployed with GitHub Pages and frozen at the end of
 
 The website is one page, `index.qmd`, built with Quarto into `docs/` for GitHub Pages: `uv sync --group website`, then `uv run quarto render` from the repo root (Quarto must be installed). It only reads the summary files in `data/03-summary_data/`, made by `scripts/12-summarize_results.py`; no analysis is done in the page.
 
-**Daily update.** Until the freeze, a GitHub Actions workflow (`.github/workflows/daily-update.yml`) downloads the latest polls and Polymarket prices every evening, reruns the summaries and republishes the website. It asks no models, so the forecast does not change. It stops by itself after 2 November, and we turn it off before the deadline.
+**Daily update.** Until the freeze, a GitHub Actions workflow (`.github/workflows/daily-update.yml`) downloads the latest polls and Polymarket prices every evening, reruns the summaries and republishes the website. The Silver Bulletin number is typed in by hand: add a row to `data/01-raw_data/silver_bulletin_senate_control.csv` on the `silver-bulletin` branch (on GitHub, without a PR), and the next run uses it. It asks no models, so the forecast does not change. It stops by itself after 2 November, and we turn it off before the deadline.
 
 ## Authors
 
@@ -55,6 +56,7 @@ We used Claude Code, with Claude Opus 5.5 (`claude-opus-5-5`), for the work list
 - 26 October 2026: the script that combines both runs into one file (`scripts/07-combine_responses.py`).
 - 25 and 26 October 2026: Sean's model trial (`scripts/06-trial_models_sean.py`), the progress report during a run (`scripts/watch_progress.py`, with `cache_key()` and `cache_path()` in `silicon.py`), and the analysis of the trial's results.
 - 26 October 2026: the daily update of polls, Polymarket and the website (`.github/workflows/daily-update.yml`) and its note in this README.
+- 27 October 2026: the chance of control from the polls, Polymarket and the Silver Bulletin next to ours: the Senate-control market in `scripts/11-download_polymarket.py` and `scripts/11-clean_polymarket.py`, the polls' seat simulation (`poll_state_shares()` in `src/senate_forecast_2026/poll_average.py`) and its test, the comparison in `scripts/12-summarize_results.py`, their schemas, and the chart in `index.qmd`; and the daily update moved to 7:37 pm Toronto time.
 - 26 October 2026: the website's "Blue Wave" design (`style.scss`, the colours and font in `src/senate_forecast_2026/website.py`, the fonts loaded in `_quarto.yml`, and the footer wave), the charts of the polls and Polymarket from 1 August to election day (`CHART_START` and `ELECTION_DAY` in `src/senate_forecast_2026/queries.py`), the slanted labels in the forecast panels (`index.qmd`), and the headline seats as the most common number (`seat_summary()` in `src/senate_forecast_2026/forecast_summary.py`).
 
 The LLMs queried to produce the silicon sample are part of the method, not help with the work; they will be listed with their OpenRouter identifiers in the methods section of the website.

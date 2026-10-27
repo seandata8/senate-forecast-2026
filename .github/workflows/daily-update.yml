@@ -1,7 +1,8 @@
 #### Preamble ####
 # Purpose: Every night until the website freezes (end of 2 November 2026), download the latest polls and Polymarket
-#          prices, clean them, rerun the summary script and rebuild the website (task #14). The forecast itself does
-#          not change: no models are asked, so no API key is needed.
+#          prices, clean them, take the latest Silver Bulletin number from the silver-bulletin branch, rerun the
+#          summary script and rebuild the website (task #14). The forecast itself does not change: no models are
+#          asked, so no API key is needed.
 # Author: Sean Murphy
 # Date: 26 October 2026
 # Pre-requisites: the forecast and its summaries on main (#7, #8, #12)
@@ -75,6 +76,19 @@ jobs:
         run: |
           uv run scripts/11-download_polymarket.py
           uv run scripts/11-clean_polymarket.py
+
+      # The Silver Bulletin number is typed in by hand. main is protected, so it is kept up to date on its own
+      # branch, silver-bulletin, where it can be edited on GitHub and committed without a PR; its CSV replaces
+      # main's here. If the branch is missing, main's CSV is used, with a warning.
+      - name: Get the latest Silver Bulletin number
+        run: |
+          csv=data/01-raw_data/silver_bulletin_senate_control.csv
+          if git fetch --depth=1 origin silver-bulletin; then
+            git show FETCH_HEAD:"$csv" > "$csv"
+            tail -n 1 "$csv"
+          else
+            echo "::warning::No silver-bulletin branch, so main's Silver Bulletin number is used."
+          fi
 
       - name: Rerun the summaries
         run: uv run scripts/12-summarize_results.py

@@ -17,6 +17,7 @@ from senate_forecast_2026.poll_average import (
     RULES,
     poll_influence,
     poll_interval,
+    poll_state_shares,
     poll_weights,
     race_averages,
     weighted_average,
@@ -122,3 +123,16 @@ def test_poll_interval_is_the_average_plus_or_minus_1_96_spreads_kept_between_0_
     interval = averages.select(lower=lower, upper=upper)
     assert interval["lower"].to_list() == pytest.approx([0.4804, 0.0])
     assert interval["upper"].to_list() == pytest.approx([0.5196, 0.118])
+
+
+def test_poll_state_shares_use_the_polls_and_otherwise_the_2024_presidential_result():
+    poll_now = pl.DataFrame({"state": ["OH", "OH"], "candidate": ["Brown", "Husted"], "average": [0.5, 0.48]})
+    race_candidates = pl.DataFrame({"state": ["OH", "OH", "WY", "WY"], "candidate": ["Brown", "Husted", "Byrd", "Hageman"],
+                                    "party": ["Democrat", "Republican", "Democrat", "Republican"]})
+    past_results = pl.DataFrame({"state": ["WY", "WY"], "election": ["president_2024", "senate_2020"],
+                                 "dem_share": [0.25, 0.3], "rep_share": [0.70, 0.7]})
+    shares = dict(poll_state_shares(poll_now, race_candidates, past_results).select("candidate", "share").iter_rows())
+    assert shares["Brown"] == pytest.approx(0.5 / 0.98)  # the averages scaled to add up to 1
+    assert shares["Husted"] == pytest.approx(0.48 / 0.98)
+    assert shares["Byrd"] == pytest.approx(0.25 / 0.95)  # the two parties' 2024 presidential shares, scaled the same way
+    assert shares["Hageman"] == pytest.approx(0.70 / 0.95)
