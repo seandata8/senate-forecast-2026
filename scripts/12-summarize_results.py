@@ -11,8 +11,8 @@
 # Date: 24 October 2026; forecast, answers, personas and costs 25 October 2026
 # Pre-requisites: polls from scripts/10-clean_polls.py; polymarket and polymarket_control from
 #                 scripts/11-clean_polymarket.py; data/01-raw_data/silver_bulletin_senate_control.csv (typed in);
-#                 forecast and forecast_versions from scripts/08-forecast.py (without them, the forecast part is
-#                 skipped); personas, candidates and responses; model_checks_<approach> from
+#                 forecast, forecast_versions and forecast_errors from scripts/08-forecast.py (without them, the
+#                 forecast part is skipped); personas, candidates and responses; model_checks_<approach> from
 #                 scripts/06-check_models.py
 # Run: uv run scripts/12-summarize_results.py (or PyCharm's run button)
 
@@ -163,7 +163,14 @@ for (version_type, version), version_forecast in versions:
     seat_rows.append(distribution.with_columns(**{k: pl.lit(v) for k, v in labels.items()}))
     race_rows.append(race_summary(version_forecast).with_columns(**{k: pl.lit(v) for k, v in labels.items()}))
 label_columns = ["version_type", "version"]
-forecast_control = pl.concat(control_rows).select(*label_columns, "dem_control", "seats", "seats_lower", "seats_upper")
+# With the size of each version's errors in the simulation, for the website's text.
+forecast_errors = pl.read_parquet(ANALYSIS_DATA / "forecast_errors.parquet")
+forecast_control = (
+    pl.concat(control_rows)
+    .join(forecast_errors, on=label_columns, how="left", validate="1:1")
+    .select(*label_columns, "dem_control", "seats", "seats_lower", "seats_upper", "model_standard_error",
+            "polling_state_error_sd", "state_error_sd", "national_error_sd")
+)
 forecast_seats = pl.concat(seat_rows).select(*label_columns, "dem_seats", "simulations", "share")
 
 # Next to each candidate: today's poll average with every rule on (polls without the undecided, as above), and

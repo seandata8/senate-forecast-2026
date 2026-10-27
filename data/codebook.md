@@ -106,6 +106,19 @@ The forecast made from part of the answers: each approach's run alone, and each 
 | `version_type` | String | no | approach, model | Whether the version is one approach's run or one model's answers. |
 | `version` | String | no | any | The approach (as in responses' `approach`) or the model (its OpenRouter identifier, as in responses' `model`). |
 
+## `forecast_errors`
+
+One row per forecast version: the size of the errors in its simulated elections (senate_simulation.py). Made by #8 with forecast and forecast_versions.
+
+| Column | Type | Missing | Allowed values | Description |
+|---|---|---|---|---|
+| `version_type` | String | no | all, approach, model | Which answers the forecast is made from: "all" (both runs together, the forecast), "approach" (one approach's run) or "model" (one model's answers). |
+| `version` | String | no | any | "all", the approach (as in responses' `approach`) or the model (its OpenRouter identifier). |
+| `model_standard_error` | Float64 | no | ≥ 0 | The model's own uncertainty: the standard deviation of the leading candidate's share across 1,000 draws of the MRP model's coefficients, in the typical (median) state. |
+| `polling_state_error_sd` | Float64 | no | ≥ 0 | The polling-sized part of the state error (STATE_ERROR_SD in senate_simulation.py). |
+| `state_error_sd` | Float64 | no | ≥ 0 | Standard deviation of each state's own error in the simulation: the polling-sized part and the model's uncertainty combined, the square root of the sum of their squares. |
+| `national_error_sd` | Float64 | no | ≥ 0 | Standard deviation of the national error, shared by every state in a simulated election (NATIONAL_ERROR_SD in senate_simulation.py). |
+
 ## `past_results`
 
 Earlier results in each race state: the last Senate election for the seat up in 2026, and the 2024 presidential election. Made by #3 from the MIT Election Lab. A comparison on the website, not a forecast input.
@@ -235,6 +248,10 @@ One row per forecast version: the chance of Democratic control and the Democrati
 | `seats` | Float64 | no | ≥ 0, ≤ 100 | Democratic-caucus seats: the most common number in the simulated elections (the lower one if two tie). |
 | `seats_lower` | Float64 | no | ≥ 0, ≤ 100 | Lower end of the 95% interval of the seats (2.5% of simulations have fewer). |
 | `seats_upper` | Float64 | no | ≥ 0, ≤ 100 | Upper end of the 95% interval of the seats (2.5% of simulations have more). |
+| `model_standard_error` | Float64 | no | ≥ 0 | As in forecast_errors: the model's own uncertainty. |
+| `polling_state_error_sd` | Float64 | no | ≥ 0 | As in forecast_errors: the polling-sized part of the state error. |
+| `state_error_sd` | Float64 | no | ≥ 0 | As in forecast_errors: each state's own error, both parts combined. |
+| `national_error_sd` | Float64 | no | ≥ 0 | As in forecast_errors: the national error. |
 
 ## `control_comparison`
 

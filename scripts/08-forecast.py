@@ -3,9 +3,10 @@
 #          get each candidate's vote share in each state, then simulate the election many times with the Monte Carlo
 #          in senate_simulation.py, whose state error includes the model's own uncertainty. Saves forecast (both
 #          runs together, as the plan says) and forecast_versions: the same forecast from each approach's answers
-#          alone and from each model's answers alone, so the website can compare them (#12).
+#          alone and from each model's answers alone, so the website can compare them (#12). Also saves
+#          forecast_errors: the size of each version's errors in the simulation, for the website's text.
 # Author: Furkan Danisman
-# Date: 24 October 2026; versions by approach and model 25 October 2026
+# Date: 24 October 2026; versions by approach and model 25 October 2026; errors saved 27 October 2026
 # Pre-requisites: personas, candidates, frame (scripts/08-build_frame.py) and responses
 # Run: uv run scripts/08-forecast.py (or PyCharm's run button)
 #      --responses <file> reads the answers from another file, e.g. one model's answers before the runs are combined
@@ -20,8 +21,20 @@ from senate_forecast_2026.mrp import PARTIES, design_matrix, fit, poststratify
 from senate_forecast_2026.paths import ANALYSIS_DATA
 from senate_forecast_2026.queries import alaska_final_candidates
 from senate_forecast_2026.save import save_data
-from senate_forecast_2026.schemas import NON_CANDIDATE_ANSWERS, PARTY_GROUP_OF, Forecast, ForecastVersions
-from senate_forecast_2026.senate_simulation import combined_state_error_sd, count_seats, simulate_races
+from senate_forecast_2026.schemas import (
+    NON_CANDIDATE_ANSWERS,
+    PARTY_GROUP_OF,
+    Forecast,
+    ForecastErrors,
+    ForecastVersions,
+)
+from senate_forecast_2026.senate_simulation import (
+    NATIONAL_ERROR_SD,
+    STATE_ERROR_SD,
+    combined_state_error_sd,
+    count_seats,
+    simulate_races,
+)
 
 N_SIMS = 10_000  # simulated elections, as in the simulated forecast (#1)
 N_MODEL_DRAWS = 1_000  # draws of the model's coefficients, to measure its uncertainty
@@ -50,7 +63,8 @@ deciding_question = pl.when(pl.col("state") == "AK").then(pl.lit("alaska_final")
 
 def make_forecast(responses, label):
     """The forecast from `responses`: fit the model, post-stratify, simulate. Returns the simulated elections
-    (as in the Forecast schema) and prints a summary under `label`."""
+    (as in the Forecast schema) and the size of the simulation's errors (as in the ForecastErrors schema, without
+    the version), and prints a summary under `label`."""
     print(f"\n#### {label}: {responses.height:,} answers from {', '.join(responses['model'].unique().sort())} ####")
     # -- The answers the model learns from --
     # Each persona's answers to their deciding question. Undecided, would not vote and missing answers are left out,
@@ -118,21 +132,25 @@ def make_forecast(responses, label):
     print(f"Democratic control in {seats['dem_control'].mean():.1%} of {N_SIMS:,} simulated elections; "
           f"Democratic-caucus seats: {seats['dem_seats'].median():.0f} "
           f"[{seats['dem_seats'].quantile(0.025):.0f}, {seats['dem_seats'].quantile(0.975):.0f}] 95% interval")
-    return forecast
+    errors = {"model_standard_error": typical_standard_error, "polling_state_error_sd": STATE_ERROR_SD,
+              "state_error_sd": state_error_sd, "national_error_sd": NATIONAL_ERROR_SD}
+    return forecast, errors
 
 
 #### Every version ####
 # Both runs together is the forecast (as the plan says). Each approach alone and each model alone are versions of
 # it, made the same way, for the website's comparison. An approach is skipped if it is the only one (it would be the
 # same as both runs together), and so is a model if it is the only one.
-forecast = make_forecast(responses, "Both runs together")
+forecast, errors = make_forecast(responses, "Both runs together")
+error_rows = [{"version_type": "all", "version": "all", **errors}]
 versions = []
 groups = [("approach", approach) for approach in responses["approach"].unique().sort()]
 groups += [("model", model) for model in responses["model"].unique().sort()]
 for version_type, version in groups:
     if responses[version_type].n_unique() == 1:
         continue
-    version_forecast = make_forecast(responses.filter(pl.col(version_type) == version), f"{version_type}: {version}")
+    version_forecast, errors = make_forecast(responses.filter(pl.col(version_type) == version), f"{version_type}: {version}")
+    error_rows.append({"version_type": version_type, "version": version, **errors})
     versions.append(version_forecast.with_columns(version_type=pl.lit(version_type), version=pl.lit(version)))
 if not versions:
     raise SystemExit("Only one approach and one model: there are no versions to compare")
@@ -144,3 +162,5 @@ save_data(forecast, Forecast, ANALYSIS_DATA, "forecast", sample_groups=["sim_id"
 # The versions' shares are rounded to 4 decimals (0.01 points), which makes the file about a third of the size.
 forecast_versions = forecast_versions.with_columns(pl.col("share").round(4))
 save_data(forecast_versions, ForecastVersions, ANALYSIS_DATA, "forecast_versions", sample_groups=["version", "sim_id"])
+save_data(pl.DataFrame(error_rows).with_columns(pl.col("model_standard_error", "state_error_sd").round(6)),
+          ForecastErrors, ANALYSIS_DATA, "forecast_errors")

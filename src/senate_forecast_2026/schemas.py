@@ -469,6 +469,35 @@ class ForecastControl(pa.DataFrameModel):
                                   "simulations have fewer).")
     seats_upper: float = pa.Field(ge=0, le=100, description="Upper end of the 95% interval of the seats (2.5% of "
                                   "simulations have more).")
+    model_standard_error: float = pa.Field(ge=0, description="As in forecast_errors: the model's own uncertainty.")
+    polling_state_error_sd: float = pa.Field(ge=0, description="As in forecast_errors: the polling-sized part of the "
+                                             "state error.")
+    state_error_sd: float = pa.Field(ge=0, description="As in forecast_errors: each state's own error, both parts "
+                                     "combined.")
+    national_error_sd: float = pa.Field(ge=0, description="As in forecast_errors: the national error.")
+
+    class Config:
+        strict = True
+
+
+class ForecastErrors(pa.DataFrameModel):
+    """One row per forecast version: the size of the errors in its simulated elections (senate_simulation.py). Made
+    by #8 with forecast and forecast_versions."""
+
+    version_type: str = pa.Field(isin=["all", "approach", "model"], description=VERSION_TYPE)
+    version: str = pa.Field(description=VERSION)
+    model_standard_error: float = pa.Field(
+        ge=0, description="The model's own uncertainty: the standard deviation of the leading candidate's share across "
+        "1,000 draws of the MRP model's coefficients, in the typical (median) state.",
+    )
+    polling_state_error_sd: float = pa.Field(ge=0, description="The polling-sized part of the state error "
+                                             "(STATE_ERROR_SD in senate_simulation.py).")
+    state_error_sd: float = pa.Field(
+        ge=0, description="Standard deviation of each state's own error in the simulation: the polling-sized part and "
+        "the model's uncertainty combined, the square root of the sum of their squares.",
+    )
+    national_error_sd: float = pa.Field(ge=0, description="Standard deviation of the national error, shared by every "
+                                        "state in a simulated election (NATIONAL_ERROR_SD in senate_simulation.py).")
 
     class Config:
         strict = True
@@ -707,6 +736,7 @@ FILE_SCHEMAS = {
     "frame": Frame,
     "forecast": Forecast,
     "forecast_versions": ForecastVersions,
+    "forecast_errors": ForecastErrors,
     "past_results": PastResults,
     "polls": Polls,
     "polymarket": Polymarket,

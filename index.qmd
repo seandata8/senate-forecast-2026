@@ -28,6 +28,11 @@ seats = read("forecast_seats")
 races = read("forecast_races")
 models = read("models")
 
+# Numbers quoted in the text: the combined forecast (every model), and the models behind it.
+combined = control.filter(pl.col("version_type") == "all").row(0, named=True)
+model_ids = models["model"].unique().sort().to_list()
+model_list = ", ".join(model_ids[:-1]) + " and " + model_ids[-1]
+
 # The versions of the results, as the forecast has them: every model together ("all"), each approach, each model.
 VERSION_ORDER = {"all": 0, "approach": 1, "model": 2}
 VERSIONS = control.sort(pl.col("version_type").replace_strict(VERSION_ORDER), "version").select(
@@ -112,7 +117,7 @@ show(
 ```
 
 <!-- Writer: Sean (see the writing plan) -->
-[Text: two or three sentences on what this page is.]{.to-write}
+This page tests if silicon sampling ([Argyle et al. 2023](https://doi.org/10.1017/pan.2023.2)), predicting votes using large language models (LLMs) and voter demographic information, can accurately predict the outcomes of elections. In this case, we are predicting all 35 Senate races and the chances that the Democrats get control of the US Senate in the election on November 3, 2026.
 
 ## Who controls the Senate? {#forecast data-kicker="The forecast"}
 
@@ -136,8 +141,7 @@ def headline(version_type, version):
 show(by_version(headline))
 ```
 
-<!-- Writer: Sean (see the writing plan) -->
-[Text: the main finding in a few sentences.]{.to-write}
+Simulated votes were created with four models: `{python} model_list`. They were all given equal weight and a multilevel logistic regression was run on the outputs to get an average impact for each of the persona features: age group, gender, race, education, party ID and state. Those impact values were then used to simulate the votes for Senator in each of the 35 states using the voting population from the 2024 CES ([Schaffner et al. 2025](https://doi.org/10.7910/DVN/X11EP6)). We then ran 10,000 simulations of the election using a normal distribution of a state-wide error of `{python} pct(combined['state_error_sd'], 1)` (a polling error of `{python} pct(combined['polling_state_error_sd'])` combined with the model's own uncertainty of `{python} pct(combined['model_standard_error'], 1)`) and a nation-wide error of `{python} pct(combined['national_error_sd'])`. The results of our simulations and silicon samples give the Democrats a `{python} pct(combined['dem_control'])` chance of taking control of the Senate.
 
 ### How many seats
 

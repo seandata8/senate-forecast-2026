@@ -67,6 +67,9 @@ h3 { font-size: 1.55rem; margin-top: 2rem; color: $navy; }
 .headline .label { font-size: 0.92rem; color: $ink; margin-top: 0.3rem; }
 @media (max-width: 640px) { .headline { grid-template-columns: 1fr; } }
 
+// Room between a chart or table and the text after it.
+.cell + p { margin-top: 1.5rem; }
+
 // Split bars (like a stacked bar chart, in HTML), with rounded ends.
 .bar-label { display: flex; justify-content: space-between; font-size: 0.88rem; margin: 0.7rem 0 0.2rem; }
 .bar-label span:last-child { color: $muted; }
