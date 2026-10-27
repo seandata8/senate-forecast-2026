@@ -19,7 +19,7 @@ The forecast website will be deployed with GitHub Pages and frozen at the end of
 | `1976-2024-president.csv` | MIT Election Data and Science Lab, [doi:10.7910/DVN/42MVDX](https://doi.org/10.7910/DVN/42MVDX), version 10.1 | Yes |
 | `votehub_senate_polls.json` | VoteHub Polls API, [votehub.com/polls/api](https://votehub.com/polls/api/), CC BY 4.0; downloaded by `scripts/10-download_polls.py`, which replaces it with the latest polls on each run | Yes |
 | `polymarket_senate_prices.json` | Polymarket, [polymarket.com](https://polymarket.com), the "Senate Election Winner" market of each race and the "Which party will win the Senate in 2026?" market, with their daily prices (Gamma and CLOB APIs); downloaded by `scripts/11-download_polymarket.py`, which replaces it with the latest prices on each run | Yes |
-| `silver_bulletin_senate_control.csv` | Silver Bulletin, [2026 Midterm Election Forecast](https://www.natesilver.net/p/nate-silver-2026-midterm-election-polls-model), the chance of Democratic control of the Senate (subscription required), typed in by hand with the day it was read | Yes |
+| `silver_bulletin_senate_control.csv` | Silver Bulletin, [2026 Senate Forecast](https://www.natesilver.net/p/nate-silver-2026-midterm-election-senate-model), the chance of Democratic control of the Senate (subscription required), typed in by hand with the day it was read | Yes |
 
 **The CES files.** Both are over GitHub's 100 MB file limit, so they are gitignored and not in the repo. To get them, run the download script above. To download them by hand instead, open the DOI link, download the CSV file named in the table (on Dataverse, choose "Original File Format" if offered), and save it in `data/01-raw_data/` under that name.
 
