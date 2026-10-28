@@ -64,9 +64,9 @@ One row per LLM answer. responses_sean and responses_furkan are each person's fu
 | `output_tokens` | Int64 | no | ≥ 0 | Tokens the model returned, as reported by OpenRouter. |
 | `cost` | Float64 | no | ≥ 0 | Dollar cost of the call, as reported by OpenRouter. |
 
-## `frame`
+## `frame`, `frame_2022`
 
-Number of voters in each state and demographic cell, for post-stratification. Made by #8 from 2024 CES validated voters (the same survey as the personas): each cell's share of its state's voters, times the state's 2024 vote total.
+Number of voters in each state and demographic cell, for post-stratification. Made by #8 from 2024 CES validated voters (the same survey as the personas): each cell's share of its state's voters, times the state's 2024 vote total. frame_2022 is the same from the 2022 CES validated voters (the last midterm), with ages in 2022, for the comparison in turnout_comparison.
 
 | Column | Type | Missing | Allowed values | Description |
 |---|---|---|---|---|
@@ -78,9 +78,9 @@ Number of voters in each state and demographic cell, for post-stratification. Ma
 | `party_group` | String | no | Democrat, Independent or other, Republican | CES `pid7` collapsed to 3 groups with `PARTY_GROUP_OF` in schemas.py: strong, not very strong and leaning partisans count with their party; independents and not sure are "Independent or other". In #8 the `party_id` in personas is collapsed the same way. |
 | `count` | Int64 | no | ≥ 0 | Number of voters in the cell: the cell's share of its state's validated 2024 CES voters (weighted with `vvweight`), times the state's 2024 total votes for President (MIT Election Lab). Zero if the cell has none. |
 
-## `forecast`
+## `forecast`, `forecast_2022`
 
-One row per simulated election, state and candidate. Made by #8 with the Monte Carlo in senate_simulation.py.
+One row per simulated election, state and candidate. Made by #8 with the Monte Carlo in senate_simulation.py. forecast_2022 is the same forecast post-stratified with frame_2022 (the 2022 midterm's voters) instead.
 
 | Column | Type | Missing | Allowed values | Description |
 |---|---|---|---|---|
@@ -105,6 +105,19 @@ The forecast made from part of the answers: each approach's run alone, and each 
 | `winner` | Boolean | no | any | True for the candidate with the highest share. |
 | `version_type` | String | no | approach, model | Whether the version is one approach's run or one model's answers. |
 | `version` | String | no | any | The approach (as in responses' `approach`) or the model (its OpenRouter identifier, as in responses' `model`). |
+
+## `forecast_errors`
+
+One row per forecast version: the size of the errors in its simulated elections (senate_simulation.py). Made by #8 with forecast and forecast_versions.
+
+| Column | Type | Missing | Allowed values | Description |
+|---|---|---|---|---|
+| `version_type` | String | no | all, approach, model | Which answers the forecast is made from: "all" (both runs together, the forecast), "approach" (one approach's run) or "model" (one model's answers). |
+| `version` | String | no | any | "all", the approach (as in responses' `approach`) or the model (its OpenRouter identifier). |
+| `model_standard_error` | Float64 | no | ≥ 0 | The model's own uncertainty: the standard deviation of the leading candidate's share across 1,000 draws of the MRP model's coefficients, in the typical (median) state. |
+| `polling_state_error_sd` | Float64 | no | ≥ 0 | The polling-sized part of the state error (STATE_ERROR_SD in senate_simulation.py). |
+| `state_error_sd` | Float64 | no | ≥ 0 | Standard deviation of each state's own error in the simulation: the polling-sized part and the model's uncertainty combined, the square root of the sum of their squares. |
+| `national_error_sd` | Float64 | no | ≥ 0 | Standard deviation of the national error, shared by every state in a simulated election (NATIONAL_ERROR_SD in senate_simulation.py). |
 
 ## `past_results`
 
@@ -235,6 +248,10 @@ One row per forecast version: the chance of Democratic control and the Democrati
 | `seats` | Float64 | no | ≥ 0, ≤ 100 | Democratic-caucus seats: the most common number in the simulated elections (the lower one if two tie). |
 | `seats_lower` | Float64 | no | ≥ 0, ≤ 100 | Lower end of the 95% interval of the seats (2.5% of simulations have fewer). |
 | `seats_upper` | Float64 | no | ≥ 0, ≤ 100 | Upper end of the 95% interval of the seats (2.5% of simulations have more). |
+| `model_standard_error` | Float64 | no | ≥ 0 | As in forecast_errors: the model's own uncertainty. |
+| `polling_state_error_sd` | Float64 | no | ≥ 0 | As in forecast_errors: the polling-sized part of the state error. |
+| `state_error_sd` | Float64 | no | ≥ 0 | As in forecast_errors: each state's own error, both parts combined. |
+| `national_error_sd` | Float64 | no | ≥ 0 | As in forecast_errors: the national error. |
 
 ## `control_comparison`
 
@@ -245,6 +262,18 @@ One row per other forecast: its chance of Democratic control, next to ours on th
 | `source` | String | no | polls, polymarket, silver_bulletin | "polls": our seat simulation (as in the forecast) run on the polling averages instead of the models' answers, with each race's poll average on the last poll day (every weighting rule on, undecided left out) and, for races without polls, the 2024 presidential result in the state (Democrat and Republican only); "polymarket": the latest price in polymarket_control; "silver_bulletin": the latest number typed in from the Silver Bulletin forecast (data/01-raw_data/silver_bulletin_senate_control.csv). |
 | `dem_control` | Float64 | no | ≥ 0, ≤ 1 | Chance the Democratic caucus controls the Senate (51 or more seats). |
 | `date` | Date | no | any | The day of the number: the last poll day, the day of the price, or the day the Silver Bulletin number was read. |
+
+## `turnout_comparison`
+
+One row per frame: the combined forecast's chance of Democratic control and seats with the 2024 voters (the forecast) and with the 2022 midterm's voters (forecast_2022), to see how much the forecast depends on whose turnout it uses. Made by #12 into data/03-summary_data/.
+
+| Column | Type | Missing | Allowed values | Description |
+|---|---|---|---|---|
+| `turnout` | Int64 | no | 2022, 2024 | The election whose validated voters make the frame: 2024 (frame, the forecast) or 2022 (frame_2022). |
+| `dem_control` | Float64 | no | ≥ 0, ≤ 1 | As in forecast_control. |
+| `seats` | Float64 | no | ≥ 0, ≤ 100 | As in forecast_control. |
+| `seats_lower` | Float64 | no | ≥ 0, ≤ 100 | As in forecast_control. |
+| `seats_upper` | Float64 | no | ≥ 0, ≤ 100 | As in forecast_control. |
 
 ## `forecast_seats`
 
@@ -333,6 +362,32 @@ One row per approach and model (and "all models"): what each approach's latest f
 | `personas` | Int64 | no | ≥ 1 | Number of personas asked. |
 | `total_cost` | Float64 | no | ≥ 0 | Total cost in US dollars, as OpenRouter charged it. |
 | `cost_per_persona` | Float64 | no | ≥ 0 | Total cost divided by the number of personas. |
+
+## `price_check`
+
+One row per answer: the price check of the most expensive models on OpenRouter, each asked one Senate question (the trial's first persona, Sean's settings) a few times. Made by scripts/06-price_check.py, for the website's costs section; not part of the forecast.
+
+| Column | Type | Missing | Allowed values | Description |
+|---|---|---|---|---|
+| `model` | String | no | any | OpenRouter model id. |
+| `draw` | Int64 | no | ≥ 0 | Which repeat of the same question, from 0 up. |
+| `answer` | String | yes | any | The model's answer, one of the question's options; missing if it gave no usable answer. |
+| `input_tokens` | Int64 | no | ≥ 0 | Prompt tokens, as OpenRouter counted them. |
+| `output_tokens` | Int64 | no | ≥ 0 | Output tokens, as OpenRouter counted them, including any hidden reasoning (which GPT-5.5 Pro does before answering). |
+| `cost` | Float64 | no | ≥ 0 | Cost of the call in US dollars, as OpenRouter charged it. |
+
+## `price_estimates`
+
+One row per model: what one full run (every persona, every question, Sean's draws) would cost, for the price check's models (from price_check) and for Sean's models (their actual cost, from costs). Made by #12 into data/03-summary_data/.
+
+| Column | Type | Missing | Allowed values | Description |
+|---|---|---|---|---|
+| `model` | String | no | any | OpenRouter model id. |
+| `source` | String | no | price check, our run | "price check": the average cost per call in price_check times the calls of a full run; "our run": the actual cost in costs. |
+| `calls` | Int64 | no | ≥ 1 | Calls the cost per call is averaged over: the price check's answers, or the full run's. |
+| `cost_per_call` | Float64 | no | ≥ 0 | Average cost of one call in US dollars. |
+| `full_run_calls` | Int64 | no | ≥ 1 | Calls one model makes in a full run of Sean's approach. |
+| `full_run_cost` | Float64 | no | ≥ 0 | Cost of one model's full run in US dollars: cost_per_call times full_run_calls (for our run, the actual cost). |
 
 ## `past_comparison`
 

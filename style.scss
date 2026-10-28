@@ -67,6 +67,9 @@ h3 { font-size: 1.55rem; margin-top: 2rem; color: $navy; }
 .headline .label { font-size: 0.92rem; color: $ink; margin-top: 0.3rem; }
 @media (max-width: 640px) { .headline { grid-template-columns: 1fr; } }
 
+// Room between a chart or table and the text after it.
+.cell + p { margin-top: 1.5rem; }
+
 // Split bars (like a stacked bar chart, in HTML), with rounded ends.
 .bar-label { display: flex; justify-content: space-between; font-size: 0.88rem; margin: 0.7rem 0 0.2rem; }
 .bar-label span:last-child { color: $muted; }
@@ -127,6 +130,8 @@ details.folded summary { cursor: pointer; color: $sea; font-weight: 500; }
 
 // Text we still have to write: quiet, so the page reads without it.
 .to-write { color: #9aa7b6; font-style: italic; font-size: 0.9rem; }
+// A question for the other writer, to answer and delete before the freeze.
+.to-check { color: $rep; font-weight: 600; font-size: 0.9rem; }
 
 // The footer: navy like the masthead, with the same wave along its top, upside down, so the page ends as it starts.
 .nav-footer { position: relative; background: $navy; color: #c9d6e6; border-top: none; font-size: 0.85rem; }

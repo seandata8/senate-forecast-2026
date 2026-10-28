@@ -192,7 +192,8 @@ class ModelChecks(pa.DataFrameModel):
 class Frame(pa.DataFrameModel):
     """Number of voters in each state and demographic cell, for post-stratification. Made by #8 from 2024 CES
     validated voters (the same survey as the personas): each cell's share of its state's voters, times the state's
-    2024 vote total."""
+    2024 vote total. frame_2022 is the same from the 2022 CES validated voters (the last midterm), with ages in
+    2022, for the comparison in turnout_comparison."""
 
     state: str = pa.Field(isin=STATES, description=CES_STATE)
     age_group: str = pa.Field(isin=AGE_GROUPS, description=AGE_GROUP)
@@ -216,7 +217,8 @@ class Frame(pa.DataFrameModel):
 
 
 class Forecast(pa.DataFrameModel):
-    """One row per simulated election, state and candidate. Made by #8 with the Monte Carlo in senate_simulation.py."""
+    """One row per simulated election, state and candidate. Made by #8 with the Monte Carlo in senate_simulation.py.
+    forecast_2022 is the same forecast post-stratified with frame_2022 (the 2022 midterm's voters) instead."""
 
     sim_id: int = pa.Field(ge=0, description="Simulated election number, from 0 up.")
     state: str = pa.Field(isin=STATES, description=STATE)
@@ -469,6 +471,35 @@ class ForecastControl(pa.DataFrameModel):
                                   "simulations have fewer).")
     seats_upper: float = pa.Field(ge=0, le=100, description="Upper end of the 95% interval of the seats (2.5% of "
                                   "simulations have more).")
+    model_standard_error: float = pa.Field(ge=0, description="As in forecast_errors: the model's own uncertainty.")
+    polling_state_error_sd: float = pa.Field(ge=0, description="As in forecast_errors: the polling-sized part of the "
+                                             "state error.")
+    state_error_sd: float = pa.Field(ge=0, description="As in forecast_errors: each state's own error, both parts "
+                                     "combined.")
+    national_error_sd: float = pa.Field(ge=0, description="As in forecast_errors: the national error.")
+
+    class Config:
+        strict = True
+
+
+class ForecastErrors(pa.DataFrameModel):
+    """One row per forecast version: the size of the errors in its simulated elections (senate_simulation.py). Made
+    by #8 with forecast and forecast_versions."""
+
+    version_type: str = pa.Field(isin=["all", "approach", "model"], description=VERSION_TYPE)
+    version: str = pa.Field(description=VERSION)
+    model_standard_error: float = pa.Field(
+        ge=0, description="The model's own uncertainty: the standard deviation of the leading candidate's share across "
+        "1,000 draws of the MRP model's coefficients, in the typical (median) state.",
+    )
+    polling_state_error_sd: float = pa.Field(ge=0, description="The polling-sized part of the state error "
+                                             "(STATE_ERROR_SD in senate_simulation.py).")
+    state_error_sd: float = pa.Field(
+        ge=0, description="Standard deviation of each state's own error in the simulation: the polling-sized part and "
+        "the model's uncertainty combined, the square root of the sum of their squares.",
+    )
+    national_error_sd: float = pa.Field(ge=0, description="Standard deviation of the national error, shared by every "
+                                        "state in a simulated election (NATIONAL_ERROR_SD in senate_simulation.py).")
 
     class Config:
         strict = True
@@ -698,6 +729,59 @@ class CheckAnswers(pa.DataFrameModel):
         strict = True
 
 
+class TurnoutComparison(pa.DataFrameModel):
+    """One row per frame: the combined forecast's chance of Democratic control and seats with the 2024 voters (the
+    forecast) and with the 2022 midterm's voters (forecast_2022), to see how much the forecast depends on whose
+    turnout it uses. Made by #12 into data/03-summary_data/."""
+
+    turnout: int = pa.Field(isin=[2022, 2024], description="The election whose validated voters make the frame: 2024 "
+                            "(frame, the forecast) or 2022 (frame_2022).")
+    dem_control: float = pa.Field(ge=0, le=1, description="As in forecast_control.")
+    seats: float = pa.Field(ge=0, le=100, description="As in forecast_control.")
+    seats_lower: float = pa.Field(ge=0, le=100, description="As in forecast_control.")
+    seats_upper: float = pa.Field(ge=0, le=100, description="As in forecast_control.")
+
+    class Config:
+        strict = True
+
+
+class PriceCheck(pa.DataFrameModel):
+    """One row per answer: the price check of the most expensive models on OpenRouter, each asked one Senate question
+    (the trial's first persona, Sean's settings) a few times. Made by scripts/06-price_check.py, for the website's
+    costs section; not part of the forecast."""
+
+    model: str = pa.Field(description="OpenRouter model id.")
+    draw: int = pa.Field(ge=0, description="Which repeat of the same question, from 0 up.")
+    answer: str = pa.Field(nullable=True, description="The model's answer, one of the question's options; missing "
+                           "if it gave no usable answer.")
+    input_tokens: int = pa.Field(ge=0, description="Prompt tokens, as OpenRouter counted them.")
+    output_tokens: int = pa.Field(ge=0, description="Output tokens, as OpenRouter counted them, including any hidden "
+                                  "reasoning (which GPT-5.5 Pro does before answering).")
+    cost: float = pa.Field(ge=0, description="Cost of the call in US dollars, as OpenRouter charged it.")
+
+    class Config:
+        strict = True
+
+
+class PriceEstimates(pa.DataFrameModel):
+    """One row per model: what one full run (every persona, every question, Sean's draws) would cost, for the price
+    check's models (from price_check) and for Sean's models (their actual cost, from costs). Made by #12 into
+    data/03-summary_data/."""
+
+    model: str = pa.Field(description="OpenRouter model id.")
+    source: str = pa.Field(isin=["price check", "our run"], description='"price check": the average cost per call '
+                           'in price_check times the calls of a full run; "our run": the actual cost in costs.')
+    calls: int = pa.Field(ge=1, description="Calls the cost per call is averaged over: the price check's answers, "
+                          "or the full run's.")
+    cost_per_call: float = pa.Field(ge=0, description="Average cost of one call in US dollars.")
+    full_run_calls: int = pa.Field(ge=1, description="Calls one model makes in a full run of Sean's approach.")
+    full_run_cost: float = pa.Field(ge=0, description="Cost of one model's full run in US dollars: cost_per_call "
+                                    "times full_run_calls (for our run, the actual cost).")
+
+    class Config:
+        strict = True
+
+
 FILE_SCHEMAS = {
     "personas": Personas,
     "candidates": Candidates,
@@ -705,8 +789,11 @@ FILE_SCHEMAS = {
     "responses_furkan": Responses,
     "responses": Responses,
     "frame": Frame,
+    "frame_2022": Frame,
     "forecast": Forecast,
+    "forecast_2022": Forecast,
     "forecast_versions": ForecastVersions,
+    "forecast_errors": ForecastErrors,
     "past_results": PastResults,
     "polls": Polls,
     "polymarket": Polymarket,
@@ -718,12 +805,15 @@ FILE_SCHEMAS = {
     "run_costs": RunCosts,
     "forecast_control": ForecastControl,
     "control_comparison": ControlComparison,
+    "turnout_comparison": TurnoutComparison,
     "forecast_seats": ForecastSeats,
     "forecast_races": ForecastRaces,
     "model_answers": ModelAnswers,
     "crosstabs": Crosstabs,
     "persona_composition": PersonaComposition,
     "costs": Costs,
+    "price_check": PriceCheck,
+    "price_estimates": PriceEstimates,
     "past_comparison": PastComparison,
     "model_checks_sean": ModelChecks,
     "model_checks_furkan": ModelChecks,

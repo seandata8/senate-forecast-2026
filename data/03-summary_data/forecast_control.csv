@@ -1,8 +1,8 @@
-version_type,version,dem_control,seats,seats_lower,seats_upper
-all,all,0.4151,49.0,43.0,57.0
-approach,furkan,0.3736,49.0,43.0,56.0
-approach,sean,0.5234,51.0,44.0,58.0
-model,anthropic/claude-haiku-5.5,0.4255,49.0,42.0,58.0
-model,cohere/command-a-plus,0.6469,52.0,45.0,59.0
-model,moonshotai/kimi-k3,0.5015,50.0,43.0,58.0
-model,typesafe/jev-1.14,0.2587,48.0,42.0,55.0
+version_type,version,dem_control,seats,seats_lower,seats_upper,model_standard_error,polling_state_error_sd,state_error_sd,national_error_sd
+all,all,0.4151,49.0,43.0,57.0,0.0204,0.04,0.044902,0.03
+approach,furkan,0.3736,49.0,43.0,56.0,0.028756,0.04,0.049264,0.03
+approach,sean,0.5234,51.0,44.0,58.0,0.027153,0.04,0.048345,0.03
+model,anthropic/claude-haiku-5.5,0.4255,49.0,42.0,58.0,0.033651,0.04,0.052272,0.03
+model,cohere/command-a-plus,0.6469,52.0,45.0,59.0,0.039674,0.04,0.056338,0.03
+model,moonshotai/kimi-k3,0.5015,50.0,43.0,58.0,0.037043,0.04,0.054518,0.03
+model,typesafe/jev-1.14,0.2587,48.0,42.0,55.0,0.04248,0.04,0.058348,0.03
