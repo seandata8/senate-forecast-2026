@@ -728,7 +728,7 @@ show(table(
 ```
 
 <!-- Writer: Sean (see the writing plan) -->
-The costs for the four models ranged from $0.41 for Claude Haiku 5.5 to $11.39 for Kimi K3, each of which simulated responses for 1,050 personas, and the whole forecast cost $15.79. Since the models can be run in parallel, the total time is limited by the slowest time of 5 hours (Cohere, Command A+ 🍁). [Furkan: please check how long Jev and Kimi K3 took. If either took longer than 5 hours, change the time and the model in the sentence before.]{.to-check} A recent estimate to poll a real voter for a US election is about $50 online to $100 by phone [@gainey2024], which would be $52,500 to $105,000 to poll 1,050 people. Polling would cost about 3,300 to 6,600 times as much as our forecast. However, this may be a case of "you get what you pay for."
+The costs for the four models ranged from $0.41 for Claude Haiku 5.5 to $11.39 for Kimi K3, each of which simulated responses for 1,050 personas, and the whole forecast cost $15.79. Since the models can be run in parallel, the total time is limited by the slowest time of 5 hours (Cohere, Command A+ 🍁). [Furkan: please check how long Jev and Kimi K3 took. If either took longer than 5 hours, change the time and the model in the sentence before.]{.to-check} A recent estimate to poll a real voter for a US election is about $50 online to $100 by phone [@gainey2024], which would be $52,500 to $105,000 to poll 1,050 people. Polling would cost about 3,300 to 6,600 times as much as our forecast. However, this may be a case of "you get what you pay for": the election on November 3 will show whether silicon sampling can predict elections accurately for a fraction of the cost of polling.
 
 ## Methods {#methods data-kicker="Methods"}
 
