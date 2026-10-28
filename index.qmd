@@ -182,13 +182,6 @@ Shown above are the results of 10,000 simulations of the election based on our s
 
 ### Compared with other forecasts
 
-::: {.how-to-read}
-Each dot is a forecast's chance that the Democrats control the Senate. The grey dots are each of our four models
-alone; the combined forecast counts them equally. The polls' chance is our own seat simulation run on the poll
-averages instead of the models' answers; the 9 races without polls use the 2024 presidential result. Polymarket is the price of its Senate-control market; the Silver Bulletin number is typed in from its
-forecast page (subscription required).
-:::
-
 ```{python}
 #| label: control-comparison
 def day(date):
@@ -234,11 +227,16 @@ def comparison_chart():
             + figure_html(figure, 320))
 
 
+# Numbers quoted in the text below: the other forecasts, and our models' lowest and highest chance.
+other_forecasts = dict(comparison.select("source", "dem_control").rows())
+models_by_chance = control.filter(pl.col("version_type") == "model").sort("dem_control")
+lowest_model, highest_model = models_by_chance.row(0, named=True), models_by_chance.row(-1, named=True)
+
 show(comparison_chart())
 ```
 
 <!-- Writer: Sean (see the writing plan) -->
-Because silicon sampling is a recent technique, we compare it to other methods of predicting elections: polls ([VoteHub](https://votehub.com/polls/)), betting markets ([Polymarket](https://polymarket.com/event/which-party-will-win-the-senate-in-2026)), and professional forecasters ([Silver Bulletin](https://www.natesilver.net/p/nate-silver-2026-midterm-election-senate-model)). Each of the comparisons are updated daily until November 2nd when the website will be frozen. The predictions from the individual LLM models are also shown and display a wide range of probabilities.
+Because silicon sampling is a recent technique, we compare it to other methods of predicting elections: polls (averages of the [VoteHub](https://votehub.com/polls/) polls, run through our simulation, with the 2024 presidential result for the 9 races without polls), betting markets ([Polymarket](https://polymarket.com/event/which-party-will-win-the-senate-in-2026)), and professional forecasters ([Silver Bulletin](https://www.natesilver.net/p/nate-silver-2026-midterm-election-senate-model), subscription required). The comparisons are updated daily until November 2, when the website will be frozen. Our forecast gives the Democrats a `{python} pct(combined['dem_control'])` chance of taking control of the Senate, which is lower than the polls at `{python} pct(other_forecasts['polls'])`, Polymarket at `{python} pct(other_forecasts['polymarket'])` and Silver Bulletin at `{python} pct(other_forecasts['silver_bulletin'])`. One reason they might differ is that the LLMs only know the persona, the candidates and what they learned in their training, and not the latest news and campaigns that the polls, the betting markets and the forecasters can follow. The predictions from each of our four models are also shown, and they range from `{python} pct(lowest_model['dem_control'])` (`{python} short_version('model', lowest_model['version'])`) to `{python} pct(highest_model['dem_control'])` (`{python} short_version('model', highest_model['version'])`).
 
 ## Race by race: our forecast, the polls and Polymarket {#races data-kicker="The races"}
 
