@@ -6,15 +6,16 @@
 #          and each approach and model alone): chance of control, seats, each candidate's vote share and chance of
 #          winning next to the polls and Polymarket; the chance of control from the polls, Polymarket and the Silver
 #          Bulletin, next to ours; the forecast with the 2022 midterm's turnout; what the models answered; the personas; the run costs; past results next to the
-#          forecast; the instructor's checks on the models.
+#          forecast; the instructor's checks on the models; the price check of the most expensive models.
 # Author: Furkan Danisman
-# Date: 24 October 2026; forecast, answers, personas and costs 25 October 2026; 2022 turnout 28 October 2026
+# Date: 24 October 2026; forecast, answers, personas and costs 25 October 2026; 2022 turnout and price check 28 October 2026
 # Pre-requisites: polls from scripts/10-clean_polls.py; polymarket and polymarket_control from
 #                 scripts/11-clean_polymarket.py; data/01-raw_data/silver_bulletin_senate_control.csv (typed in);
 #                 forecast, forecast_versions and forecast_errors from scripts/08-forecast.py (without them, the
 #                 forecast part is skipped); forecast_2022 from scripts/08-forecast.py --turnout 2022 (without
 #                 it, the turnout comparison is skipped); personas, candidates and responses; model_checks_<approach> from
-#                 scripts/06-check_models.py
+#                 scripts/06-check_models.py; price_check from scripts/06-price_check.py (without it, the price
+#                 estimates are skipped)
 # Run: uv run scripts/12-summarize_results.py (or PyCharm's run button)
 
 import sys
@@ -64,6 +65,7 @@ from senate_forecast_2026.schemas import (
     PollTable,
     PolymarketLatest,
     PolymarketPrices,
+    PriceEstimates,
     TurnoutComparison,
 )
 from senate_forecast_2026.senate_simulation import simulate_races
@@ -336,6 +338,28 @@ costs = (
     .sort("approach", "model")
 )
 save_data(costs, Costs, SUMMARY_DATA, "costs")
+
+# What one full run of Sean's approach would cost with the most expensive models (price_check's average cost per
+# call, times the calls of a full run), next to what Sean's two models actually cost.
+if (ANALYSIS_DATA / "price_check.parquet").exists():
+    our_run = costs.filter((pl.col("approach") == "sean") & (pl.col("model") != "all models"))
+    full_run_calls = our_run["calls"].max()
+    price_estimates = pl.concat([
+        pl.read_parquet(ANALYSIS_DATA / "price_check.parquet").group_by("model").agg(
+            source=pl.lit("price check"), calls=pl.len().cast(pl.Int64), cost_per_call=pl.col("cost").mean(),
+        ),
+        our_run.select("model", source=pl.lit("our run"), calls=pl.col("calls"),
+                       cost_per_call=pl.col("total_cost") / pl.col("calls")),
+    ]).with_columns(full_run_calls=pl.lit(full_run_calls, dtype=pl.Int64)).with_columns(
+        full_run_cost=pl.when(pl.col("source") == "our run")
+        .then(pl.col("cost_per_call") * pl.col("calls"))
+        .otherwise(pl.col("cost_per_call") * pl.col("full_run_calls")),
+    ).sort("full_run_cost", descending=True)
+    print("One full run's cost, by model:")
+    print(price_estimates)
+    save_data(price_estimates, PriceEstimates, SUMMARY_DATA, "price_estimates")
+else:
+    print("No price_check (run scripts/06-price_check.py): the price estimates are skipped.")
 
 
 #### Past results ####

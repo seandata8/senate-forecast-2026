@@ -363,6 +363,32 @@ One row per approach and model (and "all models"): what each approach's latest f
 | `total_cost` | Float64 | no | ≥ 0 | Total cost in US dollars, as OpenRouter charged it. |
 | `cost_per_persona` | Float64 | no | ≥ 0 | Total cost divided by the number of personas. |
 
+## `price_check`
+
+One row per answer: the price check of the most expensive models on OpenRouter, each asked one Senate question (the trial's first persona, Sean's settings) a few times. Made by scripts/06-price_check.py, for the website's costs section; not part of the forecast.
+
+| Column | Type | Missing | Allowed values | Description |
+|---|---|---|---|---|
+| `model` | String | no | any | OpenRouter model id. |
+| `draw` | Int64 | no | ≥ 0 | Which repeat of the same question, from 0 up. |
+| `answer` | String | yes | any | The model's answer, one of the question's options; missing if it gave no usable answer. |
+| `input_tokens` | Int64 | no | ≥ 0 | Prompt tokens, as OpenRouter counted them. |
+| `output_tokens` | Int64 | no | ≥ 0 | Output tokens, as OpenRouter counted them, including any hidden reasoning (which GPT-5.5 Pro does before answering). |
+| `cost` | Float64 | no | ≥ 0 | Cost of the call in US dollars, as OpenRouter charged it. |
+
+## `price_estimates`
+
+One row per model: what one full run (every persona, every question, Sean's draws) would cost, for the price check's models (from price_check) and for Sean's models (their actual cost, from costs). Made by #12 into data/03-summary_data/.
+
+| Column | Type | Missing | Allowed values | Description |
+|---|---|---|---|---|
+| `model` | String | no | any | OpenRouter model id. |
+| `source` | String | no | price check, our run | "price check": the average cost per call in price_check times the calls of a full run; "our run": the actual cost in costs. |
+| `calls` | Int64 | no | ≥ 1 | Calls the cost per call is averaged over: the price check's answers, or the full run's. |
+| `cost_per_call` | Float64 | no | ≥ 0 | Average cost of one call in US dollars. |
+| `full_run_calls` | Int64 | no | ≥ 1 | Calls one model makes in a full run of Sean's approach. |
+| `full_run_cost` | Float64 | no | ≥ 0 | Cost of one model's full run in US dollars: cost_per_call times full_run_calls (for our run, the actual cost). |
+
 ## `past_comparison`
 
 One row per race and election (and, for our 2026 estimate, per version): the Republican share in past elections next to our estimate. Made by #12 into data/03-summary_data/ from past_results and forecast_races.

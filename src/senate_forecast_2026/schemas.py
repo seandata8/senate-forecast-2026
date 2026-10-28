@@ -745,6 +745,43 @@ class TurnoutComparison(pa.DataFrameModel):
         strict = True
 
 
+class PriceCheck(pa.DataFrameModel):
+    """One row per answer: the price check of the most expensive models on OpenRouter, each asked one Senate question
+    (the trial's first persona, Sean's settings) a few times. Made by scripts/06-price_check.py, for the website's
+    costs section; not part of the forecast."""
+
+    model: str = pa.Field(description="OpenRouter model id.")
+    draw: int = pa.Field(ge=0, description="Which repeat of the same question, from 0 up.")
+    answer: str = pa.Field(nullable=True, description="The model's answer, one of the question's options; missing "
+                           "if it gave no usable answer.")
+    input_tokens: int = pa.Field(ge=0, description="Prompt tokens, as OpenRouter counted them.")
+    output_tokens: int = pa.Field(ge=0, description="Output tokens, as OpenRouter counted them, including any hidden "
+                                  "reasoning (which GPT-5.5 Pro does before answering).")
+    cost: float = pa.Field(ge=0, description="Cost of the call in US dollars, as OpenRouter charged it.")
+
+    class Config:
+        strict = True
+
+
+class PriceEstimates(pa.DataFrameModel):
+    """One row per model: what one full run (every persona, every question, Sean's draws) would cost, for the price
+    check's models (from price_check) and for Sean's models (their actual cost, from costs). Made by #12 into
+    data/03-summary_data/."""
+
+    model: str = pa.Field(description="OpenRouter model id.")
+    source: str = pa.Field(isin=["price check", "our run"], description='"price check": the average cost per call '
+                           'in price_check times the calls of a full run; "our run": the actual cost in costs.')
+    calls: int = pa.Field(ge=1, description="Calls the cost per call is averaged over: the price check's answers, "
+                          "or the full run's.")
+    cost_per_call: float = pa.Field(ge=0, description="Average cost of one call in US dollars.")
+    full_run_calls: int = pa.Field(ge=1, description="Calls one model makes in a full run of Sean's approach.")
+    full_run_cost: float = pa.Field(ge=0, description="Cost of one model's full run in US dollars: cost_per_call "
+                                    "times full_run_calls (for our run, the actual cost).")
+
+    class Config:
+        strict = True
+
+
 FILE_SCHEMAS = {
     "personas": Personas,
     "candidates": Candidates,
@@ -775,6 +812,8 @@ FILE_SCHEMAS = {
     "crosstabs": Crosstabs,
     "persona_composition": PersonaComposition,
     "costs": Costs,
+    "price_check": PriceCheck,
+    "price_estimates": PriceEstimates,
     "past_comparison": PastComparison,
     "model_checks_sean": ModelChecks,
     "model_checks_furkan": ModelChecks,

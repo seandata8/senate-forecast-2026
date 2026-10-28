@@ -1,0 +1,5 @@
+model,source,calls,cost_per_call,full_run_calls,full_run_cost
+openai/gpt-5.5-pro,price check,3,0.47895,6390,3060.4905
+anthropic/claude-fable-5.1,price check,3,0.00656,6390,41.9184
+cohere/command-a-plus,our run,6390,0.0005503265727699531,6390,3.5165868000000002
+anthropic/claude-haiku-5.5,our run,6390,0.00006372992175273866,6390,0.4072342
