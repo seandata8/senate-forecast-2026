@@ -32,6 +32,8 @@ turnout_control = dict(read("turnout_comparison").select("turnout", "dem_control
 price_estimates = read("price_estimates")
 full_run_cost = dict(price_estimates.select("model", "full_run_cost").rows())
 full_run_calls = price_estimates["full_run_calls"][0]
+# What each model's full run actually cost (the costs table), for the models not in price_estimates.
+run_cost = dict(read("costs").filter(pl.col("model") != "all models").select("model", "total_cost").rows())
 seats = read("forecast_seats")
 races = read("forecast_races")
 models = read("models")
@@ -766,15 +768,15 @@ The big advantage of silicon sampling is that it is much cheaper than polling. O
 ### Limitations
 
 <!-- Writer: Sean (see the writing plan) -->
-The choices we made while building our method mean some things were left out or limited, and these could be added or enhanced in future methods to check their impact. These limitations are the lack of current news, our choice of low- and mid-priced models, and our decision to try only two wordings of the prompt, and only one in the full runs.
+The choices we made while building our method mean some things were left out or limited, and these could be added or enhanced in future methods to check their impact. These limitations are the lack of current news, our choice of low- and mid-priced models, and our decision to try only two wordings of the prompt.
 
 The first limitation is that the prompts were not given any information about the current political climate, which might have shifted the responses. However, even by adding recent news and information about the political climate, we would still have to decide which news sources, what types of news to include, and if each persona should get the same news or different news to reflect their political leaning. @murray2026 found that the news given to the model changed the Democratic share by about 10 percentage points, but had little effect when the persona included political identity, as ours do with party ID. All of these could be important factors, and testing all of them would be considerably more expensive in LLM costs.
 
-A second limitation is that we used models that were either cheap or moderate in price. More expensive models may have more accurate results, either because their training data is more recent or because they are better at detecting voting pattern changes from election to election. Our main reason for not choosing the latest models was price. We asked the two most expensive models on OpenRouter the same Senate question three times, and estimated that one full run of our approach (`{python} f"{full_run_calls:,}"` calls) would cost about `{python} f"${full_run_cost['openai/gpt-5.5-pro']:,.0f}"` for GPT-5.5 Pro and `{python} f"${full_run_cost['anthropic/claude-fable-5.1']:,.0f}"` for Claude Fable 5.1, against `{python} f"${full_run_cost['cohere/command-a-plus']:,.2f}"` for Command A+ 🍁. The more expensive answers were not more consistent: GPT-5.5 Pro gave two different answers in its three tries.
+A second limitation is that we used models that were either cheap or moderate in price. More expensive models may have more accurate results, either because their training data is more recent or because they are better at detecting voting pattern changes from election to election. Our main reason for not choosing the latest models was price. We asked the two most expensive models on OpenRouter the same Senate question three times, and estimated that one full run of our approach (`{python} f"{full_run_calls:,}"` calls) would cost about `{python} f"${round(full_run_cost['openai/gpt-5.5-pro'], -3):,.0f}"` for GPT-5.5 Pro and `{python} f"${full_run_cost['anthropic/claude-fable-5.1']:,.0f}"` for Claude Fable 5.1, against `{python} f"${run_cost['moonshotai/kimi-k3']:,.0f}"` for Kimi K3 and `{python} f"${full_run_cost['cohere/command-a-plus']:,.2f}"` for Cohere's Command A+ 🍁.
 
-The final limitation that could be addressed with future work is varying the prompt. @heath2026 found that asking for political opinions in the model's own words, then mapping the text to a numeric scale, gives distributions of answers that more closely fit real respondents' than asking for a number. Different prompts could be tested to get better distributions of votes, which might lead to more accurate predictions. @murray2026 also found that the choice of model, persona detail, news and prompt style together could move the Democratic share anywhere from 0 to 100%.
+The final limitation that could be addressed with future work is varying the prompt. @heath2026 found that asking for political opinions in the model's own words, then mapping the text to a numeric scale, gives distributions of answers that more closely fit real respondents' than asking for a number. Different prompts could be tested to get better distributions of votes, which might lead to more accurate predictions.
 
-We will wait for the results on November 3, 2026 before trying any of these changes, so we can first see how accurate the current method is.
+As @murray2026 found, the choice of model, persona detail, news and prompt style together could move the Democratic share anywhere from 0 to 100%, so any change to the method should be checked against real election results. We will wait for the results on November 3, 2026 before trying any of these changes, so we can first see how accurate the current method is.
 
 ### References
 
