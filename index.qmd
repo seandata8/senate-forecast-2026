@@ -141,14 +141,10 @@ def headline(version_type, version):
 show(by_version(headline))
 ```
 
+<!-- Writer: Sean (see the writing plan) -->
 Simulated votes were created with four models: `{python} model_list`. They were all given equal weight and a multilevel logistic regression was run on the outputs to get an average impact for each of the persona features: age group, gender, race, education, party ID and state. Those impact values were then used to simulate the votes for Senator in each of the 35 states using the voting population from the 2024 CES ([Schaffner et al. 2025](https://doi.org/10.7910/DVN/X11EP6)). We then ran 10,000 simulations of the election using a normal distribution of a state-wide error of `{python} pct(combined['state_error_sd'], 1)` (a polling error of `{python} pct(combined['polling_state_error_sd'])` combined with the model's own uncertainty of `{python} pct(combined['model_standard_error'], 1)`) and a nation-wide error of `{python} pct(combined['national_error_sd'])`. The results of our simulations and silicon samples give the Democrats a `{python} pct(combined['dem_control'])` chance of taking control of the Senate.
 
 ### How many seats
-
-::: {.how-to-read}
-Each bar is the share of the 10,000 simulated elections that ended with that many Democratic-caucus seats. Blue bars
-give the Democrats control.
-:::
 
 ```{python}
 #| label: seat-distribution
@@ -174,7 +170,7 @@ show(by_version(seat_chart))
 ```
 
 <!-- Writer: Sean (see the writing plan) -->
-[Text: how to read the spread of seats.]{.to-write}
+Shown above are the results of 10,000 simulations of the election based on our silicon samples. Each bar shows the share of the simulations that ended with that many seats. Bars in red represent Republicans maintaining control of the Senate, while bars in blue represent Democrats gaining control of the Senate. Along the bottom, each label shows the number of Democratic seats in blue, with the number of Republican seats in red below it. Note that in the case of 50 seats for each, control goes to the Republicans because the Republican Vice President has the deciding vote. The most likely result is `{python} int(combined['seats'])` Democratic seats and `{python} 100 - int(combined['seats'])` Republican seats, and 95% of the simulations had between `{python} int(combined['seats_lower'])` and `{python} int(combined['seats_upper'])` Democratic seats.
 
 ### Compared with other forecasts
 
