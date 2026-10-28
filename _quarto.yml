@@ -25,6 +25,7 @@ format:
       margin-width: 0px
     title-block-style: none
     anchor-sections: false
+    link-external-newwindow: true  # links to other sites open in a new tab, so our page stays open
     # The fonts, loaded here: $web-font-path in style.scss does nothing with Quarto's default theme.
     include-in-header:
       text: |
