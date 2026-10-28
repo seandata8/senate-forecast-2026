@@ -20,9 +20,9 @@ STATE_OF_CES_CODE = {
 SURVEY_YEAR = 2024  # personas are described as they were when surveyed, so age = 2024 - birth year
 
 
-def age_group(birth_year):
-    """The age group (as in AGE_GROUPS in schemas.py) of a polars expression of birth years, in SURVEY_YEAR."""
-    age = SURVEY_YEAR - birth_year.cast(pl.Int64)
+def age_group(birth_year, survey_year=SURVEY_YEAR):
+    """The age group (as in AGE_GROUPS in schemas.py) of a polars expression of birth years, in `survey_year`."""
+    age = survey_year - birth_year.cast(pl.Int64)
     return (
         pl.when(age < 30)
         .then(pl.lit("18-29"))

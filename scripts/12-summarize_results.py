@@ -5,14 +5,15 @@
 #          influence; Polymarket's daily prices and each candidate's latest price; the forecast (both runs together,
 #          and each approach and model alone): chance of control, seats, each candidate's vote share and chance of
 #          winning next to the polls and Polymarket; the chance of control from the polls, Polymarket and the Silver
-#          Bulletin, next to ours; what the models answered; the personas; the run costs; past results next to the
+#          Bulletin, next to ours; the forecast with the 2022 midterm's turnout; what the models answered; the personas; the run costs; past results next to the
 #          forecast; the instructor's checks on the models.
 # Author: Furkan Danisman
-# Date: 24 October 2026; forecast, answers, personas and costs 25 October 2026
+# Date: 24 October 2026; forecast, answers, personas and costs 25 October 2026; 2022 turnout 28 October 2026
 # Pre-requisites: polls from scripts/10-clean_polls.py; polymarket and polymarket_control from
 #                 scripts/11-clean_polymarket.py; data/01-raw_data/silver_bulletin_senate_control.csv (typed in);
 #                 forecast, forecast_versions and forecast_errors from scripts/08-forecast.py (without them, the
-#                 forecast part is skipped); personas, candidates and responses; model_checks_<approach> from
+#                 forecast part is skipped); forecast_2022 from scripts/08-forecast.py --turnout 2022 (without
+#                 it, the turnout comparison is skipped); personas, candidates and responses; model_checks_<approach> from
 #                 scripts/06-check_models.py
 # Run: uv run scripts/12-summarize_results.py (or PyCharm's run button)
 
@@ -63,6 +64,7 @@ from senate_forecast_2026.schemas import (
     PollTable,
     PolymarketLatest,
     PolymarketPrices,
+    TurnoutComparison,
 )
 from senate_forecast_2026.senate_simulation import simulate_races
 
@@ -222,6 +224,22 @@ control_comparison = pl.DataFrame([
 print("Chance of Democratic control, other forecasts:")
 print(control_comparison)
 save_data(control_comparison, ControlComparison, SUMMARY_DATA, "control_comparison")
+
+
+#### With the 2022 midterm's turnout ####
+# The combined forecast with the 2024 voters (the forecast) and with the 2022 midterm's voters, for the website's text.
+if (ANALYSIS_DATA / "forecast_2022.parquet").exists():
+    control_2022, _ = seat_summary(pl.read_parquet(ANALYSIS_DATA / "forecast_2022.parquet"), candidates)
+    control_2024 = forecast_control.filter(pl.col("version_type") == "all").select(control_2022.columns)
+    turnout_comparison = pl.concat([
+        control_2024.with_columns(turnout=pl.lit(2024, dtype=pl.Int64)),
+        control_2022.with_columns(turnout=pl.lit(2022, dtype=pl.Int64)),
+    ]).select("turnout", *control_2022.columns)
+    print("The combined forecast with each election's voters:")
+    print(turnout_comparison)
+    save_data(turnout_comparison, TurnoutComparison, SUMMARY_DATA, "turnout_comparison")
+else:
+    print("No forecast_2022 (run scripts/08-forecast.py --turnout 2022): the turnout comparison is skipped.")
 
 
 #### What the models answered ####

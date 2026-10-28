@@ -64,9 +64,9 @@ One row per LLM answer. responses_sean and responses_furkan are each person's fu
 | `output_tokens` | Int64 | no | ≥ 0 | Tokens the model returned, as reported by OpenRouter. |
 | `cost` | Float64 | no | ≥ 0 | Dollar cost of the call, as reported by OpenRouter. |
 
-## `frame`
+## `frame`, `frame_2022`
 
-Number of voters in each state and demographic cell, for post-stratification. Made by #8 from 2024 CES validated voters (the same survey as the personas): each cell's share of its state's voters, times the state's 2024 vote total.
+Number of voters in each state and demographic cell, for post-stratification. Made by #8 from 2024 CES validated voters (the same survey as the personas): each cell's share of its state's voters, times the state's 2024 vote total. frame_2022 is the same from the 2022 CES validated voters (the last midterm), with ages in 2022, for the comparison in turnout_comparison.
 
 | Column | Type | Missing | Allowed values | Description |
 |---|---|---|---|---|
@@ -78,9 +78,9 @@ Number of voters in each state and demographic cell, for post-stratification. Ma
 | `party_group` | String | no | Democrat, Independent or other, Republican | CES `pid7` collapsed to 3 groups with `PARTY_GROUP_OF` in schemas.py: strong, not very strong and leaning partisans count with their party; independents and not sure are "Independent or other". In #8 the `party_id` in personas is collapsed the same way. |
 | `count` | Int64 | no | ≥ 0 | Number of voters in the cell: the cell's share of its state's validated 2024 CES voters (weighted with `vvweight`), times the state's 2024 total votes for President (MIT Election Lab). Zero if the cell has none. |
 
-## `forecast`
+## `forecast`, `forecast_2022`
 
-One row per simulated election, state and candidate. Made by #8 with the Monte Carlo in senate_simulation.py.
+One row per simulated election, state and candidate. Made by #8 with the Monte Carlo in senate_simulation.py. forecast_2022 is the same forecast post-stratified with frame_2022 (the 2022 midterm's voters) instead.
 
 | Column | Type | Missing | Allowed values | Description |
 |---|---|---|---|---|
@@ -262,6 +262,18 @@ One row per other forecast: its chance of Democratic control, next to ours on th
 | `source` | String | no | polls, polymarket, silver_bulletin | "polls": our seat simulation (as in the forecast) run on the polling averages instead of the models' answers, with each race's poll average on the last poll day (every weighting rule on, undecided left out) and, for races without polls, the 2024 presidential result in the state (Democrat and Republican only); "polymarket": the latest price in polymarket_control; "silver_bulletin": the latest number typed in from the Silver Bulletin forecast (data/01-raw_data/silver_bulletin_senate_control.csv). |
 | `dem_control` | Float64 | no | ≥ 0, ≤ 1 | Chance the Democratic caucus controls the Senate (51 or more seats). |
 | `date` | Date | no | any | The day of the number: the last poll day, the day of the price, or the day the Silver Bulletin number was read. |
+
+## `turnout_comparison`
+
+One row per frame: the combined forecast's chance of Democratic control and seats with the 2024 voters (the forecast) and with the 2022 midterm's voters (forecast_2022), to see how much the forecast depends on whose turnout it uses. Made by #12 into data/03-summary_data/.
+
+| Column | Type | Missing | Allowed values | Description |
+|---|---|---|---|---|
+| `turnout` | Int64 | no | 2022, 2024 | The election whose validated voters make the frame: 2024 (frame, the forecast) or 2022 (frame_2022). |
+| `dem_control` | Float64 | no | ≥ 0, ≤ 1 | As in forecast_control. |
+| `seats` | Float64 | no | ≥ 0, ≤ 100 | As in forecast_control. |
+| `seats_lower` | Float64 | no | ≥ 0, ≤ 100 | As in forecast_control. |
+| `seats_upper` | Float64 | no | ≥ 0, ≤ 100 | As in forecast_control. |
 
 ## `forecast_seats`
 

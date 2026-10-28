@@ -192,7 +192,8 @@ class ModelChecks(pa.DataFrameModel):
 class Frame(pa.DataFrameModel):
     """Number of voters in each state and demographic cell, for post-stratification. Made by #8 from 2024 CES
     validated voters (the same survey as the personas): each cell's share of its state's voters, times the state's
-    2024 vote total."""
+    2024 vote total. frame_2022 is the same from the 2022 CES validated voters (the last midterm), with ages in
+    2022, for the comparison in turnout_comparison."""
 
     state: str = pa.Field(isin=STATES, description=CES_STATE)
     age_group: str = pa.Field(isin=AGE_GROUPS, description=AGE_GROUP)
@@ -216,7 +217,8 @@ class Frame(pa.DataFrameModel):
 
 
 class Forecast(pa.DataFrameModel):
-    """One row per simulated election, state and candidate. Made by #8 with the Monte Carlo in senate_simulation.py."""
+    """One row per simulated election, state and candidate. Made by #8 with the Monte Carlo in senate_simulation.py.
+    forecast_2022 is the same forecast post-stratified with frame_2022 (the 2022 midterm's voters) instead."""
 
     sim_id: int = pa.Field(ge=0, description="Simulated election number, from 0 up.")
     state: str = pa.Field(isin=STATES, description=STATE)
@@ -727,6 +729,22 @@ class CheckAnswers(pa.DataFrameModel):
         strict = True
 
 
+class TurnoutComparison(pa.DataFrameModel):
+    """One row per frame: the combined forecast's chance of Democratic control and seats with the 2024 voters (the
+    forecast) and with the 2022 midterm's voters (forecast_2022), to see how much the forecast depends on whose
+    turnout it uses. Made by #12 into data/03-summary_data/."""
+
+    turnout: int = pa.Field(isin=[2022, 2024], description="The election whose validated voters make the frame: 2024 "
+                            "(frame, the forecast) or 2022 (frame_2022).")
+    dem_control: float = pa.Field(ge=0, le=1, description="As in forecast_control.")
+    seats: float = pa.Field(ge=0, le=100, description="As in forecast_control.")
+    seats_lower: float = pa.Field(ge=0, le=100, description="As in forecast_control.")
+    seats_upper: float = pa.Field(ge=0, le=100, description="As in forecast_control.")
+
+    class Config:
+        strict = True
+
+
 FILE_SCHEMAS = {
     "personas": Personas,
     "candidates": Candidates,
@@ -734,7 +752,9 @@ FILE_SCHEMAS = {
     "responses_furkan": Responses,
     "responses": Responses,
     "frame": Frame,
+    "frame_2022": Frame,
     "forecast": Forecast,
+    "forecast_2022": Forecast,
     "forecast_versions": ForecastVersions,
     "forecast_errors": ForecastErrors,
     "past_results": PastResults,
@@ -748,6 +768,7 @@ FILE_SCHEMAS = {
     "run_costs": RunCosts,
     "forecast_control": ForecastControl,
     "control_comparison": ControlComparison,
+    "turnout_comparison": TurnoutComparison,
     "forecast_seats": ForecastSeats,
     "forecast_races": ForecastRaces,
     "model_answers": ModelAnswers,

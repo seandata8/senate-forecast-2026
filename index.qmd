@@ -1,6 +1,8 @@
 ---
 pagetitle: "Predicting Control of the Senate, 2026"
 jupyter: python3
+bibliography: references.bib
+link-citations: true
 ---
 
 ```{python}
@@ -24,6 +26,8 @@ def read(name):
 
 control = read("forecast_control")
 comparison = read("control_comparison")
+# The combined forecast's chance of Democratic control with the 2024 voters (the forecast) and the 2022 midterm's.
+turnout_control = dict(read("turnout_comparison").select("turnout", "dem_control").rows())
 seats = read("forecast_seats")
 races = read("forecast_races")
 models = read("models")
@@ -125,7 +129,7 @@ show(
 ```
 
 <!-- Writer: Sean (see the writing plan) -->
-This page tests if silicon sampling ([Argyle et al. 2023](https://doi.org/10.1017/pan.2023.2)), predicting votes using large language models (LLMs) and voter demographic information, can accurately predict the outcomes of elections. In this case, we are predicting all 35 Senate races and the chances that the Democrats get control of the US Senate in the election on November 3, 2026.
+This page tests if silicon sampling [@argyle2023], predicting votes using large language models (LLMs) and voter demographic information, can accurately predict the outcomes of elections. In this case, we are predicting all 35 Senate races and the chances that the Democrats get control of the US Senate in the election on November 3, 2026.
 
 ## Who controls the Senate? {#forecast data-kicker="The forecast"}
 
@@ -150,7 +154,7 @@ show(by_version(headline))
 ```
 
 <!-- Writer: Sean (see the writing plan) -->
-Simulated votes were created with four models: `{python} model_list`. They were all given equal weight and a multilevel logistic regression was run on the outputs to get an average impact for each of the persona features: age group, gender, race, education, party ID and state. Those impact values were then used to simulate the votes for Senator in each of the 35 states using the voting population from the 2024 CES ([Schaffner et al. 2025](https://doi.org/10.7910/DVN/X11EP6)). We then ran 10,000 simulations of the election using a normal distribution of a state-wide error of `{python} pct(combined['state_error_sd'], 1)` (a polling error of `{python} pct(combined['polling_state_error_sd'])` combined with the model's own uncertainty of `{python} pct(combined['model_standard_error'], 1)`) and a nation-wide error of `{python} pct(combined['national_error_sd'])`. The results of our simulations and silicon samples give the Democrats a `{python} pct(combined['dem_control'])` chance of taking control of the Senate.
+Simulated votes were created with four models: `{python} model_list`. They were all given equal weight and a multilevel logistic regression was run on the outputs to get an average impact for each of the persona features: age group, gender, race, education, party ID and state. Those impact values were then used to simulate the votes for Senator in each of the 35 states using the voting population from the 2024 CES [@ces2024]. We then ran 10,000 simulations of the election using a normal distribution of a state-wide error of `{python} pct(combined['state_error_sd'], 1)` (a polling error of `{python} pct(combined['polling_state_error_sd'])` combined with the model's own uncertainty of `{python} pct(combined['model_standard_error'], 1)`) and a nation-wide error of `{python} pct(combined['national_error_sd'])`. The results of our simulations and silicon samples give the Democrats a `{python} pct(combined['dem_control'])` chance of taking control of the Senate.
 
 ### How many seats
 
@@ -236,7 +240,7 @@ show(comparison_chart())
 ```
 
 <!-- Writer: Sean (see the writing plan) -->
-Because silicon sampling is a recent technique, we compare it to other methods of predicting elections: polls (averages of the [VoteHub](https://votehub.com/polls/) polls, run through our simulation, with the 2024 presidential result for the 9 races without polls), betting markets ([Polymarket](https://polymarket.com/event/which-party-will-win-the-senate-in-2026)), and professional forecasters ([Silver Bulletin](https://www.natesilver.net/p/nate-silver-2026-midterm-election-senate-model), subscription required). The comparisons are updated daily until November 2, when the website will be frozen. Our forecast gives the Democrats a `{python} pct(combined['dem_control'])` chance of taking control of the Senate, which is lower than the polls at `{python} pct(other_forecasts['polls'])`, Polymarket at `{python} pct(other_forecasts['polymarket'])` and Silver Bulletin at `{python} pct(other_forecasts['silver_bulletin'])`. One reason they might differ is that the LLMs only know the persona, the candidates and what they learned in their training, and not the latest news and campaigns (such as Trump's [historically low approval rating](https://www.natesilver.net/p/trump-approval-ratings-nate-silver-bulletin)) that the polls, the betting markets and the forecasters can follow. The predictions from each of our four models are also shown, and they range from `{python} pct(lowest_model['dem_control'])` (`{python} short_version('model', lowest_model['version'])`) to `{python} pct(highest_model['dem_control'])` (`{python} short_version('model', highest_model['version'])`).
+Because silicon sampling is a recent technique, we compare it to other methods of predicting elections: polls [averages of the polls from @votehub, run through our simulation, with the 2024 presidential result for the 9 races without polls], betting markets [@polymarket], and professional forecasters [@silver_senate, subscription required]. The comparisons are updated daily until November 2, when the website will be frozen. Our forecast gives the Democrats a `{python} pct(combined['dem_control'])` chance of taking control of the Senate, which is lower than the polls at `{python} pct(other_forecasts['polls'])`, Polymarket at `{python} pct(other_forecasts['polymarket'])` and Silver Bulletin at `{python} pct(other_forecasts['silver_bulletin'])`. One reason they might differ is that the LLMs only know the persona, the candidates and what they learned in their training, and not the latest news and campaigns [such as Trump's historically low approval rating, see @silver_approval] that the polls, the betting markets and the forecasters can follow. The predictions from each of our four models are also shown, and they range from `{python} pct(lowest_model['dem_control'])` (`{python} short_version('model', lowest_model['version'])`) to `{python} pct(highest_model['dem_control'])` (`{python} short_version('model', highest_model['version'])`).
 
 ## Race by race: our forecast, the polls and Polymarket {#races data-kicker="The races"}
 
@@ -696,7 +700,9 @@ show(table(
 ```
 
 <!-- Writer: Furkan / Sean (see the writing plan) -->
-[Text: why these models.]{.to-write}
+[Text: why Furkan's models.]{.to-write}
+
+For the choice of the Anthropic and Cohere models, 15 different models from 10 companies (Anthropic, Cohere, OpenAI, Google, Meta, Mistral, Microsoft, NVIDIA, Qwen and Z.ai, all different from Furkan's choices) were tested on 25 personas, in both question wordings and with 3 draws each, for a total cost of $0.49. Two could not be run: one because its only provider trains on the prompts it gets, which our settings block, and one because its provider did not accept the requested answer format. Of the remaining 13, Claude Haiku 5.5 (Anthropic) and Command A+ (Cohere 🍁) were selected because they answered 100% of the time, about 90% of the Democratic and Republican personas chose their own party's candidate, and the 3 draws gave the same answer 86% to 94% of the time. Command A+ was one of the most expensive models tested, at about $4.10 for a full run when most cost under $1. We were willing to pay more for the largest of the three Cohere 🍁 models tested because it is a Canadian model.
 
 ## Costs {#costs data-kicker="Costs"}
 
@@ -715,8 +721,8 @@ show(table(
 ))
 ```
 
-<!-- Writer: Furkan / Sean (see the writing plan) -->
-[Text: what the forecast cost, and how that compares with a real poll.]{.to-write}
+<!-- Writer: Sean (see the writing plan) -->
+The costs for the four models ranged from $0.41 for Claude Haiku 5.5 to $11.39 for Kimi K3, each of which simulated responses for 1,050 personas, and the whole forecast cost $15.79. Since the models can be run in parallel, the total time is limited by the slowest time of 5 hours (Cohere, Command A+ 🍁). [Furkan: please check how long Jev and Kimi K3 took. If either took longer than 5 hours, change the time and the model in the sentence before.]{.to-check} A recent estimate to poll a real voter for a US election is about $50 online to $100 by phone [@gainey2024], which would be $52,500 to $105,000 to poll 1,050 people. Polling would cost about 3,300 to 6,600 times as much as our forecast. However, this may be a case of "you get what you pay for." The results of the election on November 3 will be an important data point on whether our methods and silicon samples can accurately predict elections for a fraction of the cost of polling.
 
 ## Methods {#methods data-kicker="Methods"}
 
@@ -743,7 +749,13 @@ show(table(
 ## Discussion {#discussion data-kicker="Discussion"}
 
 <!-- Writer: Sean (see the writing plan) -->
-[Text: what we learned, and how it fits the literature on silicon samples and election forecasting.]{.to-write}
+Our silicon sampling method gives the Democrats only a `{python} pct(combined['dem_control'])` chance of taking control of the Senate, while all the comparisons (polls, betting markets, professional forecasters) give the Democrats between a `{python} pct(min(other_forecasts.values()))` and `{python} pct(max(other_forecasts.values()))` chance. Is our method picking up something all the others are missing, or is our method just not reliable enough? Our forecast is also uncertain: a `{python} pct(combined['dem_control'])` chance is not far from a coin flip, and 95% of our simulations had between `{python} int(combined['seats_lower'])` and `{python} int(combined['seats_upper'])` Democratic seats. Most of that uncertainty comes from the possible polling error of `{python} pct(combined['polling_state_error_sd'])` in each state, not the models' own uncertainty of `{python} pct(combined['model_standard_error'], 1)`.
+
+One reason to doubt our method is that our four LLMs disagree on the odds, from `{python} pct(lowest_model['dem_control'])` (`{python} short_version('model', lowest_model['version'])`) to `{python} pct(highest_model['dem_control'])` (`{python} short_version('model', highest_model['version'])`). Note that the combined forecast is not simply the average of the four models' predictions; rather, the answers are pooled before the MRP (see the [Methods](#from-answers-to-a-forecast) section).
+
+If the silicon sampling turns out to be inaccurate when compared to the election results, there are three plausible explanations. The first is that we did not include any news or current political climate in our prompts, and the models selected may not have been trained with recent information. In contrast, the other forecasts do take into account Trump's low popularity ratings [@silver_approval] and issues that voters have said are important, like corruption and the price of gas and groceries [@cnbc2026]. A second cause is that we are using turnout from the 2024 presidential election, which had high Republican turnout and was not a midterm election. We also ran the simulation using 2022 turnout [@ces2022], the most recent midterm election, but it did not significantly change the prediction: the Democrats' chance of control went from `{python} pct(turnout_control[2024])` to `{python} pct(turnout_control[2022])`. The last midterm election when a Republican was president was 2018, but we decided this election was too old to use. The third is that LLMs may simply not be good predictors of how people vote. @argyle2023 found that GPT-3 could reproduce how groups of Americans voted, which they called "algorithmic fidelity", and in our trial about 90% of the Democratic and Republican personas chose their own party's candidate. However, more recent work finds that LLMs tend to flatten people into stereotypes and then add some noise to vary the prediction [@bisbee2024; @wang2024], which fits how much our four models disagree.
+
+The big advantage of silicon sampling is that it is much cheaper than polling. On the other hand, betting market prices are free to read, and markets have often predicted elections better than polls [@wolfers2004], so they may turn out to be a better and cheaper alternative to silicon sampling. The election on November 3 will be the first real test.
 
 ### Limitations
 
@@ -753,7 +765,10 @@ show(table(
 ### References
 
 <!-- Writer: Sean (see the writing plan) -->
-[References: Python, the CES, MIT Election Lab, Wikipedia, VoteHub, Polymarket, the papers in the discussion.]{.to-write}
+The analysis was done in Python [@python] with polars [@polars], NumPy [@numpy], SciPy [@scipy], pandera [@pandera], the OpenAI Python library [@openai_python] and pytest [@pytest], and the website was built with Quarto [@quarto] and Plotly [@plotly]. The data come from the CES [@ces2024; @ces2022], the MIT Election Lab [@mit_senate; @mit_president], Wikipedia [@wikipedia_senate], VoteHub [@votehub] and Polymarket [@polymarket].
+
+::: {#refs}
+:::
 
 ```{=html}
 <script>

@@ -5,13 +5,18 @@
 #          runs together, as the plan says) and forecast_versions: the same forecast from each approach's answers
 #          alone and from each model's answers alone, so the website can compare them (#12). Also saves
 #          forecast_errors: the size of each version's errors in the simulation, for the website's text.
+#          With --turnout 2022, post-stratifies with frame_2022 (the 2022 midterm's voters) instead and saves only
+#          the combined forecast, as forecast_2022, to see how much the forecast depends on whose turnout it uses.
 # Author: Furkan Danisman
-# Date: 24 October 2026; versions by approach and model 25 October 2026; errors saved 27 October 2026
-# Pre-requisites: personas, candidates, frame (scripts/08-build_frame.py) and responses
+# Date: 24 October 2026; versions by approach and model 25 October 2026; errors saved 27 October 2026; --turnout 2022 added 28 October 2026
+# Pre-requisites: personas, candidates, frame (scripts/08-build_frame.py; frame_2022 with --turnout 2022) and
+#                 responses
 # Run: uv run scripts/08-forecast.py (or PyCharm's run button)
 #      --responses <file> reads the answers from another file, e.g. one model's answers before the runs are combined
+#      --turnout 2022 makes forecast_2022 from the 2022 frame
 
 import argparse
+import sys
 from pathlib import Path
 
 import numpy as np
@@ -42,13 +47,16 @@ MODEL_DRAW_SEED = 2026
 
 parser = argparse.ArgumentParser(description="Fit the MRP model, post-stratify, and simulate the election.")
 parser.add_argument("--responses", type=Path, default=ANALYSIS_DATA / "responses.parquet", help="the answers to use")
+parser.add_argument("--turnout", type=int, choices=[2022, 2024], default=2024,
+                    help="whose turnout the frame is from: the 2024 voters (the forecast) or the 2022 midterm voters")
 arguments = parser.parse_args()
 
 
 #### Read data ####
 personas = pl.read_parquet(ANALYSIS_DATA / "personas.parquet")
 candidates = pl.read_parquet(ANALYSIS_DATA / "candidates.parquet")
-frame = pl.read_parquet(ANALYSIS_DATA / "frame.parquet").filter(pl.col("count") > 0)  # empty cells add nothing
+frame_name = "frame" if arguments.turnout == 2024 else f"frame_{arguments.turnout}"
+frame = pl.read_parquet(ANALYSIS_DATA / f"{frame_name}.parquet").filter(pl.col("count") > 0)  # empty cells add nothing
 responses = pl.read_parquet(arguments.responses)
 print(f"Read {responses.height:,} answers from {arguments.responses.name}: models {responses['model'].unique().sort().to_list()}")
 
@@ -135,6 +143,14 @@ def make_forecast(responses, label):
     errors = {"model_standard_error": typical_standard_error, "polling_state_error_sd": STATE_ERROR_SD,
               "state_error_sd": state_error_sd, "national_error_sd": NATIONAL_ERROR_SD}
     return forecast, errors
+
+
+#### With the 2022 midterm's turnout ####
+# Only the combined forecast: the website compares its chance of control with the forecast's.
+if arguments.turnout == 2022:
+    forecast_2022, _ = make_forecast(responses, "Both runs together, with the 2022 midterm's turnout")
+    save_data(forecast_2022, Forecast, ANALYSIS_DATA, "forecast_2022", sample_groups=["sim_id"])
+    sys.exit()
 
 
 #### Every version ####

@@ -130,6 +130,8 @@ details.folded summary { cursor: pointer; color: $sea; font-weight: 500; }
 
 // Text we still have to write: quiet, so the page reads without it.
 .to-write { color: #9aa7b6; font-style: italic; font-size: 0.9rem; }
+// A question for the other writer, to answer and delete before the freeze.
+.to-check { color: $rep; font-weight: 600; font-size: 0.9rem; }
 
 // The footer: navy like the masthead, with the same wave along its top, upside down, so the page ends as it starts.
 .nav-footer { position: relative; background: $navy; color: #c9d6e6; border-top: none; font-size: 0.85rem; }
