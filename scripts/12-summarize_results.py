@@ -4,11 +4,13 @@
 #          The polling average of each race, for every on/off combination of the weighting rules, and each poll's
 #          influence; Polymarket's daily prices and each candidate's latest price; the forecast (both runs together,
 #          and each approach and model alone): chance of control, seats, each candidate's vote share and chance of
-#          winning next to the polls and Polymarket; what the models answered; the personas; the run costs; past
-#          results next to the forecast; the instructor's checks on the models.
+#          winning next to the polls and Polymarket; the chance of control from the polls, Polymarket and the Silver
+#          Bulletin, next to ours; what the models answered; the personas; the run costs; past results next to the
+#          forecast; the instructor's checks on the models.
 # Author: Furkan Danisman
 # Date: 24 October 2026; forecast, answers, personas and costs 25 October 2026
-# Pre-requisites: polls from scripts/10-clean_polls.py; polymarket from scripts/11-clean_polymarket.py;
+# Pre-requisites: polls from scripts/10-clean_polls.py; polymarket and polymarket_control from
+#                 scripts/11-clean_polymarket.py; data/01-raw_data/silver_bulletin_senate_control.csv (typed in);
 #                 forecast and forecast_versions from scripts/08-forecast.py (without them, the forecast part is
 #                 skipped); personas, candidates and responses; model_checks_<approach> from
 #                 scripts/06-check_models.py
@@ -25,11 +27,12 @@ from senate_forecast_2026.forecast_summary import (
     weighted_shares,
     with_versions,
 )
-from senate_forecast_2026.paths import ANALYSIS_DATA, DATA, SUMMARY_DATA
+from senate_forecast_2026.paths import ANALYSIS_DATA, DATA, RAW_SILVER_BULLETIN, SUMMARY_DATA
 from senate_forecast_2026.poll_average import (
     RULE_COMBINATIONS,
     poll_influence,
     poll_interval,
+    poll_state_shares,
     race_averages,
     without_undecided,
 )
@@ -45,6 +48,7 @@ from senate_forecast_2026.save import save_data
 from senate_forecast_2026.schemas import (
     CheckAnswers,
     CheckResults,
+    ControlComparison,
     Costs,
     Crosstabs,
     ForecastControl,
@@ -60,6 +64,7 @@ from senate_forecast_2026.schemas import (
     PolymarketLatest,
     PolymarketPrices,
 )
+from senate_forecast_2026.senate_simulation import simulate_races
 
 #### Read data ####
 # Each poll's shares are scaled to add up to 100% among its candidates: the undecided are left out, as in our
@@ -185,6 +190,31 @@ print(forecast_control)
 save_data(forecast_control, ForecastControl, SUMMARY_DATA, "forecast_control")
 save_data(forecast_seats, ForecastSeats, SUMMARY_DATA, "forecast_seats")
 save_data(forecast_races, ForecastRaces, SUMMARY_DATA, "forecast_races")
+
+
+#### Other forecasts of control ####
+# Next to our chance of Democratic control on the website:
+# - the polls: the same seat simulation as our forecast (10,000 elections, the same national error and polling-sized
+#   state error; ours also adds the models' own uncertainty), run on today's poll averages instead of the models'
+#   answers; races without polls use the 2024 presidential result;
+# - Polymarket: the latest price of its "Which party will win the Senate in 2026?" market for the Democrats;
+# - the Silver Bulletin: the latest number in the file we type in by hand from its forecast page.
+poll_shares = poll_state_shares(poll_now.rename({"poll_average": "average"}),
+                                race_candidates.join(candidates.select("state", "candidate", "party"),
+                                                     on=["state", "candidate"]),
+                                pl.read_parquet(ANALYSIS_DATA / "past_results.parquet"))
+poll_control, _ = seat_summary(simulate_races(poll_shares), candidates)
+polymarket_control = pl.read_parquet(ANALYSIS_DATA / "polymarket_control.parquet").sort("date")
+silver_bulletin = pl.read_csv(RAW_SILVER_BULLETIN, try_parse_dates=True).sort("date")
+control_comparison = pl.DataFrame([
+    {"source": "polls", "dem_control": poll_control["dem_control"][0], "date": last_day},
+    {"source": "polymarket", "dem_control": polymarket_control["price"][-1], "date": polymarket_control["date"][-1]},
+    {"source": "silver_bulletin", "dem_control": silver_bulletin["dem_control"][-1],
+     "date": silver_bulletin["date"][-1]},
+])
+print("Chance of Democratic control, other forecasts:")
+print(control_comparison)
+save_data(control_comparison, ControlComparison, SUMMARY_DATA, "control_comparison")
 
 
 #### What the models answered ####

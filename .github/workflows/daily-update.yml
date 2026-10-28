@@ -1,7 +1,8 @@
 #### Preamble ####
 # Purpose: Every night until the website freezes (end of 2 November 2026), download the latest polls and Polymarket
-#          prices, clean them, rerun the summary script and rebuild the website (task #14). The forecast itself does
-#          not change: no models are asked, so no API key is needed.
+#          prices, clean them, take the latest Silver Bulletin number from the silver-bulletin branch, rerun the
+#          summary script and rebuild the website (task #14). The forecast itself does not change: no models are
+#          asked, so no API key is needed.
 # Author: Sean Murphy
 # Date: 26 October 2026
 # Pre-requisites: the forecast and its summaries on main (#7, #8, #12)
@@ -11,10 +12,11 @@ name: Daily update of polls and Polymarket
 
 on:
   schedule:
-    # Midnight UTC is 8 pm in Toronto until 31 October (7 pm on 1 and 2 November, after the clocks go back), so each
-    # evening's run catches that day's polls, and the last run is on the evening of 2 November. GitHub often starts
-    # scheduled runs a little late.
-    - cron: "0 0 * * *"
+    # 23:37 UTC is 7:37 pm in Toronto until 31 October (6:37 pm on 1 and 2 November, after the clocks go back), so each
+    # evening's run catches that day's polls, and the last run is on the evening of 2 November. GitHub starts scheduled
+    # runs late, or skips them, when it is busy, and it is busiest on the hour (our first try, midnight UTC, had not
+    # started 90 minutes later), so this is at an odd minute; if a run is skipped, use "Run workflow".
+    - cron: "37 23 * * *"
   workflow_dispatch:  # the "Run workflow" button, to run it by hand
 
 # What the workflow may do: read the repo, and publish to GitHub Pages. It cannot change the repo: the website is
@@ -74,6 +76,19 @@ jobs:
         run: |
           uv run scripts/11-download_polymarket.py
           uv run scripts/11-clean_polymarket.py
+
+      # The Silver Bulletin number is typed in by hand. main is protected, so it is kept up to date on its own
+      # branch, silver-bulletin, where it can be edited on GitHub and committed without a PR; its CSV replaces
+      # main's here. If the branch is missing, main's CSV is used, with a warning.
+      - name: Get the latest Silver Bulletin number
+        run: |
+          csv=data/01-raw_data/silver_bulletin_senate_control.csv
+          if git fetch --depth=1 origin silver-bulletin; then
+            git show FETCH_HEAD:"$csv" > "$csv"
+            tail -n 1 "$csv"
+          else
+            echo "::warning::No silver-bulletin branch, so main's Silver Bulletin number is used."
+          fi
 
       - name: Rerun the summaries
         run: uv run scripts/12-summarize_results.py

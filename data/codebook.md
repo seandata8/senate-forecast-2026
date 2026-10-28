@@ -144,6 +144,15 @@ One row per candidate per day: the Polymarket price of a share that pays $1 if t
 | `candidate` | String | no | any | Candidate's name, as in candidates (Polymarket's market title without its party letter, corrected where it differs). |
 | `price` | Float64 | no | ≥ 0, ≤ 1 | Price in dollars of a share that pays $1 if the candidate wins: roughly the market's chance that they win. A race's prices sum to about 1. |
 
+## `polymarket_control`
+
+One row per day: the Polymarket price of a share that pays $1 if the Democrats control the Senate after the 2026 election. Made by #11 from Polymarket's "Which party will win the Senate in 2026?" market. A comparison on the website, not a forecast input.
+
+| Column | Type | Missing | Allowed values | Description |
+|---|---|---|---|---|
+| `date` | Date | no | any | The day (UTC) of the price. The last price of each day is kept. |
+| `price` | Float64 | no | ≥ 0, ≤ 1 | Price in dollars of a share that pays $1 if the Democrats control the Senate: roughly the market's chance of Democratic control. |
+
 ## `poll_averages`
 
 One row per race, on/off combination of the weighting rules, day and candidate: the polling average. Made by #12 into data/03-summary_data/ for the website's polls chart. Days run from the race's first poll to the latest poll in any race.
@@ -226,6 +235,16 @@ One row per forecast version: the chance of Democratic control and the Democrati
 | `seats` | Float64 | no | ≥ 0, ≤ 100 | Democratic-caucus seats: the most common number in the simulated elections (the lower one if two tie). |
 | `seats_lower` | Float64 | no | ≥ 0, ≤ 100 | Lower end of the 95% interval of the seats (2.5% of simulations have fewer). |
 | `seats_upper` | Float64 | no | ≥ 0, ≤ 100 | Upper end of the 95% interval of the seats (2.5% of simulations have more). |
+
+## `control_comparison`
+
+One row per other forecast: its chance of Democratic control, next to ours on the website. Made by #12 into data/03-summary_data/. Comparisons, not forecast inputs.
+
+| Column | Type | Missing | Allowed values | Description |
+|---|---|---|---|---|
+| `source` | String | no | polls, polymarket, silver_bulletin | "polls": our seat simulation (as in the forecast) run on the polling averages instead of the models' answers, with each race's poll average on the last poll day (every weighting rule on, undecided left out) and, for races without polls, the 2024 presidential result in the state (Democrat and Republican only); "polymarket": the latest price in polymarket_control; "silver_bulletin": the latest number typed in from the Silver Bulletin forecast (data/01-raw_data/silver_bulletin_senate_control.csv). |
+| `dem_control` | Float64 | no | ≥ 0, ≤ 1 | Chance the Democratic caucus controls the Senate (51 or more seats). |
+| `date` | Date | no | any | The day of the number: the last poll day, the day of the price, or the day the Silver Bulletin number was read. |
 
 ## `forecast_seats`
 

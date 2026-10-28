@@ -316,6 +316,22 @@ class Polymarket(pa.DataFrameModel):
         strict = True
 
 
+class PolymarketControl(pa.DataFrameModel):
+    """One row per day: the Polymarket price of a share that pays $1 if the Democrats control the Senate after the
+    2026 election. Made by #11 from Polymarket's "Which party will win the Senate in 2026?" market. A comparison on
+    the website, not a forecast input."""
+
+    date: datetime.date = pa.Field(description="The day (UTC) of the price. The last price of each day is kept.")
+    price: float = pa.Field(
+        ge=0, le=1,
+        description="Price in dollars of a share that pays $1 if the Democrats control the Senate: roughly the "
+        "market's chance of Democratic control.",
+    )
+
+    class Config:
+        strict = True
+
+
 # Whether each poll-weighting rule was used (see poll_average.py), for the summary files below.
 RULE_DESCRIPTIONS = {
     "by_recency": "Whether newer polls count more (weight halves every 14 days).",
@@ -453,6 +469,27 @@ class ForecastControl(pa.DataFrameModel):
                                   "simulations have fewer).")
     seats_upper: float = pa.Field(ge=0, le=100, description="Upper end of the 95% interval of the seats (2.5% of "
                                   "simulations have more).")
+
+    class Config:
+        strict = True
+
+
+class ControlComparison(pa.DataFrameModel):
+    """One row per other forecast: its chance of Democratic control, next to ours on the website. Made by #12 into
+    data/03-summary_data/. Comparisons, not forecast inputs."""
+
+    source: str = pa.Field(
+        isin=["polls", "polymarket", "silver_bulletin"],
+        description='"polls": our seat simulation (as in the forecast) run on the polling averages instead of the '
+        "models' answers, with each race's poll average on the last poll day (every weighting rule on, undecided left "
+        "out) and, for races without polls, the 2024 presidential result in the state (Democrat and Republican only); "
+        '"polymarket": the latest price in polymarket_control; "silver_bulletin": the latest number typed in from '
+        "the Silver Bulletin forecast (data/01-raw_data/silver_bulletin_senate_control.csv).",
+    )
+    dem_control: float = pa.Field(ge=0, le=1, description="Chance the Democratic caucus controls the Senate (51 or "
+                                  "more seats).")
+    date: datetime.date = pa.Field(description="The day of the number: the last poll day, the day of the price, or "
+                                   "the day the Silver Bulletin number was read.")
 
     class Config:
         strict = True
@@ -673,12 +710,14 @@ FILE_SCHEMAS = {
     "past_results": PastResults,
     "polls": Polls,
     "polymarket": Polymarket,
+    "polymarket_control": PolymarketControl,
     "poll_averages": PollAverages,
     "poll_influence": PollInfluence,
     "polymarket_prices": PolymarketPrices,
     "polymarket_latest": PolymarketLatest,
     "run_costs": RunCosts,
     "forecast_control": ForecastControl,
+    "control_comparison": ControlComparison,
     "forecast_seats": ForecastSeats,
     "forecast_races": ForecastRaces,
     "model_answers": ModelAnswers,

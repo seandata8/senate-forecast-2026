@@ -3,9 +3,11 @@
 #          average on a day is the weighted mean of their share in the polls finished by then. Shares are first
 #          scaled to leave out the undecided (without_undecided), so the average compares with our forecast. Each rule can be
 #          turned on or off, so the website can show how much each one moves the average.
-#          Used by #12 scripts/12-summarize_results.py, which saves the average for every on/off combination.
+#          Used by #12 scripts/12-summarize_results.py, which saves the average for every on/off combination,
+#          and runs our seat simulation on the averages (poll_state_shares) for the polls' chance of control.
 # Author: Furkan Danisman
-# Date: 24 October 2026; undecided left out 25 October 2026; 95% interval 26 October 2026
+# Date: 24 October 2026; undecided left out 25 October 2026; 95% interval 26 October 2026; shares for the
+#       simulation 27 October 2026
 # Pre-requisites: polls from scripts/10-clean_polls.py
 
 import itertools
@@ -124,3 +126,28 @@ def poll_influence(race_polls, day, rules):
     weights = poll_weights(end_days, polls["sample_size"].to_list(), polls["pollster"].to_numpy(),
                            polls["population"].to_list(), 0, rules)
     return [{"poll_id": p, "influence": w} for p, w in zip(polls["poll_id"], weights, strict=True)]
+
+
+def poll_state_shares(poll_now, race_candidates, past_results):
+    """Each race's vote shares from the polls, for simulate_races(): the polls' own version of our forecast.
+
+    `poll_now` has each candidate's poll average (state, candidate, average); `race_candidates` the candidates who can
+    win each race (state, candidate, party; Alaska's final round only); `past_results` as in past_results. A race
+    with polls uses its candidates' averages, scaled to add up to 1. A race without polls uses the 2024 presidential
+    result in the state, the Democrat's and Republican's shares scaled to add up to 1, for its Democrat and
+    Republican. Returns state, candidate, party, share."""
+    polled = race_candidates.join(poll_now.select("state", "candidate", share="average"), on=["state", "candidate"])
+    president = past_results.filter(pl.col("election") == "president_2024").select(
+        "state", Democrat=pl.col("dem_share") / (pl.col("dem_share") + pl.col("rep_share")),
+        Republican=pl.col("rep_share") / (pl.col("dem_share") + pl.col("rep_share")),
+    ).unpivot(index="state", variable_name="party", value_name="share")
+    unpolled_races = race_candidates.join(polled, on="state", how="anti")
+    unpolled = unpolled_races.join(president, on=["state", "party"])
+    if unpolled.height != 2 * unpolled["state"].n_unique() or unpolled.height != unpolled_races.height:
+        raise ValueError("A race without polls needs exactly one Democrat and one Republican.")
+    return (
+        pl.concat([polled, unpolled])
+        .with_columns(share=pl.col("share") / pl.col("share").sum().over("state"))
+        .select("state", "candidate", "party", "share")
+        .sort("state", "candidate")
+    )

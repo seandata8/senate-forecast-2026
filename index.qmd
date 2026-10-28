@@ -23,6 +23,7 @@ def read(name):
 
 
 control = read("forecast_control")
+comparison = read("control_comparison")
 seats = read("forecast_seats")
 races = read("forecast_races")
 models = read("models")
@@ -37,8 +38,14 @@ def version_label(version_type, version):
     return {"all": "All models combined", "approach": f"{version.title()}'s approach"}.get(version_type, version)
 
 
+# Models better known by their maker's name than their own ("Command" alone means little).
+SHORT_MODEL_NAMES = {"cohere/command-a-plus": "Cohere"}
+
+
 def short_version(version_type, version):
     """A short name for chart labels: "All", the approach, or the model's name without provider or version."""
+    if version in SHORT_MODEL_NAMES:
+        return SHORT_MODEL_NAMES[version]
     return {"all": "All", "approach": version.title()}.get(version_type, version.split("/")[-1].split("-")[0].title())
 
 
@@ -104,6 +111,7 @@ show(
 )
 ```
 
+<!-- Writer: Sean (see the writing plan) -->
 [Text: two or three sentences on what this page is.]{.to-write}
 
 ## Who controls the Senate? {#forecast data-kicker="The forecast"}
@@ -128,6 +136,7 @@ def headline(version_type, version):
 show(by_version(headline))
 ```
 
+<!-- Writer: Sean (see the writing plan) -->
 [Text: the main finding in a few sentences.]{.to-write}
 
 ### How many seats
@@ -160,7 +169,68 @@ def seat_chart(version_type, version):
 show(by_version(seat_chart))
 ```
 
+<!-- Writer: Sean (see the writing plan) -->
 [Text: how to read the spread of seats.]{.to-write}
+
+### Compared with other forecasts
+
+::: {.how-to-read}
+Each dot is a forecast's chance that the Democrats control the Senate. The grey dots are each of our four models
+alone; the combined forecast counts them equally. The polls' chance is our own seat simulation run on the poll
+averages instead of the models' answers; the 9 races without polls use the 2024 presidential result. Polymarket is the price of its Senate-control market; the Silver Bulletin number is typed in from its
+forecast page (subscription required).
+:::
+
+```{python}
+#| label: control-comparison
+def day(date):
+    return f"{date.day} {date:%B}"
+
+
+OTHER_FORECASTS = {
+    "polls": lambda date: f"The polls<br><span style='font-size:11px'>averages to {day(date)}</span>",
+    "polymarket": lambda date: f"Polymarket<br><span style='font-size:11px'>{day(date)}</span>",
+    "silver_bulletin": lambda date: f"Silver Bulletin<br><span style='font-size:11px'>{day(date)}</span>",
+}
+
+
+def comparison_chart():
+    """Our combined forecast, each of our models alone (grey), and the other forecasts. The same for every version
+    in the menu, so the models' spread is always shown."""
+    ours = control.filter(pl.col("version_type") == "all")["dem_control"][0]
+    by_model = control.filter(pl.col("version_type") == "model").sort("dem_control")
+    labels = [f"<b style='color:{INK}'>Our forecast</b><br><span style='font-size:11px'>all models combined</span>",
+              "Our models<br><span style='font-size:11px'>one at a time</span>"]
+    labels += [OTHER_FORECASTS[row["source"]](row["date"]) for row in comparison.iter_rows(named=True)]
+    others = comparison["dem_control"].to_list()
+    figure = go.Figure([
+        go.Scatter(x=[ours, *others], y=[labels[0], *labels[2:]], mode="markers+text",
+                   text=[pct(c) for c in [ours, *others]], textposition="middle right",
+                   textfont=dict(size=14, color=DEM), cliponaxis=False, hoverinfo="skip",
+                   marker=dict(size=[18, 13, 13, 13], color=[DEM, "white", "white", "white"],
+                               line=dict(color=DEM, width=2.5))),
+        go.Scatter(x=by_model["dem_control"], y=[labels[1]] * by_model.height, mode="markers+text",
+                   text=[f"{short_version('model', m)} {pct(c)}" for m, c in by_model.select("version", "dem_control").rows()],
+                   textposition="top center", textfont=dict(size=11, color=MUTED), cliponaxis=False,
+                   customdata=by_model["version"], hovertemplate="<b>%{customdata}</b><br>%{x:.0%}<extra></extra>",
+                   marker=dict(size=10, color=MUTED)),
+    ])
+    figure.update_xaxes(range=[0, 1], tickvals=[0, 0.25, 0.5, 0.75, 1], tickformat=".0%")
+    figure.update_yaxes(categoryorder="array", categoryarray=labels, autorange="reversed", showgrid=True,
+                        ticklabelstandoff=10)
+    figure.add_vline(x=0.5, line_dash="dot", line_color=INK, line_width=1)
+    figure.add_annotation(x=0.5, y=1, yref="paper", yanchor="bottom", text="50%", showarrow=False,
+                          font=dict(size=12, color=MUTED))
+    figure.update_layout(margin=dict(t=24, r=40))
+    return ('<p class="bar-label"><span></span><span>Chance the Democrats control the Senate</span></p>'
+            + figure_html(figure, 320))
+
+
+show(comparison_chart())
+```
+
+<!-- Writer: not yet assigned (see the writing plan) -->
+[Text: how our forecast compares with the others, and why they might differ.]{.to-write}
 
 ## Race by race: our forecast, the polls and Polymarket {#races data-kicker="The races"}
 
@@ -239,6 +309,7 @@ def race_table(version_type, version):
 show(by_version(race_table))
 ```
 
+<!-- Writer: Furkan (see the writing plan) -->
 [Text: where we agree and disagree with the polls and Polymarket, and why.]{.to-write}
 
 ## The polls and Polymarket, race by race {#polls data-kicker="Polls & markets"}
@@ -412,6 +483,7 @@ for state in sorted(STATE_NAMES, key=STATE_NAMES.get):
 show(choices("state", views))
 ```
 
+<!-- Writer: Furkan (see the writing plan) -->
 [Text: what the poll average and its 95% interval are, what influence means, and what a Polymarket price means.]{.to-write}
 
 ## Compared with past elections {#past data-kicker="Past elections"}
@@ -446,6 +518,7 @@ def past_table(version_type, version):
 show(by_version(past_table))
 ```
 
+<!-- Writer: Furkan (see the writing plan) -->
 [Text: how our forecast compares with each state's recent results.]{.to-write}
 
 ## What the models answered {#answers data-kicker="Model answers"}
@@ -483,6 +556,7 @@ def answer_bars(version_type, version):
 show(by_version(answer_bars))
 ```
 
+<!-- Writer: Furkan (see the writing plan) -->
 [Text: what the answers show, and how the models differ.]{.to-write}
 
 ### Checks
@@ -517,6 +591,7 @@ def check_tables(version_type, version):
 show(by_version(check_tables))
 ```
 
+<!-- Writer: Furkan (see the writing plan) -->
 [Text: what the checks show.]{.to-write}
 
 ## Cross-tabs {#crosstabs data-kicker="Cross-tabs"}
@@ -593,6 +668,7 @@ for variable, (name, order_of_groups) in VARIABLES.items():
 show('<div class="composition-grid">', *grid, "</div>")
 ```
 
+<!-- Writer: Furkan (see the writing plan) -->
 [Text: who the personas are, and how they were picked from the CES.]{.to-write}
 
 ## Models {#models data-kicker="Models"}
@@ -613,6 +689,7 @@ show(table(
 ))
 ```
 
+<!-- Writer: Furkan / Sean (see the writing plan) -->
 [Text: why these models.]{.to-write}
 
 ## Costs {#costs data-kicker="Costs"}
@@ -632,36 +709,44 @@ show(table(
 ))
 ```
 
+<!-- Writer: Furkan / Sean (see the writing plan) -->
 [Text: what the forecast cost, and how that compares with a real poll.]{.to-write}
 
 ## Methods {#methods data-kicker="Methods"}
 
 ### Data
 
+<!-- Writer: Furkan (see the writing plan) -->
 [Text: the CES, the candidates, past results, polls and Polymarket, and how each was cleaned.]{.to-write}
 
 ### The silicon sample
 
+<!-- Writer: Furkan (see the writing plan) -->
 [Text: the prompts, the questions, the two approaches, the models, draws and temperatures.]{.to-write}
 
 ### From answers to a forecast
 
+<!-- Writer: Furkan (see the writing plan) -->
 [Text: the MRP model, the weighting frame, and the simulation of 10,000 elections.]{.to-write}
 
 ### Uncertainty
 
+<!-- Writer: Furkan (see the writing plan) -->
 [Text: where the 95% intervals come from.]{.to-write}
 
 ## Discussion {#discussion data-kicker="Discussion"}
 
+<!-- Writer: Sean (see the writing plan) -->
 [Text: what we learned, and how it fits the literature on silicon samples and election forecasting.]{.to-write}
 
 ### Limitations
 
+<!-- Writer: Sean (see the writing plan) -->
 [Text: what this forecast cannot do.]{.to-write}
 
 ### References
 
+<!-- Writer: Sean (see the writing plan) -->
 [References: Python, the CES, MIT Election Lab, Wikipedia, VoteHub, Polymarket, the papers in the discussion.]{.to-write}
 
 ```{=html}
