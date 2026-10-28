@@ -28,10 +28,17 @@ seats = read("forecast_seats")
 races = read("forecast_races")
 models = read("models")
 
+def model_name(model, name=None):
+    """How a model is named on the page: its ID (or a given short name), with a maple leaf for Cohere, which is
+    Canadian."""
+    name = name or model
+    return f"{name} 🍁" if model.startswith("cohere/") else name
+
+
 # Numbers quoted in the text: the combined forecast (every model), and the models behind it.
 combined = control.filter(pl.col("version_type") == "all").row(0, named=True)
 model_ids = models["model"].unique().sort().to_list()
-model_list = ", ".join(model_ids[:-1]) + " and " + model_ids[-1]
+model_list = ", ".join(model_name(m) for m in model_ids[:-1]) + " and " + model_name(model_ids[-1])
 
 # The versions of the results, as the forecast has them: every model together ("all"), each approach, each model.
 VERSION_ORDER = {"all": 0, "approach": 1, "model": 2}
@@ -40,7 +47,8 @@ VERSIONS = control.sort(pl.col("version_type").replace_strict(VERSION_ORDER), "v
 
 
 def version_label(version_type, version):
-    return {"all": "All models combined", "approach": f"{version.title()}'s approach"}.get(version_type, version)
+    return {"all": "All models combined", "approach": f"{version.title()}'s approach"}.get(version_type,
+                                                                                            model_name(version))
 
 
 # Models better known by their maker's name than their own ("Command" alone means little).
@@ -49,9 +57,9 @@ SHORT_MODEL_NAMES = {"cohere/command-a-plus": "Cohere"}
 
 def short_version(version_type, version):
     """A short name for chart labels: "All", the approach, or the model's name without provider or version."""
-    if version in SHORT_MODEL_NAMES:
-        return SHORT_MODEL_NAMES[version]
-    return {"all": "All", "approach": version.title()}.get(version_type, version.split("/")[-1].split("-")[0].title())
+    if version_type != "model":
+        return {"all": "All", "approach": version.title()}[version_type]
+    return model_name(version, SHORT_MODEL_NAMES.get(version, version.split("/")[-1].split("-")[0].title()))
 
 
 def models_of(version_type, version):
@@ -212,7 +220,7 @@ def comparison_chart():
         go.Scatter(x=by_model["dem_control"], y=[labels[1]] * by_model.height, mode="markers+text",
                    text=[f"{short_version('model', m)} {pct(c)}" for m, c in by_model.select("version", "dem_control").rows()],
                    textposition="top center", textfont=dict(size=11, color=MUTED), cliponaxis=False,
-                   customdata=by_model["version"], hovertemplate="<b>%{customdata}</b><br>%{x:.0%}<extra></extra>",
+                   customdata=[model_name(m) for m in by_model["version"]], hovertemplate="<b>%{customdata}</b><br>%{x:.0%}<extra></extra>",
                    marker=dict(size=10, color=MUTED)),
     ])
     figure.update_xaxes(range=[0, 1], tickvals=[0, 0.25, 0.5, 0.75, 1], tickformat=".0%")
@@ -229,8 +237,8 @@ def comparison_chart():
 show(comparison_chart())
 ```
 
-<!-- Writer: not yet assigned (see the writing plan) -->
-[Text: how our forecast compares with the others, and why they might differ.]{.to-write}
+<!-- Writer: Sean (see the writing plan) -->
+Because silicon sampling is a recent technique, we compare it to other methods of predicting elections: polls ([VoteHub](https://votehub.com/polls/)), betting markets ([Polymarket](https://polymarket.com/event/which-party-will-win-the-senate-in-2026)), and professional forecasters ([Silver Bulletin](https://www.natesilver.net/p/nate-silver-2026-midterm-election-senate-model)). Each of the comparisons are updated daily until November 2nd when the website will be frozen. The predictions from the individual LLM models are also shown and display a wide range of probabilities.
 
 ## Race by race: our forecast, the polls and Polymarket {#races data-kicker="The races"}
 
@@ -546,7 +554,7 @@ def answer_bars(version_type, version):
         pieces.append(f"<h3>{title}</h3>")
         for (model,), rows in shown.filter(pl.col("question") == question).group_by("model", maintain_order=True):
             shares = dict(zip(rows["answer"], rows["share"], strict=True))
-            pieces.append(f'<div class="bar-label"><span>{"Average of the models" if model == "average" else model}'
+            pieces.append(f'<div class="bar-label"><span>{"Average of the models" if model == "average" else model_name(model)}'
                           f'</span><span>{pct(shares.get("Democrat", 0))} D / {pct(shares.get("Republican", 0))} R'
                           "</span></div>")
             pieces.append(split_bar([(pct(shares[a]), shares[a], colour_of(a)) for a in ANSWER_ORDER if a in shares]))
@@ -579,11 +587,11 @@ def check_tables(version_type, version):
     details = check_answers.filter(pl.col("model").is_in(chosen))
     return (
         table(["Check", "Model", "Personas", "Cost"],
-              [[CHECKS[r["check"]], r["model"], f'{r["count"]} of {r["personas"]}', f'${r["cost"]:.4f}']
+              [[CHECKS[r["check"]], model_name(r["model"]), f'{r["count"]} of {r["personas"]}', f'${r["cost"]:.4f}']
                for r in results.iter_rows(named=True)], numeric_from=2)
         + folded("Every answer in the checks", table(
             ["Check", "Model", "Persona", "State", "Party ID", "Question", "Prompt", "Answer", "Draws"],
-            [[CHECKS[r["check"]], r["model"], r["persona_id"], r["state"], r["party_id"], r["question"], r["prompt"],
+            [[CHECKS[r["check"]], model_name(r["model"]), r["persona_id"], r["state"], r["party_id"], r["question"], r["prompt"],
               r["answer"], r["draws"]] for r in details.iter_rows(named=True)], numeric_from=8))
     )
 
@@ -682,7 +690,7 @@ probability for each option and each draw is a random pick from them, so it has 
 #| label: models
 show(table(
     ["Approach", "Model", "Kind", "Draws", "Temperature", "Wording", "Personas", "Answers", "Missing"],
-    [[r["approach"].title(), r["model"], r["kind"], r["draws"],
+    [[r["approach"].title(), model_name(r["model"]), r["kind"], r["draws"],
       "none" if r["temperature"] is None else f'{r["temperature"]:g}', r["wording"], f'{r["personas"]:,}',
       f'{r["answers"]:,}', f'{r["missing"]:,}'] for r in models.iter_rows(named=True)],
     numeric_from=3,
@@ -700,7 +708,7 @@ costs = read("costs").sort("approach", pl.col("model") == "all models", "model")
 tokens = {r["model"]: r for r in models.iter_rows(named=True)}
 show(table(
     ["Approach", "Model", "Calls", "Personas", "Input tokens", "Output tokens", "Cost", "Cost per persona", "Run on"],
-    [[r["approach"].title(), f'<b>{r["model"]}</b>' if r["model"] == "all models" else r["model"], f'{r["calls"]:,}',
+    [[r["approach"].title(), f'<b>{r["model"]}</b>' if r["model"] == "all models" else model_name(r["model"]), f'{r["calls"]:,}',
       f'{r["personas"]:,}',
       f'{tokens[r["model"]]["input_tokens"]:,}' if r["model"] in tokens else "",
       f'{tokens[r["model"]]["output_tokens"]:,}' if r["model"] in tokens else "",
