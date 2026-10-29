@@ -5,10 +5,10 @@
 #          influence; Polymarket's daily prices and each candidate's latest price; the forecast (both runs together,
 #          and each approach and model alone): chance of control, seats, each candidate's vote share and chance of
 #          winning next to the polls and Polymarket; the chance of control from the polls, Polymarket and the Silver
-#          Bulletin, next to ours; the forecast with the 2022 midterm's turnout; what the models answered; the personas; the run costs; past results next to the
+#          Bulletin, next to ours; where the polls and Polymarket have a different leader from ours; the forecast with the 2022 midterm's turnout; what the models answered; the personas; the run costs; past results next to the
 #          forecast; the instructor's checks on the models; the price check of the most expensive models.
 # Author: Furkan Danisman
-# Date: 24 October 2026; forecast, answers, personas and costs 25 October 2026; 2022 turnout and price check 28 October 2026
+# Date: 24 October 2026; forecast, answers, personas and costs 25 October 2026; 2022 turnout and price check 28 October 2026; race agreement and poll counts 29 October 2026
 # Pre-requisites: polls from scripts/10-clean_polls.py; polymarket and polymarket_control from
 #                 scripts/11-clean_polymarket.py; data/01-raw_data/silver_bulletin_senate_control.csv (typed in);
 #                 forecast, forecast_versions and forecast_errors from scripts/08-forecast.py (without them, the
@@ -61,11 +61,13 @@ from senate_forecast_2026.schemas import (
     PastComparison,
     PersonaComposition,
     PollAverages,
+    PollCounts,
     PollInfluence,
     PollTable,
     PolymarketLatest,
     PolymarketPrices,
     PriceEstimates,
+    RaceAgreement,
     TurnoutComparison,
 )
 from senate_forecast_2026.senate_simulation import simulate_races
@@ -136,6 +138,12 @@ poll_table = (
     .sort("state", "influence", "poll_id", "share", descending=[False, True, False, True])
 )
 save_data(poll_table, PollTable, SUMMARY_DATA, "poll_table", sample_groups=["poll_id"])
+
+# How many polls, pollsters and states are in today's average, for the website's Data section.
+poll_counts = poll_table.select(
+    polls=pl.col("poll_id").n_unique(), pollsters=pl.col("pollster").n_unique(), states=pl.col("state").n_unique(),
+).cast(pl.Int64)
+save_data(poll_counts, PollCounts, SUMMARY_DATA, "poll_counts")
 
 
 #### Polymarket ####
@@ -226,6 +234,38 @@ control_comparison = pl.DataFrame([
 print("Chance of Democratic control, other forecasts:")
 print(control_comparison)
 save_data(control_comparison, ControlComparison, SUMMARY_DATA, "control_comparison")
+
+
+#### Where the polls and Polymarket agree with us ####
+# For the website's text under the race table, with the combined forecast: in how many races the latest poll average
+# and Polymarket have a different leader from ours, and which; and in how many races with polls our Republican share
+# is above the poll average. A race's leader has the highest share (ours, the polls') or price (Polymarket).
+combined_races = forecast_races.filter(pl.col("version_type") == "all")
+
+
+def leaders(column):
+    """Each race's leader by `column`, in the races where `column` is known."""
+    rows = combined_races.filter(pl.col(column).is_not_null()).sort(column, descending=True)
+    return rows.group_by("state", maintain_order=True).first().select("state", leader="candidate")
+
+
+our_leaders = leaders("share").rename({"leader": "our_leader"})
+republicans_with_polls = combined_races.filter((pl.col("party") == "Republican") & pl.col("poll_average").is_not_null())
+agreement_rows = []
+for source, column in [("polls", "poll_average"), ("polymarket", "polymarket_chance")]:
+    compared = leaders(column).join(our_leaders, on="state", validate="1:1")
+    different = compared.filter(pl.col("leader") != pl.col("our_leader"))["state"].sort().to_list()
+    agreement_rows.append({
+        "source": source, "races": compared.height, "different_leader": len(different), "states": ", ".join(different),
+        "more_republican": (republicans_with_polls.filter(pl.col("share") > pl.col("poll_average")).height
+                            if source == "polls" else None),
+    })
+race_agreement = pl.DataFrame(agreement_rows, schema={"source": pl.String, "races": pl.Int64,
+                                                      "different_leader": pl.Int64, "states": pl.String,
+                                                      "more_republican": pl.Int64})
+print("Where the polls and Polymarket have a different leader from ours:")
+print(race_agreement)
+save_data(race_agreement, RaceAgreement, SUMMARY_DATA, "race_agreement")
 
 
 #### With the 2022 midterm's turnout ####
