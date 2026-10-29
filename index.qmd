@@ -33,6 +33,8 @@ price_estimates = read("price_estimates")
 full_run_cost = dict(price_estimates.select("model", "full_run_cost").rows())
 full_run_calls = price_estimates["full_run_calls"][0]
 # What each model's full run actually cost (the costs table), for the models not in price_estimates.
+# How many polls, pollsters and states are in today's average, for the Data section.
+poll_counts = read("poll_counts").row(0, named=True)
 run_cost = dict(read("costs").filter(pl.col("model") != "all models").select("model", "total_cost").rows())
 seats = read("forecast_seats")
 races = read("forecast_races")
@@ -332,30 +334,20 @@ show(by_version(race_table))
 
 ```{python}
 #| label: races-numbers
-# Numbers quoted in the text below, from the combined forecast: the races where the latest poll average or
-# Polymarket has a different leader from ours, and how often our Republican share is above the polls'.
-def listed(names):
-    names = sorted(names)
+# Numbers quoted in the text below, from scripts/12-summarize_results.py: where the polls and Polymarket have a
+# different leader from the combined forecast.
+def listed(states):
+    if not states:
+        return "none"
+    names = [STATE_NAMES[s] for s in states.split(", ")]
     return names[0] if len(names) == 1 else ", ".join(names[:-1]) + " and " + names[-1]
 
 
-combined_races = races.filter(pl.col("version") == "all")
-
-
-def leaders(column):
-    rows = combined_races.filter(pl.col(column).is_not_null()).sort(column, descending=True)
-    return dict(rows.group_by("state", maintain_order=True).first().select("state", "candidate").rows())
-
-
-our_leaders = leaders("share")
-polls_differ = [STATE_NAMES[s] for s, c in leaders("poll_average").items() if c != our_leaders[s]]
-market_differs = [STATE_NAMES[s] for s, c in leaders("polymarket_chance").items() if c != our_leaders[s]]
-republicans_with_polls = combined_races.filter((pl.col("party") == "Republican") & pl.col("poll_average").is_not_null())
-races_with_polls = republicans_with_polls.height
-more_republican = republicans_with_polls.filter(pl.col("share") > pl.col("poll_average")).height
+agreement = {row["source"]: row for row in read("race_agreement").iter_rows(named=True)}
+polls_agree, market_agree = agreement["polls"], agreement["polymarket"]
 ```
 
-In our comparison with the polls and Polymarket, most of our results agree on who is ahead. The latest poll average has a different leader from ours in only `{python} len(polls_differ)` of the `{python} races_with_polls` races with polls (`{python} listed(polls_differ)`), and Polymarket in `{python} len(market_differs)` of 35 (`{python} listed(market_differs)`). In each of them, our forecast has the Republican narrowly ahead, while the others have the Democrat ahead. More generally, our forecast leans Republican compared with the polls: our Republican share is above the poll average in `{python} more_republican` of the `{python} races_with_polls` races with polls. As in the comparison of the forecasts, one likely reason is that the models have a political bias despite the prompting, or that they do not know this year's news and campaigns, which the polls and Polymarket follow. It is hard to identify the cause, since there are many parts of the method we cannot control. The actual election results may clarify some of this.
+In our comparison with the polls and Polymarket, most of our results agree on who is ahead. The latest poll average has a different leader from ours in only `{python} polls_agree['different_leader']` of the `{python} polls_agree['races']` races with polls (`{python} listed(polls_agree['states'])`), and Polymarket in `{python} market_agree['different_leader']` of `{python} market_agree['races']` (`{python} listed(market_agree['states'])`). In each of them, our forecast has the Republican narrowly ahead, while the others have the Democrat ahead. More generally, our forecast leans Republican compared with the polls: our Republican share is above the poll average in `{python} polls_agree['more_republican']` of the `{python} polls_agree['races']` races with polls. As in the comparison of the forecasts, one likely reason is that the models have a political bias despite the prompting, or that they do not know this year's news and campaigns, which the polls and Polymarket follow. It is hard to identify the cause, since there are many parts of the method we cannot control. The actual election results may clarify some of this.
 
 Our 95% intervals and the polls' intervals are not comparable, because they measure two different things. Ours comes from the simulated elections, so it includes the possible polling error and the model's own uncertainty (see [Uncertainty](#uncertainty)). The polls' interval only shows how much the polls of a race disagree with each other. It is not a margin of error, and the real result can fall outside it. The two intervals should be read with that in mind.
 
@@ -610,7 +602,7 @@ show(by_version(answer_bars))
 
 These bars show how the models answered across all 1,050 personas, weighted by their CES weights, before the forecast model adjusts the answers to each state's voters. On average across the four models, 40% of the answers to the Senate question were for the Republican, 34% for the Democrat and 3% for an independent; 7% were undecided and 15% would not vote. The House question gave a similar split, 41% Republican and 37% Democrat.
 
-Jev 1.14, our only decision model, gave by far the most undecided answers (13%, against 1% to 7% for the others), and Kimi K3 the fewest. This may reflect the models' architectures, in the terms of Kahneman's [*Thinking, Fast and Slow*](https://us.macmillan.com/books/9780374533557/thinkingfastandslow). Jev 1.14 is what its makers call a "System One" model: it makes a fast, one-step judgement, picking from the options with a probability for each, and in such a quick judgement a persona's vote may not be settled. Our other three models, Kimi K3, Claude Haiku 5.5 and Command A+ 🍁, are closer to System Two: they write their answer out, and more reasoning can lead them to a decision. Jev 1.14's answers also varied the most from draw to draw: with 3 draws each, it gave the same answer all 3 times for 73% of personas, against 90% to 98% for the other models.
+Jev 1.14, our only decision model, gave by far the most undecided answers (13%, against 1% to 7% for the others), and Kimi K3 the fewest. This may reflect the models' architectures, in the terms of *Thinking, Fast and Slow* [@kahneman2011]. Jev 1.14 is what its makers call a "System One" model: it makes a fast, one-step judgement, picking from the options with a probability for each, and in such a quick judgement a persona's vote may not be settled. Our other three models, Kimi K3, Claude Haiku 5.5 and Command A+ 🍁, are closer to System Two: they write their answer out word by word, taking in the whole prompt, rather than choosing in one step. Jev 1.14's answers also varied the most from draw to draw. Because it is cheap, we took 10 draws from it instead of 3; this does not give it more weight in the forecast, since each persona's draws from one model count once in total, but it measures its probabilities more precisely. Comparing only its first 3 draws with the other models' 3, it gave the same answer all 3 times for 73% of personas, against 90% to 98% for the other models.
 
 ### Checks
 
@@ -744,7 +736,7 @@ show(table(
 ))
 ```
 
-For Furkan's approach, we chose two different kinds of model. Jev 1.14 (`typesafe/jev-1.14`) is a decision model: it does not write text, but gives a probability for each answer option, and each of its draws is a random pick from them. We chose it for two reasons. First, because it gives every option a probability, each option is weighed on its own, instead of the model writing out one answer. Second, it is what its makers call a "System One" model, after the fast, intuitive thinking in Kahneman's [*Thinking, Fast and Slow*](https://us.macmillan.com/books/9780374533557/thinkingfastandslow): its answer is close to a person's quick, intuitive choice, without reasoning. We wanted to see how much the chat models add on top of that, since a fast decision model could give a cheap first picture of a population. It was the cheapest model per call ($0.48 for 21,300 calls), so we took 10 draws per persona and question. Kimi K3 (Moonshot AI) is a chat model, asked 3 times at a temperature of 1.0, like Sean's models. We chose it to see how an advanced Chinese model does on a US election; at $11.39, it was our most expensive model.
+For Furkan's approach, we chose two different kinds of model. Jev 1.14 (`typesafe/jev-1.14`) is a decision model: it does not write text, but gives a probability for each answer option, and each of its draws is a random pick from them. We chose it for two reasons. First, because it gives every option a probability, each option is weighed on its own, instead of the model writing out one answer. Second, it is what its makers call a "System One" model, after the fast, intuitive thinking in *Thinking, Fast and Slow* [@kahneman2011]: its answer is close to a person's quick, intuitive choice, without reasoning. We wanted to see how much the chat models add on top of that, since a fast decision model could give a cheap first picture of a population. It was the cheapest model per call ($0.48 for 21,300 calls), so we took 10 draws per persona and question. Kimi K3 (Moonshot AI) is a chat model, asked 3 times at a temperature of 1.0, like Sean's models. We chose it to see how an advanced Chinese model does on a US election; at $11.39, it was our most expensive model.
 
 
 For the choice of the Anthropic and Cohere models, 15 different models from 10 companies (Anthropic, Cohere, OpenAI, Google, Meta, Mistral, Microsoft, NVIDIA, Qwen and Z.ai, all different from Furkan's choices) were tested on 25 personas, in both question wordings and with 3 draws each, for a total cost of $0.49. Two could not be run: one because its only provider trains on the prompts it gets, which our settings block, and one because its provider did not accept the requested answer format. Of the remaining 13, Claude Haiku 5.5 (Anthropic) and Command A+ (Cohere 🍁) were selected because they answered 100% of the time, about 90% of the Democratic and Republican personas chose their own party's candidate, and the 3 draws gave the same answer 86% to 94% of the time. Command A+ was one of the most expensive models tested, at about $4 for a full run in the trial's estimate, when most cost under $1. We chose Cohere 🍁 because it is Canadian, and were willing to pay more for the largest of its three models tested, since it was still well within our budget.
@@ -776,7 +768,7 @@ The personas come from the 2024 Cooperative Election Study [@ces2024], a large s
 
 The candidates come from Wikipedia's page on the 2026 Senate elections [@wikipedia_senate]: every Democrat and Republican, plus the four main independents (Idaho, Montana, Nebraska and South Dakota). Minor-party candidates are left out, though personas can still answer "Other". In Alaska, which uses ranked-choice voting, the forecast uses the likely final round, the Democrat against the incumbent. Past results come from the MIT Election Data and Science Lab [@mit_senate; @mit_president]: the last Senate election for each seat and the 2024 presidential election, as shares of all votes. Wyoming's two 2020 candidates are both labelled "Other" in the data, so we gave them their parties.
 
-The polls come from VoteHub [@votehub]: `{python} f"{poll_table['poll_id'].n_unique():,}"` general-election polls by `{python} poll_table['pollster'].n_unique()` pollsters in `{python} poll_table['state'].n_unique()` states, kept only if they ask about all of our candidates, so early polls of other possible nominees are left out. Polymarket [@polymarket] gives each race's "Senate Election Winner" market and its daily prices. Candidates' names were matched across the sources by hand where they are written differently (Alaska has two Dan Sullivans). Every cleaned file is checked against its schema with pandera [@pandera] before it is saved. The polls and Polymarket prices are downloaded again every evening until the website is frozen on November 2.
+The polls come from VoteHub [@votehub]: `{python} f"{poll_counts['polls']:,}"` general-election polls by `{python} poll_counts['pollsters']` pollsters in `{python} poll_counts['states']` states, kept only if they ask about all of our candidates, so early polls of other possible nominees are left out. Polymarket [@polymarket] gives each race's "Senate Election Winner" market and its daily prices. Candidates' names were matched across the sources by hand where they are written differently (Alaska has two Dan Sullivans). Every cleaned file is checked against its schema with pandera [@pandera] before it is saved. The polls and Polymarket prices are downloaded again every evening until the website is frozen on November 2.
 
 ### The silicon sample
 
