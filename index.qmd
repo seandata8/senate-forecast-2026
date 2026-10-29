@@ -143,7 +143,6 @@ show(
 )
 ```
 
-<!-- Writer: Sean (see the writing plan) -->
 This page tests whether silicon sampling [@argyle2023], predicting votes using large language models (LLMs) and voter demographic information, can accurately predict the outcomes of elections. In this case, we are predicting all 35 Senate races and the chance that the Democrats get control of the US Senate in the election on November 3, 2026.
 
 ## Who controls the Senate? {#forecast data-kicker="The forecast"}
@@ -168,7 +167,6 @@ def headline(version_type, version):
 show(by_version(headline))
 ```
 
-<!-- Writer: Sean (see the writing plan) -->
 Simulated votes were created with four models: `{python} model_list`. They were all given equal weight and a multilevel logistic regression was run on the outputs to get an average impact for each of the persona features: age group, gender, race, education, party ID and state. Those impact values were then used to simulate the votes for Senator in each of the 35 states using the voting population from the 2024 CES [@ces2024]. We then ran 10,000 simulations of the election using a normal distribution of a state error of `{python} pct(combined['state_error_sd'], 1)` (a polling error of `{python} pct(combined['polling_state_error_sd'])` combined with the model's own uncertainty of `{python} pct(combined['model_standard_error'], 1)`) and a national error of `{python} pct(combined['national_error_sd'])`. The results of our simulations and silicon samples give the Democrats a `{python} pct(combined['dem_control'])` chance of taking control of the Senate.
 
 ### How many seats
@@ -196,7 +194,6 @@ def seat_chart(version_type, version):
 show(by_version(seat_chart))
 ```
 
-<!-- Writer: Sean (see the writing plan) -->
 Shown above are the results of 10,000 simulations of the election based on our silicon samples. Each bar shows the share of the simulations that ended with that many seats. Bars in red represent Republicans maintaining control of the Senate, while bars in blue represent Democrats gaining control of the Senate. Along the bottom, each label shows the number of Democratic seats in blue, with the number of Republican seats in red below it. Note that in the case of 50 seats for each, control goes to the Republicans because the Republican Vice President has the deciding vote. The most likely result is `{python} int(combined['seats'])` Democratic seats and `{python} 100 - int(combined['seats'])` Republican seats, and 95% of the simulations had between `{python} int(combined['seats_lower'])` and `{python} int(combined['seats_upper'])` Democratic seats.
 
 ### Compared with other forecasts
@@ -254,14 +251,13 @@ lowest_model, highest_model = models_by_chance.row(0, named=True), models_by_cha
 show(comparison_chart())
 ```
 
-<!-- Writer: Sean (see the writing plan) -->
 Because silicon sampling is a recent technique, we compare it to other methods of predicting elections: polls [averages of the polls from @votehub, run through our simulation, with the 2024 presidential result for the 9 races without polls], betting markets [@polymarket], and professional forecasters [@silver_senate, subscription required]. The comparisons are updated daily until November 2, when the website will be frozen. Our forecast gives the Democrats a `{python} pct(combined['dem_control'])` chance of taking control of the Senate, which is lower than the polls at `{python} pct(other_forecasts['polls'])`, Polymarket at `{python} pct(other_forecasts['polymarket'])` and Silver Bulletin at `{python} pct(other_forecasts['silver_bulletin'])`. One reason they might differ is that the LLMs only know the persona, the candidates and what they learned in their training, and not the latest news and campaigns [such as Trump's historically low approval rating, see @silver_approval] that the polls, the betting markets and the forecasters can follow. The predictions from each of our four models are also shown, and they range from `{python} pct(lowest_model['dem_control'])` (`{python} short_version('model', lowest_model['version'])`) to `{python} pct(highest_model['dem_control'])` (`{python} short_version('model', highest_model['version'])`).
 
 ## Race by race: our forecast, the polls and Polymarket {#races data-kicker="The races"}
 
 ::: {.how-to-read}
 **Leading vote share:** the share of the candidate ahead, in our forecast and in the latest poll average, coloured by
-the leader's party. **95% CI:** for ours, from the simulated elections; for the polls, the average ± 1.96 times how
+the leader's party. **95% interval:** for ours, from the simulated elections; for the polls, the average ± 1.96 times how
 much the polls disagree with each other, where 95% of the polls would fall. **Chance of winning:** ours, from the
 simulated elections, and Polymarket's latest price. Rows where the polls or Polymarket have a different leader from
 ours are highlighted. Races are ordered from the most Republican to the most Democratic in the combined forecast.
@@ -270,7 +266,7 @@ ours are highlighted. Races are ordered from the most Republican to the most Dem
 ```{python}
 #| label: races
 def race_rows(state, candidates):
-    """Two rows for one race. Leading vote share: ours and the latest poll average's, with their 95% CI. Chance of
+    """Two rows for one race. Leading vote share: ours and the latest poll average's, with their 95% interval. Chance of
     winning: ours and Polymarket's latest price."""
     who = " v ".join(f"{last_name(c['candidate'])} ({c['party'][0]})" for c in candidates.iter_rows(named=True))
 
@@ -324,7 +320,7 @@ def race_table(version_type, version):
     return (
         '<table class="plain races" data-quarto-disable-processing="true"><thead><tr>'
         '<th style="width:15%">Race</th><th style="width:8%"></th><th style="width:20%">Leading vote share</th>'
-        '<th style="width:23%">95% CI</th><th style="width:11%"></th><th style="width:23%">Chance of winning</th>'
+        '<th style="width:23%">95% interval</th><th style="width:11%"></th><th style="width:23%">Chance of winning</th>'
         "</tr></thead>"
         + "".join(race_rows(state, version_races.filter(pl.col("state") == state)) for state in order)
         + "</table>"
@@ -334,8 +330,34 @@ def race_table(version_type, version):
 show(by_version(race_table))
 ```
 
-<!-- Writer: Furkan (see the writing plan) -->
-[Text: where we agree and disagree with the polls and Polymarket, and why.]{.to-write}
+```{python}
+#| label: races-numbers
+# Numbers quoted in the text below, from the combined forecast: the races where the latest poll average or
+# Polymarket has a different leader from ours, and how often our Republican share is above the polls'.
+def listed(names):
+    names = sorted(names)
+    return names[0] if len(names) == 1 else ", ".join(names[:-1]) + " and " + names[-1]
+
+
+combined_races = races.filter(pl.col("version") == "all")
+
+
+def leaders(column):
+    rows = combined_races.filter(pl.col(column).is_not_null()).sort(column, descending=True)
+    return dict(rows.group_by("state", maintain_order=True).first().select("state", "candidate").rows())
+
+
+our_leaders = leaders("share")
+polls_differ = [STATE_NAMES[s] for s, c in leaders("poll_average").items() if c != our_leaders[s]]
+market_differs = [STATE_NAMES[s] for s, c in leaders("polymarket_chance").items() if c != our_leaders[s]]
+republicans_with_polls = combined_races.filter((pl.col("party") == "Republican") & pl.col("poll_average").is_not_null())
+races_with_polls = republicans_with_polls.height
+more_republican = republicans_with_polls.filter(pl.col("share") > pl.col("poll_average")).height
+```
+
+In our comparison with the polls and Polymarket, most of our results agree on who is ahead. The latest poll average has a different leader from ours in only `{python} len(polls_differ)` of the `{python} races_with_polls` races with polls (`{python} listed(polls_differ)`), and Polymarket in `{python} len(market_differs)` of 35 (`{python} listed(market_differs)`). In each of them, our forecast has the Republican narrowly ahead, while the others have the Democrat ahead. More generally, our forecast leans Republican compared with the polls: our Republican share is above the poll average in `{python} more_republican` of the `{python} races_with_polls` races with polls. As in the comparison of the forecasts, one likely reason is that the models have a political bias despite the prompting, or that they do not know this year's news and campaigns, which the polls and Polymarket follow. It is hard to identify the cause, since there are many parts of the method we cannot control. The actual election results may clarify some of this.
+
+Our 95% intervals and the polls' intervals are not comparable, because they measure two different things. Ours comes from the simulated elections, so it includes the possible polling error and the model's own uncertainty (see [Uncertainty](#uncertainty)). The polls' interval only shows how much the polls of a race disagree with each other. It is not a margin of error, and the real result can fall outside it. The two intervals should be read with that in mind.
 
 ## The polls and Polymarket, race by race {#polls data-kicker="Polls & markets"}
 
@@ -508,8 +530,14 @@ for state in sorted(STATE_NAMES, key=STATE_NAMES.get):
 show(choices("state", views))
 ```
 
-<!-- Writer: Furkan (see the writing plan) -->
-[Text: what the poll average and its 95% interval are, what influence means, and what a Polymarket price means.]{.to-write}
+The poll average of a race is a weighted mean of the polls listed by VoteHub, with undecided voters left out so that the shares add up to 100%. Each poll's weight, which we call its influence in the table, comes from four rules:
+
+1. It halves every 14 days after the poll finished.
+2. It grows with the square root of the number of people asked (up to 5,000).
+3. It is divided by the square root of the number of polls of the race from the same pollster in the last 60 days, so that no pollster dominates.
+4. Polls of likely voters count fully, polls of registered voters 0.8 and polls of adults 0.6.
+
+In simple terms, an influence of 1 is about what a new poll of 600 likely voters would get, from a pollster with no other recent poll of the race. The polls' 95% interval is the average ± 1.96 times the weighted spread of the polls around it. A Polymarket price is what traders pay for a share that pays $1 if the candidate wins, so a price of 70 cents can be read as a 70% chance of winning. We show the last price of each day.
 
 ## Compared with past elections {#past data-kicker="Past elections"}
 
@@ -543,8 +571,7 @@ def past_table(version_type, version):
 show(by_version(past_table))
 ```
 
-<!-- Writer: Furkan (see the writing plan) -->
-[Text: how our forecast compares with each state's recent results.]{.to-write}
+Our forecast is more Democratic than the 2024 presidential election in most states: our Republican share is below Trump's 2024 share in 31 of the 35 states, typically by 2.9 points. The largest moves towards the Democrats are in Delaware, Idaho, New Jersey and New Mexico. In Idaho and Nebraska, the Republican faces an independent rather than a Democrat, and the past results have no such race to compare with. The past shares are of all votes, minor candidates included, while ours are of our main candidates only, so ours are slightly higher for both sides than they would be with minor candidates. Midterm elections usually swing against the president's party, which would push the same way. Even so, our forecast gives the Democrats less than an even chance of control, because they need to win 17 of the 35 races, and 22 of the seats up this year are held by Republicans, most of them in states Trump won.
 
 ## What the models answered {#answers data-kicker="Model answers"}
 
@@ -581,19 +608,20 @@ def answer_bars(version_type, version):
 show(by_version(answer_bars))
 ```
 
-<!-- Writer: Furkan (see the writing plan) -->
-[Text: what the answers show, and how the models differ.]{.to-write}
+These bars show how the models answered across all 1,050 personas, weighted by their CES weights, before the forecast model adjusts the answers to each state's voters. On average across the four models, 40% of the answers to the Senate question were for the Republican, 34% for the Democrat and 3% for an independent; 7% were undecided and 15% would not vote. The House question gave a similar split, 41% Republican and 37% Democrat.
+
+Jev 1.14, our only decision model, gave by far the most undecided answers (13%, against 1% to 7% for the others), and Kimi K3 the fewest. This may reflect the models' architectures, in the terms of Kahneman's [*Thinking, Fast and Slow*](https://us.macmillan.com/books/9780374533557/thinkingfastandslow). Jev 1.14 is what its makers call a "System One" model: it makes a fast, one-step judgement, picking from the options with a probability for each, and in such a quick judgement a persona's vote may not be settled. Our other three models, Kimi K3, Claude Haiku 5.5 and Command A+ 🍁, are closer to System Two: they write their answer out, and more reasoning can lead them to a decision. Jev 1.14's answers also varied the most from draw to draw: with 3 draws each, it gave the same answer all 3 times for 73% of personas, against 90% to 98% for the other models.
 
 ### Checks
 
 ::: {.how-to-read}
-Two checks on 10 personas: does the model give the persona's own state when asked, and does its Senate answer change
+Two checks on 10 personas: does the model give the persona's own state when asked, and do its answers change
 when party ID is left out of the prompt.
 :::
 
 ```{python}
 #| label: checks
-CHECKS = {"persona_state": "Gives the persona's own state", "no_party_id": "Senate answer changes without party ID"}
+CHECKS = {"persona_state": "Gives the persona's own state", "no_party_id": "Answer changes without party ID"}
 check_results = read("check_results").sort("check", "model", descending=[True, False])
 check_answers = read("check_answers").sort("check", "model", "persona_id", "question", "prompt")
 
@@ -616,8 +644,7 @@ def check_tables(version_type, version):
 show(by_version(check_tables))
 ```
 
-<!-- Writer: Furkan (see the writing plan) -->
-[Text: what the checks show.]{.to-write}
+Every model gave the persona's own state for all 10 personas, so we can confirm that they read the persona and do not just answer at random. With the party ID line taken out of the prompt, the most common answer changed on at least one of the questions (Senate, House or, in Alaska, the final round) for 1 (Kimi K3) to 4 (Claude Haiku 5.5) of the 10 personas. So party ID matters, but most answers did not depend on it alone: the rest of the persona, such as ideology, race and religion, carries much of the same information. Both checks, on 10 personas each, cost about $0.24 in all.
 
 ## Cross-tabs {#crosstabs data-kicker="Cross-tabs"}
 
@@ -666,6 +693,8 @@ def crosstab_table(version_type, version):
 show(by_version(crosstab_table))
 ```
 
+Party ID and ideology tell the most about the answer. On the Senate question, 93% of Strong Democrats chose the Democrat and every Strong Republican chose the Republican. Only the independents split: 40% Democrat, 44% Republican and 15% for an independent candidate. Among other groups, 96% of Black personas chose the Democrat, personas under 45 were more Democratic than older ones (about 56% against 38%), and never-married personas more than married ones (66% against 33%). Women chose the Republican more often than men (54% against 50%). The answers are mostly one-sided within each group, which supports the finding that LLMs flatten people into stereotypes [@bisbee2024].
+
 ## Composition of the sample {#composition data-kicker="Composition"}
 
 ::: {.how-to-read}
@@ -693,8 +722,9 @@ for variable, (name, order_of_groups) in VARIABLES.items():
 show('<div class="composition-grid">', *grid, "</div>")
 ```
 
-<!-- Writer: Furkan (see the writing plan) -->
-[Text: who the personas are, and how they were picked from the CES.]{.to-write}
+The 1,050 personas are real respondents to the 2024 CES. In each of the 35 states with a Senate race, we picked 30 respondents at random. We only picked from respondents who took both parts of the survey (before and after the election) and who answered every question we use in the prompt. The random pick uses a fixed seed, so rerunning the code picks the same 30 people. Each persona's prompt gives their state, age group, gender, race, education, family income, party ID, ideology, religion, marital status, sexual orientation and whether they are registered to vote. Their 2024 vote is not in the prompt; it is shown here only to describe the sample.
+
+Each state has 30 personas, but they may not be representative of the people in that state. Across all states, the sample is older (34% are 65 or over, 7% are under 30) and whiter (80% white) than the country. The forecast corrects for this by age group, gender, race, education, party and state, counting each group by its number of voters in each state.
 
 ## Models {#models data-kicker="Models"}
 
@@ -714,8 +744,8 @@ show(table(
 ))
 ```
 
-<!-- Writer: Furkan / Sean (see the writing plan) -->
-[Text: why Furkan's models.]{.to-write}
+For Furkan's approach, we chose two different kinds of model. Jev 1.14 (`typesafe/jev-1.14`) is a decision model: it does not write text, but gives a probability for each answer option, and each of its draws is a random pick from them. We chose it for two reasons. First, because it gives every option a probability, each option is weighed on its own, instead of the model writing out one answer. Second, it is what its makers call a "System One" model, after the fast, intuitive thinking in Kahneman's [*Thinking, Fast and Slow*](https://us.macmillan.com/books/9780374533557/thinkingfastandslow): its answer is close to a person's quick, intuitive choice, without reasoning. We wanted to see how much the chat models add on top of that, since a fast decision model could give a cheap first picture of a population. It was the cheapest model per call ($0.48 for 21,300 calls), so we took 10 draws per persona and question. Kimi K3 (Moonshot AI) is a chat model, asked 3 times at a temperature of 1.0, like Sean's models. We chose it to see how an advanced Chinese model does on a US election; at $11.39, it was our most expensive model.
+
 
 For the choice of the Anthropic and Cohere models, 15 different models from 10 companies (Anthropic, Cohere, OpenAI, Google, Meta, Mistral, Microsoft, NVIDIA, Qwen and Z.ai, all different from Furkan's choices) were tested on 25 personas, in both question wordings and with 3 draws each, for a total cost of $0.49. Two could not be run: one because its only provider trains on the prompts it gets, which our settings block, and one because its provider did not accept the requested answer format. Of the remaining 13, Claude Haiku 5.5 (Anthropic) and Command A+ (Cohere 🍁) were selected because they answered 100% of the time, about 90% of the Democratic and Republican personas chose their own party's candidate, and the 3 draws gave the same answer 86% to 94% of the time. Command A+ was one of the most expensive models tested, at about $4 for a full run in the trial's estimate, when most cost under $1. We chose Cohere 🍁 because it is Canadian, and were willing to pay more for the largest of its three models tested, since it was still well within our budget.
 
@@ -736,34 +766,48 @@ show(table(
 ))
 ```
 
-<!-- Writer: Sean (see the writing plan) -->
-The costs for the four models ranged from $0.41 for Claude Haiku 5.5 to $11.39 for Kimi K3, each of which simulated responses for 1,050 personas, and the whole forecast cost $15.79. Since the models can be run in parallel, the total time is limited by the slowest time of 5 hours (Cohere, Command A+ 🍁). [Furkan: please check how long Jev and Kimi K3 took. If either took longer than 5 hours, change the time and the model in the sentence before.]{.to-check} A recent estimate to poll a real voter for a US election is about $50 online to $100 by phone [@gainey2024], which would be $52,500 to $105,000 to poll 1,050 people. Polling would cost about 3,300 to 6,600 times as much as our forecast. However, this may be a case of "you get what you pay for": the election on November 3 will show whether silicon sampling can predict elections accurately for a fraction of the cost of polling.
+The costs for the four models ranged from $0.41 for Claude Haiku 5.5 to $11.39 for Kimi K3, each of which simulated responses for 1,050 personas, and the whole forecast cost $15.79. Since the models can be run in parallel, the total time is limited by the slowest time of 5 hours (Cohere, Command A+ 🍁). A recent estimate to poll a real voter for a US election is about $50 online to $100 by phone [@gainey2024], which would be $52,500 to $105,000 to poll 1,050 people. Polling would cost about 3,300 to 6,600 times as much as our forecast. However, this may be a case of "you get what you pay for": the election on November 3 will show whether silicon sampling can predict elections accurately for a fraction of the cost of polling.
 
 ## Methods {#methods data-kicker="Methods"}
 
 ### Data
 
-<!-- Writer: Furkan (see the writing plan) -->
-[Text: the CES, the candidates, past results, polls and Polymarket, and how each was cleaned.]{.to-write}
+The personas come from the 2024 Cooperative Election Study [@ces2024], a large survey of American adults before and after the 2024 election. Its validated voters, respondents matched to a record of voting, also give the number of voters in each group. The 2022 CES [@ces2022] gives the same for the 2022 midterm, used only to check how much the forecast depends on whose turnout it uses. Each CES answer is stored as a code, and every code was turned into its label from the CES guide.
+
+The candidates come from Wikipedia's page on the 2026 Senate elections [@wikipedia_senate]: every Democrat and Republican, plus the four main independents (Idaho, Montana, Nebraska and South Dakota). Minor-party candidates are left out, though personas can still answer "Other". In Alaska, which uses ranked-choice voting, the forecast uses the likely final round, the Democrat against the incumbent. Past results come from the MIT Election Data and Science Lab [@mit_senate; @mit_president]: the last Senate election for each seat and the 2024 presidential election, as shares of all votes. Wyoming's two 2020 candidates are both labelled "Other" in the data, so we gave them their parties.
+
+The polls come from VoteHub [@votehub]: `{python} f"{poll_table['poll_id'].n_unique():,}"` general-election polls by `{python} poll_table['pollster'].n_unique()` pollsters in `{python} poll_table['state'].n_unique()` states, kept only if they ask about all of our candidates, so early polls of other possible nominees are left out. Polymarket [@polymarket] gives each race's "Senate Election Winner" market and its daily prices. Candidates' names were matched across the sources by hand where they are written differently (Alaska has two Dan Sullivans). Every cleaned file is checked against its schema with pandera [@pandera] before it is saved. The polls and Polymarket prices are downloaded again every evening until the website is frozen on November 2.
 
 ### The silicon sample
 
-<!-- Writer: Furkan (see the writing plan) -->
-[Text: the prompts, the questions, the two approaches, the models, draws and temperatures.]{.to-write}
+Each persona is described to the model in a system message: "You are taking part in a survey of American voters. Answer every question as the person described below would, based on who they are.", followed by one line for each of their details (see [Composition](#composition)). The model is then asked the Senate question with the race's real candidates: "The election for US Senate in [state] is on 3 November 2026. The candidates on your ballot are: [candidates]. Who will you vote for? If you have not decided, answer 'Undecided'. If you will not vote, answer 'Would not vote'." It is also asked the House question, a generic ballot (Democrat, Republican or Other) used as a benchmark, and Alaska's personas are also asked about the final round of its ranked-choice vote. Each question is its own call, and the answer must be one of the options (from a chat model, as JSON), so every answer can be read. The models were queried through OpenRouter [@openrouter].
+
+We each ran our own approach on all 1,050 personas, with the same prompt and questions. Sean's approach used Command A+ 🍁 (Cohere) and Claude Haiku 5.5 (Anthropic), and Furkan's used Jev 1.14 (TypeSafe) and Kimi K3 (Moonshot AI), so the four models come from four different companies. The chat models (all but Jev 1.14) were asked each question 3 times at a temperature of 1.0, so a persona's answers can differ from draw to draw. Jev 1.14, a decision model, was asked 10 times, each answer a random pick from its probabilities. In all, the forecast took 40,470 answers.
 
 ### From answers to a forecast
 
-<!-- Writer: Furkan (see the writing plan) -->
-[Text: the MRP model, the weighting frame, and the simulation of 10,000 elections.]{.to-write}
+The forecast uses multilevel regression and post-stratification (MRP).
+
+**The model.** Each answer for a candidate is a choice among the parties on the persona's ballot (Democrat, Republican and, in four states, an independent), predicted from the persona's age group, gender, race, education, party (Democrat, Republican, or independent and other) and state, in a multinomial logistic regression. Undecided, would-not-vote and missing answers are left out. The answers of all four models are pooled into one model, and each persona's draws from one model share a weight of 1, so every model counts equally. Every group's effect has a normal prior centred on 0 with a standard deviation of 1 (on the log-odds scale), so a group with few personas is pulled towards the average.
+
+**The frame.** The 2024 CES's validated voters, with their CES weights, give each state's share of voters in every combination of age group, gender, race, education and party, scaled to the state's number of votes for President in 2024.
+
+**Post-stratification.** The model predicts each combination's choice, and each state's vote shares are these predictions weighted by the number of voters in each combination.
+
+**The simulation.** We then simulate the election 10,000 times, to allow for our forecast being wrong. In each simulated election, every state's result is shifted by two random errors. The first is a national error, the same for every state, because forecasts tend to miss in the same direction everywhere. The second is a state error, different for each state. Typically, the national error is within 3 points and the state error within 4.5 points (their standard deviations). Each error moves votes between the Republican and the other candidates: for example, an error of 2 points takes 2 points from the Republican and gives them to the others.
+
+The candidate with the highest share wins; an independent who wins joins the Democrats with a probability of 60% to 80%, by state. Only 35 of the 100 Senate seats are up this year. The other 65 are already decided: 34 are held by Democrats or independents who vote with them, and 31 by Republicans. So in each simulated election, we add the seats each side wins to these 34 and 31. The Democrats need 51 seats to control the Senate; at 50-50, the Vice President, a Republican, breaks the tie.
 
 ### Uncertainty
 
-<!-- Writer: Furkan (see the writing plan) -->
-[Text: where the 95% intervals come from.]{.to-write}
+Our forecast has two kinds of uncertainty. The first is the model's own: with 30 personas per state, its coefficients are not known exactly. We approximate their uncertainty with a normal distribution around the most likely coefficients (a Laplace approximation), post-stratify 1,000 draws of them, and take the standard deviation of each state's leading share; the typical (median) state's is 2.0%.
+
+The second is the possible polling error, the error of the method itself. Even a well-estimated forecast can miss the real result: some voters change their minds before election day, and the people who turn out to vote may differ from those we expected. Silicon sampling has no past elections to check how far off it can be, so we assume errors of the size election forecasts usually make: a few points in each state, often in the same direction everywhere. We chose 4 points for each state and 3 points for the whole country. Combined with the model's own 2 points, the error in each state is about 4.5 points.
+
+Each of our 95% intervals covers the middle 95% of the 10,000 simulated elections, and a chance of winning is the share of simulated elections a candidate wins. The polls' 95% interval only shows how much the polls disagree with each other.
 
 ## Discussion {#discussion data-kicker="Discussion"}
 
-<!-- Writer: Sean (see the writing plan) -->
 Our silicon sampling method gives the Democrats only a `{python} pct(combined['dem_control'])` chance of taking control of the Senate, while all the comparisons (polls, betting markets, professional forecasters) give the Democrats between a `{python} pct(min(other_forecasts.values()))` and `{python} pct(max(other_forecasts.values()))` chance. Is our method picking up something all the others are missing, or is our method just not reliable enough? One reason to doubt our method is that our four LLMs disagree on the odds, from `{python} pct(lowest_model['dem_control'])` (`{python} short_version('model', lowest_model['version'])`) to `{python} pct(highest_model['dem_control'])` (`{python} short_version('model', highest_model['version'])`). Note that the combined forecast is not simply the average of the four models' predictions; rather, the answers are pooled before the MRP (see the [Methods](#from-answers-to-a-forecast) section).
 
 All of these forecasts are uncertain. Our `{python} pct(combined['dem_control'])` chance is not far from a coin flip, and 95% of our simulations had between `{python} int(combined['seats_lower'])` and `{python} int(combined['seats_upper'])` Democratic seats. Most of that uncertainty comes from the possible polling error of `{python} pct(combined['polling_state_error_sd'])` in each state, not the models' own uncertainty of `{python} pct(combined['model_standard_error'], 1)`. Silver Bulletin's `{python} pct(other_forecasts['silver_bulletin'])` still gives the Republicans about a `{python} one_in(1 - other_forecasts['silver_bulletin'])` chance of keeping the Senate, and its seat distribution, like ours, spreads across several seats on both sides of 50 [@silver_senate]. One election cannot prove which forecast was better: a `{python} pct(1 - other_forecasts['silver_bulletin'])` or `{python} pct(combined['dem_control'])` chance happens often. The results of all 35 races on November 3 will be a better test than control alone.
@@ -776,7 +820,6 @@ The big advantage of silicon sampling is that it is much cheaper than polling. O
 
 ### Limitations
 
-<!-- Writer: Sean (see the writing plan) -->
 The choices we made while building our method mean some things were left out or limited, and these could be added or enhanced in future work to check their impact. These limitations are the lack of current news, our choice of low- and mid-priced models, and our decision to try only two wordings of the prompt.
 
 The first limitation is that the prompts were not given any information about the current political climate, which might have shifted the responses. However, even by adding recent news and information about the political climate, we would still have to decide which news sources, what types of news to include, and if each persona should get the same news or different news to reflect their political leaning. @murray2026 found that the news given to the model changed the Democratic share by about 10 percentage points, but had little effect when the persona included political identity, as ours do with party ID. All of these could be important factors, and testing all of them would be considerably more expensive in LLM costs.
@@ -789,7 +832,6 @@ As @murray2026 found, the choice of model, persona detail, news and prompt style
 
 ### References
 
-<!-- Writer: Sean (see the writing plan) -->
 The analysis was done in Python [@python] with polars [@polars], NumPy [@numpy], SciPy [@scipy], pandera [@pandera], the OpenAI Python library [@openai_python] and pytest [@pytest]. The models were queried through OpenRouter [@openrouter], and the website was built with Quarto [@quarto] and Plotly [@plotly]. The data come from the CES [@ces2024; @ces2022], the MIT Election Lab [@mit_senate; @mit_president], Wikipedia [@wikipedia_senate], VoteHub [@votehub] and Polymarket [@polymarket].
 
 ::: {#refs}
