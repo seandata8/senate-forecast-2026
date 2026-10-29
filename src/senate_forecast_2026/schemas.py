@@ -417,6 +417,18 @@ class PollTable(pa.DataFrameModel):
         strict = True
 
 
+class PollCounts(pa.DataFrameModel):
+    """One row: how many polls, pollsters and states are in today's average (poll_table), for the website's Data
+    section. Made by #12 into data/03-summary_data/."""
+
+    polls: int = pa.Field(ge=0, description="Polls in today's average.")
+    pollsters: int = pa.Field(ge=0, description="Pollsters with a poll in today's average.")
+    states: int = pa.Field(ge=0, le=35, description="States with a poll in today's average.")
+
+    class Config:
+        strict = True
+
+
 class PolymarketPrices(Polymarket):
     """One row per candidate per day: the Polymarket price, as in polymarket. Made by #12 into data/03-summary_data/
     for the website's Polymarket chart."""
@@ -521,6 +533,26 @@ class ControlComparison(pa.DataFrameModel):
                                   "more seats).")
     date: datetime.date = pa.Field(description="The day of the number: the last poll day, the day of the price, or "
                                    "the day the Silver Bulletin number was read.")
+
+    class Config:
+        strict = True
+
+
+class RaceAgreement(pa.DataFrameModel):
+    """One row per comparison (the polls, Polymarket): in how many races it has a different leader from the combined
+    forecast, for the website's text under the race table. Made by #12 into data/03-summary_data/."""
+
+    source: str = pa.Field(isin=["polls", "polymarket"], description='"polls": the latest poll average with every '
+                           'weighting rule on (poll_average in forecast_races); "polymarket": the latest price '
+                           "(polymarket_chance in forecast_races).")
+    races: int = pa.Field(ge=0, le=35, description="Races with a poll average, or with a Polymarket market.")
+    different_leader: int = pa.Field(ge=0, le=35, description="Of those races, how many have a different leader from "
+                                     "the combined forecast (the candidate with the highest share or price).")
+    states: str = pa.Field(description='The two-letter codes of those races, in alphabetical order, separated by ", " '
+                           "(empty if there are none).")
+    more_republican: int = pa.Field(ge=0, le=35, nullable=True, description="Polls only: in how many races with polls "
+                                    "the combined forecast's Republican share is above the poll average. Empty for "
+                                    "Polymarket.")
 
     class Config:
         strict = True
@@ -800,11 +832,13 @@ FILE_SCHEMAS = {
     "polymarket_control": PolymarketControl,
     "poll_averages": PollAverages,
     "poll_influence": PollInfluence,
+    "poll_counts": PollCounts,
     "polymarket_prices": PolymarketPrices,
     "polymarket_latest": PolymarketLatest,
     "run_costs": RunCosts,
     "forecast_control": ForecastControl,
     "control_comparison": ControlComparison,
+    "race_agreement": RaceAgreement,
     "turnout_comparison": TurnoutComparison,
     "forecast_seats": ForecastSeats,
     "forecast_races": ForecastRaces,

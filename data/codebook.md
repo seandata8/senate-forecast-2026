@@ -198,6 +198,16 @@ One row per poll and on/off combination of the weighting rules: the poll's weigh
 | `by_population` | Boolean | no | any | Whether likely voters count more than registered voters (x0.8) and adults (x0.6). |
 | `influence` | Float64 | no | ≥ 0 | The poll's weight: the rules switched on, multiplied together. 1 is a typical poll: a 600-person likely-voter poll that ended that day, its pollster's only recent poll of the race. |
 
+## `poll_counts`
+
+One row: how many polls, pollsters and states are in today's average (poll_table), for the website's Data section. Made by #12 into data/03-summary_data/.
+
+| Column | Type | Missing | Allowed values | Description |
+|---|---|---|---|---|
+| `polls` | Int64 | no | ≥ 0 | Polls in today's average. |
+| `pollsters` | Int64 | no | ≥ 0 | Pollsters with a poll in today's average. |
+| `states` | Int64 | no | ≥ 0, ≤ 35 | States with a poll in today's average. |
+
 ## `polymarket_prices`
 
 One row per candidate per day: the Polymarket price, as in polymarket. Made by #12 into data/03-summary_data/ for the website's Polymarket chart.
@@ -262,6 +272,18 @@ One row per other forecast: its chance of Democratic control, next to ours on th
 | `source` | String | no | polls, polymarket, silver_bulletin | "polls": our seat simulation (as in the forecast) run on the polling averages instead of the models' answers, with each race's poll average on the last poll day (every weighting rule on, undecided left out) and, for races without polls, the 2024 presidential result in the state (Democrat and Republican only); "polymarket": the latest price in polymarket_control; "silver_bulletin": the latest number typed in from the Silver Bulletin forecast (data/01-raw_data/silver_bulletin_senate_control.csv). |
 | `dem_control` | Float64 | no | ≥ 0, ≤ 1 | Chance the Democratic caucus controls the Senate (51 or more seats). |
 | `date` | Date | no | any | The day of the number: the last poll day, the day of the price, or the day the Silver Bulletin number was read. |
+
+## `race_agreement`
+
+One row per comparison (the polls, Polymarket): in how many races it has a different leader from the combined forecast, for the website's text under the race table. Made by #12 into data/03-summary_data/.
+
+| Column | Type | Missing | Allowed values | Description |
+|---|---|---|---|---|
+| `source` | String | no | polls, polymarket | "polls": the latest poll average with every weighting rule on (poll_average in forecast_races); "polymarket": the latest price (polymarket_chance in forecast_races). |
+| `races` | Int64 | no | ≥ 0, ≤ 35 | Races with a poll average, or with a Polymarket market. |
+| `different_leader` | Int64 | no | ≥ 0, ≤ 35 | Of those races, how many have a different leader from the combined forecast (the candidate with the highest share or price). |
+| `states` | String | no | any | The two-letter codes of those races, in alphabetical order, separated by ", " (empty if there are none). |
+| `more_republican` | Int64 | yes | ≥ 0, ≤ 35 | Polls only: in how many races with polls the combined forecast's Republican share is above the poll average. Empty for Polymarket. |
 
 ## `turnout_comparison`
 
