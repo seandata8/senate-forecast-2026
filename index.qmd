@@ -38,6 +38,15 @@ seats = read("forecast_seats")
 races = read("forecast_races")
 models = read("models")
 
+NUMBER_WORDS = {2: "two", 3: "three", 4: "four", 5: "five", 6: "six", 7: "seven", 8: "eight", 9: "nine", 10: "ten"}
+
+
+def one_in(chance):
+    """A chance in words, from "one-in-two" to "one-in-ten": 0.24 is "one-in-four" (1 / 0.24 is about 4).
+    Chances above about 67% still say one-in-two, and below about 10% one-in-ten."""
+    return f"one-in-{NUMBER_WORDS[min(max(round(1 / chance), 2), 10)]}"
+
+
 def model_name(model, name=None):
     """How a model is named on the page: its ID (or a given short name), with a maple leaf for Cohere, which is
     Canadian."""
@@ -757,7 +766,7 @@ The costs for the four models ranged from $0.41 for Claude Haiku 5.5 to $11.39 f
 <!-- Writer: Sean (see the writing plan) -->
 Our silicon sampling method gives the Democrats only a `{python} pct(combined['dem_control'])` chance of taking control of the Senate, while all the comparisons (polls, betting markets, professional forecasters) give the Democrats between a `{python} pct(min(other_forecasts.values()))` and `{python} pct(max(other_forecasts.values()))` chance. Is our method picking up something all the others are missing, or is our method just not reliable enough? One reason to doubt our method is that our four LLMs disagree on the odds, from `{python} pct(lowest_model['dem_control'])` (`{python} short_version('model', lowest_model['version'])`) to `{python} pct(highest_model['dem_control'])` (`{python} short_version('model', highest_model['version'])`). Note that the combined forecast is not simply the average of the four models' predictions; rather, the answers are pooled before the MRP (see the [Methods](#from-answers-to-a-forecast) section).
 
-All of these forecasts are uncertain. Our `{python} pct(combined['dem_control'])` chance is not far from a coin flip, and 95% of our simulations had between `{python} int(combined['seats_lower'])` and `{python} int(combined['seats_upper'])` Democratic seats. Most of that uncertainty comes from the possible polling error of `{python} pct(combined['polling_state_error_sd'])` in each state, not the models' own uncertainty of `{python} pct(combined['model_standard_error'], 1)`. Silver Bulletin's `{python} pct(other_forecasts['silver_bulletin'])` still gives the Republicans about a one-in-four chance of keeping the Senate, and its seat distribution, like ours, spreads across several seats on both sides of 50 [@silver_senate]. One election cannot prove which forecast was better: a `{python} pct(1 - other_forecasts['silver_bulletin'])` or `{python} pct(combined['dem_control'])` chance happens often. The results of all 35 races on November 3 will be a better test than control alone.
+All of these forecasts are uncertain. Our `{python} pct(combined['dem_control'])` chance is not far from a coin flip, and 95% of our simulations had between `{python} int(combined['seats_lower'])` and `{python} int(combined['seats_upper'])` Democratic seats. Most of that uncertainty comes from the possible polling error of `{python} pct(combined['polling_state_error_sd'])` in each state, not the models' own uncertainty of `{python} pct(combined['model_standard_error'], 1)`. Silver Bulletin's `{python} pct(other_forecasts['silver_bulletin'])` still gives the Republicans about a `{python} one_in(1 - other_forecasts['silver_bulletin'])` chance of keeping the Senate, and its seat distribution, like ours, spreads across several seats on both sides of 50 [@silver_senate]. One election cannot prove which forecast was better: a `{python} pct(1 - other_forecasts['silver_bulletin'])` or `{python} pct(combined['dem_control'])` chance happens often. The results of all 35 races on November 3 will be a better test than control alone.
 
 In particular, our predictions differ from both the polls and the betting market in four states: Texas, Alaska, Georgia and Michigan (see [Race by race](#races)). We give the Republican only a 52% to 61% chance of winning in each of them, so they are close races for us too. If the Democrats win three of these four and every other race goes as we predict, they would have 51 seats and control of the Senate, which is what the polls and the betting market are predicting. If they win all four, they would have 52 seats, the average in the Silver Bulletin forecast [@silver_senate].
 
