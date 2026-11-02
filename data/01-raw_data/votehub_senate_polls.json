@@ -1,6 +1,6 @@
 {
  "source": "https://api.votehub.com/polls?poll_type=us-senator",
- "downloaded_at": "2026-10-24T01:33:18+00:00",
+ "downloaded_at": "2026-11-02T16:43:31+00:00",
  "polls": [
   {
    "id": "us-202thee5a838a4",
@@ -14767,6 +14767,1600 @@
    "internal": false,
    "partisan": null,
    "subject": "2026 Ohio"
+  },
+  {
+   "id": "us-202mic57c88db3",
+   "poll_type": "us-senator",
+   "sample_size": 836,
+   "population": "lv",
+   "url": "https://ippsr.msu.edu/news/msu-poll-shows-benson-large-lead-while-el-sayed-roger-race-tight",
+   "created_at": "2026-10-27",
+   "start_date": "2026-10-02",
+   "end_date": "2026-10-19",
+   "pollster": "Michigan State University Institute for Public Policy and Social Research/YouGov",
+   "answers": [
+    {
+     "choice": "Abdul El-Sayed",
+     "pct": 48.0
+    },
+    {
+     "choice": "Mike Rogers",
+     "pct": 45.5
+    }
+   ],
+   "seat_name": null,
+   "sponsors": [],
+   "internal": false,
+   "partisan": null,
+   "subject": "2026 Michigan"
+  },
+  {
+   "id": "us-202qua525d8d11",
+   "poll_type": "us-senator",
+   "sample_size": 722,
+   "population": "lv",
+   "url": "https://quantusinsights.org/polling/f/north-carolina-senate-cooper-holds-a-9-point-lead-over-whatley",
+   "created_at": "2026-10-27",
+   "start_date": "2026-10-24",
+   "end_date": "2026-10-25",
+   "pollster": "Quantus Insights",
+   "answers": [
+    {
+     "choice": "Roy Cooper",
+     "pct": 51.4
+    },
+    {
+     "choice": "Michael Whatley",
+     "pct": 42.8
+    },
+    {
+     "choice": "Shannon Bray",
+     "pct": 1.3
+    },
+    {
+     "choice": "Michael Dublin",
+     "pct": 0.7
+    }
+   ],
+   "seat_name": null,
+   "sponsors": [],
+   "internal": false,
+   "partisan": null,
+   "subject": "2026 North Carolina"
+  },
+  {
+   "id": "us-202tarbd5d9c4c",
+   "poll_type": "us-senator",
+   "sample_size": 895,
+   "population": "lv",
+   "url": "https://www.foxcarolina.com/2026/10/26/new-poll-shows-neck-and-neck-senate-race-double-digit-lead-governor-sc-midterms/",
+   "created_at": "2026-10-27",
+   "start_date": "2026-10-16",
+   "end_date": "2026-10-25",
+   "pollster": "Targoz Market Research",
+   "answers": [
+    {
+     "choice": "Darline Graham",
+     "pct": 47.0
+    },
+    {
+     "choice": "Annie Andrews",
+     "pct": 46.0
+    },
+    {
+     "choice": "Kasie Whitener",
+     "pct": 2.0
+    },
+    {
+     "choice": "Mark Hackett",
+     "pct": 1.0
+    }
+   ],
+   "seat_name": null,
+   "sponsors": [
+    "South Carolina Policy Council"
+   ],
+   "internal": false,
+   "partisan": null,
+   "subject": "2026 South Carolina"
+  },
+  {
+   "id": "us-202mar84640418",
+   "poll_type": "us-senator",
+   "sample_size": 1449,
+   "population": "lv",
+   "url": "https://maristpoll.marist.edu/polls/the-midterm-elections-in-maine-october-2026/",
+   "created_at": "2026-10-27",
+   "start_date": "2026-10-22",
+   "end_date": "2026-10-25",
+   "pollster": "Marist University",
+   "answers": [
+    {
+     "choice": "Troy Jackson",
+     "pct": 49.0
+    },
+    {
+     "choice": "Susan Collins",
+     "pct": 47.0
+    }
+   ],
+   "seat_name": null,
+   "sponsors": [],
+   "internal": false,
+   "partisan": null,
+   "subject": "2026 Maine"
+  },
+  {
+   "id": "us-202youe49ed5b8",
+   "poll_type": "us-senator",
+   "sample_size": 1000,
+   "population": "rv",
+   "url": "https://www.univision.com/noticias/politica/poll-univision-texas-latinos",
+   "created_at": "2026-10-27",
+   "start_date": "2026-10-13",
+   "end_date": "2026-10-21",
+   "pollster": "YouGov",
+   "answers": [
+    {
+     "choice": "James Talarico",
+     "pct": 50.0
+    },
+    {
+     "choice": "Ken Paxton",
+     "pct": 45.0
+    }
+   ],
+   "seat_name": null,
+   "sponsors": [
+    "N+ Univision"
+   ],
+   "internal": false,
+   "partisan": null,
+   "subject": "2026 Texas"
+  },
+  {
+   "id": "us-202gle5c572e3a",
+   "poll_type": "us-senator",
+   "sample_size": 600,
+   "population": "lv",
+   "url": "https://www.detroitnews.com/story/news/politics/2026/10/27/jocelyn-bensons-lead-over-john-james-grows-in-michigan-governor-race/92441176007/",
+   "created_at": "2026-10-27",
+   "start_date": "2026-10-19",
+   "end_date": "2026-10-22",
+   "pollster": "Glengariff Group, Inc.",
+   "answers": [
+    {
+     "choice": "Abdul El-Sayed",
+     "pct": 51.4
+    },
+    {
+     "choice": "Mike Rogers",
+     "pct": 45.1
+    }
+   ],
+   "seat_name": null,
+   "sponsors": [
+    "The Detroit News",
+    "WDIV-TV"
+   ],
+   "internal": false,
+   "partisan": null,
+   "subject": "2026 Michigan"
+  },
+  {
+   "id": "us-202ech9cca8dca",
+   "poll_type": "us-senator",
+   "sample_size": 515,
+   "population": "lv",
+   "url": "https://netchoice.org/netchoice-echelon-insights-poll-voters-rank-ai-regulation-far-behind-cost-of-living-want-one-national-ai-standard/",
+   "created_at": "2026-10-27",
+   "start_date": "2026-10-16",
+   "end_date": "2026-10-23",
+   "pollster": "Echelon Insights",
+   "answers": [
+    {
+     "choice": "Ashley Moody",
+     "pct": 51.0
+    },
+    {
+     "choice": "Angie Nixon",
+     "pct": 43.0
+    },
+    {
+     "choice": "Neil Gillespie",
+     "pct": 3.0
+    }
+   ],
+   "seat_name": null,
+   "sponsors": [
+    "NetChoice"
+   ],
+   "internal": false,
+   "partisan": null,
+   "subject": "2026 Florida"
+  },
+  {
+   "id": "us-202echc0a48602",
+   "poll_type": "us-senator",
+   "sample_size": 508,
+   "population": "lv",
+   "url": "https://netchoice.org/netchoice-echelon-insights-poll-voters-rank-ai-regulation-far-behind-cost-of-living-want-one-national-ai-standard/",
+   "created_at": "2026-10-27",
+   "start_date": "2026-10-16",
+   "end_date": "2026-10-23",
+   "pollster": "Echelon Insights",
+   "answers": [
+    {
+     "choice": "Jon Ossoff",
+     "pct": 55.0
+    },
+    {
+     "choice": "Mike Collins",
+     "pct": 40.0
+    },
+    {
+     "choice": "Allen Buckley",
+     "pct": 3.0
+    }
+   ],
+   "seat_name": null,
+   "sponsors": [
+    "NetChoice"
+   ],
+   "internal": false,
+   "partisan": null,
+   "subject": "2026 Georgia"
+  },
+  {
+   "id": "us-202echbc68f468",
+   "poll_type": "us-senator",
+   "sample_size": 403,
+   "population": "lv",
+   "url": "https://netchoice.org/netchoice-echelon-insights-poll-voters-rank-ai-regulation-far-behind-cost-of-living-want-one-national-ai-standard/",
+   "created_at": "2026-10-27",
+   "start_date": "2026-10-16",
+   "end_date": "2026-10-23",
+   "pollster": "Echelon Insights",
+   "answers": [
+    {
+     "choice": "Josh Turek",
+     "pct": 45.0
+    },
+    {
+     "choice": "Ashley Hinson",
+     "pct": 43.0
+    },
+    {
+     "choice": "Thomas Laehn",
+     "pct": 7.0
+    }
+   ],
+   "seat_name": null,
+   "sponsors": [
+    "NetChoice"
+   ],
+   "internal": false,
+   "partisan": null,
+   "subject": "2026 Iowa"
+  },
+  {
+   "id": "us-202ech31fe342b",
+   "poll_type": "us-senator",
+   "sample_size": 413,
+   "population": "lv",
+   "url": "https://netchoice.org/netchoice-echelon-insights-poll-voters-rank-ai-regulation-far-behind-cost-of-living-want-one-national-ai-standard/",
+   "created_at": "2026-10-27",
+   "start_date": "2026-10-16",
+   "end_date": "2026-10-23",
+   "pollster": "Echelon Insights",
+   "answers": [
+    {
+     "choice": "Troy Jackson",
+     "pct": 51.0
+    },
+    {
+     "choice": "Susan Collins",
+     "pct": 44.0
+    }
+   ],
+   "seat_name": null,
+   "sponsors": [
+    "NetChoice"
+   ],
+   "internal": false,
+   "partisan": null,
+   "subject": "2026 Maine"
+  },
+  {
+   "id": "us-202ech8ce34abf",
+   "poll_type": "us-senator",
+   "sample_size": 407,
+   "population": "lv",
+   "url": "https://netchoice.org/netchoice-echelon-insights-poll-voters-rank-ai-regulation-far-behind-cost-of-living-want-one-national-ai-standard/",
+   "created_at": "2026-10-27",
+   "start_date": "2026-10-16",
+   "end_date": "2026-10-23",
+   "pollster": "Echelon Insights",
+   "answers": [
+    {
+     "choice": "Pete Ricketts",
+     "pct": 47.0
+    },
+    {
+     "choice": "Dan Osborn",
+     "pct": 46.0
+    },
+    {
+     "choice": "Robin Richards",
+     "pct": 2.0
+    },
+    {
+     "choice": "Chuck Conboy",
+     "pct": 1.0
+    }
+   ],
+   "seat_name": null,
+   "sponsors": [
+    "NetChoice"
+   ],
+   "internal": false,
+   "partisan": null,
+   "subject": "2026 Nebraska"
+  },
+  {
+   "id": "us-202ech01f06c61",
+   "poll_type": "us-senator",
+   "sample_size": 508,
+   "population": "lv",
+   "url": "https://netchoice.org/netchoice-echelon-insights-poll-voters-rank-ai-regulation-far-behind-cost-of-living-want-one-national-ai-standard/",
+   "created_at": "2026-10-27",
+   "start_date": "2026-10-16",
+   "end_date": "2026-10-23",
+   "pollster": "Echelon Insights",
+   "answers": [
+    {
+     "choice": "Sherrod Brown",
+     "pct": 47.0
+    },
+    {
+     "choice": "Jon Husted",
+     "pct": 47.0
+    },
+    {
+     "choice": "Bill Redpath",
+     "pct": 1.0
+    },
+    {
+     "choice": "Greg Levy",
+     "pct": 2.0
+    }
+   ],
+   "seat_name": null,
+   "sponsors": [
+    "NetChoice"
+   ],
+   "internal": false,
+   "partisan": null,
+   "subject": "2026 Ohio"
+  },
+  {
+   "id": "us-202actc8c031ff",
+   "poll_type": "us-senator",
+   "sample_size": 400,
+   "population": "lv",
+   "url": "https://www.activote.net/polls/2026/fl-u-s-senate/",
+   "created_at": "2026-10-27",
+   "start_date": "2026-10-17",
+   "end_date": "2026-10-27",
+   "pollster": "ActiVote",
+   "answers": [
+    {
+     "choice": "Ashley Moody",
+     "pct": 53.0
+    },
+    {
+     "choice": "Angie Nixon",
+     "pct": 47.0
+    }
+   ],
+   "seat_name": null,
+   "sponsors": [],
+   "internal": false,
+   "partisan": null,
+   "subject": "2026 Florida"
+  },
+  {
+   "id": "us-202conf574c6cb",
+   "poll_type": "us-senator",
+   "sample_size": 410,
+   "population": "lv",
+   "url": "https://dfer.org/policy-polling-memos/montana/montana-general-election-poll-findings/",
+   "created_at": "2026-10-29",
+   "start_date": "2026-10-22",
+   "end_date": "2026-10-23",
+   "pollster": "Concord Public Opinion Partners",
+   "answers": [
+    {
+     "choice": "Kurt Alme",
+     "pct": 38.0
+    },
+    {
+     "choice": "Alani Bankhead",
+     "pct": 10.0
+    },
+    {
+     "choice": "Seth Bodnar",
+     "pct": 39.0
+    },
+    {
+     "choice": "Kyle Austin",
+     "pct": 2.0
+    }
+   ],
+   "seat_name": null,
+   "sponsors": [
+    "Democrats for Education Reform"
+   ],
+   "internal": false,
+   "partisan": "DEM",
+   "subject": "2026 Montana"
+  },
+  {
+   "id": "us-202cona69a5893",
+   "poll_type": "us-senator",
+   "sample_size": 504,
+   "population": "lv",
+   "url": "https://concordpublicopinionpartners.org/polls/ohio-ge-2026",
+   "created_at": "2026-10-29",
+   "start_date": "2026-09-29",
+   "end_date": "2026-08-31",
+   "pollster": "Concord Public Opinion Partners",
+   "answers": [
+    {
+     "choice": "Sherrod Brown",
+     "pct": 50.0
+    },
+    {
+     "choice": "Jon Husted",
+     "pct": 40.0
+    }
+   ],
+   "seat_name": null,
+   "sponsors": [
+    "Democrats for Education Reform"
+   ],
+   "internal": false,
+   "partisan": "DEM",
+   "subject": "2026 Ohio"
+  },
+  {
+   "id": "us-202mit52e22a51",
+   "poll_type": "us-senator",
+   "sample_size": 636,
+   "population": "lv",
+   "url": "https://www.cbsnews.com/detroit/news/el-sayed-widens-lead-rogers-michigan-senate-poll/",
+   "created_at": "2026-10-29",
+   "start_date": "2026-10-26",
+   "end_date": "2026-10-27",
+   "pollster": "Mitchell Research & Communications",
+   "answers": [
+    {
+     "choice": "Abdul El-Sayed",
+     "pct": 51.0
+    },
+    {
+     "choice": "Mike Rogers",
+     "pct": 44.0
+    },
+    {
+     "choice": "Lydia Christensen",
+     "pct": 1.0
+    },
+    {
+     "choice": "Tim Long",
+     "pct": 0.0
+    },
+    {
+     "choice": "Douglas P. Marsh",
+     "pct": 0.0
+    },
+    {
+     "choice": "Walter P. Kristy",
+     "pct": 1.0
+    }
+   ],
+   "seat_name": null,
+   "sponsors": [
+    "WWJ-TV",
+    "WKBD-TV"
+   ],
+   "internal": false,
+   "partisan": null,
+   "subject": "2026 Michigan"
+  },
+  {
+   "id": "us-202blu72ec478b",
+   "poll_type": "us-senator",
+   "sample_size": 695,
+   "population": "lv",
+   "url": "https://www.chismstrategies.com/field-notes/new-alabama-poll-governors-race-a-toss-up-as-tuberville-edges-jones-48--45",
+   "created_at": "2026-10-29",
+   "start_date": "2026-10-22",
+   "end_date": "2026-10-24",
+   "pollster": "Blueprint Polling",
+   "answers": [
+    {
+     "choice": "Barry Moore",
+     "pct": 48.0
+    },
+    {
+     "choice": "Everett Wess",
+     "pct": 40.0
+    }
+   ],
+   "seat_name": null,
+   "sponsors": [],
+   "internal": false,
+   "partisan": null,
+   "subject": "2026 Alabama"
+  },
+  {
+   "id": "us-202hig5d2fb253",
+   "poll_type": "us-senator",
+   "sample_size": 620,
+   "population": "lv",
+   "url": "https://www.highpoint.edu/blog/2026/10/hpu-yougov-poll-north-carolina-likely-voters-weigh-in-on-u-s-senate-race-and-more/",
+   "created_at": "2026-10-29",
+   "start_date": "2026-10-01",
+   "end_date": "2026-10-20",
+   "pollster": "High Point University Survey Research Center",
+   "answers": [
+    {
+     "choice": "Roy Cooper",
+     "pct": 54.0
+    },
+    {
+     "choice": "Michael Whatley",
+     "pct": 40.0
+    },
+    {
+     "choice": "Shannon Bray",
+     "pct": 2.0
+    },
+    {
+     "choice": "Michael Dublin",
+     "pct": 1.0
+    }
+   ],
+   "seat_name": null,
+   "sponsors": [],
+   "internal": false,
+   "partisan": null,
+   "subject": "2026 North Carolina"
+  },
+  {
+   "id": "us-202cnn450b1a6b",
+   "poll_type": "us-senator",
+   "sample_size": 783,
+   "population": "lv",
+   "url": "https://www.cnn.com/2026/10/29/politics/cnn-polls-michigan-maine-texas-kansas-senate-races-midterms-vis",
+   "created_at": "2026-10-29",
+   "start_date": "2026-10-20",
+   "end_date": "2026-10-26",
+   "pollster": "CNN/SSRS",
+   "answers": [
+    {
+     "choice": "Troy Jackson",
+     "pct": 49.0
+    },
+    {
+     "choice": "Susan Collins",
+     "pct": 45.0
+    }
+   ],
+   "seat_name": null,
+   "sponsors": [],
+   "internal": false,
+   "partisan": null,
+   "subject": "2026 Maine"
+  },
+  {
+   "id": "us-202cnn4329221b",
+   "poll_type": "us-senator",
+   "sample_size": 923,
+   "population": "lv",
+   "url": "https://www.cnn.com/2026/10/29/politics/cnn-polls-michigan-maine-texas-kansas-senate-races-midterms-vis",
+   "created_at": "2026-10-29",
+   "start_date": "2026-10-20",
+   "end_date": "2026-10-27",
+   "pollster": "CNN/SSRS",
+   "answers": [
+    {
+     "choice": "James Talarico",
+     "pct": 49.0
+    },
+    {
+     "choice": "Ken Paxton",
+     "pct": 43.0
+    }
+   ],
+   "seat_name": null,
+   "sponsors": [],
+   "internal": false,
+   "partisan": null,
+   "subject": "2026 Texas"
+  },
+  {
+   "id": "us-202cnn473d5c5d",
+   "poll_type": "us-senator",
+   "sample_size": 838,
+   "population": "lv",
+   "url": "https://www.cnn.com/2026/10/29/politics/cnn-polls-michigan-maine-texas-kansas-senate-races-midterms-vis",
+   "created_at": "2026-10-29",
+   "start_date": "2026-10-20",
+   "end_date": "2026-10-26",
+   "pollster": "CNN/SSRS",
+   "answers": [
+    {
+     "choice": "Roger Marshall",
+     "pct": 45.0
+    },
+    {
+     "choice": "Adam Hamilton",
+     "pct": 49.0
+    }
+   ],
+   "seat_name": null,
+   "sponsors": [],
+   "internal": false,
+   "partisan": null,
+   "subject": "2026 Kansas"
+  },
+  {
+   "id": "us-202cnn2b6bf541",
+   "poll_type": "us-senator",
+   "sample_size": 768,
+   "population": "lv",
+   "url": "https://www.cnn.com/2026/10/29/politics/cnn-polls-michigan-maine-texas-kansas-senate-races-midterms-vis",
+   "created_at": "2026-10-29",
+   "start_date": "2026-10-20",
+   "end_date": "2026-10-27",
+   "pollster": "CNN/SSRS",
+   "answers": [
+    {
+     "choice": "Abdul El-Sayed",
+     "pct": 49.0
+    },
+    {
+     "choice": "Mike Rogers",
+     "pct": 42.0
+    }
+   ],
+   "seat_name": null,
+   "sponsors": [],
+   "internal": false,
+   "partisan": null,
+   "subject": "2026 Michigan"
+  },
+  {
+   "id": "us-202tex39cdaf4f",
+   "poll_type": "us-senator",
+   "sample_size": 2000,
+   "population": "lv",
+   "url": "https://www.jordanresearchcenter.org/publications/tsuoct2026-txelections-statewide2026",
+   "created_at": "2026-10-29",
+   "start_date": "2026-10-21",
+   "end_date": "2026-10-25",
+   "pollster": "Texas Southern University Barbara Jordan Public Policy Research and Survey Center",
+   "answers": [
+    {
+     "choice": "James Talarico",
+     "pct": 49.0
+    },
+    {
+     "choice": "Ken Paxton",
+     "pct": 47.0
+    },
+    {
+     "choice": "Ted Brown",
+     "pct": 3.0
+    }
+   ],
+   "seat_name": null,
+   "sponsors": [],
+   "internal": false,
+   "partisan": null,
+   "subject": "2026 Texas"
+  },
+  {
+   "id": "us-202uni57f2dfa4",
+   "poll_type": "us-senator",
+   "sample_size": 600,
+   "population": "lv",
+   "url": "https://www.uml.edu/news/press-releases/2026/102826-new-england-polls.aspx",
+   "created_at": "2026-10-29",
+   "start_date": "2026-10-02",
+   "end_date": "2026-10-19",
+   "pollster": "University of Massachusetts Lowell Center for Public Opinion/YouGov",
+   "answers": [
+    {
+     "choice": "Chris Pappas",
+     "pct": 48.0
+    },
+    {
+     "choice": "John Sununu",
+     "pct": 41.0
+    },
+    {
+     "choice": "Edmond Laplante",
+     "pct": 4.0
+    }
+   ],
+   "seat_name": null,
+   "sponsors": [],
+   "internal": false,
+   "partisan": null,
+   "subject": "2026 New Hampshire"
+  },
+  {
+   "id": "us-202unidf4870a3",
+   "poll_type": "us-senator",
+   "sample_size": 850,
+   "population": "lv",
+   "url": "https://www.uml.edu/news/press-releases/2026/102826-new-england-polls.aspx",
+   "created_at": "2026-10-29",
+   "start_date": "2026-10-07",
+   "end_date": "2026-10-18",
+   "pollster": "University of Massachusetts Lowell Center for Public Opinion/YouGov",
+   "answers": [
+    {
+     "choice": "Ed Markey",
+     "pct": 55.0
+    },
+    {
+     "choice": "John Deaton",
+     "pct": 26.0
+    }
+   ],
+   "seat_name": null,
+   "sponsors": [],
+   "internal": false,
+   "partisan": null,
+   "subject": "2026 Massachusetts"
+  },
+  {
+   "id": "us-202gra4551bd46",
+   "poll_type": "us-senator",
+   "sample_size": 509,
+   "population": "lv",
+   "url": "https://www.grayhouse.com/post/arkansas-senate-poll-october-2026-cotton",
+   "created_at": "2026-10-29",
+   "start_date": "2026-10-27",
+   "end_date": "2026-10-28",
+   "pollster": "GrayHouse",
+   "answers": [
+    {
+     "choice": "Tom Cotton",
+     "pct": 55.0
+    },
+    {
+     "choice": "Hallie Shoffner",
+     "pct": 39.0
+    },
+    {
+     "choice": "Jeff Wadlin",
+     "pct": 4.0
+    }
+   ],
+   "seat_name": null,
+   "sponsors": [
+    "America One Policies"
+   ],
+   "internal": false,
+   "partisan": "REP",
+   "subject": "2026 Arkansas"
+  },
+  {
+   "id": "us-202micf2fa67e0",
+   "poll_type": "us-senator",
+   "sample_size": 1383,
+   "population": "lv",
+   "url": "https://polisci.msu.edu/news-events/news/smidt-poll102926.html",
+   "created_at": "2026-10-29",
+   "start_date": "2026-10-08",
+   "end_date": "2026-10-23",
+   "pollster": "Michigan State University Department of Political Science/Verasight",
+   "answers": [
+    {
+     "choice": "Abdul El-Sayed",
+     "pct": 50.5
+    },
+    {
+     "choice": "Mike Rogers",
+     "pct": 43.1
+    }
+   ],
+   "seat_name": null,
+   "sponsors": [],
+   "internal": false,
+   "partisan": null,
+   "subject": "2026 Michigan"
+  },
+  {
+   "id": "us-202eas9f073b45",
+   "poll_type": "us-senator",
+   "sample_size": 955,
+   "population": "lv",
+   "url": "https://surveyresearch-ecu.reportablenews.com/pr/ecu-poll-finds-graham-leading-andrews-by-four-points",
+   "created_at": "2026-10-29",
+   "start_date": "2026-10-19",
+   "end_date": "2026-10-24",
+   "pollster": "East Carolina University",
+   "answers": [
+    {
+     "choice": "Darline Graham",
+     "pct": 51.0
+    },
+    {
+     "choice": "Annie Andrews",
+     "pct": 47.0
+    },
+    {
+     "choice": "Kasie Whitener",
+     "pct": 1.0
+    },
+    {
+     "choice": "Mark Hackett",
+     "pct": 1.0
+    }
+   ],
+   "seat_name": null,
+   "sponsors": [],
+   "internal": false,
+   "partisan": null,
+   "subject": "2026 South Carolina"
+  },
+  {
+   "id": "us-202co/138b0472",
+   "poll_type": "us-senator",
+   "sample_size": 1020,
+   "population": "lv",
+   "url": "https://battlegrounds.coefficient.org/ia/",
+   "created_at": "2026-10-29",
+   "start_date": "2026-10-28",
+   "end_date": "2026-10-28",
+   "pollster": "co/efficient",
+   "answers": [
+    {
+     "choice": "Ashley Hinson",
+     "pct": 48.0
+    },
+    {
+     "choice": "Josh Turek",
+     "pct": 46.0
+    },
+    {
+     "choice": "Thomas Laehn",
+     "pct": 1.0
+    }
+   ],
+   "seat_name": null,
+   "sponsors": [],
+   "internal": false,
+   "partisan": "REP",
+   "subject": "2026 Iowa"
+  },
+  {
+   "id": "us-202a2 c2344bd1",
+   "poll_type": "us-senator",
+   "sample_size": 631,
+   "population": "lv",
+   "url": "https://drive.google.com/file/d/1UACnmnM84Dd1hU0l6iqHNgXkyh5oCelO/view",
+   "created_at": "2026-10-29",
+   "start_date": "2026-10-23",
+   "end_date": "2026-10-27",
+   "pollster": "A2 Insights",
+   "answers": [
+    {
+     "choice": "James Talarico",
+     "pct": 50.2
+    },
+    {
+     "choice": "Ken Paxton",
+     "pct": 47.2
+    }
+   ],
+   "seat_name": null,
+   "sponsors": [],
+   "internal": false,
+   "partisan": null,
+   "subject": "2026 Texas"
+  },
+  {
+   "id": "us-202acta7d9392c",
+   "poll_type": "us-senator",
+   "sample_size": 400,
+   "population": "lv",
+   "url": "https://www.activote.net/polls/2026/tx-u-s-senate/",
+   "created_at": "2026-10-30",
+   "start_date": "2026-10-22",
+   "end_date": "2026-10-28",
+   "pollster": "ActiVote",
+   "answers": [
+    {
+     "choice": "James Talarico",
+     "pct": 52.1
+    },
+    {
+     "choice": "Ken Paxton",
+     "pct": 47.9
+    }
+   ],
+   "seat_name": null,
+   "sponsors": [],
+   "internal": false,
+   "partisan": null,
+   "subject": "2026 Texas"
+  },
+  {
+   "id": "us-202upscf2886a6",
+   "poll_type": "us-senator",
+   "sample_size": 505,
+   "population": "lv",
+   "url": "https://x.com/joshorton/status/2115883461076545615?a=RFp0CZRkuV44JoFJOZQ&s=20",
+   "created_at": "2026-10-30",
+   "start_date": "2026-10-24",
+   "end_date": "2026-10-28",
+   "pollster": "Upswing Research",
+   "answers": [
+    {
+     "choice": "Abdul El-Sayed",
+     "pct": 50.0
+    },
+    {
+     "choice": "Mike Rogers",
+     "pct": 45.0
+    }
+   ],
+   "seat_name": null,
+   "sponsors": [
+    "Demand Justice"
+   ],
+   "internal": false,
+   "partisan": "DEM",
+   "subject": "2026 Michigan"
+  },
+  {
+   "id": "us-202mon0eb7223e",
+   "poll_type": "us-senator",
+   "sample_size": 720,
+   "population": "a",
+   "url": "https://www.msubillings.edu/class/nams/polls/2026-mountain-states-poll-report.pdf",
+   "created_at": "2026-10-30",
+   "start_date": "2026-10-05",
+   "end_date": "2026-10-21",
+   "pollster": "Montana State University Billings",
+   "answers": [
+    {
+     "choice": "Kurt Alme",
+     "pct": 30.0
+    },
+    {
+     "choice": "Alani Bankhead",
+     "pct": 26.0
+    },
+    {
+     "choice": "Seth Bodnar",
+     "pct": 21.0
+    },
+    {
+     "choice": "Kyle Austin",
+     "pct": 3.0
+    }
+   ],
+   "seat_name": null,
+   "sponsors": [],
+   "internal": false,
+   "partisan": null,
+   "subject": "2026 Montana"
+  },
+  {
+   "id": "us-202thee58243fb",
+   "poll_type": "us-senator",
+   "sample_size": 801,
+   "population": "lv",
+   "url": "https://www.washingtonpost.com/politics/2026/10/30/we-polled-kansas-democrats-wanted-talk-republicans-not-so-much/",
+   "created_at": "2026-10-30",
+   "start_date": "2026-10-22",
+   "end_date": "2026-10-26",
+   "pollster": "The Washington Post/George Mason University Schar School of Policy and Government",
+   "answers": [
+    {
+     "choice": "Roger Marshall",
+     "pct": 43.0
+    },
+    {
+     "choice": "Adam Hamilton",
+     "pct": 52.0
+    },
+    {
+     "choice": "David Graham",
+     "pct": 4.0
+    }
+   ],
+   "seat_name": null,
+   "sponsors": [],
+   "internal": false,
+   "partisan": null,
+   "subject": "2026 Kansas"
+  },
+  {
+   "id": "us-202qua5e695b57",
+   "poll_type": "us-senator",
+   "sample_size": 1221,
+   "population": "lv",
+   "url": "https://quantusinsights.org/polling/f/texas-survey-paxton-up-one-abbott-ahead-by-five",
+   "created_at": "2026-10-30",
+   "start_date": "2026-10-26",
+   "end_date": "2026-10-28",
+   "pollster": "Quantus Insights",
+   "answers": [
+    {
+     "choice": "Ken Paxton",
+     "pct": 49.4
+    },
+    {
+     "choice": "James Talarico",
+     "pct": 48.4
+    }
+   ],
+   "seat_name": null,
+   "sponsors": [],
+   "internal": false,
+   "partisan": null,
+   "subject": "2026 Texas"
+  },
+  {
+   "id": "us-202emeb5d23beb",
+   "poll_type": "us-senator",
+   "sample_size": 800,
+   "population": "lv",
+   "url": "https://emersoncollegepolling.com/october-2026-kansas-poll-hamilton-maintains-edge-over-marshall/",
+   "created_at": "2026-10-30",
+   "start_date": "2026-10-26",
+   "end_date": "2026-10-28",
+   "pollster": "Emerson College",
+   "answers": [
+    {
+     "choice": "Roger Marshall",
+     "pct": 47.1
+    },
+    {
+     "choice": "Adam Hamilton",
+     "pct": 49.5
+    },
+    {
+     "choice": "David Graham",
+     "pct": 3.4
+    }
+   ],
+   "seat_name": null,
+   "sponsors": [],
+   "internal": false,
+   "partisan": null,
+   "subject": "2026 Kansas"
+  },
+  {
+   "id": "us-202conff89f742",
+   "poll_type": "us-senator",
+   "sample_size": 448,
+   "population": "lv",
+   "url": "https://concordpublicopinionpartners.org/polls/south-dakota-ge-2026-oct26",
+   "created_at": "2026-10-30",
+   "start_date": "2026-10-22",
+   "end_date": "2026-10-26",
+   "pollster": "Concord Public Opinion Partners",
+   "answers": [
+    {
+     "choice": "Mike Rounds",
+     "pct": 41.0
+    },
+    {
+     "choice": "Brian Bengs",
+     "pct": 43.0
+    }
+   ],
+   "seat_name": null,
+   "sponsors": [
+    "Democrats for Education Reform"
+   ],
+   "internal": false,
+   "partisan": "DEM",
+   "subject": "2026 South Dakota"
+  },
+  {
+   "id": "us-202act4459517f",
+   "poll_type": "us-senator",
+   "sample_size": 400,
+   "population": "lv",
+   "url": "https://www.activote.net/polls/2026/il-u-s-senate/",
+   "created_at": "2026-10-30",
+   "start_date": "2026-10-21",
+   "end_date": "2026-10-30",
+   "pollster": "ActiVote",
+   "answers": [
+    {
+     "choice": "Juliana Stratton",
+     "pct": 55.6
+    },
+    {
+     "choice": "Don Tracy",
+     "pct": 44.4
+    }
+   ],
+   "seat_name": null,
+   "sponsors": [],
+   "internal": false,
+   "partisan": null,
+   "subject": "2026 Illinois"
+  },
+  {
+   "id": "us-202you9af4ba59",
+   "poll_type": "us-senator",
+   "sample_size": 2093,
+   "population": "lv",
+   "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/ttw_mi_20261026_lv.pdf",
+   "created_at": "2026-11-01",
+   "start_date": "2026-10-26",
+   "end_date": "2026-10-29",
+   "pollster": "YouGov",
+   "answers": [
+    {
+     "choice": "Abdul El-Sayed",
+     "pct": 51.0
+    },
+    {
+     "choice": "Mike Rogers",
+     "pct": 47.0
+    }
+   ],
+   "seat_name": null,
+   "sponsors": [],
+   "internal": false,
+   "partisan": null,
+   "subject": "2026 Michigan"
+  },
+  {
+   "id": "us-202con020b20e8",
+   "poll_type": "us-senator",
+   "sample_size": 469,
+   "population": "lv",
+   "url": "https://concordpublicopinionpartners.org/polls/ohio-ge-2026-oct",
+   "created_at": "2026-11-02",
+   "start_date": "2026-10-22",
+   "end_date": "2026-10-24",
+   "pollster": "Concord Public Opinion Partners",
+   "answers": [
+    {
+     "choice": "Sherrod Brown",
+     "pct": 46.0
+    },
+    {
+     "choice": "Jon Husted",
+     "pct": 42.0
+    }
+   ],
+   "seat_name": null,
+   "sponsors": [
+    "Education Reform Now Advocacy"
+   ],
+   "internal": false,
+   "partisan": "DEM",
+   "subject": "2026 Ohio"
+  },
+  {
+   "id": "us-202ins632539b6",
+   "poll_type": "us-senator",
+   "sample_size": 1200,
+   "population": "lv",
+   "url": "https://insideradvantage.com/insideradvantage-final-minnesota-senate-survey-flanagan-49-tafoya-46/",
+   "created_at": "2026-11-02",
+   "start_date": "2026-10-29",
+   "end_date": "2026-10-30",
+   "pollster": "InsiderAdvantage",
+   "answers": [
+    {
+     "choice": "Peggy Flanagan",
+     "pct": 49.0
+    },
+    {
+     "choice": "Michele Tafoya",
+     "pct": 46.0
+    },
+    {
+     "choice": "Marisa Simonetti",
+     "pct": 1.0
+    },
+    {
+     "choice": "Rebecca Whiting",
+     "pct": 3.0
+    }
+   ],
+   "seat_name": null,
+   "sponsors": [],
+   "internal": false,
+   "partisan": null,
+   "subject": "2026 Minnesota"
+  },
+  {
+   "id": "us-202easda6f3684",
+   "poll_type": "us-senator",
+   "sample_size": 1041,
+   "population": "lv",
+   "url": "https://surveyresearch-ecu.reportablenews.com/pr/ecu-poll-cooper-leads-whatley-by-9-points-as-election-day-nears",
+   "created_at": "2026-11-02",
+   "start_date": "2026-10-26",
+   "end_date": "2026-10-29",
+   "pollster": "East Carolina University",
+   "answers": [
+    {
+     "choice": "Roy Cooper",
+     "pct": 54.0
+    },
+    {
+     "choice": "Michael Whatley",
+     "pct": 45.0
+    },
+    {
+     "choice": "Shannon Bray",
+     "pct": 1.0
+    },
+    {
+     "choice": "Michael Dublin",
+     "pct": 0.0
+    }
+   ],
+   "seat_name": null,
+   "sponsors": [],
+   "internal": false,
+   "partisan": null,
+   "subject": "2026 North Carolina"
+  },
+  {
+   "id": "us-202thef222f527",
+   "poll_type": "us-senator",
+   "sample_size": 610,
+   "population": "lv",
+   "url": "https://www.nytimes.com/interactive/2026/11/01/polls/times-siena-ak-poll-toplines.html",
+   "created_at": "2026-11-02",
+   "start_date": "2026-10-23",
+   "end_date": "2026-10-30",
+   "pollster": "The New York Times/Siena University",
+   "answers": [
+    {
+     "choice": "Mary Peltola",
+     "pct": 48.0
+    },
+    {
+     "choice": "Dan Sullivan",
+     "pct": 46.0
+    }
+   ],
+   "seat_name": null,
+   "sponsors": [],
+   "internal": false,
+   "partisan": null,
+   "subject": "2026 Alaska"
+  },
+  {
+   "id": "us-202the44d55dc8",
+   "poll_type": "us-senator",
+   "sample_size": 705,
+   "population": "lv",
+   "url": "https://www.nytimes.com/interactive/2026/11/01/polls/times-siena-ia-poll-toplines.html",
+   "created_at": "2026-11-02",
+   "start_date": "2026-10-26",
+   "end_date": "2026-11-01",
+   "pollster": "The New York Times/Siena University",
+   "answers": [
+    {
+     "choice": "Josh Turek",
+     "pct": 48.0
+    },
+    {
+     "choice": "Ashley Hinson",
+     "pct": 47.0
+    }
+   ],
+   "seat_name": null,
+   "sponsors": [],
+   "internal": false,
+   "partisan": null,
+   "subject": "2026 Iowa"
+  },
+  {
+   "id": "us-202the0ed14b63",
+   "poll_type": "us-senator",
+   "sample_size": 736,
+   "population": "lv",
+   "url": "https://www.nytimes.com/interactive/2026/11/01/polls/times-siena-ks-poll-toplines.html",
+   "created_at": "2026-11-02",
+   "start_date": "2026-10-27",
+   "end_date": "2026-11-01",
+   "pollster": "The New York Times/Siena University",
+   "answers": [
+    {
+     "choice": "Roger Marshall",
+     "pct": 44.0
+    },
+    {
+     "choice": "Adam Hamilton",
+     "pct": 49.0
+    },
+    {
+     "choice": "David Graham",
+     "pct": 4.0
+    }
+   ],
+   "seat_name": null,
+   "sponsors": [],
+   "internal": false,
+   "partisan": null,
+   "subject": "2026 Kansas"
+  },
+  {
+   "id": "us-202the7cccde56",
+   "poll_type": "us-senator",
+   "sample_size": 714,
+   "population": "lv",
+   "url": "https://www.nytimes.com/interactive/2026/11/01/polls/times-siena-me-poll-toplines.html",
+   "created_at": "2026-11-02",
+   "start_date": "2026-10-27",
+   "end_date": "2026-11-01",
+   "pollster": "The New York Times/Siena University",
+   "answers": [
+    {
+     "choice": "Troy Jackson",
+     "pct": 51.0
+    },
+    {
+     "choice": "Susan Collins",
+     "pct": 45.0
+    }
+   ],
+   "seat_name": null,
+   "sponsors": [],
+   "internal": false,
+   "partisan": null,
+   "subject": "2026 Maine"
+  },
+  {
+   "id": "us-202thef985be3e",
+   "poll_type": "us-senator",
+   "sample_size": 1011,
+   "population": "lv",
+   "url": "https://www.nytimes.com/interactive/2026/11/01/polls/times-siena-mi-poll-toplines.html",
+   "created_at": "2026-11-02",
+   "start_date": "2026-10-23",
+   "end_date": "2026-11-01",
+   "pollster": "The New York Times/Siena University",
+   "answers": [
+    {
+     "choice": "Abdul El-Sayed",
+     "pct": 53.0
+    },
+    {
+     "choice": "Mike Rogers",
+     "pct": 42.0
+    }
+   ],
+   "seat_name": null,
+   "sponsors": [],
+   "internal": false,
+   "partisan": null,
+   "subject": "2026 Michigan"
+  },
+  {
+   "id": "us-202the28c318b6",
+   "poll_type": "us-senator",
+   "sample_size": 717,
+   "population": "lv",
+   "url": "https://www.nytimes.com/interactive/2026/11/01/polls/times-siena-oh-poll-toplines.html",
+   "created_at": "2026-11-02",
+   "start_date": "2026-10-26",
+   "end_date": "2026-11-01",
+   "pollster": "The New York Times/Siena University",
+   "answers": [
+    {
+     "choice": "Sherrod Brown",
+     "pct": 49.0
+    },
+    {
+     "choice": "Jon Husted",
+     "pct": 44.0
+    }
+   ],
+   "seat_name": null,
+   "sponsors": [],
+   "internal": false,
+   "partisan": null,
+   "subject": "2026 Ohio"
+  },
+  {
+   "id": "us-202thed5a5e7e5",
+   "poll_type": "us-senator",
+   "sample_size": 1215,
+   "population": "lv",
+   "url": "https://www.nytimes.com/interactive/2026/11/01/polls/times-siena-tx-poll-toplines.html",
+   "created_at": "2026-11-02",
+   "start_date": "2026-10-27",
+   "end_date": "2026-11-01",
+   "pollster": "The New York Times/Siena University",
+   "answers": [
+    {
+     "choice": "James Talarico",
+     "pct": 50.0
+    },
+    {
+     "choice": "Ken Paxton",
+     "pct": 43.0
+    }
+   ],
+   "seat_name": null,
+   "sponsors": [],
+   "internal": false,
+   "partisan": null,
+   "subject": "2026 Texas"
+  },
+  {
+   "id": "us-202unif94885f7",
+   "poll_type": "us-senator",
+   "sample_size": 753,
+   "population": "lv",
+   "url": "https://scholars.unh.edu/survey_center_polls/1015/",
+   "created_at": "2026-11-02",
+   "start_date": "2026-10-27",
+   "end_date": "2026-10-31",
+   "pollster": "University of New Hampshire",
+   "answers": [
+    {
+     "choice": "Jack Reed",
+     "pct": 63.0
+    },
+    {
+     "choice": "Raymond McKay",
+     "pct": 32.0
+    },
+    {
+     "choice": "Michael Bahry",
+     "pct": 3.0
+    }
+   ],
+   "seat_name": null,
+   "sponsors": [],
+   "internal": false,
+   "partisan": null,
+   "subject": "2026 Rhode Island"
+  },
+  {
+   "id": "us-202uni89b3e322",
+   "poll_type": "us-senator",
+   "sample_size": 905,
+   "population": "lv",
+   "url": "https://scholars.unh.edu/survey_center_polls/1014/",
+   "created_at": "2026-11-02",
+   "start_date": "2026-10-27",
+   "end_date": "2026-10-31",
+   "pollster": "University of New Hampshire",
+   "answers": [
+    {
+     "choice": "Ed Markey",
+     "pct": 53.0
+    },
+    {
+     "choice": "John Deaton",
+     "pct": 32.0
+    },
+    {
+     "choice": "Joe Tache",
+     "pct": 7.0
+    },
+    {
+     "choice": "Shriya Ayyadurai",
+     "pct": 4.0
+    }
+   ],
+   "seat_name": null,
+   "sponsors": [],
+   "internal": false,
+   "partisan": null,
+   "subject": "2026 Massachusetts"
+  },
+  {
+   "id": "us-202unidbfe449d",
+   "poll_type": "us-senator",
+   "sample_size": 1654,
+   "population": "lv",
+   "url": "https://scholars.unh.edu/survey_center_polls/1013/",
+   "created_at": "2026-11-02",
+   "start_date": "2026-10-27",
+   "end_date": "2026-10-31",
+   "pollster": "University of New Hampshire",
+   "answers": [
+    {
+     "choice": "Troy Jackson",
+     "pct": 54.0
+    },
+    {
+     "choice": "Susan Collins",
+     "pct": 45.0
+    }
+   ],
+   "seat_name": null,
+   "sponsors": [],
+   "internal": false,
+   "partisan": null,
+   "subject": "2026 Maine"
+  },
+  {
+   "id": "us-202uni43b7e03e",
+   "poll_type": "us-senator",
+   "sample_size": 2040,
+   "population": "lv",
+   "url": "https://scholars.unh.edu/survey_center_polls/1011/",
+   "created_at": "2026-11-02",
+   "start_date": "2026-10-27",
+   "end_date": "2026-10-31",
+   "pollster": "University of New Hampshire",
+   "answers": [
+    {
+     "choice": "Chris Pappas",
+     "pct": 54.0
+    },
+    {
+     "choice": "John Sununu",
+     "pct": 42.0
+    },
+    {
+     "choice": "Edmond Laplante",
+     "pct": 2.0
+    }
+   ],
+   "seat_name": null,
+   "sponsors": [],
+   "internal": false,
+   "partisan": null,
+   "subject": "2026 New Hampshire"
+  },
+  {
+   "id": "us-202grada8105a7",
+   "poll_type": "us-senator",
+   "sample_size": 601,
+   "population": "lv",
+   "url": "https://www.grayhouse.com/post/grayhouse-poll-hinson-leads-in-iowa-by-2",
+   "created_at": "2026-11-02",
+   "start_date": "2026-10-28",
+   "end_date": "2026-10-31",
+   "pollster": "GrayHouse",
+   "answers": [
+    {
+     "choice": "Ashley Hinson",
+     "pct": 48.0
+    },
+    {
+     "choice": "Josh Turek",
+     "pct": 46.0
+    },
+    {
+     "choice": "Thomas Laehn",
+     "pct": 2.0
+    }
+   ],
+   "seat_name": null,
+   "sponsors": [],
+   "internal": false,
+   "partisan": null,
+   "subject": "2026 Iowa"
   }
  ]
 }
