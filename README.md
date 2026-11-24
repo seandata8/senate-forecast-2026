@@ -2,7 +2,7 @@
 
 A forecast of all 35 US Senate races on 3 November 2026, built from a silicon sample: synthetic responses from large language models (LLMs). Each persona is a real respondent from the 2024 Cooperative Election Study (CES). For each race, we query LLMs through OpenRouter with that race's actual candidates, adjust the answers with multilevel regression and post-stratification (MRP), and simulate vote shares per race, a distribution of Senate seats, and the probability of Democratic control. Polls and Polymarket prices are shown for comparison only; they are not inputs to the forecast.
 
-The forecast website will be deployed with GitHub Pages and frozen at the end of day on 2 November 2026.
+The forecast website, https://seandata8.github.io/senate-forecast-2026/, will be deployed with GitHub Pages and frozen at the end of day on 2 November 2026.
 
 ## Data
 
